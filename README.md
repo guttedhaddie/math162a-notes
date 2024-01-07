@@ -1,5 +1,5 @@
 Notes for Math 162A: Intro to Differential Geometry at UC Irvine
 
-Compilation: PDFLaTeX via TeXlipse Package for Eclipse (projects.eclipse.org/projects/science.texlipse)
+Compilation: PDFLaTeX via TeXlipse Package for Eclipse (http://projects.eclipse.org/projects/science.texlipse)
 
-Graphics: Asymptote (asymptote.sourceforge.io/)
+Graphics: Asymptote (http://asymptote.sourceforge.io/)
