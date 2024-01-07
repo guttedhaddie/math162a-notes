@@ -1,0 +1,7 @@
+/tmp/
+/math162a-notes.pdf
+*synctex.gz
+*synctex
+*.aux
+*.log
+*.out
