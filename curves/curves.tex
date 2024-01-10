@@ -171,7 +171,7 @@ It is now time for the formal definition of a curve.
 
 \begin{defn}{}{regcurve}
 A \emph{(smooth parametrized) curve} is a function, $\vx:I\to\E^3$, $\vx(t)=\bigl(x(t),y(t),z(t)\bigr)$, defined on an interval $I$ and whose components $x,y,z$ are infinitely differentiable\footnotemark\ everywhere on $I$.\par
-Its \emph{derivative} is denoted\par
+Its \emph{derivative} (also \emph{velocity} or \emph{tangent vector}) is denoted\par
 \begin{minipage}[t]{0.7\linewidth}\vspace{-10pt}
 \[\vx'(t)=\diff[\vx]{t}=\bigl(x'(t),y'(t),z'(t)\bigr)\]
 The curve's \emph{speed} is the continuous scalar function 
@@ -311,16 +311,15 @@ At $\vx(0)=(0,1)$ the curve is non-differentiable and thus non-smooth and non-re
 
 \subsection{The Arc-length Parametrization and Curvature}\label{sec:arclength}
 
-As we've already seen, the same `curve' (subset of $\E^3$) may be parametrized in different ways. For instance, in Exercise \ref*{sec:euclid}.\ref{exs:regnonintrinsic} we saw that the standard helix parametrized by $\vx(t)=(\cos t,\sin t,t)$ may be re-parametrized to obtain
+As we've seen, the same `curve' (viewed as a subset of $\E^3$) may be parametrized in different ways. For instance, in Exercise \ref*{sec:euclid}.\ref{exs:regnonintrinsic}, the standard helix $\vx(t)=(\cos t,\sin t,t)$ was re-parametrized to obtain
 \[\vy(s)=(\cos s^3,\sin s^3,s^3)\tag{$\ast$}\]
-We also saw that this new parametrization is non-regular at $s=0$; it slows down and pauses before resuming its journey up the helix! This shows that regularity is not an intrinsic property of a curve viewed as a \emph{set} ($\operatorname{range}\vx$), rather it is a property of the parametrization.\smallbreak
+This new parametrization is non-regular at $s=0$; it \emph{slows down and stops} before resuming its journey up the helix! Regularity is not, therefore, an intrinsic property of a curve viewed as a \emph{set} ($\operatorname{range}(\vx)$), rather it is a property of the parametrization.\smallbreak
 
 Thankfully it is easy to create new parametrizations that remain regular.
 
 \begin{lemm}{}{reparam}
-If $\vx:I\to\E^3$ is regular and $\alpha:J\to I$ is smooth with nowhere-zero derivative, then
+If $\vx:I\to\E^3$ is regular and $\alpha:J\to I$ is smooth with nowhere-zero derivative, then we obtain a new \emph{regular} parametrization
 \[\vy:J\to\E^3,\quad \vy(s):=\vx\bigl(\alpha(s)\bigr)\]
-is also regular.
 \end{lemm}
 
 \begin{proof}\def\range{\operatorname{range}}
@@ -328,8 +327,10 @@ By the chain rule, $\diff[\vy]{s}=\alpha'(s)\diff[\vx]{t}$, which is non-zero by
 %Moreover, if $\alpha$ is onto, then $\range\alpha=I\implies \range\vy=\range\vx$.
 \end{proof}
 
+By contrast, if $\vx(t)$ is non-regular, no smooth reparametrization can possible regularize it.\medbreak
 
-Since $\alpha'(s)$ is continuous and non-zero, there are two distinct cases:\footnote{The observation here is that $\alpha'(s)$ is either \emph{always positive} or \emph{always negative.} In particular, $\alpha(s)$ is 1--1. If, in addition, $\alpha$ is \emph{onto,} then $\vx,\vy$ parametrize precisely the same subset of $\E^3$.}
+
+Since $\alpha'(s)$ is continuous and non-zero, there are two distinct cases:\footnote{Observe that $\alpha'(s)$ is \emph{always positive} or \emph{always negative.} In particular, $\alpha(s)$ is 1--1. If, in addition, $\alpha$ is \emph{onto,} then $\vx$ and $\vy$ parametrize precisely the same subset of $\E^3$.}
 \begin{description}
 	\item[\normalfont\emph{$\alpha(s)$ increasing}] We call this an \emph{orientation-preserving} re-parametrization, since a `particle' travels along the curve in the same direction.
 	\item[\normalfont\emph{$\alpha(s)$ decreasing}] The re-parametrization is \emph{orientation-reversing.}
@@ -361,14 +362,14 @@ An \emph{arc-length parameter} for a regular curve $\vx(t)$ is the inverse $\alp
 \end{defn}
 
 Lemma \ref{lemm:reparam} tells us that $\vy(s)=\vx\bigl(\alpha(s)\bigr)$ is a regular re-parametrization of our original curve. Indeed it is a re-parametrization with a very special property:
-\[\Nm{\vy'(s)}=\alpha'(s)\Nm{\vx'\bigl(\alpha(s)\bigr)}=\frac 1{v(t)}v(t)=1\]
+\[\Nm{\vy'(s)}=\alpha'(s)\Nm{\vx'\bigl(\alpha(s)\bigr)}=\frac 1{v(t)}v(t)=1 \tag{$\dag$}\]
 The curve $\vy(s)$ has \emph{unit-speed.} We have therefore proved a key result.
 
 \begin{thm}{}{unitspeed}
 Every regular curve has a unit-speed parametrization, namely by an arc-length parameter  (measured from wherever you like).
 \end{thm}
 
-The usefulness of the Theorem is abstract; by \emph{assuming} that we have a unit-speed parametrization, certain analyses become much simpler. As a practical matter, explicitly computing an arc-length parametrization might be essentially impossible since it requires evaluating an integral and inverting a function. 
+The usefulness of the Theorem is abstract; by \emph{assuming} that we have a unit-speed parametrization, certain analyses become much simpler. As a practical matter, explicitly finding an arc-length parametrization might be essentially impossible (evaluate an integral then invert a function\ldots).
 
 \begin{examples}{}{}
 \exstart Since the standard helix has arc-length parameter $s(t)=\sqrt 2t$, it is trivial to observe that the re-parametrization
@@ -552,13 +553,14 @@ where $J\vx'=\scalebox{0.75}{$\begin{pmatrix}
 		The \textcolor{blue}{curve} described by a \textcolor{red}{point} on the circumference of the rolling circle is a \emph{cycloid}.
 	\end{minipage}\hfill\begin{minipage}[t]{0.49\linewidth}\vspace{0pt}
 		\flushright\includegraphics[scale=0.85]{regular-cycloid}
-	\end{minipage}
+	\end{minipage}\vspace{-15pt}
 
 	\begin{enumerate}
-		\item Find a parametrization of the cycloid $\vx:[0,2\pi]\to\E^2$.
+		\item Find a parametrization $\vx:[0,2\pi]\to\E^2$.
 		\item Find the curvature of the cycloid as a function of $t$.
 		\item Compute the arc-length of the cycloid over a complete rotation of the circle.
 	\end{enumerate}
+	
 	
 	
   
