@@ -14,22 +14,22 @@ Classical Differential Geometry is the study of curves and surfaces in the plane
 Of particular interest is the notion of \emph{curvature}: a measure of the `bendiness' of a curve or surface. Intuitively, a straight line should have zero curvature, while the curvature of a circle should vary inversely as the radius: a very large circle should have very small curvature.
 
 \begin{center}
-\begin{tabular}{c@{\qquad}c@{\qquad}c@{\qquad}c}
-\includegraphics[scale=0.8]{intro-curve}&\includegraphics[scale=0.8]{intro-curve3}&\includegraphics[scale=0.8]{intro-curve2}
-&\includegraphics[scale=0.8]{intro-curve4}\\[5pt]
-Zero curvature&Small curvature&Larger curvature
-&Variable curvature
-\end{tabular}
+	\begin{tabular}{c@{\qquad}c@{\qquad}c@{\qquad}c}
+		\includegraphics[scale=0.8]{intro-curve} & \includegraphics[scale=0.8]{intro-curve3} & \includegraphics[scale=0.8]{intro-curve2}
+		& \includegraphics[scale=0.8]{intro-curve4} \\[5pt]
+		Zero curvature & Small curvature & Larger curvature
+		& Variable curvature
+	\end{tabular}
 \end{center}
 
 Understanding and quantifying this concept for more complicated curves is our first important goal. The rough idea is to imagine a curve as a roller-coaster along which you travel at a constant speed; the curvature is then the \emph{force} necessary to keep you travelling along the curve.\smallbreak
 
 Curvature is a more difficult concept for surfaces. In particular, we will hunt for quantities which measure how much a surface appears to be dome- or saddle-shaped.
 \begin{center}
-\begin{tabular}{c@{\qquad\qquad}c@{\qquad\qquad}c}
-\includegraphics[scale=0.9]{intro-dome}&\includegraphics{intro-saddle}&\includegraphics{intro-saddle-dome}\\[5pt]
-Dome-shaped&Saddle-shaped&More complicated
-\end{tabular}
+	\begin{tabular}{c@{\qquad\qquad}c@{\qquad\qquad}c}
+		\includegraphics[scale=0.9]{intro-dome} & \includegraphics{intro-saddle} & \includegraphics{intro-saddle-dome} \\[5pt]
+		Dome-shaped & Saddle-shaped & More complicated
+	\end{tabular}
 \end{center}
 The third surface is saddle-shaped near the narrow neck and dome-shaped away from it.
 
@@ -43,43 +43,48 @@ We begin by refreshing and developing a little notation.
 \begin{defn}{}{posvec}
 	The set of \emph{$n$-tuples} of real numbers is denoted $\R^n$.\par
 	\begin{minipage}[t]{0.7\linewidth}\vspace{-5pt}
-	An element can be thought of either as a \emph{point} $P$ or as its \emph{position vector} $\vp=\ray{OP}$ connecting the origin $O=(0,\ldots,0)$ to $P$.\smallbreak
-	In co-ordinates, points are typically written as row vectors
-	\[P=(\lst{p}{n})\text{ where each }p_i\in\R\]
-	\end{minipage}\hfill\begin{minipage}[t]{0.29\linewidth}\vspace{-15pt}
-	\flushright\begin{tabular}{c}
-	\includegraphics{euclid-posvec}\\
-	$\textcolor{red}{P}$ has position vector $\textcolor{blue}{\vp}$
-	\end{tabular}
+		An element can be thought of either as a \emph{point} $P$ or as its \emph{position vector} $\vp=\ray{OP}$ connecting the origin $O=(0,\ldots,0)$ to $P$.\smallbreak
+		In co-ordinates, points are typically written as row vectors
+		\[P=(\lst{p}{n})\text{ where each }p_i\in\R\]
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.29\linewidth}\vspace{-15pt}
+		\flushright
+		\begin{tabular}{c}
+			\includegraphics{euclid-posvec}\\
+			$\textcolor{red}{P}$ has position vector $\textcolor{blue}{\vp}$
+		\end{tabular}
 	\end{minipage}\smallbreak
 	For vectors, either row or column vector notation is acceptable.\smallbreak
 	For each $i$, the \emph{co-ordinate function} $x_i:\R^n\to\R$ returns the $i\th$ co-ordinate of a point: $x_i(P)=p_i$.
 \end{defn}
 
 
-Since the focus of the course is curves and surfaces in 2- and 3-dimensions, we'll mostly restrict to $n\le 3$ and quote theorems in this context.\footnote{For simplicity's sake, we'll almost always state theorems in $\R^3$. The majority are valid in $\R^n$ with a simple notational modification $\{x,y,z\}\rightsquigarrow \{x_1,\ldots,x_n\}$. For $\R^2$ just delete $z=x_3$; many results even make sense in $\R=\R^1$!}  We typically use $x,y,z$ for the standard (rectangular) co-ordinate functions
-\[x(P)=p_1,\quad y(P)=p_2,\quad z(P)=p_3\]
+Since the focus of the course is curves and surfaces in 2- and 3-dimensions, we'll mostly restrict to $n\le 3$ and quote theorems in this context.\footnote{For simplicity's sake, we'll almost always state theorems in $\R^3$. The majority are valid in $\R^n$ with a simple notational modification $\{x,y,z\}\rightsquigarrow \{x_1,\ldots,x_n\}$. For $\R^2$ just delete $z=x_3$; many results even make sense in $\R=\R^1$!} We typically use $x,y,z$ for the standard (rectangular) co-ordinate functions
+\[
+	x(P)=p_1,\quad y(P)=p_2,\quad z(P)=p_3
+\]
 You should be comfortable with this notation from previous classes and, in particular, with \emph{partial derivatives} of functions defined in terms of the co-ordinate functions $x,y,z$.
 
 \begin{examples}{}{}
-\exstart If $P=(3,1,5)\in\R^3$, then $y(P)=1$.
-\begin{enumerate}\setcounter{enumi}{1}
-  \item The function $f:\R^3\to\R$ defined by $f=x^3\sin(yz)$ has partial derivatives
-  \[\partials[f]{x}=3x^2\sin(yz)\qquad \partials[f]{y}=x^3z\cos(yz)\qquad \partials[f]{z}=x^3y\cos(yz)\]
-\end{enumerate}
+	\exstart If $P=(3,1,5)\in\R^3$, then $y(P)=1$.
+	\begin{enumerate}\setcounter{enumi}{1}
+	  \item The function $f:\R^3\to\R$ defined by $f=x^3\sin(yz)$ has partial derivatives
+	  \[
+	  	\partials[f]{x}=3x^2\sin(yz)\qquad \partials[f]{y}=x^3z\cos(yz)\qquad \partials[f]{z}=x^3y\cos(yz)
+	  \]
+	\end{enumerate}
 \end{examples}
-
-
 
 A \emph{vector} is a directed line segment joining two \emph{points.} We've already seen the \emph{position vector} of a point $P$, namely $\ray{OP}$. In differential geometry it is crucial to distinguish the vectors \emph{based} at a given point.
 
 \begin{defn}[lower separated=false, sidebyside, sidebyside align=top seam, sidebyside gap=0pt, righthand width=0.22\linewidth]{}{tanvec}
-A \emph{tangent vector} $\vv_p$ is a \emph{pair} of elements of $\R^3$: a \emph{\textcolor{blue}{base point}} $p$ and a \emph{\textcolor{red}{direction}} $\vv$.
-It is the directed line segment from the point with position vector $\vp$ to the point with position vector $\vp+\vv$.\medbreak
-The \emph{tangent space at $p$} is the set $T_p\R^3$ of all tangent vectors based at $p$. At each point, $\R^3$ has a \emph{different tangent space}!%\medbreak
-%The collection of all tangent spaces at all points is denoted $T\R^3$ and is called the \emph{tangent bundle.}
-\tcblower
-\flushright\includegraphics{euclid-tanvec}
+	A \emph{tangent vector} $\vv_p$ is a \emph{pair} of elements of $\R^3$: a \emph{\textcolor{blue}{base point}} $p$ and a \emph{\textcolor{red}{direction}} $\vv$.
+	It is the directed line segment from the point with position vector $\vp$ to the point with position vector $\vp+\vv$.\medbreak
+	The \emph{tangent space at $p$} is the set $T_p\R^3$ of all tangent vectors based at $p$. At each point, $\R^3$ has a \emph{different tangent space}!%\medbreak
+	%The collection of all tangent spaces at all points is denoted $T\R^3$ and is called the \emph{tangent bundle.}
+	\tcblower
+	\flushright\includegraphics{euclid-tanvec}
 \end{defn}
 
 Be aware that $\vv_p=\vw_q\iff p=q$ \emph{and} $\vv=\vw$: the same \emph{direction} at different \emph{base points} means a different tangent vector!
@@ -87,10 +92,12 @@ Be aware that $\vv_p=\vw_q\iff p=q$ \emph{and} $\vv=\vw$: the same \emph{directi
 
 
 \begin{minipage}[t]{0.6\linewidth}\vspace{0pt}
-The tangent space at $p$ is suitably named, for it is indeed a \emph{vector space}: to add tangent vectors $\vv_p,\vw_p\in T_p\R^3$, simply sum the \emph{direction vectors}
-\[\vv_p+\vw_p:=(\vv+\vw)_p\tag{$\ast$}\]
-Scalar multiplication is similar: $\lambda\vv_p:=(\lambda\vv)_p$. 
-\end{minipage}\hfill\begin{minipage}[t]{0.39\linewidth}\vspace{0pt}
+	The tangent space at $p$ is suitably named, for it is indeed a \emph{vector space}: to add tangent vectors $\vv_p,\vw_p\in T_p\R^3$, simply sum the \emph{direction vectors}
+	\[\vv_p+\vw_p:=(\vv+\vw)_p\tag{$\ast$}\]
+	Scalar multiplication is similar: $\lambda\vv_p:=(\lambda\vv)_p$. 
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.39\linewidth}\vspace{0pt}
 	\flushright\includegraphics{euclid-tanvec2}
 \end{minipage}
 
@@ -98,28 +105,30 @@ Scalar multiplication is similar: $\lambda\vv_p:=(\lambda\vv)_p$.
 We will return later to a more abstract discussion of tangent vectors and their application.
 
 
-
 \boldsubsubsection{Euclidean Space: $\E^n$ versus $\R^n$}
 
 To describe curves and surfaces in differential geometry, we \emph{parametrize} using functions.
 
 \begin{example}{}{circlebasic}
-There are multiple ways to do this for a given curve: for instance
-\[\vx:(-\pi,\pi]\to \R^2: t\mapsto \bigl(\cos t,\sin t\bigr)\quad \text{and} \quad\vy:\R\to\R^2:s\mapsto \left(\frac{1-s^2}{1+s^2},\frac{2s}{1+s^2}\right)\]
-both parametrize (most of) the unit circle in the plane ($\vy$ ignores the point $(-1,0)$).
+	There are multiple ways to do this for a given curve: for instance
+	\[
+		\vx:(-\pi,\pi]\to \R^2: t\mapsto \bigl(\cos t,\sin t\bigr)\quad \text{and} \quad\vy:\R\to\R^2:s\mapsto \left(\frac{1-s^2}{1+s^2},\frac{2s}{1+s^2}\right)
+	\]
+	both parametrize (most of) the unit circle in the plane ($\vy$ ignores the point $(-1,0)$).
 \end{example}
 
 Plainly the \emph{codomain} $\R^2$ is where the geometric action is: in the above we have the same circle, and concepts such as \emph{length} and \emph{angle} can be measured. This extra structure motivates us to distinguish the codomain with new notation.
 
 \begin{defn}{}{dotprod}
-\emph{Euclidean space} $\E^n$ is $\R^n$ equipped with the usual \emph{dot product.} Specifically in $\E^3$:
-\begin{quote}
-	The \emph{dot product} of $\vp$ and $\vq$ is $\displaystyle\vp\cdot\vq=\vp^T\vq=(p_1\ p_2\ p_3)\sthreevec{q_1}{q_2}{q_3}=p_1q_1+p_2q_2+p_3q_3$\smallbreak
-	The \emph{length} of $\vp$ is $\displaystyle\Nm\vp=\sqrt{\vp\cdot\vp}=\sqrt{p_1^2+p_2^2+p_3^2}$\smallbreak
-	The \emph{angle} $\theta$ between $\vp$ and $\vq$ satisfies $\displaystyle\cos\theta=\smash[t]{\frac{\vp\cdot\vq}{\Nm\vp\Nm\vq}}$\smallbreak
-	Vectors are \emph{orthogonal}/\emph{perpendicular} if $\vp\cdot\vq=0$, equivalently $\theta=\frac\pi 2$; we write $\vp\perp\vq$.
+	\emph{Euclidean space} $\E^n$ is $\R^n$ equipped with the usual \emph{dot product.} Specifically in $\E^3$:
+	\begin{quote}
+		The \emph{dot product} of $\vp$ and $\vq$ is $\displaystyle\vp\cdot\vq=\vp^T\vq=(p_1\ p_2\ p_3)\sthreevec{q_1}{q_2}{q_3}=p_1q_1+p_2q_2+p_3q_3$\smallbreak
+		The \emph{length} of $\vp$ is $\displaystyle\Nm\vp=\sqrt{\vp\cdot\vp}=\sqrt{p_1^2+p_2^2+p_3^2}$\smallbreak
+		The \emph{angle} $\theta$ between $\vp$ and $\vq$ satisfies $\displaystyle\cos\theta=\smash[t]{\frac{\vp\cdot\vq}{\Nm\vp\Nm\vq}}$\smallbreak
+		Vectors are \emph{orthogonal}/\emph{perpendicular} if $\vp\cdot\vq=0$, equivalently $\theta=\frac\pi 2$; we write $\vp\perp\vq$.
 	\end{quote}
 \end{defn}
+
 
 \boldsubsubsection{Curves in $\E^2$ and $\E^3$}
 
@@ -162,99 +171,119 @@ It is now time for the formal definition of a curve.
 % 
 
 
-
-\clearpage
-
-
 %\subsection{Parametrized Curves in Euclidean space}
 
 
 \begin{defn}{}{regcurve}
-A \emph{(smooth parametrized) curve} is a function, $\vx:I\to\E^3$, $\vx(t)=\bigl(x(t),y(t),z(t)\bigr)$, defined on an interval $I$ and whose components $x,y,z$ are infinitely differentiable\footnotemark\ everywhere on $I$.\par
-Its \emph{derivative} (also \emph{velocity} or \emph{tangent vector}) is denoted\par
-\begin{minipage}[t]{0.7\linewidth}\vspace{-10pt}
-\[\vx'(t)=\diff[\vx]{t}=\bigl(x'(t),y'(t),z'(t)\bigr)\]
-The curve's \emph{speed} is the continuous scalar function 
-\[v(t)=\Nm{\vx'(t)}=\sqrt{x'(t)^2+y'(t)^2+z'(t)^2}\]
-A curve is \emph{regular} if its \emph{tangent vector} $\vx'(t)$ is everywhere non-zero. 
-\end{minipage}\hfill\begin{minipage}[t]{0.29\linewidth}\vspace{0pt}
-\flushright\includegraphics{curves-tangent-vector}
-\end{minipage}
+	A \emph{(smooth parametrized) curve} is a function, $\vx:I\to\E^3$, $\vx(t)=\bigl(x(t),y(t),z(t)\bigr)$, defined on an interval $I$ and whose components $x,y,z$ are infinitely differentiable\footnotemark\ everywhere on $I$.\par
+	Its \emph{derivative} (also \emph{velocity} or \emph{tangent vector}) is denoted\par
+	\begin{minipage}[t]{0.7\linewidth}\vspace{-10pt}
+		\[
+			\vx'(t)=\diff[\vx]{t}=\bigl(x'(t),y'(t),z'(t)\bigr)
+		\]
+		The curve's \emph{speed} is the continuous scalar function 
+		\[
+			v(t)=\Nm{\vx'(t)}=\sqrt{x'(t)^2+y'(t)^2+z'(t)^2}
+		\]
+		A curve is \emph{regular} if its \emph{tangent vector} $\vx'(t)$ is everywhere non-zero. 
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.29\linewidth}\vspace{0pt}
+		\flushright\includegraphics{curves-tangent-vector}
+	\end{minipage}
 \end{defn}
-
 
 \footnotetext{The meaning of \emph{smooth} depends on the author: at a minimum it means that  $x,y,z$ must be \emph{differentiable with continuous derivative.} We take the maximal approach for simplicity.}
 
 In the context of Definitions \ref{defn:posvec} and \ref{defn:tanvec}, note that for each $t\in I$:
 \begin{quote}
-$\vx(t)$ is a \emph{position vector} whose nose describes the location of a point on the curve.\smallbreak
-$\vx'(t)\in T_p\E^3$ is a \emph{tangent vector} based at the point $p$ with position vector $\vx(t)$.
+	$\vx(t)$ is a \emph{position vector} whose nose describes the location of a point on the curve.\smallbreak
+	$\vx'(t)\in T_p\E^3$ is a \emph{tangent vector} based at the point $p$ with position vector $\vx(t)$.
 \end{quote}
 
 A parametrized curve has an \emph{orientation} (indicated by the blue arrow): as $t$ increases along the interval $I$, the point $\vx(t)$ moves in a particular direction along the curve.
 
 
-
 \begin{minipage}[t]{0.69\linewidth}\vspace{0pt}
-\begin{examples}{}{}
-\hangindent\leftmargini
-\emph{Straight line}: The line through points with position vectors $\va,\vb$ may be parametrized by
-\[\vx(t)=\va+t(\vb-\va)=(1-t)\va+t\vb\]
-The tangent vector at $\vx(t)$ is the constant $\vx'(t)=\vb-\va$ and the parametrization has constant speed $\Nm{\vb-\va}$. For instance,
-\[\vx(t)=\bigl(2+t,3-2t\bigr)\]
-has constant velocity $\vx'(t)=(1,-2)$ and speed $v(t)=\sqrt 5$.
-\begin{description}
-  \item[\normalfont\emph{Circle}] (Example \ref{ex:circlebasic}) The parametrization $\vx(t)=\bigl(\cos t,\sin t\bigr)$ has velocity $\vx'(t)=\bigl(-\sin t,\cos t\bigr)$ and constant speed $v(t)=1$.\par
-  By contrast, $\vy(s)=\tfrac 1{1+s^2}\bigl(1-s^2,2s\bigr)$ has non-constant speed
-  \[\vy'(s)=\frac 2{(1+s^2)^2}\bigl(-2s,1-s^2\bigr)\qquad v(s)=\frac 2{1+s^2}\]
-  A particle moves quickest at $s=0$ when $v(0)=2$ and the speed tends to zero as $s\to\pm\infty$ (see the linked animation).
-\end{description}
-\end{examples}
+	\begin{examples}{}{}
+		\hangindent\leftmargini
+		\emph{Straight line}: The line through points with position vectors $\va,\vb$ may be parametrized by
+		\[
+			\vx(t)=\va+t(\vb-\va)=(1-t)\va+t\vb
+		\]
+		The tangent vector at $\vx(t)$ is the constant $\vx'(t)=\vb-\va$ and the parametrization has constant speed $\Nm{\vb-\va}$. For instance,
+		\[
+			\vx(t)=\bigl(2+t,3-2t\bigr)
+		\]
+		has constant velocity $\vx'(t)=(1,-2)$ and speed $v(t)=\sqrt 5$.
+		\begin{description}
+		  \item[\normalfont\emph{Circle}] (Example \ref{ex:circlebasic}) The parametrization $\vx(t)=\bigl(\cos t,\sin t\bigr)$ has velocity $\vx'(t)=\bigl(-\sin t,\cos t\bigr)$ and constant speed $v(t)=1$.\par
+		  By contrast, $\vy(s)=\tfrac 1{1+s^2}\bigl(1-s^2,2s\bigr)$ has non-constant speed
+		  \[
+		  	\vy'(s)=\frac 2{(1+s^2)^2}\bigl(-2s,1-s^2\bigr)\qquad v(s)=\frac 2{1+s^2}
+		  \]
+		  A particle moves quickest at $s=0$ when $v(0)=2$ and the speed tends to zero as $s\to\pm\infty$ (see the linked animation).
+		\end{description}
+	\end{examples}
 \end{minipage}
+\hfill
 \begin{minipage}[t]{0.3\linewidth}\vspace{0pt}
-\flushright\includegraphics{curves-line}\par
-\flushright\href{http://www.math.uci.edu/~ndonalds/math162a/curves-animcircle.html}{\includegraphics{curves-animcircle2}}
+	\flushright \includegraphics{curves-line}\par
+	\flushright	\href{http://www.math.uci.edu/~ndonalds/math162a/curves-animcircle.html}{\includegraphics{curves-animcircle2}}
 \end{minipage}
 
 \clearpage
 
 
 \begin{tcolorbox}[exstyle,title={}]
-\begin{description}
-\begin{minipage}[t]{0.72\linewidth}\vspace{0pt}
-  \item[\normalfont\emph{Helix}] $\vx(t)=\bigl(\cos t,\sin t,t\bigr)$ parametrizes a \emph{helix} (ascending spiral).\par
-  To help visualize this, imagine sitting on top of the $z$-axis and looking down; you'd see its horizontal projection $t\mapsto\bigl(\cos t,\sin t\bigr)$ (a counter-clockwise circle). Since $z(t)=t$, the curve moves upwards at constant speed. One can similarly project onto the $xz$- and $yz$-planes.\bigbreak
-	\includegraphics[scale=1]{curves-helix2}\quad
-	\includegraphics[scale=1]{curves-helix3}\quad
-	\makebox[0cm][l]{\includegraphics[scale=1]{curves-helix4}}
-\end{minipage}\hfill\begin{minipage}[t]{0.27\linewidth}\vspace{0pt}
-	\flushright\href{http://www.math.uci.edu/~ndonalds/math162a/curves-helixnew.html}{\includegraphics{curves-helixnew}}
-\end{minipage}\par
-	The tangent vector at $\vx(t)$ is $\vx'(t)=\bigl(-\sin t,\cos t,1\bigr)$ and the speed is constant $v(t)=\sqrt 2$.
-
-\begin{minipage}[t]{0.72\linewidth}\vspace{0pt}
-  \item[\normalfont\emph{Tangent Line}] Let $\vx:I\to\E^3$ be regular and $t_0\in I$ be fixed. The \emph{tangent line at $\vx(t_0)$} is simply the straight line through the point with position vector $\vx(t_0)$ oriented in the direction of the tangent vector $\vx'(t_0)$. It is itself a parametrized curve, $\vy:\R\to\E^3$:
-	\[\vy(s)=\vx(t_0)+s\vx'(t_0)\]
-	For example, the tangent line to the above helix at $t_0=\frac{7\pi}3$ is
-	\[\vy(s)=\left(\frac 12,\frac{\sqrt 3}2,\frac{7\pi}3\right)+\left(-\frac{\sqrt 3}2,\frac 12,1\right)s
-	\]
-	The tangent line has the same speed as the helix $\sqrt 2$.
-\end{minipage}\hfill\begin{minipage}[t]{0.27\linewidth}\vspace{0pt}
-	\flushright\href{http://www.math.uci.edu/~ndonalds/math162a/curves-helixnewtan.html}{\includegraphics[scale=0.95]{curves-helixnewtan}}
-\end{minipage}\par
-
-
-\begin{minipage}[t]{0.68\linewidth}\vspace{-10pt}
-	\item[\normalfont\emph{Self-intersections}] These are no problem for our formulation!	The curve
-	\[\vx(t)=\left(\sin\tfrac{2t}3,\cos t\right),\quad t\in [0,6\pi)\]
- 	passes through the origin at both $t_1=\frac{3\pi}2$ and $t_2=\frac{9\pi}2$, with corresponding tangent vectors
-	\[\textcolor{blue}{\vx'(\tfrac{3\pi}2)}=\left(-\tfrac 23,1\right),\qquad \textcolor{Green}{\vx'(\tfrac{9\pi}2)}=\left(-\tfrac 23,-1\right)\]
-	In this example, we shouldn't talk about \emph{the} tangent vector to the curve \emph{at the origin,} since it is non-unique. Rather we should refer to the \emph{co-ordinates} $\frac{3\pi}2$ or $\frac{9\pi}2$.
-\end{minipage}\hfill\begin{minipage}[t]{0.31\linewidth}\vspace{0pt}
-	\flushright\href{http://www.math.uci.edu/~ndonalds/math162a/curves-selfint.html}{\includegraphics[scale=0.95]{curves-selfint}}
-\end{minipage}\par
-The linked animation shows the variable speed $v(t)=\sqrt{\frac{4}{9}\cos^2\frac{2t}{3}+\sin^2t}$ of this curve.
-\end{description}
+	\begin{description}
+		\begin{minipage}[t]{0.72\linewidth}\vspace{0pt}
+		  \item[\normalfont\emph{Helix}] $\vx(t)=\bigl(\cos t,\sin t,t\bigr)$ parametrizes a \emph{helix} (ascending spiral).\par
+		  To help visualize this, imagine sitting on top of the $z$-axis and looking down; you'd see its horizontal projection $t\mapsto\bigl(\cos t,\sin t\bigr)$ (a counter-clockwise circle). Since $z(t)=t$, the curve moves upwards at constant speed. One can similarly project onto the $xz$- and $yz$-planes.\bigbreak
+			\includegraphics[scale=1]{curves-helix2}\quad
+			\includegraphics[scale=1]{curves-helix3}\quad
+			\makebox[0cm][l]{\includegraphics[scale=1]{curves-helix4}}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.27\linewidth}\vspace{0pt}
+			\flushright	\href{http://www.math.uci.edu/~ndonalds/math162a/curves-helixnew.html}{\includegraphics{curves-helixnew}}
+		\end{minipage}\par
+		The tangent vector at $\vx(t)$ is $\vx'(t)=\bigl(-\sin t,\cos t,1\bigr)$ and the speed is constant $v(t)=\sqrt 2$.
+	
+		\begin{minipage}[t]{0.72\linewidth}\vspace{0pt}
+		  \item[\normalfont\emph{Tangent Line}] Let $\vx:I\to\E^3$ be regular and $t_0\in I$ be fixed. The \emph{tangent line at $\vx(t_0)$} is simply the straight line through the point with position vector $\vx(t_0)$ oriented in the direction of the tangent vector $\vx'(t_0)$. It is itself a parametrized curve, $\vy:\R\to\E^3$:
+			\[
+				\vy(s)=\vx(t_0)+s\vx'(t_0)
+			\]
+			For example, the tangent line to the above helix at $t_0=\frac{7\pi}3$ is
+			\[
+				\vy(s)=\left(\frac 12,\frac{\sqrt 3}2,\frac{7\pi}3\right)+\left(-\frac{\sqrt 3}2,\frac 12,1\right)s
+			\]
+			The tangent line has the same speed as the helix $\sqrt 2$.
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.27\linewidth}\vspace{0pt}
+			\flushright	\href{http://www.math.uci.edu/~ndonalds/math162a/curves-helixnewtan.html}{\includegraphics[scale=0.95]{curves-helixnewtan}}
+		\end{minipage}\par
+	
+	
+		\begin{minipage}[t]{0.68\linewidth}\vspace{-10pt}
+			\item[\normalfont\emph{Self-intersections}] These are no problem for our formulation!	The curve
+			\[
+				\vx(t)=\left(\sin\tfrac{2t}3,\cos t\right),\quad t\in [0,6\pi)
+			\]
+		 	passes through the origin at both $t_1=\frac{3\pi}2$ and $t_2=\frac{9\pi}2$, with corresponding tangent vectors
+			\[
+				\textcolor{blue}{\vx'(\tfrac{3\pi}2)}=\left(-\tfrac 23,1\right),\qquad \textcolor{Green}{\vx'(\tfrac{9\pi}2)}=\left(-\tfrac 23,-1\right)
+			\]
+			In this example, we shouldn't talk about \emph{the} tangent vector to the curve \emph{at the origin,} since it is non-unique. Rather we should refer to the \emph{co-ordinates} $\frac{3\pi}2$ or $\frac{9\pi}2$.
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.31\linewidth}\vspace{0pt}
+			\flushright	\href{http://www.math.uci.edu/~ndonalds/math162a/curves-selfint.html}{\includegraphics[scale=0.95]{curves-selfint}}
+		\end{minipage}\par
+		The linked animation shows the variable speed $v(t)=\sqrt{\frac{4}{9}\cos^2\frac{2t}{3}+\sin^2t}$ of this curve.
+	\end{description}
 \end{tcolorbox}
 
 \goodbreak
@@ -262,48 +291,48 @@ The linked animation shows the variable speed $v(t)=\sqrt{\frac{4}{9}\cos^2\frac
 \boldinline{Corners and Cusps} To ensure that a tangent direction exists, a regular curve has everywhere non-zero derivative. Here are a couple of examples of curves with non-regular points.
 
 \begin{examples}[lower separated=false, sidebyside, sidebyside align=top seam, sidebyside gap=0pt, righthand width=0.34\linewidth]{}{}
-\hangindent\leftmargini
-\emph{Corner}\lstsp A curve might enter and leave a point in different directions. For example, $\vx(t)=\bigl(t,1-\nm t\bigr)$ has derivative
-\[\vx'(t)=\begin{cases}
-(1,1)&\text{if }t<0\\
-(1,-1)&\text{if }t>0
-\end{cases}\]
-At $\vx(0)=(0,1)$ the curve is non-differentiable and thus non-smooth and non-regular.
-\begin{description}
-	\item[\normalfont\emph{Cusp}] The curve $\vx(t)=\bigl(t^3,t^2\bigr)$ has derivative 	\[\vx'(t)= \left(3t^2,2t\right)\]
-	The origin is a \emph{cusp,} a special type of corner where the curve leaves the point in the opposite direction to how it entered. In this case the curve is differentiable at the origin, but is non-regular since its speed $v(0)$ is zero.
-\end{description}
-\tcblower
-\flushright\includegraphics{curves-corner}\\
-\includegraphics{curves-cusp}
+	\hangindent\leftmargini
+	\emph{Corner}\lstsp A curve might enter and leave a point in different directions. For example, $\vx(t)=\bigl(t,1-\nm t\bigr)$ has derivative
+	\[\vx'(t)=\begin{cases}
+	(1,1)&\text{if }t<0\\
+	(1,-1)&\text{if }t>0
+	\end{cases}\]
+	At $\vx(0)=(0,1)$ the curve is non-differentiable and thus non-smooth and non-regular.
+	\begin{description}
+		\item[\normalfont\emph{Cusp}] The curve $\vx(t)=\bigl(t^3,t^2\bigr)$ has derivative 	\[\vx'(t)= \left(3t^2,2t\right)\]
+		The origin is a \emph{cusp,} a special type of corner where the curve leaves the point in the opposite direction to how it entered. In this case the curve is differentiable at the origin, but is non-regular since its speed $v(0)$ is zero.
+	\end{description}
+	\tcblower
+	\flushright\includegraphics{curves-corner}\\
+	\includegraphics{curves-cusp}
 \end{examples}
 
 \vfil
 
 \begin{exercises}
-\exstart A twice-differentiable curve $\vx(t)$ has the property that its second derivative $\vx''(t)$ is identically zero. What can be said about $\vx$?
-\begin{enumerate}\setcounter{enumi}{1}  
-	\item Find the unique curve such that $\vx(0)=(1,0,5)$ and $\vx'(t)=(t^2,t,e^t)$.
+	\exstart A twice-differentiable curve $\vx(t)$ has the property that its second derivative $\vx''(t)$ is identically zero. What can be said about $\vx$?
+	\begin{enumerate}\setcounter{enumi}{1}  
+		\item Find the unique curve such that $\vx(0)=(1,0,5)$ and $\vx'(t)=(t^2,t,e^t)$.
+		
+		\item An ellipse in the plane has equation $\frac{x^2}4+\frac{y^2}9=1$. By modifying the standard parametrization of the circle, find a regular parametrization of this ellipse. What is its speed?
+		
+		\item Show that $\vx(t)=\bigl(\frac{e^t+e^{-t}}2,\frac{e^{t}-e^{-t}}2)$ parametrizes half of the hyperbola $x^2-y^2=1$. How would you parametrize the other half?
+		
+	  \item\label{exs:regnonintrinsic}\begin{enumerate}
+	    \item Find the speed of the re-parametrized standard helix $\vy(s)=\vx(s^3)=\bigl(\cos s^3,\sin s^3,s^3\bigr)$.
+	    \item More generally, if $\vx(t)$ is a regular curve, show that $\vy(s):=\vx(s^3)$ is non-regular. 
+	  \end{enumerate}
+	  
+		\item Verify that our cusp example (above) may instead be parametrized $\vy(u)=\bigl(u,u^{2/3}\bigr)$. Is the new parametrization still non-regular at the origin? Explain.
+		
+		\item Show that the tangent vectors to the regular curve $\vx(t)=\bigl(3t,3t^2,2t^3\bigr)$ make a constant angle with the vector $(1,0,1)$.
+		
+		\item Consider the plane curve $\vx(t)=\bigl(t-1+e^{-t}, e^{-t}\bigr)$. Find the equation of its tangent line at $t=t_0$ and find where the tangent line intersects the $x$-axis.
 	
-	\item An ellipse in the plane has equation $\frac{x^2}4+\frac{y^2}9=1$. By modifying the standard parametrization of the circle, find a regular parametrization of this ellipse. What is its speed?
+		\item\label{exs:graphparam} Let $f:\R\to\R$ be a smooth function. Find a parametrization for the graph of $y=f(x)$ and find its tangent line when $x=x_0$.
 	
-	\item Show that $\vx(t)=\bigl(\frac{e^t+e^{-t}}2,\frac{e^{t}-e^{-t}}2)$ parametrizes half of the hyperbola $x^2-y^2=1$. How would you parametrize the other half?
-	
-  \item\label{exs:regnonintrinsic}\begin{enumerate}
-    \item Find the speed of the re-parametrized standard helix $\vy(s)=\vx(s^3)=\bigl(\cos s^3,\sin s^3,s^3\bigr)$.
-    \item More generally, if $\vx(t)$ is a regular curve, show that $\vy(s):=\vx(s^3)$ is non-regular. 
-  \end{enumerate}
-  
-	\item Verify that our cusp example (above) may instead be parametrized $\vy(u)=\bigl(u,u^{2/3}\bigr)$. Is the new parametrization still non-regular at the origin? Explain.
-	
-	\item Show that the tangent vectors to the regular curve $\vx(t)=\bigl(3t,3t^2,2t^3\bigr)$ make a constant angle with the vector $(1,0,1)$.
-	
-	\item Consider the plane curve $\vx(t)=\bigl(t-1+e^{-t}, e^{-t}\bigr)$. Find the equation of its tangent line at $t=t_0$ and find where the tangent line intersects the $x$-axis.
-
-	\item\label{exs:graphparam} Let $f:\R\to\R$ be a smooth function. Find a parametrization for the graph of $y=f(x)$ and find its tangent line when $x=x_0$.
-
-	\item Find a parametrization of the straight line through the points $(1,-3,-1)$ and $(6,2,1)$. Does this line meet the line through the points $(-1,1,0)$ and $(-5,-1,-1)$?
-\end{enumerate}
+		\item Find a parametrization of the straight line through the points $(1,-3,-1)$ and $(6,2,1)$. Does this line meet the line through the points $(-1,1,0)$ and $(-5,-1,-1)$?
+	\end{enumerate}
 \end{exercises}
 
 \clearpage
@@ -312,19 +341,23 @@ At $\vx(0)=(0,1)$ the curve is non-differentiable and thus non-smooth and non-re
 \subsection{The Arc-length Parametrization and Curvature}\label{sec:arclength}
 
 As we've seen, the same `curve' (viewed as a subset of $\E^3$) may be parametrized in different ways. For instance, in Exercise \ref*{sec:euclid}.\ref{exs:regnonintrinsic}, the standard helix $\vx(t)=(\cos t,\sin t,t)$ was re-parametrized to obtain
-\[\vy(s)=(\cos s^3,\sin s^3,s^3)\tag{$\ast$}\]
+\[
+	\vy(s)=(\cos s^3,\sin s^3,s^3)\tag{$\ast$}
+\]
 This new parametrization is non-regular at $s=0$; it \emph{slows down and stops} before resuming its journey up the helix! Regularity is not, therefore, an intrinsic property of a curve viewed as a \emph{set} ($\operatorname{range}(\vx)$), rather it is a property of the parametrization.\smallbreak
 
 Thankfully it is easy to create new parametrizations that remain regular.
 
 \begin{lemm}{}{reparam}
-If $\vx:I\to\E^3$ is regular and $\alpha:J\to I$ is smooth with nowhere-zero derivative, then we obtain a new \emph{regular} parametrization
-\[\vy:J\to\E^3,\quad \vy(s):=\vx\bigl(\alpha(s)\bigr)\]
+	If $\vx:I\to\E^3$ is regular and $\alpha:J\to I$ is smooth with nowhere-zero derivative, then we obtain a new \emph{regular} parametrization
+	\[
+		\vy:J\to\E^3,\quad \vy(s):=\vx\bigl(\alpha(s)\bigr)
+	\]
 \end{lemm}
 
 \begin{proof}\def\range{\operatorname{range}}
-By the chain rule, $\diff[\vy]{s}=\alpha'(s)\diff[\vx]{t}$, which is non-zero by assumption.%\smallbreak
-%Moreover, if $\alpha$ is onto, then $\range\alpha=I\implies \range\vy=\range\vx$.
+	By the chain rule, $\diff[\vy]{s}=\alpha'(s)\diff[\vx]{t}$, which is non-zero by assumption.%\smallbreak
+	%Moreover, if $\alpha$ is onto, then $\range\alpha=I\implies \range\vy=\range\vx$.
 \end{proof}
 
 By contrast, if $\vx(t)$ is non-regular, no smooth reparametrization can possible regularize it.\medbreak
@@ -336,77 +369,89 @@ Since $\alpha'(s)$ is continuous and non-zero, there are two distinct cases:\foo
 	\item[\normalfont\emph{$\alpha(s)$ decreasing}] The re-parametrization is \emph{orientation-reversing.}
 \end{description}
 
-
 In the language of the Lemma, ($\ast$) turned a regular parametrization into a non-regular one because $\alpha(s)=s^3$ has $\alpha'(s)=3s^2$ which is zero at $s=0$.\bigbreak
 
 Our next goal is to develop a special parametrization for regular curves. First we recall a concept from multi-variable calculus.
 
 \begin{defn}{}{}
-The (signed) \emph{arc-length} of a curve $\vx:I\to\E^3$ measured from $\vx(t_0)$ to $\vx(t)$ is the integral of the speed
-\[s(t)=\int_{t_0}^t\Nm{\vx'(T)}\D T =\int_{t_0}^tv(T)\,\D T\]
+	The (signed) \emph{arc-length} of a curve $\vx:I\to\E^3$ measured from $\vx(t_0)$ to $\vx(t)$ is the integral of the speed
+	\[
+		s(t)=\int_{t_0}^t\Nm{\vx'(T)}\D T =\int_{t_0}^tv(T)\,\D T
+	\]
 \end{defn}
 
 The arc-length is \emph{signed} because it is negative if $t<t_0$: we are measuring length against the orientation of the curve. Of course if $\vx:[a,b]\to\E^3$ has domain a closed bounded interval, then it is most sensible to measure arc-length from $t_0=a$ so that $s(t)\ge 0$ everywhere on the curve.
 
 \begin{example}{}{}
-The standard helix $\vx(t)=\bigl(\cos t,\sin t,t\bigr)$ has constant speed $\sqrt 2$, whence the arc-length measured from $\vx(0)$ is simply $s(t)=\sqrt 2t$.
+	The standard helix $\vx(t)=\bigl(\cos t,\sin t,t\bigr)$ has constant speed $\sqrt 2$, whence the arc-length measured from $\vx(0)$ is simply $s(t)=\sqrt 2t$.
 \end{example}
 
 Recall the Fundamental Theorem of Calculus: is $s(t)$ is the arc-length of a regular curve, then
-\[\diff[s]{t}=\diff t\int_{t_0}^t\Nm{\vx'(T)}\,\D T=\Nm{\vx'(t)}=v(t)\]
+\[
+	\diff[s]{t}=\diff t\int_{t_0}^t\Nm{\vx'(T)}\,\D T=\Nm{\vx'(t)}=v(t)
+\]
 is the curve's speed, which is \emph{positive} and \emph{continuous.} The same is therefore true for its \emph{inverse function}
-\[\diff[t]{s}=\frac 1{s'(t)}=\frac 1{v(t)}>0\]
+\[
+	\diff[t]{s}=\frac 1{s'(t)}=\frac 1{v(t)}>0
+\]
 
 \begin{defn}{}{}
-An \emph{arc-length parameter} for a regular curve $\vx(t)$ is the inverse $\alpha(s)=t(s)$ of an arc-length function $s(t)$.
+	An \emph{arc-length parameter} for a regular curve $\vx(t)$ is the inverse $\alpha(s)=t(s)$ of an arc-length function $s(t)$.
 \end{defn}
 
 Lemma \ref{lemm:reparam} tells us that $\vy(s)=\vx\bigl(\alpha(s)\bigr)$ is a regular re-parametrization of our original curve. Indeed it is a re-parametrization with a very special property:
-\[\Nm{\vy'(s)}=\alpha'(s)\Nm{\vx'\bigl(\alpha(s)\bigr)}=\frac 1{v(t)}v(t)=1 \tag{$\dag$}\]
+\[
+	\Nm{\vy'(s)}=\alpha'(s)\Nm{\vx'\bigl(\alpha(s)\bigr)}=\frac 1{v(t)}v(t)=1 \tag{$\dag$}
+\]
 The curve $\vy(s)$ has \emph{unit-speed.} We have therefore proved a key result.
 
 \begin{thm}{}{unitspeed}
-Every regular curve has a unit-speed parametrization, namely by an arc-length parameter  (measured from wherever you like).
+	Every regular curve has a unit-speed parametrization, namely by an arc-length parameter  (measured from wherever you like).
 \end{thm}
 
 The usefulness of the Theorem is abstract; by \emph{assuming} that we have a unit-speed parametrization, certain analyses become much simpler. As a practical matter, explicitly finding an arc-length parametrization might be essentially impossible (evaluate an integral then invert a function\ldots).
 
 \begin{examples}{}{}
-\exstart Since the standard helix has arc-length parameter $s(t)=\sqrt 2t$, it is trivial to observe that the re-parametrization
-\[\vy(s)=\left(\cos\frac s{\sqrt 2},\sin\frac s{\sqrt 2},\frac s{\sqrt 2}\right) \]
-has unit speed.
-\begin{enumerate}\setcounter{enumi}{1}
-  \item More generally, if $\vx(t)$ has constant speed $v$, then $s(t)=vt$ is an arc-length parameter and $\vy(s)=\vx(\tfrac sv)$ a unit-speed re-parametrization.
-  \item The graph of $y=\frac 23x^{3/2}$ ($t\ge 0$) may be parametrized by $\vx(t)=(t,\frac 23t^{3/2})$. The arc-length measured from the origin is then
-  \[s(t)=\int_0^t\sqrt{1+T}\,\D T =\tfrac 23\left[(1+t)^{3/2}-1\right] \implies \alpha(s)=t(s)=\left(1+\tfrac 32s\right)^{2/3}-1\]
-  We've obtained an explicit unit-speed parametrization
-  \[\vy(s)=\vx\bigl(\alpha(s)\bigr) =\left(\left(1+\tfrac 32s\right)^{2/3}-1,\tfrac 23\left[\left(1+\tfrac 32s\right)^{2/3}-1\right]^{3/2}\right) \]
-  though is it really something you ever want to compute with?!
-%   \item
-%   \[s(t)=\int_0^t\sqrt{1+4T^2}\,\D T\]
-%   This can be computed with some judicious use of substitutions,\footnote{Try $\tan\theta=2T\ldots$} though it isn't fun!
-%   \[s(t)=\frac 12t\sqrt{1+4t^2}+\frac 14\ln\nm{2t+\sqrt{1+4t^2}}\]
-%   Now you need an inverse! This problem is essentially impossible to do explicitly.
-%   \item At least where it is regular, $\vx(t)=\twovec{t}{1-\nm t}$ has speed $v(t)=\sqrt{2}$ ($t\neq 0$). Thus $\vx(s)=\twovec{s/\sqrt{2}}{1-\nm{s/\sqrt{2}}}$ is a unit speed parametrization, away from $s=0$.
-%   \item Explicitly finding a unit speed parametrization of $\vx(t)=\twovec{\sin\frac{2t}{3}}{\cos t}$ is also far too difficult. It would involve computing the integral
-%   \[s(t)=\int_0^t\sqrt{\frac 49\cos^2\frac{2T}3+\sin^2T}\D T\] 
-
-	\goodbreak
+	\exstart Since the standard helix has arc-length parameter $s(t)=\sqrt 2t$, it is trivial to observe that the re-parametrization
+	\[
+		\vy(s)=\left(\cos\frac s{\sqrt 2},\sin\frac s{\sqrt 2},\frac s{\sqrt 2}\right)
+	\]
+	has unit speed.
+	\begin{enumerate}\setcounter{enumi}{1}
+	  \item More generally, if $\vx(t)$ has constant speed $v$, then $s(t)=vt$ is an arc-length parameter and $\vy(s)=\vx(\tfrac sv)$ a unit-speed re-parametrization.
+	  \item The graph of $y=\frac 23x^{3/2}$ ($t\ge 0$) may be parametrized by $\vx(t)=(t,\frac 23t^{3/2})$. The arc-length measured from the origin is then
+	  \[
+	  	s(t)=\int_0^t\sqrt{1+T}\,\D T =\tfrac 23\left[(1+t)^{3/2}-1\right] \implies \alpha(s)=t(s)=\left(1+\tfrac 32s\right)^{2/3}-1
+	  \]
+	  We've obtained an explicit unit-speed parametrization
+	  \[
+	  	\vy(s)=\vx\bigl(\alpha(s)\bigr) =\left(\left(1+\tfrac 32s\right)^{2/3}-1,\tfrac 23\left[\left(1+\tfrac 32s\right)^{2/3}-1\right]^{3/2}\right)
+	  \]
+	  though is it really something you ever want to compute with?!
+	%   \item
+	%   \[s(t)=\int_0^t\sqrt{1+4T^2}\,\D T\]
+	%   This can be computed with some judicious use of substitutions,\footnote{Try $\tan\theta=2T\ldots$} though it isn't fun!
+	%   \[s(t)=\frac 12t\sqrt{1+4t^2}+\frac 14\ln\nm{2t+\sqrt{1+4t^2}}\]
+	%   Now you need an inverse! This problem is essentially impossible to do explicitly.
+	%   \item At least where it is regular, $\vx(t)=\twovec{t}{1-\nm t}$ has speed $v(t)=\sqrt{2}$ ($t\neq 0$). Thus $\vx(s)=\twovec{s/\sqrt{2}}{1-\nm{s/\sqrt{2}}}$ is a unit speed parametrization, away from $s=0$.
+	%   \item Explicitly finding a unit speed parametrization of $\vx(t)=\twovec{\sin\frac{2t}{3}}{\cos t}$ is also far too difficult. It would involve computing the integral
+	%   \[s(t)=\int_0^t\sqrt{\frac 49\cos^2\frac{2T}3+\sin^2T}\D T\] 
 	
-% 	\item\label{ex:catenary1} A \emph{catenary} is famously the shape made by a rope/chain hanging between two fixed points. In suitable co-ordinates it has equation\footnotemark\ $y=\cosh x=\frac{e^x+e^{-x}}2$. As a parametrized curve
-% 	\[\vx(t)=\bigl(t,\cosh t\bigr)\implies \vx'(t)=\bigl(1,\sinh t\bigr)\implies v(t)=\sqrt{1+\sinh^2t}=\cosh t\]
-% 	\begin{minipage}[t]{0.6\linewidth}\vspace{-3pt}
-% 		The arc-length measured from $t_0=0$ is
-% 		\[s(t)=\int_0^t\cosh T\,\D T=\sinh t\tag{$\dag$}\]
-% 		from which
-% 		\[\vy(s)=\vx\bigl(\sinh^{-1}s\bigr)=\bigl(\sinh^{-1}s,\sqrt{1+s^2}\bigr)\]
-% 		has unit speed, as can be checked explicitly:
-% 		\[\makebox[0cm][l]{$\displaystyle\vy'(s)=\frac{1}{\sqrt{1+s^2}}\bigl(1,s\bigr) \implies\Nm{\vy'(s)}^2=\frac{1}{1+s^2}+\frac{s^2}{1+s^2}=1$}\]    
-% 	\end{minipage}\hfill\begin{minipage}[t]{0.4\linewidth}\vspace{-8pt}
-% 		\flushright\includegraphics{regular-catenary}
-% 	\end{minipage}
-	
-\end{enumerate}
+		\goodbreak
+		
+	% 	\item\label{ex:catenary1} A \emph{catenary} is famously the shape made by a rope/chain hanging between two fixed points. In suitable co-ordinates it has equation\footnotemark\ $y=\cosh x=\frac{e^x+e^{-x}}2$. As a parametrized curve
+	% 	\[\vx(t)=\bigl(t,\cosh t\bigr)\implies \vx'(t)=\bigl(1,\sinh t\bigr)\implies v(t)=\sqrt{1+\sinh^2t}=\cosh t\]
+	% 	\begin{minipage}[t]{0.6\linewidth}\vspace{-3pt}
+	% 		The arc-length measured from $t_0=0$ is
+	% 		\[s(t)=\int_0^t\cosh T\,\D T=\sinh t\tag{$\dag$}\]
+	% 		from which
+	% 		\[\vy(s)=\vx\bigl(\sinh^{-1}s\bigr)=\bigl(\sinh^{-1}s,\sqrt{1+s^2}\bigr)\]
+	% 		has unit speed, as can be checked explicitly:
+	% 		\[\makebox[0cm][l]{$\displaystyle\vy'(s)=\frac{1}{\sqrt{1+s^2}}\bigl(1,s\bigr) \implies\Nm{\vy'(s)}^2=\frac{1}{1+s^2}+\frac{s^2}{1+s^2}=1$}\]    
+	% 	\end{minipage}\hfill\begin{minipage}[t]{0.4\linewidth}\vspace{-8pt}
+	% 		\flushright\includegraphics{regular-catenary}
+	% 	\end{minipage}
+	\end{enumerate}
 \end{examples}
 
 % \footnotetext{If the hyperbolic functions are unfamiliar, you can do the example purely with exponentials and logarithms. All we really need is the following:
@@ -421,28 +466,34 @@ has unit speed.
 Armed with unit-speed curves, we can now define our principal notion of bendiness.
 
 \begin{defn}{}{curvature}
-The \emph{curvature} of a unit-speed curve $\vx:I\to\E^3$ is 
-\[\kappa(s)=\Nm{\vx''(s)}\]
-We modify this slightly for curves in the plane: $\kappa(s)$ is positive/negative if the tangent vector rotates \emph{counter-clockwise}/\emph{clockwise} as we traverse the curve. This corresponds to the usual \emph{right hand rule.}
+	The \emph{curvature} of a unit-speed curve $\vx:I\to\E^3$ is 
+	\[
+		\kappa(s)=\Nm{\vx''(s)}
+	\]
+	We modify this slightly for curves in the plane: $\kappa(s)$ is positive/negative if the tangent vector rotates \emph{counter-clockwise}/\emph{clockwise} as we traverse the curve. This corresponds to the usual \emph{right hand rule.}
 \end{defn}
 
 By Newton's second law, a unit mass travelling along the curve at unit speed experiences a \emph{transverse force} of magnitude $\kappa(s)$.
 
 \begin{examples}{}{}
-\exstart A straight line has curvature zero. For example, the line joining $(1,4)$ and $(-3,1)$ has unit-speed parametrization $\vx(s)=\bigl(-3+\frac 45s,1+\frac 35s\bigr)$, whence $\vx''(s)=\V0\implies \kappa(s)=0$.
+	\exstart A straight line has curvature zero. For example, the line joining $(1,4)$ and $(-3,1)$ has unit-speed parametrization $\vx(s)=\bigl(-3+\frac 45s,1+\frac 35s\bigr)$, whence $\vx''(s)=\V0\implies \kappa(s)=0$.
 
-\begin{enumerate}\setcounter{enumi}{1}
-  \item The circle of radius $r$ has unit-speed parametrization $\vx(s)=r\left(\cos\frac sr,\sin\frac sr\right)$, whence
-  \[\vx''(s)=-\frac 1r\twovec{\cos\frac sr}{\sin\frac sr}\implies \kappa(s)=\frac 1r\]
-  This is positive since the tangent vector rotates counter-clockwise. Observe that $\kappa=\frac 1r$ is inversely proportional to the radius: smaller circles have larger curvature.
-    
-  \item The standard helix with unit-speed parametrization $\vx(s)=\smash[b]{\left(\cos\frac s{\sqrt 2},\sin\frac s{\sqrt 2},\frac s{\sqrt 2}\right)}$ has
-  \[\vx''(s)=-\frac 12\left(\cos\frac s{\sqrt 2},\sin\frac s{\sqrt 2},0\right)\implies \kappa(s)=\frac 12\]
-  
-%   \item The above catenary has
-%   \[\vy''(s)=\frac 1{(1+s^2)^{3/2}}\bigl(-s,1\bigr)\implies \kappa(s)=\frac 1{1+s^2}\]
-%   The picture convinces us that this should be positive. Moreover, $\vy(0)$ is the point of maximum curvature $\kappa=1$ at the bottom of the curve. As we move away, the curvature decreases and the curve becomes straighter.
-\end{enumerate}
+	\begin{enumerate}\setcounter{enumi}{1}
+	  \item The circle of radius $r$ has unit-speed parametrization $\vx(s)=r\left(\cos\frac sr,\sin\frac sr\right)$, whence
+	  \[
+	  	\vx''(s)=-\frac 1r\twovec{\cos\frac sr}{\sin\frac sr}\implies \kappa(s)=\frac 1r
+	  \]
+	  This is positive since the tangent vector rotates counter-clockwise. Observe that $\kappa=\frac 1r$ is inversely proportional to the radius: smaller circles have larger curvature.
+	    
+	  \item The standard helix with unit-speed parametrization $\vx(s)=\smash[b]{\left(\cos\frac s{\sqrt 2},\sin\frac s{\sqrt 2},\frac s{\sqrt 2}\right)}$ has
+	  \[
+	  	\vx''(s)=-\frac 12\left(\cos\frac s{\sqrt 2},\sin\frac s{\sqrt 2},0\right)\implies \kappa(s)=\frac 12
+	  \]
+	  
+	%   \item The above catenary has
+	%   \[\vy''(s)=\frac 1{(1+s^2)^{3/2}}\bigl(-s,1\bigr)\implies \kappa(s)=\frac 1{1+s^2}\]
+	%   The picture convinces us that this should be positive. Moreover, $\vy(0)$ is the point of maximum curvature $\kappa=1$ at the bottom of the curve. As we move away, the curvature decreases and the curve becomes straighter.
+	\end{enumerate}
 \end{examples}
 
 Since finding a unit-speed parametrization is difficult, there few curves for which this approach is sensible. What we want is a method that works for \emph{arbitrary parametrization.} This is indeed possible, though for spacecurves it will take a while. For curves in the \emph{plane} however, things are fairly easy.
@@ -452,125 +503,145 @@ Since finding a unit-speed parametrization is difficult, there few curves for wh
 
 If $\vy:I\to\E^2$ has unit-speed, we can write\par
 \begin{minipage}[t]{0.72\linewidth}\vspace{-12pt}
-\[\vy'(s)=\textcolor{blue}{\twovec{\cos\theta(s)}{\sin\theta(s)}}\]
-where $\theta(s)$ is the \emph{angle} between the tangent line and the positive $x$-axis. Now observe that
-\[\vy''(s)=\theta'(s)\textcolor{Green}{\twovec{-\sin\theta(s)}{\cos\theta(s)}}\]
-Since $\bigl(-\sin\theta,\cos\theta\bigr)$ points to the \emph{left} of $\vy'(s)$, we conclude:
-\end{minipage}\hfill\begin{minipage}[t]{0.27\linewidth}\vspace{-8pt}
+	\[
+		\vy'(s)=\textcolor{blue}{\twovec{\cos\theta(s)}{\sin\theta(s)}}
+	\]
+	where $\theta(s)$ is the \emph{angle} between the tangent line and the positive $x$-axis. Now observe that
+	\[
+		\vy''(s)=\theta'(s)\textcolor{Green}{\twovec{-\sin\theta(s)}{\cos\theta(s)}}
+	\]
+	Since $\bigl(-\sin\theta,\cos\theta\bigr)$ points to the \emph{left} of $\vy'(s)$, we conclude:
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.27\linewidth}\vspace{-8pt}
 	\flushright \includegraphics[scale=0.95]{regular-planekappa}
 \end{minipage}\par
 
 
 \begin{thm}{}{kappaplane}
-The curvature of a unit-speed plane curve is the rate of change $\kappa(s)=\theta'(s)$ of the angle of its tangent line.
+	The curvature of a unit-speed plane curve is the rate of change $\kappa(s)=\theta'(s)$ of the angle of its tangent line.
 \end{thm}
 
 This should be intuitive for constant curvature examples such as the straight line and the circle.
 
 \goodbreak
 
-\smallbreak
 Now suppose $\vx(t)=\bigl(x(t),y(t)\bigr)$ is any regular parametrization of the same curve; its speed satisfies
-\[v(t)=\sqrt{x'(t)^2+y'(t)^2}=s'(t)\]
+\[
+	v(t)=\sqrt{x'(t)^2+y'(t)^2}=s'(t)
+\]
 where $s(t)$ is an arc-length function for $\vx(t)$. Moreover, the angle $\theta(s)$ plainly satisfies
-\[\theta(s)=\tan^{-1}\frac{y'(t)}{x'(t)}\]
+\[
+	\theta(s)=\tan^{-1}\frac{y'(t)}{x'(t)}
+\]
 Now differentiate and applying the chain rule:
-\[\kappa(s)=\diff s\tan^{-1}\frac{y'(t)}{x'(t)} =\diff[t]{s}\diff t\tan^{-1}\frac{y'(t)}{x'(t)} =\cdots\]
+\[
+	\kappa(s)=\diff s\tan^{-1}\frac{y'(t)}{x'(t)} =\diff[t]{s}\diff t\tan^{-1}\frac{y'(t)}{x'(t)} =\cdots
+\]
 % \left(\frac 1{s'(t)}\right)\frac{y''x'-x''y'}{(x')^2\left[1+\left(\frac{y'}{x'}\right)^2\right]}\]
 The result is a formula for the curvature as a function of an arbitrary regular parametrization.
 
 \begin{cor}{}{kappagraph}
-A regular curve $\vx(t)=\bigl(x(t),y(t)\bigr)$ has curvature
-\[\kappa(t)=\frac{y''x'-x''y'}{[x'^2+y'^2]^{3/2}} =\frac{y''x'-x''y'}{v^3} =\frac{\vx''\cdot J\vx'}{v^3}\]
-where $J\vx'=\scalebox{0.75}{$\begin{pmatrix}
-0&-1\\1&0
-\end{pmatrix}$}\stwovec{x'}{y'}=\stwovec{-y'}{x'}$. In particular, the graph of a smooth function $y=f(x)$ has curvature
-\[\kappa(x)=\frac{f''(x)}{\Bigl[1+\bigl(f'(x)\bigr)^2\Bigr]^{3/2}}\]
+	A regular curve $\vx(t)=\bigl(x(t),y(t)\bigr)$ has curvature
+	\[
+		\kappa(t)=\frac{y''x'-x''y'}{[x'^2+y'^2]^{3/2}} =\frac{y''x'-x''y'}{v^3} =\frac{\vx''\cdot J\vx'}{v^3}
+	\]
+	where $J\vx'=\scalebox{0.75}{$\begin{pmatrix}
+	0&-1\\1&0
+	\end{pmatrix}$}\stwovec{x'}{y'}=\stwovec{-y'}{x'}$. In particular, the graph of a smooth function $y=f(x)$ has curvature
+	\[
+		\kappa(x)=\frac{f''(x)}{\Bigl[1+\bigl(f'(x)\bigr)^2\Bigr]^{3/2}}
+	\]
 \end{cor}
 
 
 \begin{examples}{}{}
-\exstart The graph of $y=\frac 23x^{3/2}$ has curvature
-\[\kappa(x)=\frac{\frac 12x^{-1/2}}{(1+x)^{3/2}}= \frac 1{2\sqrt{x(1+x)^3}}\]
-\begin{enumerate}\setcounter{enumi}{1}
-  \item If $f(x)=\sin x$, then $\kappa(x)=\dfrac{-\sin x}{(1+\sin^2\!x)^{3/2}}$
-  \item The spiral $\vx(t)=\bigl(t\cos t,t\sin t\bigr)$ has
-  \begin{align*}
-  \vx'(t)&=\twovec{\cos t-t\sin t}{\sin t+t\cos t},\quad \vx''(t)=\twovec{-2\sin t-t\cos t}{2\cos t-t\sin t}\\
-  \implies \kappa(t)&=\frac{(2\cos t-t\sin t)(\cos t-t\sin t)-(-2\sin t-t\cos t)(\sin t+t\cos t)}{\left[(\cos t-t\sin t)^2+(\sin t+t\cos t)^2\right]^{3/2}}\\
-  &=\frac{2+t^2}{\left[1+t^2\right]^{3/2}}
-  \end{align*}
+	\exstart The graph of $y=\frac 23x^{3/2}$ has curvature
+	\[
+		\kappa(x)=\frac{\frac 12x^{-1/2}}{(1+x)^{3/2}}= \frac 1{2\sqrt{x(1+x)^3}}
+	\]
+	\begin{enumerate}\setcounter{enumi}{1}
+	  \item If $f(x)=\sin x$, then $\kappa(x)=\dfrac{-\sin x}{(1+\sin^2\!x)^{3/2}}$
+	  \item The spiral $\vx(t)=\bigl(t\cos t,t\sin t\bigr)$ has
+	  \begin{align*}
+		  \vx'(t)&=\twovec{\cos t-t\sin t}{\sin t+t\cos t},\quad \vx''(t)=\twovec{-2\sin t-t\cos t}{2\cos t-t\sin t}\\
+		  \implies \kappa(t)&=\frac{(2\cos t-t\sin t)(\cos t-t\sin t)-(-2\sin t-t\cos t)(\sin t+t\cos t)}{\left[(\cos t-t\sin t)^2+(\sin t+t\cos t)^2\right]^{3/2}}\\
+		  &=\frac{2+t^2}{\left[1+t^2\right]^{3/2}}
+	  \end{align*}
 \end{enumerate}
-
 \end{examples}
+
 
 \clearpage
 
 \begin{exercises}
-\exstart Compute the arc-length of the following curves by parametrizing and evaluating an integral:\vspace{-5pt}
-
-\begin{enumerate}\setcounter{enumi}{1}
-  \item[]\begin{enumerate}
-    \item The straight line between points $(3,1,2)$ and $(1,1,0)$.
-    \item The circle centered at $(1,-2)$ with radius 5 measured \emph{clockwise} from $(6,-2)$ to $(1,3)$.
-    \item The graph of the function $y=\frac 23x^{3/2}-\frac 12x^{1/2}$ for $1\le x\le 9$.
-  \end{enumerate}
-  
-  \item Find the curvature of the following plane curves (use Corollary \ref{cor:kappagraph}).
-  \begin{enumerate}
-    \item The graph of $y=x^2$.
-    \item The catenary: the graph of $y=\frac 12(e^x+e^{-x})=\cosh x$
-    \item The figure-eight curve $\vx(t)=\bigl(\cos t,\sin 2t\bigr)$
-    \item\label{exs:expspiral} The exponential spiral $\vx(t)=\bigl(e^t\cos t,e^t\sin t\bigr)$.
-  \end{enumerate}
-  
-  \item Find a unit-speed parametrization of the straight line between points with position vectors $\va\neq \vb$ in $\E^3$ and hence verify that its curvature is zero.
-  	
-	\item Suppose $\vx:\R\to\E^3$ has unit speed. Verify that $\vx$ is parametrized by an arc-length parameter.
-
-  \item Find the curvature of the spacecurve $\vx(s)=\left(\frac 5{13}\cos s,\sin s,\frac{12}{13}\cos s\right)$. What is this curve?
-  
-  \item\begin{enumerate}
-		\item Find the arc-length of the standard helix $\vx(t)=\left(\cos t,\sin t,t\right)$ between $t=-\pi$ and $t=2\pi$.
-		\item Suppose that a particle travels \emph{down} the helix starting at $(1,0,2\pi)$ at time $T=0$ such that its speed is $v(T)=2\sqrt{2}T$. Find a parametrization of the helix which describes this motion.
-		\item Let $r,h$ be positive constants. Find the curvature of the general circular helix
-		\[\vx(t)=\bigl(r\cos t,r\sin t,ht\bigr)\]
-		and interpret how it depends on $r$ and $h$.
-\end{enumerate}
-
-	\item Check the evaluation of $\kappa(t)$ and $\kappa(x)$ in the proof of Corollary \ref{cor:kappagraph}.
-
-  \item We find the curvature of the exponential spiral $\vx(t)=\bigl(e^t\cos t,e^t\sin t\bigr)$ the hard way.
-  \begin{enumerate}
-    \item Calculate the arc-length $s(t)$ measured from $\vx(0)$.
-    \item Find a unit-speed parametrization $\vy(s)$ where $\vy(0)=(1,0)$.
-    \item Hence compute $\kappa(s)$ and show that it equals your answer from Exercise \ref{exs:expspiral}.%=\frac 1{s+\sqrt 2}$.
-  \end{enumerate}
-
-
-	\begin{minipage}[t]{0.5\linewidth}\vspace{0pt}
-		\item A circle of radius 1 rolls at constant speed without slipping along the $x$-axis so that the angle indicated in the picture is $t$ at time $t$.\smallbreak
-		The \textcolor{blue}{curve} described by a \textcolor{red}{point} on the circumference of the rolling circle is a \emph{cycloid}.
-	\end{minipage}\hfill\begin{minipage}[t]{0.49\linewidth}\vspace{0pt}
-		\flushright\includegraphics[scale=0.85]{regular-cycloid}
-	\end{minipage}\vspace{-15pt}
-
-	\begin{enumerate}
-		\item Find a parametrization $\vx:[0,2\pi]\to\E^2$.
-		\item Find the curvature of the cycloid as a function of $t$.
-		\item Compute the arc-length of the cycloid over a complete rotation of the circle.
+	\exstart Compute the arc-length of the following curves by parametrizing and evaluating an integral:\vspace{-5pt}
+	
+	\begin{enumerate}\setcounter{enumi}{1}
+	  \item[]\begin{enumerate}
+	    \item The straight line between points $(3,1,2)$ and $(1,1,0)$.
+	    \item The circle centered at $(1,-2)$ with radius 5 measured \emph{clockwise} from $(6,-2)$ to $(1,3)$.
+	    \item The graph of the function $y=\frac 23x^{3/2}-\frac 12x^{1/2}$ for $1\le x\le 9$.
+	  \end{enumerate}
+	  
+	  \item Find the curvature of the following plane curves (use Corollary \ref{cor:kappagraph}).
+	  \begin{enumerate}
+	    \item The graph of $y=x^2$.
+	    \item The catenary: the graph of $y=\frac 12(e^x+e^{-x})=\cosh x$
+	    \item The figure-eight curve $\vx(t)=\bigl(\cos t,\sin 2t\bigr)$
+	    \item\label{exs:expspiral} The exponential spiral $\vx(t)=\bigl(e^t\cos t,e^t\sin t\bigr)$.
+	  \end{enumerate}
+	  
+	  \item Find a unit-speed parametrization of the straight line between points with position vectors $\va\neq \vb$ in $\E^3$ and hence verify that its curvature is zero.
+	  	
+		\item Suppose $\vx:\R\to\E^3$ has unit speed. Verify that $\vx$ is parametrized by an arc-length parameter.
+	
+	  \item Find the curvature of the spacecurve $\vx(s)=\left(\frac 5{13}\cos s,\sin s,\frac{12}{13}\cos s\right)$. What is this curve?
+	  
+	  \item\begin{enumerate}
+			\item Find the arc-length of the standard helix $\vx(t)=\left(\cos t,\sin t,t\right)$ between $t=-\pi$ and $t=2\pi$.
+			\item Suppose that a particle travels \emph{down} the helix starting at $(1,0,2\pi)$ at time $T=0$ such that its speed is $v(T)=2\sqrt{2}T$. Find a parametrization of the helix which describes this motion.
+			\item Let $r,h$ be positive constants. Find the curvature of the general circular helix
+			\[
+				\vx(t)=\bigl(r\cos t,r\sin t,ht\bigr)
+			\]
+			and interpret how it depends on $r$ and $h$.
 	\end{enumerate}
 	
+		\item Check the evaluation of $\kappa(t)$ and $\kappa(x)$ in the proof of Corollary \ref{cor:kappagraph}.
+	
+	  \item We find the curvature of the exponential spiral $\vx(t)=\bigl(e^t\cos t,e^t\sin t\bigr)$ the hard way.
+	  \begin{enumerate}
+	    \item Calculate the arc-length $s(t)$ measured from $\vx(0)$.
+	    \item Find a unit-speed parametrization $\vy(s)$ where $\vy(0)=(1,0)$.
+	    \item Hence compute $\kappa(s)$ and show that it equals your answer from Exercise \ref{exs:expspiral}.%=\frac 1{s+\sqrt 2}$.
+	  \end{enumerate}
 	
 	
-  
-%   \item	We saw two parametrizations of the unit circle in Example \ref{ex:circlebasic}. Show that $\vy(s)=\vx\bigl(\alpha(s)\bigr)$, where $\alpha:\R\to(-\pi,\pi):s\mapsto 2\tan^{-1}s$.\par
-%   (\emph{Hint: ignore the point $(-1,0)$ and try the reverse $\vx(t)=\vy\bigl(\alpha^{-1}(t)\bigr)$})
+		\begin{minipage}[t]{0.5\linewidth}\vspace{0pt}
+			\item A circle of radius 1 rolls at constant speed without slipping along the $x$-axis so that the angle indicated in the picture is $t$ at time $t$.\smallbreak
+			The \textcolor{blue}{curve} described by a \textcolor{red}{point} on the circumference of the rolling circle is a \emph{cycloid}.
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.49\linewidth}\vspace{0pt}
+			\flushright\includegraphics[scale=0.85]{regular-cycloid}
+		\end{minipage}\vspace{-15pt}
 	
-% 	\item Consider the spiral $\vx(\theta)=\twovec{\theta\cos\theta}{\theta\sin\theta}$, where $\theta\ge 0$ is the angle a point on the curve makes with the $x$-axis. Show that the arc-length of the spiral over its first circuit of the origin (from $\theta=0$ up to $2\pi$) is $\pi\sqrt{1+4\pi^2}+\frac 12\sinh^{-1}2\pi$.\\
-% 	(\emph{This is a nasty integration by substitution and will be very difficult without some knowledge of hyperbolic functions, their derivatives and double angle formulae})
-
-\end{enumerate}
+		\begin{enumerate}
+			\item Find a parametrization $\vx:[0,2\pi]\to\E^2$.
+			\item Find the curvature of the cycloid as a function of $t$.
+			\item Compute the arc-length of the cycloid over a complete rotation of the circle.
+		\end{enumerate}
+		
+		
+		
+	  
+	%   \item	We saw two parametrizations of the unit circle in Example \ref{ex:circlebasic}. Show that $\vy(s)=\vx\bigl(\alpha(s)\bigr)$, where $\alpha:\R\to(-\pi,\pi):s\mapsto 2\tan^{-1}s$.\par
+	%   (\emph{Hint: ignore the point $(-1,0)$ and try the reverse $\vx(t)=\vy\bigl(\alpha^{-1}(t)\bigr)$})
+		
+	% 	\item Consider the spiral $\vx(\theta)=\twovec{\theta\cos\theta}{\theta\sin\theta}$, where $\theta\ge 0$ is the angle a point on the curve makes with the $x$-axis. Show that the arc-length of the spiral over its first circuit of the origin (from $\theta=0$ up to $2\pi$) is $\pi\sqrt{1+4\pi^2}+\frac 12\sinh^{-1}2\pi$.\\
+	% 	(\emph{This is a nasty integration by substitution and will be very difficult without some knowledge of hyperbolic functions, their derivatives and double angle formulae})
+	\end{enumerate}
 \end{exercises}
 
 
