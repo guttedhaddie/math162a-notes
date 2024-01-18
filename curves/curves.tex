@@ -81,8 +81,7 @@ A \emph{vector} is a directed line segment joining two \emph{points.} We've alre
 \begin{defn}[lower separated=false, sidebyside, sidebyside align=top seam, sidebyside gap=0pt, righthand width=0.22\linewidth]{}{tanvec}
 	A \emph{tangent vector} $\vv_p$ is a \emph{pair} of elements of $\R^3$: a \emph{\textcolor{blue}{base point}} $p$ and a \emph{\textcolor{red}{direction}} $\vv$.
 	It is the directed line segment from the point with position vector $\vp$ to the point with position vector $\vp+\vv$.\medbreak
-	The \emph{tangent space at $p$} is the set $T_p\R^3$ of all tangent vectors based at $p$. At each point, $\R^3$ has a \emph{different tangent space}!%\medbreak
-	%The collection of all tangent spaces at all points is denoted $T\R^3$ and is called the \emph{tangent bundle.}
+	The \emph{tangent space at $p$} is the set $T_p\R^3$ of all tangent vectors based at $p$. At each point, $\R^3$ has a \emph{different tangent space}!
 	\tcblower
 	\flushright\includegraphics{euclid-tanvec}
 \end{defn}
@@ -90,19 +89,19 @@ A \emph{vector} is a directed line segment joining two \emph{points.} We've alre
 Be aware that $\vv_p=\vw_q\iff p=q$ \emph{and} $\vv=\vw$: the same \emph{direction} at different \emph{base points} means a different tangent vector!
 \medbreak
 
-
 \begin{minipage}[t]{0.6\linewidth}\vspace{0pt}
 	The tangent space at $p$ is suitably named, for it is indeed a \emph{vector space}: to add tangent vectors $\vv_p,\vw_p\in T_p\R^3$, simply sum the \emph{direction vectors}
-	\[\vv_p+\vw_p:=(\vv+\vw)_p\tag{$\ast$}\]
+	\[
+		\vv_p+\vw_p:=(\vv+\vw)_p\tag{$\ast$}
+	\]
 	Scalar multiplication is similar: $\lambda\vv_p:=(\lambda\vv)_p$. 
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.39\linewidth}\vspace{0pt}
 	\flushright\includegraphics{euclid-tanvec2}
-\end{minipage}
+\end{minipage}\medbreak
 
-
-We will return later to a more abstract discussion of tangent vectors and their application.
+In chapter \ref{chap:forms} we will see a more abstract discussion of tangent vectors, vector fields, and their application.
 
 
 \boldsubsubsection{Euclidean Space: $\E^n$ versus $\R^n$}
@@ -139,39 +138,10 @@ This course is primarily concerned with \emph{functions} $\vx:U\subseteq\R^m\to\
 	\item[\normalfont\emph{Surfaces}:] $m=2$ and $n=3$. For instance, the parametrization $\vx:\R^2\mapsto\E^3:(u,v)\mapsto (u,v,u^2+v^2)$ of a \emph{paraboloid} should be  familiar.
 \end{description}
 
-Surfaces are the focus of the second half of the course. %In anticipation, hopefully  Its components are the scalar functions
-	%\[x(u,v)=u,\qquad y(u,v)=v,\qquad z(u,v)=u^2+v^2\]
-It is now time for the formal definition of a curve.
+Surfaces are the focus of Chapter \ref{chap:surfaces}. It is now time for the formal definition of a curve.
 
 \goodbreak
  
-% 
-% \begin{defn}{}{}
-% A \emph{vector field} on $U\subseteq\R^3$ is a function $v:U\to T\R^3$ that assigns a tangent vector at each point of $U$:
-% \[\forall p\in U,\ \ v(p)\in T_p\R^3\]
-% \end{defn}
-% 
-% 
-% 
-% \begin{example}{}{}
-% In suitable units, the famous \emph{inverse square field} from physics is the function
-% \[v=\frac{-1}{(x^2+y^2+z^2)^{3/2}}\threevec xyz\qquad \text{whenever $(x,y,z)\neq (0,0,0)$}\]
-% For instance, at $p=(1,2,2)$, the vector field returns the tangent vector $v(1,2,2)=\frac{-1}{27}\sthreevec 122\in T_p\R^3$.\par
-% Each tangent vector $v(p)$ points towards the origin and has length
-% \[\Nm{v(p)}=\frac 1{x^2+y^2+z^2}=\frac 1{\Nm p^2}\]
-% the reciprocal (`inverse') of the square of the distance of $p$ from the origin.
-% \end{example}
-% 
-% Continuing the observation ($\ast$), if $v,w$ are vector fields, then at each point $p\in\R^3$, the vectors $v(p),w(p)$ \emph{lie in the same vector space} $T_p\R^3$ and can therefor be added. We can therefore add vector fields and multiply them by scalars in a natural way. 
-% 
-% 
-% \begin{example}{}{}
-% If $v=\sthreevec{2x}{\cos z}{1-xy}$ and $w=\sthreevec{-xy^2}{2}{2xy+3}$, then $2v+w=\sthreevec{4x-xy^2}{2\cos z+2}{5}$.
-% \end{example}
-% 
-
-
-%\subsection{Parametrized Curves in Euclidean space}
 
 
 \begin{defn}{}{regcurve}
@@ -356,8 +326,7 @@ Thankfully it is easy to create new parametrizations that remain regular.
 \end{lemm}
 
 \begin{proof}\def\range{\operatorname{range}}
-	By the chain rule, $\diff[\vy]{s}=\alpha'(s)\diff[\vx]{t}$, which is non-zero by assumption.%\smallbreak
-	%Moreover, if $\alpha$ is onto, then $\range\alpha=I\implies \range\vy=\range\vx$.
+	By the chain rule, $\diff[\vy]{s}=\alpha'(s)\diff[\vx]{t}$, which is non-zero by assumption.
 \end{proof}
 
 By contrast, if $\vx(t)$ is non-regular, no smooth reparametrization can possible regularize it.\medbreak
@@ -568,7 +537,7 @@ The result is a formula for the curvature as a function of an arbitrary regular 
 		  \implies \kappa(t)&=\frac{(2\cos t-t\sin t)(\cos t-t\sin t)-(-2\sin t-t\cos t)(\sin t+t\cos t)}{\left[(\cos t-t\sin t)^2+(\sin t+t\cos t)^2\right]^{3/2}}\\
 		  &=\frac{2+t^2}{\left[1+t^2\right]^{3/2}}
 	  \end{align*}
-\end{enumerate}
+	\end{enumerate}
 \end{examples}
 
 
@@ -600,7 +569,7 @@ The result is a formula for the curvature as a function of an arbitrary regular 
 	  
 	  \item\begin{enumerate}
 			\item Find the arc-length of the standard helix $\vx(t)=\left(\cos t,\sin t,t\right)$ between $t=-\pi$ and $t=2\pi$.
-			\item Suppose that a particle travels \emph{down} the helix starting at $(1,0,2\pi)$ at time $T=0$ such that its speed is $v(T)=2\sqrt{2}T$. Find a parametrization of the helix which describes this motion.
+			\item Suppose a particle travels \emph{down} the standard helix so that $\vy(0)=(1,0,2\pi)$ and such that its speed is $v(t)=2\sqrt{2}t$. Find a parametrization which describes this motion.
 			\item Let $r,h$ be positive constants. Find the curvature of the general circular helix
 			\[
 				\vx(t)=\bigl(r\cos t,r\sin t,ht\bigr)
@@ -633,27 +602,9 @@ The result is a formula for the curvature as a function of an arbitrary regular 
 			\item Compute the arc-length of the cycloid over a complete rotation of the circle.
 		\end{enumerate}
 		
-		
-		
-	  
-	%   \item	We saw two parametrizations of the unit circle in Example \ref{ex:circlebasic}. Show that $\vy(s)=\vx\bigl(\alpha(s)\bigr)$, where $\alpha:\R\to(-\pi,\pi):s\mapsto 2\tan^{-1}s$.\par
-	%   (\emph{Hint: ignore the point $(-1,0)$ and try the reverse $\vx(t)=\vy\bigl(\alpha^{-1}(t)\bigr)$})
-		
-	% 	\item Consider the spiral $\vx(\theta)=\twovec{\theta\cos\theta}{\theta\sin\theta}$, where $\theta\ge 0$ is the angle a point on the curve makes with the $x$-axis. Show that the arc-length of the spiral over its first circuit of the origin (from $\theta=0$ up to $2\pi$) is $\pi\sqrt{1+4\pi^2}+\frac 12\sinh^{-1}2\pi$.\\
-	% 	(\emph{This is a nasty integration by substitution and will be very difficult without some knowledge of hyperbolic functions, their derivatives and double angle formulae})
 	\end{enumerate}
 \end{exercises}
 
-
-% \begin{aside}
-% {\bfseries Aside: a non-regularizable curve}\\
-%  Example 3, above, cannot be made regular via any reparameterization. Indeed let $\alpha(s)$ be an increasing, differentiable function such that $\alpha(0)=0$, and set $\vy(s)=\vx(\alpha(s))$. Then
-% \[\vy'(s)=\alpha'(s)\vx'(\alpha(s))\]
-% If $\vy$ is to be regular at $s=0$, we should be able to compute $\vy'(0)$. However this is impossible: $\vx'(\alpha(0))=\vx'(0)$ is undefined, whence we would have to attempt to define
-% \[\vy'(0)=\lim\limits_{s\to 0}\alpha'(s)\vx'(\alpha(s)) =\alpha'(0)\lim\limits_{s\to 0}\vx'(\alpha(s))\]
-% Since $\lim\limits_{s\to 0}\vx'(\alpha(s))$ is also undefined,\footnote{$\lim_{t\to 0^+}\vx'(t)=\twovec 1{-1}\neq\twovec 11=\lim_{t\to 0^-}\vx'(t)$.} we could only have $\alpha'(0)=0$, resulting in $\vy'(0)=\V0$, whence the curve remains non-regular at $t=0$.\\
-% The difference between Examples 2 and 3 is simple: you can't regularize corners, but you can regularize smooth curves that have been parametrized so that the curve sometimes comes to a halt.
-% \end{aside}
 
 \clearpage
 
@@ -661,21 +612,27 @@ The result is a formula for the curvature as a function of an arbitrary regular 
 
 \subsection{Orthogonality, Moving Frames \& The Structure Equations}\label{sec:orth}
 
-Our plan is to analyze a curve with respect to a family of \emph{moving} orthonormal bases. Before embarking on this, we summarize the relevant ideas from linear algebra. The proofs are not critical so we omit most of them, what matters is that the concepts are mostly familiar. As usual, definitions and results are stated in 3-dimensions, but are valid in others, particularly 2-dimensions.\medbreak
+Our plan is to analyze a curve with respect to a family of \emph{moving} orthonormal bases. Before embarking on this, we summarize the relevant ideas from linear algebra. Hopefully most of the concepts are familiar. Most proofs are omitted, but will be met in a standard linear algebra class. As usual, definitions and results are stated in 3-dimensions, but are valid in others, particularly 2-dimensions.\medbreak
 
 In $\E^3$, points are typically denoted with reference to the \emph{standard basis} $\{\vi,\vj,\vk\}$. For instance,
-\[\vv=\threevec 346=3\vi+4\vj+6\vk\]
+\[
+	\vv=\threevec 346=3\vi+4\vj+6\vk
+\]
 The numbers $3,4,6$ are the \emph{co-ordinates} of $\vv$ with respect to the standard basis. Of course other bases are available\ldots
 
 \begin{defn}{}{}
-A set $\beta=\{\ve_1,\ve_2,\ve_3\}\subseteq\E^3$ is a \emph{basis} if every vector $\vv\in\E^3$ can be expressed uniquely\footnotemark\ as a linear combination of $\ve_1,\ve_2,\ve_3$: that is
-\[\vv=c_1\ve_1+c_2\ve_2+c_3\ve_3\tag{$\ast$}\]
-for unique $c_1,c_2,c_3\in\R$, the \emph{co-ordinates} of $\vv$ with respect to $\beta$.\smallbreak
-A basis is \emph{orthonormal} if $\ve_j\cdot\ve_k=\delta_{jk}=\begin{cases}
-1&\text{if }j=k\\
-0&\text{if }j\neq k
-\end{cases}$\smallbreak
-Consider the (invertible) matrix $E=(\ve_1\ \ve_2\ \ve_3)$ whose columns are the elements of $\beta$ viewed as column vectors (with respect to the standard basis). A basis is \emph{positively oriented} if $\det E>0$.
+	A set $\beta=\{\ve_1,\ve_2,\ve_3\}\subseteq\E^3$ is a \emph{basis} if every vector $\vv\in\E^3$ can be expressed uniquely\footnotemark\ as a linear combination of $\ve_1,\ve_2,\ve_3$: that is
+	\[
+		\vv=c_1\ve_1+c_2\ve_2+c_3\ve_3\tag{$\ast$}
+	\]
+	for unique $c_1,c_2,c_3\in\R$, the \emph{co-ordinates} of $\vv$ with respect to $\beta$.\smallbreak
+	A basis is \emph{orthonormal} if $\ve_j\cdot\ve_k=\delta_{jk}=
+	\begin{cases}
+		1&\text{if }j=k\\
+		0&\text{if }j\neq k
+	\end{cases}
+	$\smallbreak
+	Consider the (invertible) matrix $E=(\ve_1\ \ve_2\ \ve_3)$ whose columns are the elements of $\beta$ viewed as column vectors (with respect to the standard basis). A basis is \emph{positively oriented} if $\det E>0$.
 \end{defn}
 
 \footnotetext{In a linear algebra class this is usually broken into two definitions which imply, respectively, the existence and uniqueness of the linear combination $(\ast)$.
@@ -687,176 +644,211 @@ Consider the (invertible) matrix $E=(\ve_1\ \ve_2\ \ve_3)$ whose columns are the
 
 
 \begin{examples}{}{basiseasy}
-\exstart $\left\{\frac 1{\sqrt 2}\sthreevec 110,\frac 1{\sqrt 6}\sthreevec 1{-1}{-2},\frac 1{\sqrt 3}\sthreevec 1{-1}1\right\}$ is a \emph{negatively} oriented orthonormal basis of $\E^3$ ($\det E=-1<0$).\par
-\begin{minipage}[t]{0.7\linewidth}\vspace{0pt}
-\begin{enumerate}\setcounter{enumi}{1}
-  \item Every orthonormal basis of $\E^2$ has the form
-  \[\left\{\textcolor{blue}{\twovec{\cos\theta}{\sin\theta}},\textcolor{Green}{\twovec{-\sin\theta}{\cos\theta}}\right\}\quad\text{or}\quad \left\{\textcolor{blue}{\twovec{\cos\theta}{\sin\theta}},\textcolor{red}{\twovec{\sin\theta}{-\cos\theta}}\right\}\]
-  for some angle $\theta$. The first is positively oriented ($\det=1>0$) and the second negatively ($\det =-1<0$).
-\end{enumerate}
-\end{minipage}\hfill\begin{minipage}[t]{0.29\linewidth}\vspace{0pt}
-	\flushright\includegraphics{moving-orthe2}
-\end{minipage}
+	\exstart $\left\{\frac 1{\sqrt 2}\sthreevec 110,\frac 1{\sqrt 6}\sthreevec 1{-1}{-2},\frac 1{\sqrt 3}\sthreevec 1{-1}1\right\}$ is a \emph{negatively} oriented orthonormal basis of $\E^3$ ($\det E=-1<0$).\par
+	\begin{minipage}[t]{0.7\linewidth}\vspace{0pt}
+	\begin{enumerate}\setcounter{enumi}{1}
+	  \item Every orthonormal basis of $\E^2$ has the form
+	  \[
+	  	\left\{\textcolor{blue}{\twovec{\cos\theta}{\sin\theta}},\textcolor{Green}{\twovec{-\sin\theta}{\cos\theta}}\right\} \quad\text{or}\quad \left\{\textcolor{blue}{\twovec{\cos\theta}{\sin\theta}},\textcolor{red}{\twovec{\sin\theta}{-\cos\theta}}\right\}
+	  \]
+	  for some angle $\theta$. The first is positively oriented ($\det=1>0$) and the second negatively ($\det =-1<0$).
+	\end{enumerate}
+	\end{minipage}\hfill\begin{minipage}[t]{0.29\linewidth}\vspace{0pt}
+		\flushright\includegraphics{moving-orthe2}
+	\end{minipage}
 \end{examples}
 
 A positively oriented orthonormal basis in $\E^3$ satisfies the \emph{right-hand rule}: $\ve_3=\ve_1\times\ve_2$. In $\E^2$, positive orientation means that $\ve_2$ is obtained by rotating $\ve_1$ counter-clockwise by \ang{90}: we can write this as
-\[\ve_2=J\ve_1=\begin{pmatrix}
-0&-1\\1&0
-\end{pmatrix}\ve_1\]
+\[
+	\ve_2=J\ve_1=
+	\begin{pmatrix}
+		0&-1\\1&0
+	\end{pmatrix}
+	\ve_1
+\]
 
 Finding the co-ordinates of a vector with respect to a basis ($\ast$) is really a matrix problem\footnote{For obvious reasons, this is known as the \emph{change of co-ordinate matrix} from $\beta$ to the standard basis $\{\vi,\vj,\vk\}$.}
-\[\vv=E\threevec{c_1}{c_2}{c_3}\implies \threevec{c_1}{c_2}{c_3}=E^{-1}\vv\]
+\[
+	\vv=E\threevec{c_1}{c_2}{c_3} \implies \threevec{c_1}{c_2}{c_3} =E^{-1}\vv
+\]
 Inverting a $3\times 3$ matrix is tedious. Thankfully the co-ordinates can be found more easily if the basis is \emph{orthonormal} just by taking dot products!
-\[\vv\cdot\ve_i=(c_1\ve_1+c_2\ve_2+c_3\ve_3)\cdot \ve_i =c_i\]
+\[
+	\vv\cdot\ve_i =(c_1\ve_1+c_2\ve_2+c_3\ve_3)\cdot \ve_i =c_i
+\]
 
 \begin{lemm}{}{orthcomp}
-If $\beta=\{\ve_1,\ve_2,\ve_3\}$ is an orthonormal basis, then for any vector $\vv\in\E^3$,
-	\[\vv=(\vv\cdot\ve_1)\ve_1+(\vv\cdot\ve_2)\ve_2+(\vv\cdot\ve_3)\ve_3\]
+	If $\beta=\{\ve_1,\ve_2,\ve_3\}$ is an orthonormal basis, then for any vector $\vv\in\E^3$,
+	\[
+		\vv=(\vv\cdot\ve_1)\ve_1+(\vv\cdot\ve_2)\ve_2+(\vv\cdot\ve_3)\ve_3
+	\]
 \end{lemm}
 
 \begin{example}{}{}
-$\beta=\{\ve_1,\ve_2\}=\left\{\frac 15\stwovec 43,\frac 15\stwovec{-3}4\right\}$ is a positively oriented orthonormal basis of $\E^2$. With respect to $\beta$, the vector $\vv=\stwovec 11$ can be written
-\[\twovec 11=(\vv\cdot\ve_1)\ve_1 +(\vv\cdot\ve_2)\ve_2 =\frac 75\ve_1+\frac 15\ve_2\]
+	$\beta =\{\ve_1,\ve_2\} =\left\{\frac 15\stwovec 43, \frac 15\stwovec{-3}4\right\}$ is a positively oriented orthonormal basis of $\E^2$. With respect to $\beta$, the vector $\vv=\stwovec 11$ can be written
+	\[
+		\twovec 11=(\vv\cdot\ve_1)\ve_1 +(\vv\cdot\ve_2)\ve_2 =\frac 75\ve_1+\frac 15\ve_2
+	\]
 \end{example}
 
-\boldsubsubsection{Orthogonal Matrices}
+
+\boldinline{Orthogonal Matrices}
 
 Recall Definition \ref{defn:dotprod}. Given $\beta=\{\ve_1,\ve_2,\ve_3\}$ and its associated matrix $E=(\ve_1\ \ve_2\ \ve_3)$, observe that
-\[E^TE=\begin{pmatrix}
-\ve_1^T\\
-\ve_2^T\\
-\ve_3^T
-\end{pmatrix}(\ve_1\ \ve_2\ \ve_3)
-=\begin{pmatrix}
-\Nm{\ve_1}^2&\ve_1\cdot\ve_2&\ve_1\cdot \ve_3\\
-\ve_2\cdot\ve_1&\Nm{\ve_2}^2&\ve_2\cdot \ve_3\\
-\ve_3\cdot\ve_1&\ve_3\cdot \ve_2&\Nm{\ve_3}^2
-\end{pmatrix}\]
+\[
+	E^TE=
+	\begin{pmatrix}
+		\ve_1^T\\
+		\ve_2^T\\
+		\ve_3^T
+	\end{pmatrix}
+	(\ve_1\ \ve_2\ \ve_3)
+	=
+	\begin{pmatrix}
+		\Nm{\ve_1}^2&\ve_1\cdot\ve_2&\ve_1\cdot \ve_3\\
+		\ve_2\cdot\ve_1&\Nm{\ve_2}^2&\ve_2\cdot \ve_3\\
+		\ve_3\cdot\ve_1&\ve_3\cdot \ve_2&\Nm{\ve_3}^2
+	\end{pmatrix}
+\]
 
 When $\beta$ is an orthonormal basis, this matrix is very simple.
 
 \begin{defn}{}{}
-A $3\times 3$ matrix $A$ is \emph{orthogonal} if $A^TA=I$ (equivalently $AA^T=I$). The set of all such is denoted $\rO_3(\R)$. In addition, if $\det A=1$, we write $A\in \rSO_3(\R)$ (\emph{special orthogonal matrices}).
+	A $3\times 3$ matrix $A$ is \emph{orthogonal} if $A^TA=I$ (equivalently $AA^T=I$). The set of all such is denoted $\rO_3(\R)$. In addition, if $\det A=1$, we write $A\in \rSO_3(\R)$ (\emph{special orthogonal matrices}).
 \end{defn}
 
 \begin{lemm}{}{orth}
-\exstart If $A\in\rO_3(\R)$, then it is invertible with inverse $A^T$ (also orthogonal).
-\begin{enumerate}\setcounter{enumi}{1}
-  \item The product of two orthogonal matrices is orthogonal.
-  \item\label{lemm:orth3} $A$ is orthogonal if and only if $(A\vx)\cdot (A\vy)=\vx\cdot\vy$ for all vectors $\vx,\vy\in\E^3$.
-  \item Let $\beta=\{\ve_1,\ve_2,\ve_3\}$ and $E=(\ve_1\ \ve_2\ \ve_3)\in M_3(\R)$:
-  \begin{enumerate}
-    \item $E\in\rO_3(\R)\iff \beta$ is an orthonormal basis.
-    \item $E\in\rSO_3(\R)\iff \beta$ is a positively oriented orthonormal basis.
-  \end{enumerate}
-%   \item An orthogonal matrix $A$ has determinant $\det A=\pm 1$. If $\det A=1$ we call the matrix a \emph{rotation,} and if $\det A=-1$ we call it a \emph{reflection.} The set of rotations is denoted\footnote{This is the set of \emph{special orthogonal} matrices.} $\rSO_3(\R)$.
-%   \item A moving frame is a function $\vE:I\to\rSO_3(\R)$.
-\end{enumerate}
+	\exstart If $A\in\rO_3(\R)$, then it is invertible with inverse $A^T$ (also orthogonal).
+	\begin{enumerate}\setcounter{enumi}{1}
+	  \item The product of two orthogonal matrices is orthogonal.
+	  \item\label{lemm:orth3} $A$ is orthogonal if and only if $(A\vx)\cdot (A\vy)=\vx\cdot\vy$ for all vectors $\vx,\vy\in\E^3$.
+	  \item Let $\beta=\{\ve_1,\ve_2,\ve_3\}$ and $E=(\ve_1\ \ve_2\ \ve_3)\in M_3(\R)$:
+	  \begin{enumerate}
+	    \item $E\in\rO_3(\R)\iff \beta$ is an orthonormal basis.
+	    \item $E\in\rSO_3(\R)\iff \beta$ is a positively oriented orthonormal basis.
+	  \end{enumerate}
+	\end{enumerate}
 \end{lemm}
 
-Parts 1 and 2 together say that $\rO_3(\R)$ forms a \emph{group} under matrix multiplication; it is therefore often known as the \emph{orthogonal group.}
+Parts 1 and 2 together say that $\rO_3(\R)$ forms a \emph{group} under matrix multiplication; it is therefore known as the \emph{orthogonal group.}\footnote{Knowledge of group theory is not necessary for these notes. \emph{Lie Groups,} of which $\rO_3(\R)$ is an example, are critical to more advanced differential geometry.}
 
 \begin{examples*}{\ref{ex:basiseasy} cont}{}
-\exstart It is no fun to check $E^TE=I$ directly, but since we know we have an orthonormal basis, the Lemma tells us that
-\[E=\begin{pmatrix}
-\frac 1{\sqrt 2} & \frac 1{\sqrt 6} & \frac 1{\sqrt 3}\\
-\frac 1{\sqrt 2} & \frac{-1}{\sqrt 6} & \frac{-1}{\sqrt 3}\\
-0 & \frac{-2}{\sqrt 6} & \frac 1{\sqrt 3}
-\end{pmatrix}\in\rO_3(\R)\]
-\begin{enumerate}\setcounter{enumi}{1}
-\item Every $2\times 2$ orthogonal matrix has one of two forms:\par
-	\begin{tabular}{@{}p{0.48\linewidth}@{\hspace{0.04\linewidth}}p{0.48\linewidth}@{}}
-	\emph{Rotations}\ \ $A_\theta=\scalebox{0.8}{$\begin{pmatrix}
-  	\cos\theta&-\sin\theta\\
-  	\sin\theta&\cos\theta
-	\end{pmatrix}$}\in \rSO_2(\R)$\smallbreak
-  The effect of the map $\vx\mapsto A_\theta\vx$ is to \emph{rotate} $\vx$ counter-clockwise by $\theta$ radians.\footnotemark
-  &
-  \emph{Reflections}\ \ $B_\theta=\scalebox{0.8}{$\begin{pmatrix}
-  	\cos\theta&\sin\theta\\
-  	\sin\theta&-\cos\theta
-	\end{pmatrix}$}$ \hfill($\det B_\theta=-1$)\smallbreak
-  The effect of $\vx\mapsto B_\theta\vx$ is to \emph{reflect} $\vx$ across the line making angle $\frac\theta 2$ with the positive $x$-axis.
-  \\[8pt]
-  \includegraphics{moving-rot}
-  &
-  \includegraphics{moving-refl}
-\end{tabular}
-\end{enumerate}
+	\exstart It is no fun to check $E^TE=I$ directly, but since we have an orthonormal basis, the lemma tells us that
+	\[
+		E=
+		\begin{pmatrix}
+			\frac 1{\sqrt 2} & \frac 1{\sqrt 6} & \frac 1{\sqrt 3}\\
+			\frac 1{\sqrt 2} & \frac{-1}{\sqrt 6} & \frac{-1}{\sqrt 3}\\
+			0 & \frac{-2}{\sqrt 6} & \frac 1{\sqrt 3}
+		\end{pmatrix}
+		\in\rO_3(\R)
+	\]
+	\begin{enumerate}\setcounter{enumi}{1}
+	\item Every $2\times 2$ orthogonal matrix has one of two forms:\par
+		\begin{tabular}{@{}p{0.48\linewidth}@{\hspace{0.04\linewidth}}p{0.48\linewidth}@{}}
+			\emph{Rotations}\ \ $A_\theta=
+			\scalebox{0.8}{
+				$\begin{pmatrix}
+	  			\cos\theta&-\sin\theta\\
+	  			\sin\theta&\cos\theta
+				\end{pmatrix}$
+			}
+			\in \rSO_2(\R)$\smallbreak
+	  	The effect of the map $\vx\mapsto A_\theta\vx$ is to \emph{rotate} $\vx$ counter-clockwise by $\theta$ radians.\footnotemark
+	  	&
+	  	\emph{Reflections}\ \ $B_\theta=
+	  	\scalebox{0.8}{
+	  		$\begin{pmatrix}
+	  			\cos\theta&\sin\theta\\
+	  			\sin\theta&-\cos\theta
+				\end{pmatrix}$
+				}
+			$ \hfill($\det B_\theta=-1$)\smallbreak
+	  	The effect of $\vx\mapsto B_\theta\vx$ is to \emph{reflect} $\vx$ across the line making angle $\frac\theta 2$ with the positive $x$-axis.
+	  	\\[8pt]
+	  	\includegraphics{moving-rot}
+	  	&
+	  	\includegraphics{moving-refl}
+		\end{tabular}
+	\end{enumerate}
 \end{examples*}
 
 
-\footnotetext{Recall that the matrix of a linear map is found by evaluating the map on the standard basis: thus the 1\st\ columns of $A_\theta$ is the column vector $A_\theta\vi=\stwovec{\cos\theta}{\sin\theta}$. The pictures should help you verify the remaining columns; for $B_\theta$ you might find it helpful to consider how the required reflections of the standard basis vectors $\vi,\vj$ may be computed using \emph{rotations.}}
+\footnotetext{Recall that the matrix of a linear map is found by evaluating the map on the standard basis: the 1\st{} column of $A_\theta$ is the column vector $A_\theta\vi=\stwovec{\cos\theta}{\sin\theta}$. The pictures should verify the remaining columns; for $B_\theta$ you might find it helpful to consider how the required reflections of the standard basis vectors $\vi,\vj$ may be computed using \emph{rotations.}}
 
-Motivated by the $2\times 2$ case, it is common to refer to every orthogonal matrix in $\rO_3(\R)$ as either a rotation ($\det=1$) or a reflection ($\det=-1$).\footnote{A full analysis is more complicated; for instance the map $\vx\mapsto E\vx$ in the first example is the composition of a reflection across a plane in $\E^3$ followed by a rotation in that in that plane.}\smallbreak
+Motivated by the $2\times 2$ case, it is common to refer to every orthogonal matrix in $\rO_3(\R)$ as a \emph{rotation} ($\det=1$) or a \emph{reflection} ($\det=-1$).\footnote{A full analysis is more complicated. For instance, the map $\vx\mapsto E\vx$ in the first example is the composition of a reflection across a plane in $\E^3$ followed by a rotation in that plane.}\smallbreak
 
-Part \ref*{lemm:orth3} of Lemma \ref{lemm:orth} says that multiplication by an orthogonal matrix preserve the dot product and thus (Definition \ref{defn:dotprod}) the \emph{lengths} of vectors and the \emph{angles} between them. We use this to define a useful family of transformations of $\E^3$.
+Part \ref*{lemm:orth3} of Lemma \ref{lemm:orth} says that multiplication by an orthogonal matrix preserves the dot product and thus (Definition \ref{defn:dotprod}) the \emph{lengths} of vectors and the \emph{angles} between them. We use this to define a useful family of transformations of $\E^3$.
 
 \begin{defn}{}{rigid}
-An \emph{isometry\footnotemark} is a function $S:\E^3\to\E^3$ acting on points/position vectors by
-\[S(\vx)=A\vx+\vb\]
-where $\vb$ is a constant vector and $A\in\rO_3(\R)$. We call $S$ a \emph{direct isometry} or \emph{rigid motion} if $\det A=1$ ($A\in\rSO_3(\R)$), and an \emph{indirect isometry} otherwise.
+	An \emph{isometry} is a function $S:\E^3\to\E^3$ acting on points/position vectors by
+	\[
+		S(\vx)=A\vx+\vb
+	\]
+	where $\vb$ is a constant vector and $A\in\rO_3(\R)$. We call $S$ a \emph{direct isometry} or \emph{rigid motion} if $\det A=1$ ($A\in\rSO_3(\R)$), and an \emph{indirect isometry} otherwise.
 \end{defn}
 
-\footnotetext{Literally \emph{equal length}; it can be seen that every function $S:\E^3\to\E^3$ which preserves distances between all pairs of points has this form.}
-
-\emph{Congruent} geometric objects are precisely those which are related by an isometry. Rigid motions are precisely the \emph{orientation-preserving} isometries.
-
+Isometry literally means \emph{equal length}; it can be seen that every function $S:\E^3\to\E^3$ which preserves distances between all pairs of points is an isometry. \emph{Congruent} geometric objects (in standard Euclidean geometry) are precisely those which are related by an isometry. 
 
 
 \boldsubsubsection{Moving Frames}
 
-Thus far we have analysed curves with reference to the standard orthonormal basis $\epsilon=\{\vi,\vj,\vk\}$. We replace this \emph{static} frame of reference with one that \emph{moves.}
+Thus far we have analyzed curves with reference to the standard orthonormal basis $\epsilon=\{\vi,\vj,\vk\}$. We now replace this \emph{static} frame of reference with one that \emph{moves.} The goal is eventually to describe a special moving frame with respect to which the fundamental properties of the curve are clear.
 
 
 \begin{defn}{}{moving}
-Let $\vx:I\to\E^3$ be a smooth curve. Suppose that $\ve_1,\ve_2,\ve_3$ are smooth functions on $I$ such that, for each $t\in I$,
-\begin{quote}
-$\{\ve_1(t),\ve_2(t),\ve_3(t)\}$ is a positively oriented orthonormal basis of the tangent space $T_{\vx(t)}\E^3$
-\end{quote}
-We call this family of functions a \emph{moving frame} along $\vx$.\smallbreak
-Equivalently, $E(t)=\bigl(\ve_1(t)\ \ve_2(t)\ \ve_3(t)\bigr)$ is a smooth function $E:I\to\rSO_3(\R)$. We will often refer to $E(t)$ as a moving frame.
+	Let $\vx:I\to\E^3$ be a smooth curve. Suppose that $\ve_1,\ve_2,\ve_3$ are smooth functions on $I$ such that, for each $t\in I$,
+	\begin{quote}
+		$\{\ve_1(t),\ve_2(t),\ve_3(t)\}$ is a positively oriented orthonormal basis of the tangent space $T_{\vx(t)}\E^3$
+	\end{quote}
+	We call this family of functions a \emph{moving frame} along $\vx$.\smallbreak
+	Equivalently, $E(t)=\bigl(\ve_1(t)\ \ve_2(t)\ \ve_3(t)\bigr)$ is a smooth function $E:I\to\rSO_3(\R)$. We will often refer to this matrix-valued function as a moving frame.
 \end{defn}
 
 \begin{center}
-\begin{tabular}{c@{\hspace{20pt}}c}
-\includegraphics[scale=1]{vector-frame-e2}
-&
-\href{http://math.uci.edu/~ndonalds/math162a/vector-frame-e3.html}{\includegraphics[scale=0.9]{vector-frame-e3}}
-\\
-A moving frame in $\E^2$&A moving frame in $\E^3$
-\end{tabular}
+	\begin{tabular}{c@{\hspace{20pt}}c}
+		\includegraphics[scale=1]{vector-frame-e2}
+		&
+		\href{http://math.uci.edu/~ndonalds/math162a/vector-frame-e3.html}{\includegraphics[scale=0.9]{vector-frame-e3}}
+		\\
+		A moving frame in $\E^2$&A moving frame in $\E^3$
+	\end{tabular}
 \end{center}
 
-To be a little more precise; at each point on the curve, the tangent space $T_{\vx(t)}\E^3$ has a standard basis of tangent vectors $\{\vi_{\vx(t)},\vj_{\vx(t)},\vk_{\vx(t)}\}$, and we can write
-\[\ve_j(t)=a_j(t)\vi_{\vx(t)}+b_j(t)\vj_{\vx(t)}+c_j(t)\vk_{\vx(t)} =\threevec{a_j(t)}{b_j(t)}{c_j(t)}\]
+The smoothness criterion needs a little unpacking. At each point on the curve, the tangent space $T_{\vx(t)}\E^3$ has a standard basis of tangent vectors $\{\vi_{\vx(t)},\vj_{\vx(t)},\vk_{\vx(t)}\}$, with respect to which
+\[
+	\ve_j(t) =a_j(t)\vi_{\vx(t)}+b_j(t)\vj_{\vx(t)}+c_j(t)\vk_{\vx(t)} =\threevec{a_j(t)}{b_j(t)}{c_j(t)}
+\]
 We require that the functions $a_j,b_j,c_j:I\to \R$ be smooth. Strictly speaking, $\ve_j(t)$ is a \emph{smooth vector field} along the curve.
 
 
-
 \begin{example}[lower separated=false, sidebyside, sidebyside align=top seam, sidebyside gap=0pt, righthand width=0.4\linewidth]{}{easymovingframe}
-The following functions define a moving frame along the unit circle $\vx(t)=\bigl(\cos t,\sin t\bigr)$:
-\[\ve_1(t)=\twovec{\cos 2t}{\sin 2t}\qquad \ve_2(t)=\twovec{-\sin 2t}{\cos 2t}\]
-Click on the picture to see how the frame rotates twice as one travels once round the circle!\smallbreak
-In accordance with the definition, for each $t$,
-\[E(t)=\begin{pmatrix}
-\cos 2t&-\sin 2t\\
-\sin 2t&\cos 2t
-\end{pmatrix}\in\rSO_3(\R)\]
-%$ is an orthogonal matrix-valued function with determinant 1.
-\tcblower
-\flushright\href{http://math.uci.edu/~ndonalds/math162a/vector-anim.html}{\includegraphics[scale=0.9]{vector-anim2}}
+	We define a moving frame along the unit circle $\vx(t)=\bigl(\cos t,\sin t\bigr)$ via
+	\[
+		\ve_1(t) =\twovec{\cos 2t}{\sin 2t}\qquad \ve_2(t) =\twovec{-\sin 2t}{\cos 2t}
+	\]
+	Click on the picture to see how the frame rotates twice as one travels once round the circle!\smallbreak
+	In accordance with the definition, for each $t$,
+	\[
+		E(t)=
+		\begin{pmatrix}
+			\cos 2t&-\sin 2t\\
+			\sin 2t&\cos 2t
+		\end{pmatrix}
+		\in\rSO_3(\R)
+	\]
+	\tcblower
+	\flushright\href{http://math.uci.edu/~ndonalds/math162a/vector-anim.html}{\includegraphics[scale=0.9]{vector-anim2}}
 \end{example}
 
 \goodbreak
 
-%\boldsubsubsection{The Structure Equations for a Moving Frame}
 
-The goal is to find natural choices of frame with respect to which fundamental properties of a curve become clear. This advantage comes at a price: we have to understand how a moving frame \emph{moves.}
+The obvious disadvantage of a moving frame is that we have to understand how such a frame moves!
 
 \begin{thm}{Structure equations}{moving}
-Suppose $\{\ve_1(t),\ve_2(t),\ve_3(t)\}$ is a moving frame. Then there exist unique functions $w_{ij}(t)=\ve_i\cdot\ve_j' =-\ve'_i\cdot\ve_j$ \ ($i<j$) such that
-	\[\begin{pmatrix}
+	Suppose $\{\ve_1(t),\ve_2(t),\ve_3(t)\}$ is a moving frame. Then there exist unique functions $w_{ij}(t)=\ve_i\cdot\ve_j' =-\ve'_i\cdot\ve_j$ \ ($i<j$) such that
+	\[
+		\begin{pmatrix}
   		\ve_1'&\ve_2'&\ve_3'
   	\end{pmatrix}=
 		\begin{pmatrix}
@@ -866,139 +858,140 @@ Suppose $\{\ve_1(t),\ve_2(t),\ve_3(t)\}$ is a moving frame. Then there exist uni
 			0&w_{12}&w_{13}\\
 			-w_{12}&0&w_{23}\\
 			-w_{13}&-w_{23}&0
-		\end{pmatrix}\]
+		\end{pmatrix}
+	\]
 \end{thm}
 
-In matrix form the structure equations can be written $E'=EW$, where each $W(t)$ is \emph{skew-symmetric.}
+The structure equations can be written in matrix form $E'=EW$, where $W(t)$ is \emph{skew-symmetric.}\footnote{The set of skew-symmetric matrices is sometimes denoted $\fso_3(\R)$. The structure equations are an example of the relationship between a \emph{Lie group} and its \emph{Lie algebra,} a foundation on which much advanced differential geometry rests.} In $\E^2$, there is only a single function $w_{12}=\ve_1\cdot \ve_2'$. As we've done already, we often drop the $(t)$ to make things more readable; just remember that everything is still a \emph{function}!
 
-In $\E^2$ there is only a single function $w_{12}$. As we've done already, we often drop the $(t)$ to make things more readable; just remember that everything is still a \emph{function}!
-
+\goodbreak
 
 \begin{proof}
-Since $\ve_i\cdot\ve_j$ is constant (equals 0 or 1), the product rule says that%(the product rule works for the dot product!)
-  \[0=\diff t\bigl(\ve_i\cdot\ve_j\bigr) =\ve_i'\cdot\ve_j+\ve_i\cdot\ve_j'\]
-Now use Lemma \ref{lemm:orthcomp} to compute the co-ordinates of $\ve_i'$ with respect to the basis $\{\ve_1(t),\ve_2(t),\ve_3(t)\}$. For instance, the first column of $E'(t)$ follows from
-  \[\ve_1'(t)=(\ve_1'\cdot\ve_1)\ve_1+(\ve_1'\cdot\ve_2)\ve_2+(\ve_1'\cdot\ve_3)\ve_3 =-(\ve_1\cdot\ve_2')\ve_2-(\ve_1\cdot\ve_3')\ve_3\tag*{\qedhere}\]
-
-
-
+	Since $\ve_i\cdot\ve_j$ is constant (equals 0 or 1), the product rule says that
+  \[
+  	0=\diff t\bigl(\ve_i\cdot\ve_j\bigr) =\ve_i'\cdot\ve_j+\ve_i\cdot\ve_j'
+  \]
+	Now use Lemma \ref{lemm:orthcomp} to compute the co-ordinates of $\ve_i'$ with respect to the basis $\{\ve_1(t),\ve_2(t),\ve_3(t)\}$. For instance, the first column of $E'(t)$ follows from
+  \[
+  	\ve_1'(t) =(\ve_1'\cdot\ve_1)\ve_1+(\ve_1'\cdot\ve_2)\ve_2+(\ve_1'\cdot\ve_3)\ve_3 =-(\ve_1\cdot\ve_2')\ve_2-(\ve_1\cdot\ve_3')\ve_3 =-w_{12}\ve_2-w_{13}\ve_3 \tag*{\qedhere}
+  \]
 \end{proof}
 
 \begin{examples}{}{}
-\exstart Example \ref{ex:easymovingframe} described a moving frame in $\E^2$:
-	\[w_{12}(t)=\ve_1(t)\cdot \ve_2'(t)=\twovec{\cos 2t}{\sin 2t}\cdot\twovec{-2\cos 2t}{-2\sin 2t}=-2\]
-	whence the structure equations are
-	\[(\ve_1'\ \ve_2')=(\ve_1\ \ve_2)\begin{pmatrix}
-	0&-2\\
-	2&0
-	\end{pmatrix}\]
-\begin{enumerate}\setcounter{enumi}{1}
-	\item Without mentioning a curve $\vx$, here is a moving frame in $\E^3$ with non-constant functions $w_{ij}$
-	\[\ve_1(t)=\threevec{\cos^2\!t}{\cos t\sin t}{\sin t}\qquad \ve_2(t)=\threevec{\sin t}{-\cos t}{0}\qquad \ve_3(t)=\threevec{\sin t\cos t}{\sin^2\!t}{-\cos t}\]
-	We compute
-	\begin{gather*}
-	w_{12}(t) =\ve_1\cdot\ve_2' =\cos^3\!t+\cos t\sin^2\!t =\cos t,\\
-	w_{13}(t) =\ve_1\cdot\ve_3' =\cos^2\!t(\cos^2\!t-\sin^2\!t)+2(\cos t\sin t)^2+\sin^2\!t =1\\
-	w_{23}(t) =\ve_2\cdot\ve_3' =\sin t(\cos^2\!t-\sin^2\!t)-\cos t(2\cos t\sin t) =-\sin t
-% 		\ve_1'(t)=-\cos t\ve_2(t)-\ve_3(t)\qquad \ve'_2(t)=\cos t\ve_1(t)+\sin t\ve_3(t)\\
-% 		\ve_3'(t)=\ve_1(t)-\sin t\ve_2(t)
-	\end{gather*}
+	\exstart Example \ref{ex:easymovingframe} described a moving frame in $\E^2$:
+	\[
+		w_{12}(t)=\ve_1(t)\cdot \ve_2'(t)=\twovec{\cos 2t}{\sin 2t}\cdot\twovec{-2\cos 2t}{-2\sin 2t}=-2
+	\]
 	The structure equations are therefore
-	\[\begin{pmatrix}
-  \ve_1'&\ve_2'&\ve_3'
-  \end{pmatrix}=
+	\[
+	(\ve_1'\ \ve_2')=(\ve_1\ \ve_2)
 	\begin{pmatrix}
-	\ve_1&\ve_2&\ve_3
+		0&-2\\
+		2&0
 	\end{pmatrix}
-	\begin{pmatrix}
-	0&\cos t&1\\
-	-\cos t&0&-\sin t\\
-	-1&\sin t&0
-	\end{pmatrix}\]
-\end{enumerate}
+	\]
+	\begin{enumerate}\setcounter{enumi}{1}
+		\item A moving frame can be described without mentioning a specific curve $\vx(t)$:
+		\[
+			\ve_1(t) =\threevec{\cos^2\!t}{\cos t\sin t}{\sin t}\qquad \ve_2(t) =\threevec{\sin t}{-\cos t}{0}\qquad \ve_3(t) =\threevec{\sin t\cos t}{\sin^2\!t}{-\cos t}
+		\]
+		The structure equations are easily computed
+		\begin{gather*}
+			w_{12}(t) =\ve_1\cdot\ve_2' =\cos^3\!t+\cos t\sin^2\!t =\cos t,\\
+			w_{13}(t) =\ve_1\cdot\ve_3' =\cos^2\!t(\cos^2\!t-\sin^2\!t)+2(\cos t\sin t)^2+\sin^2\!t =1\\
+			w_{23}(t) =\ve_2\cdot\ve_3' =\sin t(\cos^2\!t-\sin^2\!t)-\cos t(2\cos t\sin t) =-\sin t\\
+			\begin{pmatrix}
+	  		\ve_1'&\ve_2'&\ve_3'
+	  	\end{pmatrix}
+	  	=
+			\begin{pmatrix}
+				\ve_1&\ve_2&\ve_3
+			\end{pmatrix}
+			\begin{pmatrix}
+				0&\cos t&1\\
+				-\cos t&0&-\sin t\\
+				-1&\sin t&0
+			\end{pmatrix}
+		\end{gather*}
+	\end{enumerate}
 \end{examples}
 
+
 \begin{exercises}
-\exstart Express $\vv=\stwovec 51=a_1\ve_1+a_2\ve_2$ as a linear combination with respect to the orthonormal basis $\beta=\{\ve_1,\ve_2\}=\left\{\frac 1{13}\stwovec 5{12},\frac 1{13}\stwovec{12}{-5}\right\}$ of $\E^2$.
+	\exstart Express $\vv=\stwovec 51=a_1\ve_1+a_2\ve_2$ as a linear combination with respect to the orthonormal basis $\beta =\{\ve_1,\ve_2\} =\left\{\frac 1{13}\stwovec 5{12},\frac 1{13}\stwovec{12}{-5}\right\}$ of $\E^2$.
 
-\begin{enumerate}\setcounter{enumi}{1}
-  \item\begin{enumerate}
-    \item Show that $\beta=\smash[b]{\scalebox{0.8}{$\left\{\dfrac 13\threevec 221,\dfrac 1{\sqrt 2}\threevec 1{-1}0,\dfrac 1{3\sqrt 2}\threevec{-1}{-1}4\right\}$}}$ is an orthonormal basis of $\E^3$. Is it positively oriented?
-    \item Find the co-ordinates of $\smash[t]{\sthreevec 100}$ with respect to $\beta$.
-  \end{enumerate}
-  
-  \item\begin{enumerate}
-		\item Explain why the product rule $\diff t(\vx\cdot\vy)=\vx'\cdot\vy+\vx\cdot\vy'$ holds for differentiable curves $\vx,\vy$.    
-		\item Let $\vx,\vy$ be differentiable on an interval and use the product rule to answer the following:
-		\begin{enumerate}
-		  \item If $\vx(t_0)$ and $\vx'(t)$ are orthogonal to a fixed vector $\vv$ for all $t$, show that $\vx(t)$ is always orthogonal to $\vv$.
-			\item If $\vy(t_0)$ is a point on $\vy$ which is closest to the origin, show that $\vy(t_0)\perp\vy'(t_0)$.
+	\begin{enumerate}\setcounter{enumi}{1}
+	  \item\begin{enumerate}
+	    \item Show that $\beta=\smash[b]{\scalebox{0.8}{$\left\{\dfrac 13\threevec 221,\dfrac 1{\sqrt 2}\threevec 1{-1}0,\dfrac 1{3\sqrt 2}\threevec{-1}{-1}4\right\}$}}$ is an orthonormal basis of $\E^3$. Is it positively oriented?
+	    \item Find the co-ordinates of $\smash[t]{\sthreevec 100}$ with respect to $\beta$.
+	  \end{enumerate}
+	  
+	  
+	  \item\begin{enumerate}
+			\item Explain why the product rule $\diff t(\vx\cdot\vy)=\vx'\cdot\vy+\vx\cdot\vy'$ holds for differentiable curves $\vx,\vy$.    
+			\item Let $\vx,\vy$ be differentiable on an interval and use the product rule to answer the following:
+			\begin{enumerate}
+			  \item Suppose $\vx(t_0)$ and $\vx'(t)$ are orthogonal to a fixed vector $\vv$ (the latter for all $t$). Show that $\vx(t)$ is always orthogonal to $\vv$.
+				\item If $\vy(t_0)$ is a point on $\vy$ which is closest to the origin, show that $\vy(t_0)\perp\vy'(t_0)$.
+			\end{enumerate}
 		\end{enumerate}
-	\end{enumerate}
-  
-  \item Find the function $w_{12}$ for the moving frame $\{\ve_1,\ve_2\}=\scalebox{0.8}{$\left\{\dfrac 1{1+t^2}\twovec{2t}{1-t^2},\dfrac 1{1+t^2}\twovec{t^2-1}{2t}\right\}$}$
-  
- 	\item Find the structure equations for the moving frame
- 	\[\{\ve_1,\ve_2,\ve_3\}=\scalebox{0.85}{$\left\{\threevec{\cos t}0{\sin t}, \threevec 010, \threevec{-\sin t}{0}{\cos t}\right\}$}\]
-  
-  \item\begin{enumerate}
-    \item Explain why every moving frame in $\E^2$ has the form $\{\ve_1,\ve_2\}=\left\{\stwovec{\cos \theta(t)}{\sin \theta(t)},\stwovec{-\sin\theta(t)}{\cos \theta(t)}\right\}$ for some function $\theta$.
-    \item Find the structure equations for this frame: how does $w_{12}$ relate to $\theta$?
-    \item\label{exs:frenet2deasy} If $\vx(t)$ is parametrized at unit speed such that $\ve_1(t)=\vx'(t)$, what is $w_{12}(t)$?
-  \end{enumerate}
-  
-  \item\label{exs:lieorth}\begin{enumerate}
-    \item Let $E(t)$ be a matrix-valued function. Show that $\diff t(E(t))^{-1}=-E^{-1}E'E^{-1}$.
-		\item Suppose $E:I\to \rO_3(\R)$ is differentiable and define $W(t):=E^{-1}(t)E'(t)$. Show that $W(t)$ is skew-symmetric ($W^T=-W$).%\par
-  %(\emph{By virtue of this relationship, the set of skew-symmetric matrices are sometimes denoted $\fso_3(\R)$: this is an example of the relationship between a \emph{Lie group} and its \emph{Lie algebra,} a foundation on which much of advanced differential geometry rests.})
-  \end{enumerate}
-  
-  
-  \item\begin{enumerate}
-    \item Verify parts 2 and 3 of Lemma \ref{lemm:orth}.
-    \item Suppose $f,g$ are rigid motions. Show that $f\circ g$ and $f^{-1}$ are also rigid motions.
-  \end{enumerate}
-  
-  \item\label{exs:tanvecrigid} Let $\vi=\stwovec 10$. Suppose $\vp\in\E^2$ and a unit vector $\vv$ are given. Prove that there is a unique rigid motion $S:\vx\mapsto A\vx+\vb$ such that
-  \[S(\V0)=\vp\quad \text{and}\quad S(\vi)=\vp+\vv\]
-  Viewing $\vi_{\V0}=\bigl(\V0,\vi\bigr)\in T_{\V0}\E^2$ and $\vv_{\vp}=\bigl(\vp,\vv\bigr)\in T_{\vp}\E^2$ as \emph{tangent vectors,} explain why it is reasonable to write $\vv_{\vp}=S(\vi_{\V0})=(A\vi)_{\vp}$: that is, only the matrix $A$ affects the \emph{directional part} of a tangent vector.
+	  
+	  
+	  \item Find the function $w_{12}$ for the moving frame $\{\ve_1,\ve_2\}=\scalebox{0.8}{$\left\{\dfrac 1{1+t^2}\twovec{2t}{1-t^2},\dfrac 1{1+t^2}\twovec{t^2-1}{2t}\right\}$}$
+	  
+	  
+	 	\item Find the structure equations for the moving frame $\{\ve_1,\ve_2,\ve_3\} =\left\{\sthreevec{\cos t}0{\sin t}, \sthreevec 010, \sthreevec{-\sin t}{0}{\cos t}\right\}$
+	  
+	  
+	  \item\begin{enumerate}
+	    \item Explain why every moving frame in $\E^2$ has the form $\{\ve_1,\ve_2\} =\left\{\stwovec{\cos \theta(t)}{\sin \theta(t)},\stwovec{-\sin\theta(t)}{\cos \theta(t)}\right\}$ for some function $\theta$.
+	    \item Find the structure equations for this frame: how does $w_{12}$ relate to $\theta$?
+	    \item\label{exs:frenet2deasy} If $\vx(t)$ is parametrized at unit speed such that $\ve_1(t)=\vx'(t)$, what is $w_{12}(t)$?
+	  \end{enumerate}
+	  
+	  
+	  \item\begin{enumerate}
+	    \item Let $E(t)$ be a square matrix-valued function. Show that $\diff t(E(t))^{-1}=-E^{-1}E'E^{-1}$.
+			\item Suppose $E:I\to \rO_3(\R)$ is differentiable and define $W(t):=E^{-1}(t)E'(t)$. Use part (a) to prove that $W(t)$ is skew-symmetric ($W^T=-W$).
+	  \end{enumerate}
+	  
+	  
+	  \item\begin{enumerate}
+	    \item Verify parts 2 and 3 of Lemma \ref{lemm:orth}.
+	    \item Suppose $f,g$ are rigid motions. Show that $f\circ g$ and $f^{-1}$ are also rigid motions.
+	  \end{enumerate}
+	  
+	  
+	  \item\label{exs:tanvecrigid} Let $\vi=\stwovec 10$. Suppose $\vp\in\E^2$ and a unit vector $\vv$ are given. Prove that there is a unique rigid motion $S:\vx\mapsto A\vx+\vb$ such that
+	  \[
+	  	S(\V0)=\vp\quad \text{and}\quad S(\vi)=\vp+\vv
+	  \]
+	  Write $\vi_{\V0}=\bigl(\V0,\vi\bigr)\in T_{\V0}\E^2$ and $\vv_{\vp}=\bigl(\vp,\vv\bigr)\in T_{\vp}\E^2$ as \emph{tangent vectors,} explain why it is reasonable to write $\vv_{\vp}=S(\vi_{\V0})=(A\vi)_{\vp}$: i.e., only $A$ affects the \emph{directional part} of a tangent vector.
+	  
 	
-% 	\item Prove parts 3, 4 and 6 of Theorem 1.11 from the notes (basic properties of vector product).
-% 
-% 	\item Let $\vx(t)$ and $\vy(t)$ be differentiable curves in $\E^3$. Suppose that the derivatives of $\vx,\vy$ satisfy the following:
-% 	\[\vx'(t)=a\vx(t)+b\vy(t),\qquad\vy'(t)=c\vx(t)-a\vy(t),\]
-% 	where $a,b,c$ are constants. Show that,
-% 	\begin{enumerate}
-%   	\item $\vx(t),\vy(t)$ lie in a fixed plane.
-%   	\item The area of the parallelogram spanned by $\vx(t),\vy(t)$ is constant.
-% 	\end{enumerate}
+		\item (Hard)\quad Suppose that a moving frame has structure equations 
+		\[
+			\ve'_1=-\tfrac 1{\sqrt 2}(\ve_2+\ve_3),\qquad\ve'_2=\tfrac 1{\sqrt 2}\ve_1,\qquad\ve'_3=\tfrac 1{\sqrt 2}\ve_1
+		\]
+		\begin{enumerate}
+		  \item By considering $\ve_1''$, show that the vector $\ve_1\times\ve_1'$ is constant.
+		  \item Show that $\Nm{\ve_1'}$ is constant.
+		  \item Prove that there exists a constant positively oriented orthonormal basis $\{\va,\vb,\vc\}$ such that $\ve_1(t)=\cos t\va+\sin t\vb$ and compute $\ve_2,\ve_3$ in terms of this basis.
+		\end{enumerate}
+	% 	
+	% 	\item Suppose that $\vx(t),\vy(t)$ are curves such that $\vx(t)$ is orthogonal to both $\vy(t)$ and $\vy'(t)$ for every $t$. Then,
+	% 	\[\vx'(t)\cdot\vy(t)=\diff{t}(\vx(t)\cdot\vy(t))-\vx(t)\cdot\vy'(t)=0\]
+	% 	so that $\vx'$ is orthogonal to $\vy$ also.
+	% 
+	% 	\item Suppose that $\vx(t)\times\vx'(t)=\vk$ is a constant vector. Then
+	% 	\[\V0=\diff{t}(\vx\times\vx')=\vx'\times\vx'+\vx\times\vx''=\vx\times\vx''\]
+	% and so $\vx''$ is parallel to $\vx$.
 	
-%  	\item Suppose that $\vv$ is a fixed vector in $\E^3$ and let $\va,\vb$ be an orthogonal basis of the plane orthogonal to $\vv$. Describe how to find all the unit vectors (length 1) which are perpendicular to $\vv$ in terms of $\va,\vb$. Use this to find all unit vectors which are perpendicular to the vector $\threevec 110$.
-
-	\item (Hard)\quad Suppose that a moving frame has structure equations 
-	\[\ve'_1=-\tfrac 1{\sqrt 2}(\ve_2+\ve_3),\qquad\ve'_2=\tfrac 1{\sqrt 2}\ve_1,\qquad\ve'_3=\tfrac 1{\sqrt 2}\ve_1\]
-	\begin{enumerate}
-	  \item By considering $\ve_1''$, show that the vector $\ve_1\times\ve_1'$ is constant.
-	  \item Show that $\Nm{\ve_1'}$ is constant.
-	  \item Prove that there exists a constant positively oriented orthonormal basis $\va,\vb,\vc$ such that $\ve_1(t)=\cos t\va+\sin t\vb$ and compute $\ve_2,\ve_3$ in terms of this basis.
 	\end{enumerate}
-% 	
-% 	\item Suppose that $\vx(t),\vy(t)$ are curves such that $\vx(t)$ is orthogonal to both $\vy(t)$ and $\vy'(t)$ for every $t$. Then,
-% 	\[\vx'(t)\cdot\vy(t)=\diff{t}(\vx(t)\cdot\vy(t))-\vx(t)\cdot\vy'(t)=0\]
-% 	so that $\vx'$ is orthogonal to $\vy$ also.
-% 
-% 	\item Suppose that $\vx(t)\times\vx'(t)=\vk$ is a constant vector. Then
-% 	\[\V0=\diff{t}(\vx\times\vx')=\vx'\times\vx'+\vx\times\vx''=\vx\times\vx''\]
-% and so $\vx''$ is parallel to $\vx$.
-
-\end{enumerate}
 \end{exercises}
 
-
-
-
-
 \clearpage
+
 
 
 \subsection{The Frenet Frame for a Spacecurve}\label{sec:frenet}
