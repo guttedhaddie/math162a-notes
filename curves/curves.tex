@@ -846,34 +846,32 @@ We require that the functions $a_j,b_j,c_j:I\to \R$ be smooth. Strictly speaking
 The obvious disadvantage of a moving frame is that we have to understand how such a frame moves!
 
 \begin{thm}{Structure equations}{moving}
-	Suppose $\{\ve_1(t),\ve_2(t),\ve_3(t)\}$ is a moving frame. Then there exist unique functions $w_{ij}(t)=\ve_i\cdot\ve_j' =-\ve'_i\cdot\ve_j$ \ ($i<j$) such that
+	Suppose $\{\ve_1(t),\ve_2(t),\ve_3(t)\}$ is a moving frame (orthonormal positive orientation). For each $j$, express the derivative as a linear combination
 	\[
-		\begin{pmatrix}
-  		\ve_1'&\ve_2'&\ve_3'
-  	\end{pmatrix}=
-		\begin{pmatrix}
-			\ve_1&\ve_2&\ve_3
-		\end{pmatrix}
+		\ve_j'=\ve_1w_{1j}+\ve_2w_{2j}+\ve_3w_{3j}
+	\]
+	where each $w_{ij}(t) =\ve_i\cdot\ve_j'$ is a scalar function. Then the matrix $W=(w_{ij})$ is skew-symmetric:\footnotemark
+	\[
+		\bigl(\ve_1'\ \ \ve_2'\ \ \ve_3'\bigr)=
+		\bigl(\ve_1\ \ \ve_2\ \ \ve_3\bigr)
 		\begin{pmatrix}
 			0&w_{12}&w_{13}\\
 			-w_{12}&0&w_{23}\\
 			-w_{13}&-w_{23}&0
 		\end{pmatrix}
+		\tag{matrix form $E'=EW$}
 	\]
 \end{thm}
 
-The structure equations can be written in matrix form $E'=EW$, where $W(t)$ is \emph{skew-symmetric.}\footnote{The set of skew-symmetric matrices is sometimes denoted $\fso_3(\R)$. The structure equations are an example of the relationship between a \emph{Lie group} and its \emph{Lie algebra,} a foundation on which much advanced differential geometry rests.} In $\E^2$, there is only a single function $w_{12}=\ve_1\cdot \ve_2'$. As we've done already, we often drop the $(t)$ to make things more readable; just remember that everything is still a \emph{function}!
+\footnotetext{The set of skew-symmetric matrices is sometimes denoted $\fso_3(\R)$. The structure equations are an example of the relationship between a \emph{Lie group} and its \emph{Lie algebra,} a foundation on which much advanced differential geometry rests.}
 
-\goodbreak
+In $\E^2$, there is only a single function $w_{12}=\ve_1\cdot \ve_2'$. As we've done already, we often drop the $(t)$ to make things more readable; just remember that everything is still a \emph{function}!
+
 
 \begin{proof}
 	Since $\ve_i\cdot\ve_j$ is constant (equals 0 or 1), the product rule says that
   \[
-  	0=\diff t\bigl(\ve_i\cdot\ve_j\bigr) =\ve_i'\cdot\ve_j+\ve_i\cdot\ve_j'
-  \]
-	Now use Lemma \ref{lemm:orthcomp} to compute the co-ordinates of $\ve_i'$ with respect to the basis $\{\ve_1(t),\ve_2(t),\ve_3(t)\}$. For instance, the first column of $E'(t)$ follows from
-  \[
-  	\ve_1'(t) =(\ve_1'\cdot\ve_1)\ve_1+(\ve_1'\cdot\ve_2)\ve_2+(\ve_1'\cdot\ve_3)\ve_3 =-(\ve_1\cdot\ve_2')\ve_2-(\ve_1\cdot\ve_3')\ve_3 =-w_{12}\ve_2-w_{13}\ve_3 \tag*{\qedhere}
+  	0=\diff t\bigl(\ve_i\cdot\ve_j\bigr) =\ve_i'\cdot\ve_j+\ve_i\cdot\ve_j'  \implies w_{ji}+w_{ij}=0\tag*{\qedhere}
   \]
 \end{proof}
 
@@ -884,11 +882,11 @@ The structure equations can be written in matrix form $E'=EW$, where $W(t)$ is \
 	\]
 	The structure equations are therefore
 	\[
-	(\ve_1'\ \ve_2')=(\ve_1\ \ve_2)
-	\begin{pmatrix}
-		0&-2\\
-		2&0
-	\end{pmatrix}
+		(\ve_1'\ \ve_2')=(\ve_1\ \ve_2)
+		\begin{pmatrix}
+			0&-2\\
+			2&0
+		\end{pmatrix}
 	\]
 	\begin{enumerate}\setcounter{enumi}{1}
 		\item A moving frame can be described without mentioning a specific curve $\vx(t)$:
@@ -1000,158 +998,161 @@ In this section we analyze spacecurves with respect to a moving frame \emph{adap
 
 
 \begin{defn}{}{}
-A regular curve $\vx:I\to\E^3$ is \emph{biregular} if it has \emph{non-zero curvature} $\kappa$.
+	A regular \emph{spacecurve} $\vx:I\to\E^3$ is \emph{biregular} if it has \emph{non-zero curvature} $\kappa$.
 \end{defn}
 
 Every biregular curve is necessarily regular, but the converse is false. For instance, a straight line is regular but \emph{not biregular.} Indeed for a biregular curve, the vectors $\vx'(t)$ and $\vx''(t)$ must be linearly independent.
 
 \begin{defn}{}{}
-Let $\vx:I\to\E^3$ be a biregular unit-speed curve. The \emph{Frenet frame} $E(t)=(\vT\ \vN\ \vB)$ is the moving frame defined as follows:
-\begin{quote}
-	$\vT:=\vx'$ is the \emph{unit tangent} vector field\par
-	$\vN:=\frac 1{\kappa}\vT'$ is the \emph{principal normal} vector field\par
-	$\vB:=\vT\times\vN$ is the \emph{binormal} vector field
-\end{quote}
+	Let $\vx:I\to\E^3$ be a biregular unit-speed curve. The \emph{Frenet frame} $E(t)=(\vT\ \vN\ \vB)$ is the moving frame defined as follows:
+	\begin{quote}
+		$\vT:=\vx'$ is the \emph{unit tangent} vector field\par
+		$\vN:=\frac 1{\kappa}\vT'$ is the \emph{principal normal} vector field\par
+		$\vB:=\vT\times\vN$ is the \emph{binormal} vector field
+	\end{quote}
 \end{defn}
+
+We verify that the Frenet frame is indeed a moving frame:
+\begin{enumerate}
+  \item Since $\vx$ is unit-speed, $\vT$ has unit length.
+  \item By the product rule, $\vT\cdot\vT=1\implies 2\vT'\cdot\vT=0\implies \vN\cdot\vT=0$. Moreover, the definition of curvature tells us tht
+  \[\Nm{\vN}=\frac 1\kappa\Nm{\vT'}=\frac 1\kappa\Nm{\vx''}=\frac\kappa\kappa=1\]
+  so that $\vN$ is a unit vector perpendicular to $\vT$.
+  \item Standard properties of the cross product finish things off:
+  \begin{itemize}
+    \item $\vB$ has unit length since $\Nm{\vB}=\Nm{\vT}\Nm{\vN}\sin\theta =1$ ($\theta=\ang{90}$ is the angle between $\vT,\vN$).
+    \item $\bigl(\vT\times\vN)\cdot\vz=\det\bigl(\vT\ \vN\ \vz\bigr)$ with $\vz=\vT$ or $\vN$ says that $\vB$ is perpendicular to $\vT,\vN$. Finally, let $\vz=\vB$ to see that the Frenet frame is positively oriented.
+  \end{itemize}
+\end{enumerate}
 
 
 \begin{thm}{}{frenet}
-The Frenet frame is indeed a moving frame. Moreover, its structure equations are
-\[\begin{pmatrix}
-		\vT'&\vN'&\vB'
-  \end{pmatrix}
-  =
-  \begin{pmatrix}
-  	\vT&\vN&\vB
-  \end{pmatrix}
-  \begin{pmatrix}
-		0&-\kappa&0\\
-		\kappa&0&-\tau\\
-		0&\tau&0
-	\end{pmatrix}
-	\qquad\qquad 
-	\begin{cases}
-		\vT'=\kappa\vN\\
-		\vN'=-\kappa\vT+\tau\vB\\
-		\vB'=-\tau\vN
-	\end{cases}
+	The Frenet frame is a moving frame. Its structure equations are
+	\[
+		\bigl(\vT'\ \ \vN'\ \ \vB'\bigr)
+  	=
+  	\bigl(\vT\ \ \vN\ \ \vB\bigr)
+  	\begin{pmatrix}
+			0&-\kappa&0\\
+			\kappa&0&-\tau\\
+			0&\tau&0
+		\end{pmatrix}
+		\qquad\qquad 
+		\begin{cases}
+			\vT'=\kappa\vN\\
+			\vN'=-\kappa\vT+\tau\vB\\
+			\vB'=-\tau\vN
+		\end{cases}
   \]
-where $\kappa>0$ is the curvature and a new function $\tau=\vN'\cdot\vB=-\vN\cdot\vB'$ called the \emph{torsion.}
+	where $\kappa>0$ is the curvature and $\tau=\vN'\cdot\vB=-\vN\cdot\vB'$ is called the \emph{torsion.}
 \end{thm}
 
-\begin{proof}
-Certainly $\vT=\vx'$ has unit length.\smallbreak
-Since $\vx$ is \emph{biregular} we have $\kappa=\Nm{\vx''}=\Nm{\vT'}\neq 0$. The principal normal vector $\vN=\frac 1\kappa\vT'$ is therefore the unit vector pointing in the same direction as $\vT'$.\smallbreak
-By definition, the binormal vector has unit length\footnotemark\ and results in a positively oriented basis $\{\vT,\vN,\vB\}$.\smallbreak
-The smoothness of the frame follows from the smoothness of $\vx$ and the fact the $\kappa$ is never zero (think about how the product/quotient rule could be used to differentiate infinitely many times\ldots)\smallbreak
-To establish the structure equations, it remains only to verify that $w_{13}=0$. This is straightforward since
-\[w_{13}=-\vT'\cdot\vB=-\frac 1\kappa\vN\cdot\vB=0\tag*{\qedhere}\]
-\end{proof}
 
-\footnotetext{Recall that $\Nm{\va\times\vb}=\Nm\va\Nm\vb\sin\theta$ where $\theta$ is the angle between the vectors.}
-
-The structure equations for the Frenet frame are known as the \emph{Frenet--Serret equations.} The moving planes spanned by pairs of these vectors have special names:
+The structure equations for the Frenet frame are also known as the \emph{Frenet--Serret equations.} The moving planes spanned by pairs of these vectors have special names:
 \begin{quote}
 	$\Span\{\vT,\vN\},\Span\{\vT,\vB\}$ and $\Span\{\vN,\vB\}$ are the \emph{osculating, rectifying} and \emph{normal} planes.
 \end{quote}
-The tangent line at any point lies in the osculating plane. %The torsion describes how the osculating plane changes as we move along the curve. 
+At any point, the tangent line lies in the osculating plane. %The torsion describes how the osculating plane changes as we move along the curve. 
 
-\vfil\vfil
+
 \goodbreak
 	
 \begin{examples}{}{frenetexs}
-\exstart We compute the Frenet frame and its structure equations for the standard helix $\vx(s)=\bigl(\cos\frac s{\sqrt 2},\sin\frac s{\sqrt 2},\frac s{\sqrt 2}\bigr)$ parametrized by arc-length (\href{http://www.math.uci.edu/~ndonalds/math162a/frenet-helixstill.html}{3D pic})(\href{http://www.math.uci.edu/~ndonalds/math162a/frenet-helixanim.html}{animation})\par
-\begin{enumerate}\setcounter{enumi}{1}
-\begin{minipage}[t]{0.71\linewidth}\vspace{-8pt}
-\item[]\begin{gather*}
-\begin{aligned}
-\vT(s)&=\vx'(s)=\frac 1{\sqrt 2}\threevec{-\sin\frac s{\sqrt 2}}{\cos\frac s{\sqrt 2}}1\implies \vT'(s)=-\frac 12\threevec{\cos\frac t{\sqrt 2}}{\sin\frac t{\sqrt 2}}0\\
-&\implies \vN(s)=-\threevec{\cos\frac t{\sqrt 2}}{\sin\frac t{\sqrt 2}}0,\quad\kappa(s)=\frac 12\\
-&\implies \vB(s)=\vT(s)\times\vN(s)=\frac 1{\sqrt 2}\threevec{\sin\frac s{\sqrt 2}}{-\cos\frac s{\sqrt 2}}1
-\end{aligned}\\
-\tau(s)=\vN'(s)\cdot\vB(s)=\frac 1{2}\threevec{\sin\frac s{\sqrt 2}}{-\cos\frac s{\sqrt 2}}0\cdot\threevec{\sin\frac s{\sqrt 2}}{-\cos\frac s{\sqrt 2}}1=\frac 12
-\end{gather*}
-The Frenet--Serret equations for the helix are therefore
-\[\begin{pmatrix}
-  \vT'&\vN'&\vB'
-  \end{pmatrix}=\begin{pmatrix}
-  \vT&\vN&\vB
-  \end{pmatrix}\begin{pmatrix}
-                    0&-\frac 12&0\\
-                    \frac 12&0&-\frac 12\\
-                    0&\frac 12&0
-                    \end{pmatrix}\]
-\end{minipage}\hfill\begin{minipage}[t]{0.28\linewidth}\vspace{-15pt}
-\flushright\includegraphics{frenet-helixstill}
-\end{minipage}\par
-
-  \item Let $\vx(s)=\bigl(\frac 13(1+s)^{3/2},\frac 1{\sqrt 2}s,\frac 13(1-s)^{3/2}\bigr)$ for $s\in(-1,1)$. First we verify this is unit-speed
-	\[\vx'(s)=\frac 12\threevec{\sqrt{1+s}}{\sqrt 2}{-\sqrt{1-s}} \implies v(s)=\Nm{\vx'(s)}=\frac 12\sqrt{1+s+2+1-s}=1\]
-	It follows that $\vT=\vx'$. Now compute the rest of the Frenet apparatus:
-	\begin{gather*}
-	\vT'=\frac 14\threevec{(1+s)^{-1/2}}0{(1-s)^{-1/2}}\implies \kappa=\Nm{\vT'}=\frac 14\sqrt{\frac 1{1+s}+\frac 1{1-s}}=\frac 1{2\sqrt 2\sqrt{1-s^2}}\\
-	\vN=\frac 1{\kappa}\vT' =\frac{2\sqrt 2\sqrt{1-s^2}}4\threevec{(1+s)^{-1/2}}0{(1-s)^{-1/2}} =\frac 1{\sqrt 2}\threevec{\sqrt{1-s}}0{\sqrt{1+s}}\\
-	\vB=\vT\times\vN=\frac 12\threevec{\sqrt{1+s}}{-\sqrt 2}{-\sqrt{1-s}}\implies \tau=\vN'\cdot\vB=\frac{-1}{2\sqrt 2\sqrt{1-s^2}}\\
-	\begin{pmatrix}
-  \vT'&\vN'&\vB'
-  \end{pmatrix}=\frac{\bigl(\vT\ \ \ \vN\ \ \ \vB\bigr)}{2\sqrt 2\sqrt{1-s^2}}
-  \begin{pmatrix}
-		0&-1&0\\
-		1&0&1\\
-		0&-1&0
-	\end{pmatrix}
-	\end{gather*}
-\end{enumerate}
+	\exstart We compute the Frenet frame and its structure equations for the standard helix $\vx(s)=\bigl(\cos\frac s{\sqrt 2},\sin\frac s{\sqrt 2},\frac s{\sqrt 2}\bigr)$ parametrized by arc-length (\href{http://www.math.uci.edu/~ndonalds/math162a/frenet-helixstill.html}{3D pic})(\href{http://www.math.uci.edu/~ndonalds/math162a/frenet-helixanim.html}{animation})\par
+		\begin{enumerate}\setcounter{enumi}{1}
+			\begin{minipage}[t]{0.71\linewidth}\vspace{-8pt}
+				\item[]\begin{gather*}
+				\begin{aligned}
+					\vT(s)&=\vx'(s) =\frac 1{\sqrt 2}\threevec{-\sin\frac s{\sqrt 2}}{\cos\frac s{\sqrt 2}}1\implies \vT'(s)=-\frac 12\threevec{\cos\frac t{\sqrt 2}}{\sin\frac t{\sqrt 2}}0\\
+					&\implies \vN(s) =-\threevec{\cos\frac t{\sqrt 2}}{\sin\frac t{\sqrt 2}}0,\quad\kappa(s) =\frac 12\\
+					&\implies \vB(s) =\vT(s)\times\vN(s) =\frac 1{\sqrt 2}\threevec{\sin\frac s{\sqrt 2}}{-\cos\frac s{\sqrt 2}}1
+				\end{aligned}\\
+				\tau(s) =\vN'(s)\cdot\vB(s) =\frac 1{2}\threevec{\sin\frac s{\sqrt 2}}{-\cos\frac s{\sqrt 2}}0\cdot\threevec{\sin\frac s{\sqrt 2}}{-\cos\frac s{\sqrt 2}}1=\frac 12
+			\end{gather*}
+			The Frenet--Serret equations for the helix are therefore
+			\[
+				\bigl(\vT'\ \ \vN'\ \ \vB'\bigr)
+				=
+				\bigl(\vT\ \ \vN\ \ \vB\bigr)
+				\begin{pmatrix}
+		    	0&-\frac 12&0\\
+					\frac 12&0&-\frac 12\\
+					0&\frac 12&0
+				\end{pmatrix}
+			\]
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.28\linewidth}\vspace{-15pt}
+			\flushright\includegraphics{frenet-helixstill}
+		\end{minipage}
+		\par
+	
+	  \item Let $\vx(s) =\bigl(\frac 13(1+s)^{3/2},\frac 1{\sqrt 2}s,\frac 13(1-s)^{3/2}\bigr)$ for $s\in(-1,1)$. First we verify this is unit-speed
+		\[
+			\vx'(s) =\frac 12\threevec{\sqrt{1+s}}{\sqrt 2}{-\sqrt{1-s}} \implies v(s)=\Nm{\vx'(s)} =\frac 12\sqrt{1+s+2+1-s}=1
+		\]
+		It follows that $\vT=\vx'$. Now compute the rest of the Frenet apparatus:
+		\begin{gather*}
+			\vT' =\frac 14\threevec{(1+s)^{-1/2}}0{(1-s)^{-1/2}} \implies \kappa =\Nm{\vT'} =\frac 14\sqrt{\frac 1{1+s}+\frac 1{1-s}} =\frac 1{2\sqrt 2\sqrt{1-s^2}}\\
+			\vN =\frac 1{\kappa}\vT' =\frac{2\sqrt 2\sqrt{1-s^2}}4\threevec{(1+s)^{-1/2}}0{(1-s)^{-1/2}} =\frac 1{\sqrt 2}\threevec{\sqrt{1-s}}0{\sqrt{1+s}}\\
+			\vB =\vT\times\vN =\frac 12\threevec{\sqrt{1+s}}{-\sqrt 2}{-\sqrt{1-s}} \implies \tau =\vN'\cdot\vB =\frac{-1}{2\sqrt 2\sqrt{1-s^2}}\\
+			\bigl(\vT'\ \ \vN'\ \ \vB'\bigr)
+			=\frac{\bigl(\vT\ \ \vN\ \ \vB\bigr)}{2\sqrt 2\sqrt{1-s^2}}
+		  \begin{pmatrix}
+				0&-1&0\\
+				1&0&1\\
+				0&-1&0
+			\end{pmatrix}
+		\end{gather*}
+	\end{enumerate}
 
 \end{examples}
 
-
-	
-
-                    
+         
 \boldsubsubsection{The Frenet Frame in arbitrary parametrization}
 
-Since there are relatively few curves for which an \emph{explicit} unit-speed parametrization can be found, we want to be able to find the Frenet frame for any biregular curve, regardless of parametrization. There is nothing stopping us from doing this already, if we're careful\ldots
+Since there are relatively few curves for which an \emph{explicit} unit-speed parametrization can be found, we want to be able to compute the Frenet frame for any biregular curve, regardless of parametrization. This requires nothing more than the careful application of the chain rule\ldots
 
 \begin{example}{}{}
-Consider the exponential spiral $\vx(t)=\bigl(e^t\cos t,e^t\sin t,e^t\bigr)$. We have
-\[
-	\vx'(t)=e^t\threevec{\cos t-\sin t}{\sin t+\cos t}1 \implies v(t)=\sqrt 3e^t \implies \vT(t)=\frac{1}{\sqrt 3}\threevec{\cos t-\sin t}{\sin t+\cos t}1
-\]\\ %=e^t\threevec{\sqrt 2\cos(t+\frac\pi 4)}{\sqrt 2\sin(t+\frac\pi 4)}1\\
-Since $\vT(t)$ is unit length, its derivative is perpendicular, thus
-\begin{align*}
-	\vT'(t)=\frac 1{\sqrt 3}\threevec{-\sin t-\cos t}{\cos t-\sin t}0 
-	&\implies \vN(t)=\frac 1{\sqrt 2}\threevec{-\sin t-\cos t}{\cos t-\sin t}0 \tag{make unit length}\\
-	&\implies\vB(t)=\vT\times\vN=\frac{1}{\sqrt 6}\threevec{-\cos t+\sin t}{-\sin t-\cos t}{2}
-\end{align*}
-It is tempting to think that the curvature should be $\Nm{\vT'(t)}=\sqrt{\frac 23}$, but this is not so. We need to use the chain rule:
-\[\kappa=\Nm{\diff s\vT(t)}=\Nm{\diff[t]{s}\diff t\vT(t)}=\frac 1{v(t)}\Nm{\vT'(t)}=\frac{\sqrt 2}3e^{-t}\]
-The torsion may be computed similarly
-\[\tau=\diff[\vN]{s}\cdot\vB =\frac 1{v(t)}\vN'(t)\cdot\vB(t)=\frac 13e^{-t}\]
+	We compute for the exponential spiral $\vx(t)=\bigl(e^t\cos t,e^t\sin t,e^t\bigr)$.
+	\[
+		\vx'(t) =e^t\threevec{\cos t-\sin t}{\sin t+\cos t}1 \implies v(t) =\sqrt 3e^t \implies \vT(t) =\frac{1}{\sqrt 3}\threevec{\cos t-\sin t}{\sin t+\cos t}1
+	\]
+	Since $\vT(t)$ has unit length, $\vT'\perp\vT$. But then
+	\begin{align*}
+		\vT'(t) =\frac 1{\sqrt 3}\threevec{-\sin t-\cos t}{\cos t-\sin t}0 
+		&\implies \vN(t) =\frac 1{\sqrt 2}\threevec{-\sin t-\cos t}{\cos t-\sin t}0 \tag{unit length $\parallel\vT'$}\\
+		&\implies\vB(t) =\vT\times\vN =\frac{1}{\sqrt 6}\threevec{-\cos t+\sin t}{-\sin t-\cos t}{2}
+	\end{align*}
+	It is tempting to think that the curvature should be $\Nm{\vT'(t)}=\sqrt{\frac 23}$, but this is not so. Since $\vx$ is not unit-speed, we need to use the chain rule:
+	\[
+		\kappa =\Nm{\diff s\vT(t)} =\Nm{\diff[t]{s}\diff t\vT(t)} =\frac 1{v(t)}\Nm{\vT'(t)} =\frac{\sqrt 2}3e^{-t}
+	\]
+	The torsion may be computed similarly
+	\[
+		\tau =\diff[\vN]{s}\cdot\vB =\frac 1{v(t)}\vN'(t)\cdot\vB(t) =\frac 13e^{-t}
+	\]
 \end{example}
 
-The proof of the general result is a (simple!) application of the chain-rule.
+For the general result, simply(!) repeat the example in the abstract.
 
 \begin{cor}{}{genfrenet}
-Let $\vx(t)$ be a biregular spacecurve with arbitrary parametrization. The speed, curvature, torsion, Frenet frame, and structure equations are as follows.
-\begin{gather*}
-\begin{aligned}
-&v(t)=\Nm{\vx'(t)}\qquad
-&&\kappa(t)=\frac{\Nm{\vx'\times\vx''}}{v^3}\qquad
-&&\tau(t)=\frac{(\vx'\times\vx'')\cdot\vx'''}{v^6\kappa^2}\\[8pt]
-&\vT(t)=\frac 1v\vx'\qquad
-&&\vN(t)=\frac{v\vx''-v'\vx'}{v^3\kappa}\qquad
-&&\vB(t)=\frac{\vx'\times\vx''}{v^3\kappa}
-\end{aligned}\\[8pt]
-\begin{pmatrix}
-  \vT'&\vN'&\vB'
-  \end{pmatrix}=
-	\begin{pmatrix}
-	\vT&\vN&\vB
-	\end{pmatrix}
-	\begin{pmatrix}
-	0&-v\kappa &0\\v\kappa&0&-v\tau\\0&v\tau&0
-	\end{pmatrix}
+	Let $\vx(t)$ be a biregular spacecurve with arbitrary parametrization. The speed, curvature, torsion, Frenet frame, and structure equations are as follows.
+	\begin{gather*}
+		\begin{aligned}
+			&v(t)=\Nm{\vx'(t)}\qquad
+			&&\kappa(t)=\frac{\Nm{\vx'\times\vx''}}{v^3}\qquad
+			&&\tau(t)=\frac{(\vx'\times\vx'')\cdot\vx'''}{v^6\kappa^2}\\[8pt]
+			&\vT(t)=\frac 1v\vx'\qquad
+			&&\vN(t)=\frac{v\vx''-v'\vx'}{v^3\kappa}\qquad
+			&&\vB(t)=\frac{\vx'\times\vx''}{v^3\kappa}
+		\end{aligned}\\[8pt]
+		\bigl(\vT'\ \ \vN'\ \ \vB'\bigr)
+		=
+		\bigl(\vT\ \ \vN\ \ \vB\bigr)
+		\begin{pmatrix}
+			0&-v\kappa &0\\v\kappa&0&-v\tau\\0&v\tau&0
+		\end{pmatrix}
 	\end{gather*}
 	The curvature formula also holds if $\vx(t)$ is merely regular.
 \end{cor}
@@ -1160,60 +1161,72 @@ Let $\vx(t)$ be a biregular spacecurve with arbitrary parametrization. The speed
 
 
 \begin{exercises}
-\exstart Compute the curvature and torsion of the spiral $\vx(t)=\bigl(e^t\cos t,e^t\sin t,e^t\bigr)$ directly using the expressions in Corollary \ref{cor:genfrenet}.
+	\exstart Compute the curvature and torsion of the spiral $\vx(t)=\bigl(e^t\cos t,e^t\sin t,e^t\bigr)$ directly using the expressions in Corollary \ref{cor:genfrenet}.
 
 
-\begin{enumerate}\setcounter{enumi}{1}
-	\item\label{exs:genhelixcurv} A circular helix has the form $\vx(t)=\bigl(r\cos t,r\sin t,ht\bigr)$, where $r>0$ and $h$ are constants. Find its Frenet frame and show that its curvature and torsion are given by
-  \[\kappa=\frac{r}{r^2+h^2},\qquad\tau=\frac{h}{r^2+h^2}\]
-
-
-	\item Find the curvature and torsion of the curve $\vx(t)=\bigl(t,t^2,t^3\bigr)$. 
-
-  
-  \item Given $\vx(t)=\frac 1{\sqrt 5}\Bigl(\sqrt{1+t^2}, 2t ,\ln\bigl(t+\sqrt{1+t^2}\bigr)\Bigr)$, find the Frenet frame, curvature and torsion.
-  
-  
-  \item Let $f(t)=\sqrt 2\int_0^t\sqrt{1-e^{-2u}}\,\du$, and define the curve $\vx(t)=\frac 1{\sqrt 2}\bigl(e^{-t}\cos t, e^{-t}\sin t, f(t)\bigr)$, $t>0$.
-  %(this is a spiral that moves upwards as it spirals towards the center of the $x,y$-plane)
-  \begin{enumerate}
-    \item Verify that $\vx(t)$ has unit speed.
-    \item Calculate the curvature of $\vx$ and show that $\lim\limits_{t\to\infty}\kappa(t)=0$.
-  \end{enumerate}
-  
-  
-  \item Let $a,b$ be positive constants and $\vx(t)=\bigl(4a\cos^3\!t, 4a\sin^3\!t, 3b\cos 2t\bigr)$ where $0<t<\frac\pi 2$. Find the Frenet frame, curvature and torsion of $\vx$.
-  
-  
-  \item Let $\vx:I\to\E^3$ be a twice-differentiable regular curve. Prove the formula for $\kappa$ in Corollary \ref{cor:genfrenet}:
-  \[\kappa(t)=\frac{\Nm{\vx'\times\vx''}}{v^3}\]
-  Hence conclude that $\kappa(t_0)=0\iff\vx'(t_0)$ and $\vx''(t_0)$ are parallel.\\
-	(\emph{Hint: let $\vx(t)=\vy\bigl(s(t)\bigr)$ where $\vy(s)$ has unit speed})
-  
-  \item Prove as much as you can tolerate of Corollary \ref{cor:genfrenet}.
-
-  \item Suppose $\vx:I\to\E^3$ is a curve lying on the surface of the unit sphere ($\Nm{\vx}=1$).
-  \begin{enumerate}
-    \item If $\vx$ has unit speed, show that $\vx''\cdot\vx=-1$.
-    \item Hence or otherwise, prove that the curvature of $\vx$ is at least 1 everywhere.\par
-    (\emph{Hint: $\vx$ and $\vx'$ are orthonormal\ldots})
-    \item What happens if $\vx$ lies on the surface of the sphere $\Nm\vx=r$ of radius $r>0$?
-    
-    \item (Hard) If a \emph{unit-speed} curve lies on a sphere of radius $r$, show that
-    \[\tau^2(r^2\kappa^2-1)=(\kappa')^2\]
-    (\emph{Hint: compute the coefficients of $\vx$ with respect to the Frenet frame})
-  \end{enumerate}
-  
-  
-
-	\item (Hard)\quad Let $d(t)>0$. Suppose $\vx(t)$ and $\vy(t)=\vx(t)+d\vN(t)$ are unit-speed curves such that the principal normal vector field $\vN$ of $\vx$ is the translate\footnote{That is, the directional parts of $\vN,\hat\vB$ are identical: of course these are members of different tangent spaces.} of the binormal vector field $\hat\vB$ of $\vy$.\par
-	Prove that the distance $d$ between corresponding points of the curves is \emph{constant.} Prove also that the curvature and torsion of $\vx$ satisfy $2\kappa=d(\kappa^2+\tau^2)$.\par
-	(\emph{Hint: Compute $\hat\vT$ and take dot products with something useful\ldots})
-  
-\end{enumerate}
+	\begin{enumerate}\setcounter{enumi}{1}
+		\item\label{exs:genhelixcurv} A circular helix has the form $\vx(t)=\bigl(r\cos t,r\sin t,ht\bigr)$, where $r>0$ and $h$ are constants. Find its Frenet frame and show that its curvature and torsion are given by
+	  \[
+	  	\kappa=\frac{r}{r^2+h^2},\qquad\tau=\frac{h}{r^2+h^2}
+	  \]
+	
+	
+		\item Find the curvature and torsion of the curve $\vx(t)=\bigl(t,t^2,t^3\bigr)$. 
+	
+	  
+	  \item Given $\vx(t)=\frac 1{\sqrt 5}\Bigl(\sqrt{1+t^2}, 2t ,\ln\bigl(t+\sqrt{1+t^2}\bigr)\Bigr)$, find the Frenet frame, curvature and torsion.
+	  
+	  
+	  \item Let $f(t)=\sqrt 2\int_0^t\sqrt{1-e^{-2u}}\,\du$, and define the curve $\vx(t)=\frac 1{\sqrt 2}\bigl(e^{-t}\cos t, e^{-t}\sin t, f(t)\bigr)$, $t>0$.
+	  %(this is a spiral that moves upwards as it spirals towards the center of the $x,y$-plane)
+	  \begin{enumerate}
+	    \item Verify that $\vx(t)$ has unit speed.
+	    \item Calculate the curvature of $\vx$ and show that $\lim\limits_{t\to\infty}\kappa(t)=0$.
+	  \end{enumerate}
+	  
+	  
+	  \item Let $a,b$ be positive constants and $\vx(t)=\bigl(4a\cos^3\!t, 4a\sin^3\!t, 3b\cos 2t\bigr)$ where $0<t<\frac\pi 2$. Find the Frenet frame, curvature and torsion of $\vx$.
+	  
+	  
+	  \item Let $\vx:I\to\E^3$ be a twice-differentiable regular curve.
+	  \begin{enumerate}
+	    \item Prove the formula for $\kappa$ in Corollary \ref{cor:genfrenet}:
+	  	\[
+	  		\kappa(t)=\frac{\Nm{\vx'\times\vx''}}{v^3}
+	  	\]
+	  	Hence conclude that $\kappa(t_0)=0\iff\vx'(t_0)$ and $\vx''(t_0)$ are parallel.\par
+			(\emph{Hint: let $\vx(t)=\vy\bigl(s(t)\bigr)$ where $\vy(s)$ has unit speed})
+	  
+	  	\item Prove as much else as you can tolerate of Corollary \ref{cor:genfrenet}.
+	  \end{enumerate}
+	
+	  \item Suppose $\vx:I\to\E^3$ is a curve lying on the surface of the unit sphere ($\Nm{\vx}=1$).
+	  \begin{enumerate}
+	    \item If $\vx$ has unit speed, show that $\vx''\cdot\vx=-1$.
+	    
+	    \item Hence or otherwise, prove that the curvature of $\vx$ is at least 1 everywhere.\par
+	    (\emph{Hint: $\vx$ and $\vx'$ are orthonormal\ldots})
+	    
+	    \item What happens if $\vx$ lies on the surface of the sphere $\Nm\vx=r$ of radius $r>0$?
+	    
+	    \item (Hard) If a \emph{unit-speed} curve lies on a sphere of radius $r$, show that
+	    \[
+	    	\tau^2(r^2\kappa^2-1)=(\kappa')^2
+	    \]
+	    (\emph{Hint: compute the coefficients of $\vx$ with respect to the Frenet frame})
+	  \end{enumerate}
+	 
+	
+		\item (Hard)\quad Let $d(t)>0$. Suppose $\vx(t)$ and $\vy(t)=\vx(t)+d\vN(t)$ are unit-speed curves such that the principal normal vector field $\vN$ of $\vx$ is the translate\footnote{That is, the directional parts of $\vN,\hat\vB$ are identical: of course these are members of different tangent spaces.} of the binormal vector field $\hat\vB$ of $\vy$.\par
+		Prove that the distance $d$ between corresponding points of the curves is \emph{constant.} Prove also that the curvature and torsion of $\vx$ satisfy $2\kappa=d(\kappa^2+\tau^2)$.\par
+		(\emph{Hint: Compute $\hat\vT$ and take dot products with something useful\ldots})
+	  
+	\end{enumerate}
 \end{exercises}
 
 \clearpage
+
+
 
 \subsection{The Fundamental Theorem of Biregular Spacecurves}
 
