@@ -11,6 +11,5 @@ Graphics editing requires Asymptote (http://asymptote.sourceforge.io/)
 The .project & .texlipse files relate only to Eclipse/TeXlipse (http://projects.eclipse.org/projects/science.texlipse), used as a front-end.
 
 
-
-
+Permissions: If you redistribute the source keep it open; otherwise do what you want with it (thanks MIT!).
 
