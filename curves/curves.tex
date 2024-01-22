@@ -1231,31 +1231,34 @@ For the general result, simply(!) repeat the example in the abstract.
 \subsection{The Fundamental Theorem of Biregular Spacecurves}
 
 
-Our goal for this section is to see that curvature and torsion determine a spacecurve uniquely up to rigid motions. We do this by recognizing the Frenet--Serret equations satisfied by the Frenet frame as a system of ordinary differential equations; provided sufficient initial conditions (starting point and orientation), the usual existence and uniqueness theorem for initial value problems can be invoked to show that there is a unique curve with this data.\medbreak
+Our goal for this section is to see that curvature and torsion determine a spacecurve uniquely up to rigid motions. We do this by recognizing the Frenet--Serret equations satisfied by the Frenet frame as a system of ordinary differential equations; provided sufficient initial conditions (starting point and orientation), the usual existence and uniqueness theorem for initial value problems shows that there is a unique curve with this data.\medbreak
 
-As a precursor to this, we first consider how to interpret curvature and torsion, and how they change (or don't!) under rigid motions of a curve.
+As a precursor, we consider how to interpret curvature and torsion, and how they change (or don't!) under rigid motions of a curve.
 
 \begin{thm}{}{curvtormeaning}
-\exstart A regular spacecurve has $\kappa\equiv 0$ if and only if it is a straight line.
-\begin{enumerate}\setcounter{enumi}{1}
-  \item A biregular spacecurve has $\tau\equiv 0$ if and only if it is contained in a fixed plane (the unmoving osculating plane of the curve).
-\end{enumerate}
+	\exstart A regular spacecurve has $\kappa\equiv 0$ if and only if it is a straight line.
+	\begin{enumerate}\setcounter{enumi}{1}
+	  \item A biregular spacecurve has $\tau\equiv 0$ if and only if it is contained in a fixed plane (the unmoving osculating plane of the curve).
+	\end{enumerate}
 \end{thm}
 
 \begin{proof}
-In both cases, we assume, without loss of generality, that $\vx(s)$ is a unit-speed parametrization of our spacecurve.
-\begin{enumerate}
-  \item $\kappa(s)=\Nm{\vx''(s)}=0\iff\vx''(s)=\V0$. Thus $\vx$ is a straight line.
-  \item ($\Leftarrow$)\quad Suppose the curve lies in a fixed plane. Then $\vx'$ and $\vx''$ are parallel to this plane, whence $\vT$ and $\vN$ are also. But then $\vB$ is a continuous unit vector orthogonal to the plane and is therefore \emph{constant.} From the Frenet equations, $-\tau\vN=\vB'=\V0\implies \tau\equiv 0$.\par
-  ($\Rightarrow$)\quad As above, if $\tau\equiv 0$, then $\vB$ is constant. But then
-  \[(\vx\cdot\vB)'=\vx'\cdot\vB+\vx\cdot\vB'=\vT\cdot\vB=0\]
-  from which $\vx\cdot\vB$ is constant. The curve therefore lies in a fixed plane perpendicular to $\vB$.\qedhere
-\end{enumerate}
+	In both cases, we assume, without loss of generality, that $\vx(s)$ is a unit-speed parametrization of our spacecurve.
+	\begin{enumerate}
+	  \item $\kappa(s)=\Nm{\vx''(s)}=0\iff\vx''(s)=\V0$. Thus $\vx$ is a straight line.
+	  \item ($\Leftarrow$)\quad Suppose the curve lies in a fixed plane. Then $\vx'$ and $\vx''$ are parallel to this plane, whence $\vT$ and $\vN$ are also. But then $\vB$ is a continuous unit vector orthogonal to the plane and is therefore \emph{constant.} From the Frenet equations, $-\tau\vN=\vB'=\V0\implies \tau\equiv 0$.\par
+	  ($\Rightarrow$)\quad As above, if $\tau\equiv 0$, then $\vB$ is constant. But then
+	  \[
+	  	(\vx\cdot\vB)'=\vx'\cdot\vB+\vx\cdot\vB'=\vT\cdot\vB=0
+	  \]
+	  from which $\vx\cdot\vB$ is constant. The curve therefore lies in a fixed plane perpendicular to $\vB$.\qedhere
+	\end{enumerate}
 \end{proof}
 
 
 Curvature measures the deviation of a curve from a straight line; its \emph{bending.} Torsion measures how badly a curve fails to be planar; its \emph{twisting.}\smallbreak
-To visualize the difference, the pictures below show a segment of a standard helix. In the first we see the osculating plane; the non-zero curvature is clearly visible. In the second we look along the principal normal vector $\vN$ and across the osculating plane; the positive torsion ($\tau=\frac 12$) indicates that the curve crosses the plane similarly to how the cubic function $y=x^3$ crosses the $x$-axis. The full 3D curve is linked via either picture.
+
+To visualize the difference, the pictures below show a segment of a standard helix. In the first we look down the binormal onto the \textcolor{blue}{osculating plane}; the non-zero curvature is clearly visible. In the second we look along the principal normal vector $\vN$ and across the osculating plane; the positive torsion ($\tau=\frac 12$) indicates that the curve crosses the plane similarly to how the cubic function $y=x^3$ crosses the $x$-axis. The full 3D curve is linked via either picture.
 
 
 \begin{center}
@@ -1270,28 +1273,39 @@ To visualize the difference, the pictures below show a segment of a standard hel
 
 
 \begin{thm}{}{isometrytrans}
-Under an isometry $\hat{\vx}:=A\vx+\vb$ (recall Definition \ref{defn:rigid}), the curvature and torsion of a biregular spacecurve transform as follows:
-\begin{enumerate}
-\item[]Direct isometry/rigid motion:\quad $\hat{\kappa}=\kappa,\quad\hat{\tau}=\tau$.
-\item[]Indirect isometry:\quad $\hat{\kappa}=\kappa,\quad\hat{\tau}=-\tau$.
-\end{enumerate}
+	Under an isometry $\hat{\vx}:=A\vx+\vb$ (recall Definition \ref{defn:rigid}), the curvature and torsion of a biregular spacecurve transform as follows:
+	\begin{enumerate}
+		\item[]Direct isometry/rigid motion:\quad $\hat{\kappa}=\kappa,\quad\hat{\tau}=\tau$.
+		\item[]Indirect isometry:\quad $\hat{\kappa}=\kappa,\quad\hat{\tau}=-\tau$.
+	\end{enumerate}
 \end{thm}
 
 \begin{proof}
-Suppose $\vx(s)$ has unit-speed. We relate the Frenet frame $(\hat\vT\ \hat\vN\ \hat\vB)$ of $\hat\vx$ to the original.\footnotemark\smallbreak
-Since orthogonal matrices preserve the dot  product (Lemma \ref{lemm:orth}), $\hat\vx$ has unit-speed also:
-\[\hat\vx'(s)=A\vx'(s)\implies \hat v(s)=\Nm{\hat\vx'(s)}=\Nm{\vx'(s)}=1 \implies \hat\vT=A\vT\]
-Moreover, since $A$ is constant and both $\hat\vN$ and $\vN$ have unit length,
-\[\frac 1{\hat\kappa}\hat\vN=\hat\vT'=A\vT'=\frac 1\kappa A\vN\implies \hat\kappa=\kappa\quad\text{and}\quad\hat\vN=A\vN\]
-Curvature is therefore invariant under any isometry. Since $A$ preserves angles, $A\vB$ is perpendicular to both $\hat\vT$ and $\hat\vN$, and so $A\vB=\pm\hat\vB$. Since the Frenet frame $E=(\vT\ \vN\ \vB)$ is a special orthogonal matrix, $AE$ is also orthogonal, and moreover
-\[\det AE=\det A\det E=\det A\]
-We conclude that $\det A=1\iff AE=(A\vT\ A\vN\ A\vB) =(\hat\vT\ \hat\vN\ A\vB)$ is \emph{positively oriented,} whence
-\[\hat\vB=(\det A)A\vB=\begin{cases}
-          A\vB&\text{ if the isometry is direct,}\\
-          -A\vB&\text{ if the isometry is indirect.}
-          \end{cases}\]
-Finally, we compute the torsion:
-\[\hat\tau=\hat\vN'\cdot\hat\vB= A\vN'\cdot\bigl((\det A)(A\vB)\bigr)= (\det A)(A\vN')\cdot(A\vB) =(\det A)\vN'\cdot\vB=(\det A)\tau\tag*{\qedhere}\]
+	Suppose $\vx(s)$ has unit-speed. We relate the Frenet frame $(\hat\vT\ \hat\vN\ \hat\vB)$ of $\hat\vx$ to the original.\footnotemark\smallbreak
+	Since orthogonal matrices preserve the dot  product (Lemma \ref{lemm:orth}), $\hat\vx$ has unit-speed also:
+	\[
+		\hat\vx'(s) =A\vx'(s)\implies \hat v(s) =\Nm{\hat\vx'(s)} =\Nm{\vx'(s)} =1 \implies \hat\vT =A\vT
+		\]
+	Moreover, since $A$ is constant and both $\hat\vN$ and $\vN$ have unit length,
+	\[
+		\frac 1{\hat\kappa}\hat\vN =\hat\vT'=A\vT' =\frac 1\kappa A\vN \implies \hat\kappa=\kappa \quad\text{and}\quad \hat\vN=A\vN
+	\]
+	Curvature is therefore invariant under any isometry. Since $A$ preserves angles, $A\vB$ is perpendicular to both $\hat\vT$ and $\hat\vN$, and so $A\vB=\pm\hat\vB$. Since the Frenet frame $E=(\vT\ \vN\ \vB)$ is a special orthogonal matrix, $AE$ is also orthogonal, and moreover
+	\[
+		\det AE=\det A\det E=\det A
+	\]
+	We conclude that $\det A=1\iff AE=(A\vT\ A\vN\ A\vB) =(\hat\vT\ \hat\vN\ A\vB)$ is \emph{positively oriented,} whence
+	\[
+		\hat\vB=(\det A)A\vB=
+		\begin{cases}
+	  	A\vB&\text{ if the isometry is direct,}\\
+			-A\vB&\text{ if the isometry is indirect.}
+		\end{cases}
+	\]
+	Finally, we compute the torsion:
+	\[
+		\hat\tau=\hat\vN'\cdot\hat\vB= A\vN'\cdot\bigl((\det A)(A\vB)\bigr)= (\det A)(A\vN')\cdot(A\vB) =(\det A)\vN'\cdot\vB=(\det A)\tau \tag*{\qedhere}
+	\]
 \end{proof}
 
 
@@ -1301,9 +1315,7 @@ Finally, we compute the torsion:
 \boldsubsubsection{Existence and Uniqueness of Solutions to ODEs}
 
 
-
-Our classification of spacecurves depends on the `usual' existence and uniqueness result for ODEs. %$Indeed the relationship between curves/surfaces and ODEs is a cornerstone of differential geometry.
-Here is a version suitable for our needs.
+Our classification of spacecurves depends on the `usual' existence and uniqueness result for ODEs. Here is a version suitable for our needs.
 % 
 % \begin{thm}{Picard, Lindelöf, etc.}{}
 % Let $a\in\R$ and $\vc\in\R^n$ be fixed. Let $\V F(\vx,t)$ be a continuous vector-valued function defined on some closed region
@@ -1329,104 +1341,106 @@ Here is a version suitable for our needs.
 % Since the only dependence of $\V A$ on $\vx$ is through multiplication, it follows that $\V A$ is continuous for all $\vx\in\R^n$. Essentially $K$ can be taken to be arbitrarily large: $K=MT$ is sufficient for the result. 
 % \end{proof}
 
-\begin{thm}{Existence/Uniqueness for Linear Equations (Picard, Lindelöf, etc.)}{}\phantom{bob}\par
-Let $t_0\in\R$ and $\vc\in\R^n$ be given, and let $A(t)\in M_n(\R)$ be a continuous matrix-valued function defined on an interval $\nm{t-t_0}\le T$. Then the initial value problem
-\[
-	\diff[\vE]{t}=A(t)\vE,\qquad \vE(t_0)=\vc
-\]
-has a unique solution $\vE:[t_0-T,t_0+T]\to \R^n$.
+\begin{thm}{Existence/Uniqueness for Linear ODE (Picard, Lindelöf, etc.)}{}\phantom{bob}\par
+	Let $t_0\in\R$ and $\vc\in\R^n$ be given, and let $A(t)\in M_n(\R)$ be a continuous matrix-valued function defined on an interval $\nm{t-t_0}\le T$. Then the initial value problem
+	\[
+		\diff[\vE]{t}=A(t)\vE,\qquad \vE(t_0)=\vc
+	\]
+	has a unique solution $\vE:[t_0-T,t_0+T]\to \R^n$.
 \end{thm}
 
 \goodbreak
 
 The rough idea of the proof is to define a sequence of functions
-\[\vE_0(t):=\vc,\qquad \vE_1(t):=\vc+\int_{t_0}^tA(u)\vE_0(u)\,\du,\qquad \vE_2(t):=\vc+\int_{t_0}^tA(u)\vE_1(u)\,\du,\ \ldots\]
-which are seen to converge to the required solution; this last step requires some ideas from topology/analysis and is beyond this course. A simple example should convince you of the approach.
+\[
+	\vE_0(t):=\vc,\qquad \vE_1(t):=\vc+\int_{t_0}^tA(u)\vE_0(u)\,\du,\qquad \vE_2(t):=\vc+\int_{t_0}^tA(u)\vE_1(u)\,\du,\ \ldots
+\]
+which are seen to converge to the required solution; this last step requires advanced ideas from topology/analysis. A simple example should convince you of the approach.
 
 \begin{example}{}{picarditer}
-Given the initial value problem $\diff[E]{t}=2tE$, \ $E(0)=1$, we obtain
-\begin{gather*}
-E_0(t)=1,\quad E_1(t)=1+\int_0^t 2u\,\du=1+t^2,\quad
-E_2(t)=1+\int_0^t2u(1+u^2)\,\du =1+t^2+\frac 12t^4,\ldots
-\end{gather*}
-The \emph{Picard iteration} builds up the correct solution as a power series
-\[E(t)=e^{t^2}=\smash[t]{\sum\limits_{n=0}^\infty\frac{t^{2n}}{n!}}=1+t^2+\frac 12t^4+\frac 16t^6+\cdots\]
+	Given the initial value problem $\diff[E]{t}=2tE$, \ $E(0)=1$, we obtain
+	\begin{gather*}
+		E_0(t)=1,\quad E_1(t)=1+\int_0^t 2u\,\du=1+t^2,\quad
+		E_2(t)=1+\int_0^t2u(1+u^2)\,\du =1+t^2+\frac 12t^4,\ldots
+	\end{gather*}
+	The \emph{Picard iteration} builds up the correct solution as a power series
+	\[
+		E(t)=e^{t^2}=\smash[t]{\sum\limits_{n=0}^\infty\frac{t^{2n}}{n!}}=1+t^2+\frac 12t^4+\frac 16t^6+\cdots
+	\]
 \end{example}
 
 
 
 \begin{cor}{}{picard2}
-Let $\mathcal O$ be an orthogonal matrix, $I=[t_0-T,t_0+T]$ an interval, and $W:I\to M_3(\R)$ a matrix-valued function such that each $W(t)$ is \emph{skew-symmetric.}  Then:
-\begin{enumerate}\itemsep0pt
-  \item There exists a unique solution $E:I\to \rO_3(\R)$ to the initial value problem
-  \[
-  	\diff[E]{t}=E W,\qquad E(t_0)=\mathcal O
-  \]
-  \item If $\det\mathcal O=1$, then $E:I\to\rSO_3(\R)$.
-\end{enumerate}
+	Let $\mathcal O$ be an orthogonal matrix, $I=[t_0-T,t_0+T]$ an interval, and $W:I\to M_3(\R)$ a matrix-valued function such that each $W(t)$ is \emph{skew-symmetric.}  Then:
+	\begin{enumerate}\itemsep0pt
+	  \item There exists a unique solution $E:I\to \rO_3(\R)$ to the initial value problem
+	  \[
+	  	\diff[E]{t}=E W,\qquad E(t_0)=\mathcal O
+	  \]
+	  \item If $\det\mathcal O=1$, then $E:I\to\rSO_3(\R)$.
+	\end{enumerate}
 \end{cor}
 
 \begin{proof}
-\begin{enumerate}
-  \item The initial value problem consists of a system of nine linear first order ODEs in the entries of the $3\times 3$ matrix $E$. We are therefore in the case of Picard's theorem where $\vE:I\to\R^9$. There therefore exists a unique solution $E:I\to M_3(\R)$. Now differentiate:
-  \begin{align*}
-  \diff t(EE^T)&=E'E^T+E(E')^T =EWE^T+E(EW)^T=EWE^T+EW^TE^T\\
-  &=EWE^T+E(-W)E^T=0 \tag{$W^T=-W$!}
-  \end{align*}
-  Thus $EE^T$ is constant. However $E(t_0)E(t_0)^T=\mathrm I$ since $E(t_0)=\mathcal O$ is orthogonal. We conclude that $E(t)$ is always orthogonal.
-  \item Determinant is continuous (it is a polynomial!); $E$ is differentiable, and so $\det E:I\to\R$ is continuous on an interval. But $\det E=\pm 1$ since $E$ is orthogonal. It follows that $\det E$ is the constant 1.\qedhere
-\end{enumerate}
+	\begin{enumerate}
+	  \item The initial value problem is a system of nine linear first order ODEs in the entries of the $3\times 3$ matrix $E$. We are therefore in the case of Picard's theorem where $\vE:I\to\R^9$. There therefore exists a unique solution $E:I\to M_3(\R)$. Now differentiate:
+	  \begin{align*}
+	  	\diff t(EE^T)&=E'E^T+E(E')^T =EWE^T+E(EW)^T =EWE^T+EW^TE^T\\
+	  	&=EWE^T+E(-W)E^T=0 \tag{$W^T=-W$!}
+	  \end{align*}
+	  Thus $EE^T$ is constant. However $E(t_0)E(t_0)^T=\mathrm I$ since $E(t_0)=\mathcal O$ is orthogonal. We conclude that $E(t)$ is always orthogonal.
+	  \item Determinant is continuous (it is a polynomial!); $E$ is differentiable, and so $\det E:I\to\R$ is continuous on an interval. But $\det E=\pm 1$ since $E$ is orthogonal. It follows that $\det E$ is the constant 1.\qedhere
+	\end{enumerate}
 \end{proof}
 
 For simple $W$, we might be able to state the solution using the matrix exponential; for instance
-\[W\text{ constant }\implies E(t)=\mathcal Oe^{tW}\] 
+\[
+	W\text{ constant }\implies E(t)=\mathcal Oe^{tW}
+\] 
 This is of limited utility: the matrix exponential is rarely computable except as an infinite series, and the approach fails for general $W(t)$.
 
 %It works if $W(t)=\alpha(t)X$ is a multiple of a constant matrix $X$, then $E(t)=\mathcal O\exp\left((\int_{t_0}^t\alpha)X\right)$. 
 
 \begin{cor}{Fundamental theorem of biregular spacecurves}{fundcurve}\phantom{bob}\par
-Suppose we are given the following data:
-\begin{itemize}
-  \item Smooth functions $\kappa>0$ and $\tau$ on an interval $I=[t_0-T,t_0+T]$.
-  \item A position vector $\vc\in\E^3$ and a positively oriented orthonormal basis $(\vT_0\ \vN_0\ \vB_0)$ of $T_{\vc}\E^3$.
-\end{itemize}
-Then there exists a unique unit-speed biregular spacecurve $\vx:I\to\E^3$ with curvature $\kappa$, torsion $\tau$, initial position $\vx(t_0)=\vc$ and Frenet frame $E(t_0)=(\vT_0\ \vN_0\ \vB_0)$ at $\vx(t_0)$.
+	Suppose we are given the following data:
+	\begin{itemize}
+	  \item Smooth functions $\kappa>0$ and $\tau$ on an interval $I=[t_0-T,t_0+T]$.
+	  \item A position vector $\vc\in\E^3$ and a positively oriented orthonormal basis $(\vT_0\ \vN_0\ \vB_0)$ of $T_{\vc}\E^3$.
+	\end{itemize}
+	Then there exists a unique unit-speed biregular spacecurve $\vx:I\to\E^3$ with curvature $\kappa$, torsion $\tau$, initial position $\vx(t_0)=\vc$ and Frenet frame $E(t_0)=(\vT_0\ \vN_0\ \vB_0)$ at $\vx(t_0)$.
 \end{cor}
 
-\goodbreak
 
 \begin{proof}
-The structure equations $E'=EW$ put us in the situation of Corollary \ref{cor:picard2}; there exists a unique solution $E=(\vT\ \vN\ \vB):I\to\rSO_3(\R)$. Integrate the unit tangent vector field to finish:
-\[\vx(t)=\vc+\int_{t_0}^t\vT(u)\,\du\]
-This is plainly the unique curve with the required initial conditions, curvature and torsion.
+	The structure equations $E'=EW$ put us in the situation of Corollary \ref{cor:picard2}; there exists a unique solution $E=(\vT\ \vN\ \vB):I\to\rSO_3(\R)$. Integrate the unit tangent vector field to finish:
+	\[
+		\vx(t)=\vc+\int_{t_0}^t\vT(u)\,\du
+	\]
+	This is plainly the unique curve with the required initial conditions, curvature and torsion.
 \end{proof}
 
 
 Alternatively, a biregular curve is determined up to rigid motions by its curvature and torsion.
 
 \begin{cor}{}{fund2}
-Given two biregular spacecurves with the same curvature and torsion functions, there exists a unique direct isometry transforming one to the other.
+	Given two biregular spacecurves with the same curvature and torsion functions, there exists a unique direct isometry transforming one to the other.
 \end{cor}
 
 \begin{proof}
-Suppose $\vx_1:I\to\E^3$ and $\vx_2:I\to\E^3$ have Frenet frames $E_1,E_2$, and the same curvature and torsion functions. Choose some (any!) $t_0\in I$. The required rigid motion $S:\vx\mapsto A\vx+\vb$ must satisfy the conditions at $t_0$, whence\footnotemark
-\[S\bigl(\vx_1(t_0)\bigr)=\vx_2(t_0)\quad\text{and}\quad AE_1(t_0)=E_2(t_0)\]
-Plainly $A=E_2(t_0)\bigl(E_1(t_0)\bigr)^{-1}$ and $\vb=\vx_2(t_0)-A\vx_1(t_0)$ provides the unique isometry $S$. Moreover $\det A=1$ since both $E_1$ and $E_2$ do so also.\smallbreak
-By Theorem \ref{thm:isometrytrans}, $\vx_3:=S(\vx_1)$ is a spacecurve with the \emph{same} initial conditions (at $t_0$), curvature and torsion as $\vx_2$. The Fundamental Theorem says that $\vx_2=\vx_3=S(\vx_1)$.
+	Suppose $\vx_1:I\to\E^3$ and $\vx_2:I\to\E^3$ have Frenet frames $E_1,E_2$, and the same curvature and torsion functions. Choose some (any!) $t_0\in I$. The required rigid motion $S:\vx\mapsto A\vx+\vb$ must satisfy the conditions at $t_0$, whence\footnotemark
+	\[
+		S\bigl(\vx_1(t_0)\bigr)=\vx_2(t_0)\quad\text{and}\quad AE_1(t_0)=E_2(t_0)
+	\]
+	Plainly $A=E_2(t_0)\bigl(E_1(t_0)\bigr)^{-1}$ and $\vb=\vx_2(t_0)-A\vx_1(t_0)$ provide the unique isometry $S$. Moreover $\det A=1$ since both $E_1$ and $E_2$ do so also.\smallbreak
+	By Theorem \ref{thm:isometrytrans}, $\vx_3:=S(\vx_1)$ is a spacecurve with the \emph{same} initial conditions (at $t_0$), curvature and torsion as $\vx_2$. The Fundamental Theorem says that $\vx_2=\vx_3=S(\vx_1)$.
 \end{proof}
 
 \footnotetext{As in Theorem \ref{thm:isometrytrans}, $S$ acts on \emph{position vectors} but Frenet frames consist of \emph{tangent vectors} and thus only see $A$.}
 
-Compare what we've done to the standard acceleration/position problem, where \emph{three scalar functions} $\vx''(t)=\bigl(x''(t),y''(t),z''(t)\bigr)$ and \emph{six scalar initial conditions} $\vx(t_0)$ and $\vx'(t_0)$ recover the motion by twice integrating.\smallbreak
-The Fundamental Theorem tells us that a spacecurve is determined uniquely by \emph{three scalar functions} $v(t),\kappa(t),\tau(t)$ and the \emph{initial conditions} $\vx(t_0),\vT(t_0),\vN(t_0)$, which also amount to \emph{six} scalar constants.\footnote{You don't need explicitly to specify $\vB(t_0)=\vT(t_0)\times\vN(t_0)$! The position $\vx(t_0)$ requires three constants; $\vT(t_0)$ needs two angles (spherical polar co-ordinates), and $\vN(t_0)$ a single angle in the plane $(\vT(t_0))^\perp$.}\smallbreak
+Compare what we've done to the standard acceleration/position kinematics problem, where \emph{three scalar functions} $\vx''(t)=\bigl(x''(t),y''(t),z''(t)\bigr)$ and \emph{six scalar initial conditions} $\vx(t_0)$ and $\vx'(t_0)$ recover the motion by twice integrating.\smallbreak
+The Fundamental Theorem says that a spacecurve is determined uniquely by \emph{three scalar functions} $v(t),\kappa(t),\tau(t)$ and the \emph{initial conditions} $\vx(t_0),\vT(t_0),\vN(t_0)$, which also amount to \emph{six} scalar constants.\footnote{You don't need explicitly to specify $\vB(t_0)=\vT(t_0)\times\vN(t_0)$! The position $\vx(t_0)$ requires three constants; $\vT(t_0)$ needs two angles (spherical polar co-ordinates), and $\vN(t_0)$ a single angle in the plane $(\vT(t_0))^\perp$.}\smallbreak
 One benefit of our result is that, by standardizing $v(t)\equiv 1$ and ignoring rigid motions, we see that the \emph{physical shape} of a curve depends only on \emph{two} scalar functions $\kappa(t)$ and $\tau(t)$.\bigbreak
-
-% Compare the Fundamental Theorem with the distance-speed problem from elementary calculus, where location at all times may be computed from simple data: the initial position $x(t_0)$ and the speed \emph{function} $v(t)$,
-% \[x(t)=x(t_0)+\int_{t_0}^tv(u)\,\du\]
-% Compare the Fundamental Theorem with the distance-speed problem from elementary calculus: if you know the \emph{velocity} $\vx'(t)$ of a particular, where location at all times may be computed from simple data: the initial position $x(t_0)$ and the speed \emph{function} $v(t)$,
-% \[x(t)=x(t_0)+\int_{t_0}^tv(u)\,\du\]
-% Our result provides an analogue for spacecurves: given an initial position and orientation (direction and direction of curvature), and functions for speed and how much a curve bends and twists, you can determine the entire motion. For an arbitrary speed curve, the required data is the sextuple\footnote{You don't need explicitly to specify $\vB(t_0)=\vT(t_0)\times\vN(t_0)$!}
-% \[\bigl(\vx(t_0),\vT(t_0),\vN(t_0),v(t),\kappa(t),\tau(t)\bigr)\]
 
 
 \goodbreak
@@ -1434,13 +1448,14 @@ One benefit of our result is that, by standardizing $v(t)\equiv 1$ and ignoring 
 We finish this discussion with a quick application of the Fundamental Theorem.
 
 \begin{cor}{}{}
-Every biregular curve with $\kappa$ and $\tau$ constant is a circular helix (circle if $\tau\equiv 0$).
+	Every biregular curve with $\kappa$ and $\tau$ constant is a circular helix (circle if $\tau\equiv 0$).
 \end{cor}
 
 \begin{proof}
-By (Exercise \ref*{sec:frenet}.\ref{exs:genhelixcurv}), the circular helix $\vx(t)=\bigl(r\cos t,r\sin t,ht\bigr)$ has constant curvature $\kappa=\frac r{r^2+h^2}$ and torsion $\tau=\frac h{r^2+h^2}$.\smallbreak
-Given constant $\kappa,\tau$, it is a simple exercise to find suitable $r,h$. By Corollary \ref{cor:fund2}, this is \emph{only} such curve up to direct isometry (and constant speed re-parametrization).
+	By (Exercise \ref*{sec:frenet}.\ref{exs:genhelixcurv}), the circular helix $\vx(t)=\bigl(r\cos t,r\sin t,ht\bigr)$ has constant curvature $\kappa=\frac r{r^2+h^2}$ and torsion $\tau=\frac h{r^2+h^2}$.\smallbreak
+	Given constant $\kappa,\tau$, it is a simple exercise to find suitable $r,h$. By Corollary \ref{cor:fund2}, this is \emph{only} such curve up to direct isometry (and constant speed re-parametrization).
 \end{proof}
+
 
 \boldsubsubsection{What changes in other dimensions?}
 
@@ -1454,24 +1469,23 @@ For plane curves things are a little simpler. Here is a summary.
 	
 	\item[\normalfont\emph{Curvature}] $\kappa=\frac 1v\vT'\cdot\vN$ is \emph{signed} as we saw in Section \ref{sec:arclength}:
 	\begin{center}
-	\begin{tabular}{c@{\qquad\qquad}c}
-	\includegraphics{fund-e2}&\includegraphics{fund-e2a}\\
-	$\kappa>0\iff \vx$ bends towards $\vN$
-	&
-	$\kappa<0\iff \vx$ bends away from $\vN$
-	\end{tabular}
+		\begin{tabular}{c@{\qquad\qquad}c}
+			\includegraphics{fund-e2}&\includegraphics{fund-e2a}\\
+			$\kappa>0\iff \vx$ bends towards $\vN$
+			&
+			$\kappa<0\iff \vx$ bends away from $\vN$
+		\end{tabular}
 	\end{center}
 	
-	\item[\normalfont\emph{Frenet--Serret equations}] In arbitrary parametrization $\begin{pmatrix}
-  \vT'&\vN'
-  \end{pmatrix}=
-	\begin{pmatrix}
-	\vT&\vN
-	\end{pmatrix}
+	\item[\normalfont\emph{Frenet--Serret equations}] In arbitrary parametrization
+	$\bigl(\vT'\ \ \vN'\bigr)
+  =
+	\bigl(\vT\ \ \vN\bigr)
 	\begin{pmatrix}
 		0&-v\kappa\\
 		v\kappa&0
-	\end{pmatrix}$
+	\end{pmatrix}
+	$
 	
 	\item[\normalfont\emph{Isometries}] Direct isometries preserve curvature, indirect isometries change its sign.
 	
@@ -1480,121 +1494,97 @@ For plane curves things are a little simpler. Here is a summary.
 
 
 \begin{minipage}[t]{0.62\linewidth}\vspace{0pt}
-We can also play this game in higher dimensions. Given a unit-speed curve $\vx:I\to\E^n$ whose first $n-1$ derivatives at each point are linearly independent, we may apply a Gram-Schmidt orthogonalization process to obtain a moving frame $E=(\ve_1\ \cdots\ \ve_n)$ and functions $\kappa_1,\ldots,\kappa_{n-1}$ (the generalized curvatures) satisfying the structure equations shown.
-\end{minipage}\hfill\begin{minipage}[t]{0.35\linewidth}\vspace{0pt}
-\flushright$E'=E
-\begin{smatrix}
-0&-\kappa_1&0&\cdots&0&0\\
-\kappa_1&0&-\kappa_2&&0&0\\
-0&\kappa_2&0&&0&0\\
-\vdots&&&\ddots&&\vdots\\
-0&0&0&&0&-\kappa_{n-1}\\
-0&0&0&\cdots&\kappa_{n-1}&0
-\end{smatrix}$
+	We can also play this game in higher dimensions. Given a unit-speed curve $\vx:I\to\E^n$ whose first $n-1$ derivatives at each point are linearly independent, apply Gram-Schmidt orthogonalization to obtain a moving frame $E=(\ve_1\ \cdots\ \ve_n)$ and functions $\kappa_1,\ldots,\kappa_{n-1}$ (the generalized curvatures) satisfying the structure equations shown.
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.35\linewidth}\vspace{0pt}
+	\flushright$E'=E
+	\begin{smatrix}
+		0&-\kappa_1&0&\cdots&0&0\\
+		\kappa_1&0&-\kappa_2&&0&0\\
+		0&\kappa_2&0&&0&0\\
+		\vdots&&&\ddots&&\vdots\\
+		0&0&0&&0&-\kappa_{n-1}\\
+		0&0&0&\cdots&\kappa_{n-1}&0
+	\end{smatrix}$
 \end{minipage}\medbreak
+
 Conversely, the $n-1$ generalized curvatures determine the curve up to rigid motions.
 
 \clearpage
 
 \begin{exercises}
-\exstart Find an explicitly parametrized curve with constant curvature $\kappa$ and torsion $\tau$.
+	\exstart Find an explicitly parametrized curve with constant curvature $\kappa$ and torsion $\tau$.
+	
+	\begin{enumerate}\setcounter{enumi}{1}
+	  \item Reflection in the $xy$-plane $S(\vx)=\smash[t]{
+		  \begin{smatrix}
+				1&0&0\\
+				0&1&0\\
+				0&0&-1
+			\end{smatrix}
+		}\vx$ is an indirect isometry. Explicitly compare the curvature and torsion of the standard helix $\vx(t)=\bigl(\cos t,\sin t,t\bigr)$ with those of $S(\vx)$.
+	
+	
+		\item In the manner of Example \ref{ex:picarditer}, compute the Picard iteration process up to $\vE_3(t)$ for the initial value problem
+		\[
+			\diff[\vE]{t}=
+			\begin{pmatrix}
+	  		0&-1\\
+	  		1&0
+	  	\end{pmatrix}
+	  	\!\vE,\quad \vE(0)=\twovec 10
+	  \]
+	  Verify that this comports with the correct solution $\vE(t)=\stwovec{\cos t}{\sin t}$to this system of ODEs.
+	
+	  
+	  \item Suppose $f$ is a function such that $\vx(t)=\bigl(\cos t,\sin t,f(t)\bigr)$ lies  in a fixed plane. Show that $f$ satisfies the 3\rd-order linear ODE $f'''(t)+f'(t)=0$ and thus find all possible functions $f$.\par
+	  (\emph{Hints: What is the torsion of a plane curve?})
+	  
+	  
+		\item Assume that all principal normals of a biregular curve in $\E^3$ pass through a fixed point: $\exists\alpha(t)$ and a constant $\vn$ such that $\vx(t)+\alpha(t)\vN(t)=\vn$. Show that the curve is (part of) a \emph{circle}.
+	  
+	  
+	  \item Let $\vx:I\to \E^2$ be a regular curve and let $\vy=S(\vx)=A\vx+\vb$ be a new curve resulting from a rigid motion. Prove that the curvatures of $\vx$ and $\vy$ are identical.
 
-
-\begin{enumerate}\setcounter{enumi}{1}
-  \item Reflection in the $xy$-plane $S(\vx)=\smash[t]{\begin{smatrix}
-		1&0&0\\
-		0&1&0\\
-		0&0&-1
-\end{smatrix}}\vx$ is an indirect isometry.	Explicitly compare the curvature and torsion of the standard helix $\vx(t)=\bigl(\cos t,\sin t,t\bigr)$ with those of $S(\vx)$.
-
-
-	\item In the manner of Example \ref{ex:picarditer}, compute the Picard iteration process up to $\vE_3(t)$ for the initial value problem
-	\[\diff[\vE]{t}=\begin{pmatrix}
-  0&-1\\
-  1&0
-  \end{pmatrix}\!\vE,\quad \vE(0)=\twovec 10\]
-  Verify that this comports with the correct solution $\vE(t)=\stwovec{\cos t}{\sin t}$to this system of ODEs.
-
-  
-  \item Suppose $f$ is a function such that $\vx(t)=\bigl(\cos t,\sin t,f(t)\bigr)$ lies  in a fixed plane. Show that $f$ satisfies the 3\rd-order linear ODE $f'''(t)+f'(t)=0$ and thus find all possible functions $f$.\par
-  (\emph{Hints: What is the torsion of a plane curve?})
-  
-  
-	\item Assume that all principal normals of a biregular curve in $\E^3$ pass through a fixed point: $\exists\alpha(t)$ and a constant $\vn$ such that $\vx(t)+\alpha(t)\vN(t)=\vn$. Show that the curve is (part of) a \emph{circle}.
-  
-  
-  \item Let $\vx:I\to \E^2$ be a regular curve and let $\vy=S(\vx)=A\vx+\vb$ be a new curve resulting from a rigid motion. Prove that the curvatures of $\vx$ and $\vy$ are identical.
-   
-%   Suppose $\vy(s)=A\vx(s)+\vb$ is the result of such a transform. Then
-% \[\vy'(s)=A\vx'(s)\implies \Nm{\vy'(s)}=\Nm{A\vx'(s)}=\Nm{\vx'(s)}=1\]
-% since $A$ is orthogonal and thus \emph{length-preserving.} The tangent vector for the transformed curve $\vy(s)$ is therefore\footnote{Remember that $\vT$ and $\hat\vT$ are elements of different tangent spaces: what we mean is that their \emph{direction} parts are equal.}
-% \[\hat\vT(s)=A\vT(s)\]
-% Since $A$ and $J$ are both rotations, they commute, whence the normal vector of the transformed curve is
-% \[\hat\vN(s)=J\hat\vT(s)=JA\vT(s)=AJ\vT(s) =A\vN(s)\]
-% Since $A$ is constant, the curvature of the transformed curve is therefore
-% \[\hat\kappa=\hat\vT'\cdot \hat\vN=(A\vT')\cdot(A\vN)=\vT'\cdot\cN=\kappa\]
-% identical to the original!
-   
-	\item\label{exs:fundthm2} For regular curves in $\E^2$, the Fundamental Theorem is relatively simple to prove.
-	\begin{enumerate}
-	  \item Suppose you are given a smooth function $\kappa:I\to\R$ on an interval $I$ containing $t_0$, an initial position $\vx(t_0)=(a,b)$ and an initial direction $\theta(t_0)=\theta_0$ (angle with positive $x$-axis).\par
-		Use the Fundamental Theorem of Calculus to describe the unique unit-speed curve $\vx:I\to\E^2$ with curvature $\kappa$ and given initial data.\par
-		(\emph{Hints: use $\theta(t):=\theta_0+\int_{t_0}^t\kappa(u)\,\du$ to define $\vT(t)$ and integrate! Your answer will contain definite integrals.})
+	   
+		\item\label{exs:fundthm2} For regular curves in $\E^2$, the Fundamental Theorem is relatively simple to prove.
+		\begin{enumerate}
+		  \item Suppose you are given a smooth function $\kappa:I\to\R$ on an interval $I$ containing $t_0$, an initial position $\vx(t_0)=(a,b)$ and an initial direction $\theta(t_0)=\theta_0$ (angle with positive $x$-axis).\par
+			Use the Fundamental Theorem of Calculus to describe the unique unit-speed curve $\vx:I\to\E^2$ with curvature $\kappa$ and given initial data.\par
+			(\emph{Hints: use $\theta(t):=\theta_0+\int_{t_0}^t\kappa(u)\,\du$ to define $\vT(t)$ and integrate! Your answer will contain definite integrals.})
+			
+			\item Suppose $\vx:\R\to\E^2$ is unit-speed with $\kappa(t)=\frac 1{1+t^2}$, $\vx(0)=(0,0)$, and $\vx'(0)=(1,0)$. Find $\vx(t)$.
+		\end{enumerate}
 		
-		\item Suppose $\vx:\R\to\E^2$ is unit-speed with $\kappa(t)=\frac 1{1+t^2}$, $\vx(0)=(0,0)$, and $\vx'(0)=(1,0)$. Find $\vx(t)$.
+	
+	  \item (Hard)\quad A \emph{cylindrical helix} is a curve $\vx(t)$ whose unit tangent field $\vT(t)$ makes a constant angle $\theta\in(0,\frac\pi 2)$ with a fixed vector $\vn$.
+		\begin{enumerate}
+		  \item If $\vx(t)=\bigl(\cos t,\sin t,t\bigr)$ is the standard circular helix, describe a suitable vector $\vn$.
+		  \item Use the Frenet--Serret formulas to prove that a (unit-speed) non-planar curve is a cylindrical helix if and only if $\kappa/\tau$ is constant.
+	  \end{enumerate}
+	  
+	  \item (Very hard)\quad Suppose a moving frame $\ve_1,\ve_2,\ve_3$ has structure equations where all three functions $w_{12},w_{13},w_{23}$ are constant. Find the moving frame $\vf_1,\vf_2,\vf_3$ where $\vf_1=\ve_1$ such that $\vf_1,\vf_2,\vf_3$ is the Frenet frame of a unit-speed circular helix. Calculate the curvature $\kappa$ and torsion $\tau$ of this helix in terms of $w_{12},w_{13},w_{23}$. Can you find an orthogonal matrix $A$ such that
+	  \[
+	  	A^{-1}
+	  	\begin{pmatrix}
+		     0&w_{12}&w_{13}\\
+		     -w_{12}&0&w_{23}\\
+		     -w_{13}&-w_{23}&0
+	     \end{pmatrix}
+	     A=
+	     \begin{pmatrix}
+		     0&-\kappa&0\\
+		     \kappa&0&-\tau\\
+		     0&\tau&0
+	     \end{pmatrix}
+	     \ ?
+	   \]
 	\end{enumerate}
-	
-	
-	
-% 	. By Exercise \hyperref[exs:frenet2deasy]{\ref*{sec:orth}.\ref*{exs:frenet2deasy}} the Frenet frame is
-% 	\[\vT(t):=\twovec{\cos\theta(t)}{\sin\theta(t)},\qquad \vN(t):=J\vT(t)=\twovec{-\sin\theta(t)}{\cos\theta(t)}\]
-% 	\begin{enumerate}
-% 	  \item Verify that $\{\vT,\vN\}$ is a moving frame for which $w_{12}(t)=-\kappa(t)$.
-% 	  \item Integrate to find the unique 
-% 	\end{enumerate}
-	
-
-% 
-% The structure equations for this frame are easy to compute: note how the curvature appears naturally
-% \[\vT'=\theta'\twovec{-\sin\theta}{\cos\theta}=\kappa\vN\implies (\vT'\ \ \vN')=(\vT\ \ \vN)\begin{pmatrix}
-% 0&-\kappa\\\kappa&0
-% \end{pmatrix}\]
-% One advantage of the structure equations is that we're able to see what happens to the curve under a rigid motion. The \emph{really} nice thing about this is that we can \emph{reverse} the process.\smallbreak
-% 
-% Suppose $\kappa:[a,b]\to\R$ is continuous. The Fundamental Theorem of Calculus says that
-% \[\theta(s):=\int_a^s\kappa(u)\,\du\]
-% is \emph{differentiable} with derivative $\theta'(s)=\kappa(s)$. Since $\theta$ is continuous (and thus so are $\cos\theta$, $\sin\theta$), a second application of the Fundamental Theorem defines a new \emph{vector-valued} function:
-% \[\vx(s):=\int_a^s\twovec{\cos\theta(u)}{\sin\theta(u)}\du\]
-	
-	
-	
-
-  \item (Hard)\quad A \emph{cylindrical helix} is a curve $\vx(t)$ whose unit tangent field $\vT(t)$ makes a constant angle $\theta\in(0,\frac\pi 2)$ with a fixed vector $\vn$.
-	\begin{enumerate}
-	  \item If $\vx(t)=\bigl(\cos t,\sin t,t\bigr)$ is the standard circular helix, describe a suitable vector $\vn$.
-	  \item Use the Frenet--Serret formulas to prove that a (unit-speed) non-planar curve is a cylindrical helix if and only if $\kappa/\tau$ is constant.
-  \end{enumerate}
-  
-  \item (Very hard)\quad Suppose a moving frame $\ve_1,\ve_2,\ve_3$ has structure equations where all three functions $w_{12},w_{13},w_{23}$ are constant. Find the moving frame $\V f_1,\V f_2,\V f_3$ where $\V f_1=\ve_1$ such that $\V f_1,\V f_2,\V f_3$ is the Frenet frame of a unit-speed circular helix. Calculate the curvature $\kappa$ and torsion $\tau$ of this helix in terms of $w_{12},w_{13},w_{23}$. Can you find an orthogonal matrix $A$ such that
-  \[A^{-1}\begin{pmatrix}
-     0&w_{12}&w_{13}\\
-     -w_{12}&0&w_{23}\\
-     -w_{13}&-w_{23}&0
-     \end{pmatrix}A=
-     \begin{pmatrix}
-     0&-\kappa&0\\
-     \kappa&0&-\tau\\
-     0&\tau&0
-     \end{pmatrix}?\]
-\end{enumerate}
 \end{exercises}
 
 
 \clearpage
-
-
-
-
 
 
 
@@ -1604,36 +1594,49 @@ Conversely, the $n-1$ generalized curvatures determine the curve up to rigid mot
 We have seen how curvature measures the deviation of a curve from a straight line and that the only planar curves with constant curvature $\kappa$ are circles of radius $\frac 1\kappa$. We could have started with this as our definition; at a given point, a curve has curvature $\kappa$ if the circle which best approximates the curve has radius $\frac 1\kappa$. Of course, we have to define what is meant by \emph{best approximation.}
 
 \begin{defn}{}{}
-Unit-speed curves $\vx,\vy$ have \emph{$n\th$ order contact} at an intersection point $\vx(t_0)=\vy(s_0)$, if their first $n$ derivatives agree there: $\vx^{(j)}(t_0)=\vy^{(j)}(s_0)$ for all $1\le j\le n$.
+	Unit-speed curves $\vx,\vy$ have \emph{$n\th$ order contact} at an intersection point $\vx(t_0)=\vy(s_0)$, if their first $n$ derivatives agree there: $\vx^{(j)}(t_0)=\vy^{(j)}(s_0)$ for all $1\le j\le n$.
 \end{defn}
 
 \begin{minipage}[t]{0.65\linewidth}\vspace{0pt}
-Let $\vx(t)$ be a unit-speed curve in $\E^2$, fix $r\neq 0$ and consider the unit-speed circle $\vc(s)$ with (signed) radius $r$ for which
-\[\vc(0)=\vx(t_0)\quad\text{and}\quad\vc'(0)=\vx'(t_0)\]
-We take $r>0\iff$ the circle lies on the same side of the curve as the principal normal vector $\vN$.\medbreak
-The circle is straightforward to parametrize:
-\[\vc(s)=\underbrace{\vx(t_0)+r\vN(t_0)}_{\text{center}} +\underbrace{r\sin(s/r)\vT(t_0)-r\cos(s/r)\vN(t_0)}_{\text{rotation}}\]
-\end{minipage}\hfill\begin{minipage}[t]{0.34\linewidth}\vspace{0pt}
-\flushright\includegraphics[scale=0.9]{radii-circles}
+	Let $\vx(t)$ be a unit-speed curve in $\E^2$, fix $r\neq 0$ and consider the unit-speed circle $\vc(s)$ with (signed) radius $r$ for which
+	\[
+		\vc(0)=\vx(t_0) \quad\text{and}\quad \vc'(0)=\vx'(t_0)
+	\]
+	We take $r>0\iff$ the circle lies on the same side of the curve as the principal normal vector $\vN$.\medbreak
+	The circle is straightforward to parametrize:
+	\[
+		\vc(s)=\underbrace{\vx(t_0)+r\vN(t_0)}_{\text{center}} +\underbrace{r\sin(s/r)\vT(t_0)-r\cos(s/r)\vN(t_0)}_{\text{rotation}}
+		\]
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.34\linewidth}\vspace{0pt}
+	\flushright\includegraphics[scale=0.9]{radii-circles}
 \end{minipage}\medbreak
 Certainly this circle has 1\st-order contact with the curve: $\vc(0)=\vx(t_0)$ and 
-\[\vc'(s)=\cos(s/r)\vT(t_0)+\sin(s/r)\vN(t_0)\implies \vc'(0)=\vT(t_0)=\vx'(t_0)\]
+\[
+	\vc'(s)=\cos(s/r)\vT(t_0)+\sin(s/r)\vN(t_0)\implies \vc'(0)=\vT(t_0)=\vx'(t_0)
+\]
 Moreover,
-\[\vc''(s)=-\frac 1r\sin(s/r)\vT(t_0)+\frac 1r\cos(s/r)\vN(t_0)\implies \vc''(0)=\frac 1r\vN(t_0)\]
+\[
+	\vc''(s)=-\frac 1r\sin(s/r)\vT(t_0)+\frac 1r\cos(s/r)\vN(t_0)\implies \vc''(0)=\frac 1r\vN(t_0)
+\]
 The circle has second-order contact with the curve if and only if
-\[\vc''(0)=\vx''(t_0)\iff \frac 1r=\kappa(t_0)\]
-
+\[
+	\vc''(0)=\vx''(t_0)\iff \frac 1r=\kappa(t_0)
+\]
 
 There is nothing stopping us from finding this circle for an arbitrary speed regular curve, since all we need is the curvature and the Frenet frame at the relevant point.
 
 \begin{defn}{}{}
-Let $\vx(t)$ be a regular curve. At a point $\vx(t_0)$ with non-zero curvature:
-\begin{itemize}\itemsep0pt
-  \item The \emph{radius of curvature} is $r=\frac 1{\kappa(t_0)}$.
-  \item The \emph{center of curvature} is the point with position vector $\vx(t_0)+r\vN(t_0)$.
-	\item The \emph{osculating circle} is the radius $r$ circle centered at the center of curvature. It has unit-speed parametrization
-	\[\vc(s)=\vx(t_0)+\frac 1{\kappa(t_0)}\bigl(\sin(s/r)\vT(t_0)+(1-\cos(s/r))\vN(t_0)\bigr)\]
-\end{itemize}
+	Let $\vx(t)$ be a regular curve. At a point $\vx(t_0)$ with non-zero curvature:
+	\begin{itemize}\itemsep0pt
+	  \item The \emph{radius of curvature} is $r=\frac 1{\kappa(t_0)}$.
+	  \item The \emph{center of curvature} is the point with position vector $\vx(t_0)+r\vN(t_0)$.
+		\item The \emph{osculating circle} is the radius $r$ circle centered at the center of curvature. It has unit-speed parametrization
+		\[
+			\vc(s)=\vx(t_0) +\frac 1{\kappa(t_0)}\bigl(\sin(s/r)\vT(t_0) +(1-\cos(s/r))\vN(t_0)\bigr)
+		\]
+	\end{itemize}
 \end{defn}
 
 \emph{Osculating} means `kissing.' If $\kappa(t_0)=0$, some consider the tangent line to be an osculating circle with infinite radius!
@@ -1642,43 +1645,51 @@ Let $\vx(t)$ be a regular curve. At a point $\vx(t_0)$ with non-zero curvature:
 \goodbreak
 
 \begin{example}{}{evolparabola}
-We find the osculating circles for the parabola $y=x^2$ parametrized in the obvious manner $\vx(t)=\bigl(t,t^2\bigr)$. The relevant ingredients are
-\begin{gather*}
-\vx'(t)=\twovec{1}{2t}\implies \vT(t)=\frac 1{\sqrt{1+4t^2}}\twovec 1{2t} \qquad \vN(t)=\frac{1}{\sqrt{1+4t^2}}\twovec{-2t}{1}\\
-\vx''(t)=\twovec{0}{2},\qquad \kappa(t)=\frac 2{(1+4t^2)^{3/2}}
-\end{gather*}
-\begin{minipage}[t]{0.59\linewidth}\vspace{0pt}
-The center of curvature when $t=t_0$ has position vector
-\[\vx(t_0)+\frac{1}{\kappa(t_0)}\vN(t_0)=%\twovec{t_0}{t_0^2}+\frac{1+4t_0^2}{2}\twovec{-2t_0}{1}=
-\twovec{-4t_0^3}{\frac 12+3t_0^2}\]
-Several osculating circle are drawn and their centers of curvature indicated.
-\end{minipage}\hfill
-\begin{minipage}[t]{0.40\linewidth}\vspace{-35pt}
-\flushright\includegraphics[scale=1]{radii-osculating3}
-\end{minipage}
+	We find the osculating circles for the parabola $y=x^2$ parametrized in the obvious manner $\vx(t)=\bigl(t,t^2\bigr)$. The relevant ingredients are
+	\begin{gather*}
+		\vx'(t)=\twovec{1}{2t}\implies \vT(t)=\frac 1{\sqrt{1+4t^2}}\twovec 1{2t} \qquad \vN(t)=\frac{1}{\sqrt{1+4t^2}}\twovec{-2t}{1}\\
+		\vx''(t)=\twovec{0}{2},\qquad \kappa(t)=\frac 2{(1+4t^2)^{3/2}}
+	\end{gather*}
+	\begin{minipage}[t]{0.59\linewidth}\vspace{0pt}
+		The center of curvature when $t=t_0$ has position vector
+		\[
+			\vx(t_0)+\frac{1}{\kappa(t_0)}\vN(t_0)=%\twovec{t_0}{t_0^2}+\frac{1+4t_0^2}{2}\twovec{-2t_0}{1}=
+			\twovec{-4t_0^3}{\frac 12+3t_0^2}
+		\]
+		Several osculating circles are drawn and their centers of curvature indicated.
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.40\linewidth}\vspace{-35pt}
+		\flushright\includegraphics[scale=1]{radii-osculating3}
+	\end{minipage}
 \end{example}
 
 
-
-The above suggests that the centers of curvature form an interesting curve.
+The centers of curvature describe a curve that is interesting in its own right.
 
 \begin{defn}{}{}
-Let $\vx(t)$ be a regular plane curve with non-zero curvature. The curve $\ve(t)$ defined by the centers of curvature is the \emph{evolute} of $\vx(t)$:
-\[\ve(t)=\vx(t)+\frac 1{\kappa(t)}\vN(t)\]
+	Let $\vx(t)$ be a regular plane curve with non-zero curvature. The curve $\ve(t)$ defined by the centers of curvature is the \emph{evolute} of $\vx(t)$:
+	\[
+		\ve(t)=\vx(t)+\frac 1{\kappa(t)}\vN(t)
+	\]
 \end{defn}
 
 \begin{example*}[lower separated=false, sidebyside, sidebyside align=top seam, sidebyside gap=0pt, righthand width=0.49\linewidth]{\ref{ex:evolparabola} cont}{}
-The evolute of the parabola $\vx(t)=(t,t^2)$ was found above:
-\[\textcolor{Green}{\ve(t)}=\textcolor{blue}{\vx(t)}+\frac 1{\kappa(t)}\vN(t)=\twovec{-4t^3}{\frac 12+3t^2}\]
-Alternatively, this is the graph $y=\frac 12+3\left(\frac x4\right)^{2/3}$: notice that this isn't regular at $x=0$.\smallbreak
-The picture now animates to show the osculating circles and the construction of the evolute.
-\tcblower
-\flushright
-\href{http://math.uci.edu/~ndonalds/math162a/radii-evolute.html}{\includegraphics[scale=1]{radii-evolute2}}
+	The evolute of the parabola $\vx(t)=(t,t^2)$ was found above:
+	\[
+	\textcolor{Green}{\ve(t)} =\textcolor{blue}{\vx(t)} +\frac 1{\kappa(t)}\vN(t) =\twovec{-4t^3}{\frac 12+3t^2}
+	\]
+	Alternatively, this is the graph $y=\frac 12+3\left(\frac x4\right)^{2/3}$: notice that this isn't regular at $x=0$.\smallbreak
+	The picture now animates to show the osculating circles and the construction of the evolute.
+	\tcblower
+	\flushright
+	\href{http://math.uci.edu/~ndonalds/math162a/radii-evolute.html}{\includegraphics[scale=1]{radii-evolute2}}
 \end{example*}
 
 The gray lines are the \emph{normal lines} to the parabola, and are also \emph{tangent} to the evolute.
-\[\ve'=\vx'-\frac{\kappa'}{\kappa^2}\vN+\frac 1\kappa(-v\kappa\vT)=-\frac{\kappa'}{\kappa^2}\vN\]
+\[
+	\ve'=\vx'-\frac{\kappa'}{\kappa^2}\vN+\frac 1\kappa(-v\kappa\vT)=-\frac{\kappa'}{\kappa^2}\vN
+\]
 This last means that the evolute is a \emph{focal curve} for the family of normal lines. The same equation shows that the evolute is regular precisely when $\kappa'(t)\neq 0$. 
 
 \vfil
@@ -1689,43 +1700,45 @@ This last means that the evolute is a \emph{focal curve} for the family of norma
 A related notion is the \emph{involute,} which may be imagined by rolling a line along a curve and seeing what curve the end of the line traces out.
 
 \begin{defn}{}{}
-Suppose $\vx(t)$ has unit speed. Its \emph{involute} is the curve
-\[\vi(t):=\vx(t)-t\vx'(t)=\vx(t)-t\vT(t)\]
+	Suppose $\vx(t)$ has unit speed. Its \emph{involute} is the curve
+	\[
+		\vi(t):=\vx(t)-t\vx'(t)=\vx(t)-t\vT(t)
+	\]
 \end{defn}
 
 An involute depends crucially on its parametrization: it intersects its source curve when $t=0$.
 
 \begin{examples}{}{tractrix}
-\exstart The unit speed unit circle $\vx(t)=\bigl(\cos t,\sin t\bigr)$. Its involute is therefore
-\[
-	\vi(t)=\vx(t)-t\vT(t)=\twovec{\cos t+t\sin t}{\sin t-t\cos t}
-\]
-%The picture below is linked to an animation of the construction.
-\begin{enumerate}\setcounter{enumi}{1}
-  \item\label{ex:tractrix1} The involute of the unit speed \emph{catenary} $\vx(t)=\bigl(\sinh^{-1}\!t,\sqrt{1+t^2}\bigr)$ is the \emph{tractrix}:
-	\[\vi(t)=\twovec{\sinh^{-1}\!t-t(1+t^2)^{-1/2}}{(1+t^2)^{-1/2}}\]
-	This is the curve obtained when an \textcolor{Green}{object} starting at the point $(0,1)$ is dragged (subjected to \emph{traction}) by attaching a \textcolor{orange}{rope} of length 1 to a vehicle moving along the $x$-axis.
-	\begin{center}
-		\begin{tabular}{c@{\qquad\qquad}c}
-			\href{http://math.uci.edu/~ndonalds/math162a/radii-invcirc.html}{\includegraphics[scale=0.8]{radii-invcirc2}}
-			&
-			\href{http://math.uci.edu/~ndonalds/math162a/radii-invcat.html}{\includegraphics[scale=0.8]{radii-invcat2}}
-			\\
-			\textcolor{blue}{Circle} and \textcolor{Green}{involute (spiral)}
-			&
-			\textcolor{blue}{Catenary} and \textcolor{Green}{involute (tractrix)}
-		\end{tabular}
-	\end{center}
+	\exstart The unit speed unit circle $\vx(t)=\bigl(\cos t,\sin t\bigr)$. Its involute is therefore
+	\[
+		\vi(t)=\vx(t)-t\vT(t)=\twovec{\cos t+t\sin t}{\sin t-t\cos t}
+	\]
+	\begin{enumerate}\setcounter{enumi}{1}
+  	\item\label{ex:tractrix1} The involute of the unit speed \emph{catenary} $\vx(t)=\bigl(\sinh^{-1}\!t,\sqrt{1+t^2}\bigr)$ is the \emph{tractrix}:
+		\[
+			\vi(t)=\twovec{\sinh^{-1}\!t-t(1+t^2)^{-1/2}}{(1+t^2)^{-1/2}}
+		\]
+		This is the curve obtained when an \textcolor{Green}{object} starting at the point $(0,1)$ is dragged (subjected to \emph{traction}) by attaching a \textcolor{orange}{rope} of length 1 to a vehicle moving along the $x$-axis.
+		\begin{center}
+			\begin{tabular}{c@{\qquad\qquad}c}
+				\href{http://math.uci.edu/~ndonalds/math162a/radii-invcirc.html}{\includegraphics[scale=0.8]{radii-invcirc2}}
+				&
+				\href{http://math.uci.edu/~ndonalds/math162a/radii-invcat.html}{\includegraphics[scale=0.8]{radii-invcat2}}
+				\\
+				\textcolor{blue}{Circle} and \textcolor{Green}{involute (spiral)}
+				&
+				\textcolor{blue}{Catenary} and \textcolor{Green}{involute (tractrix)}
+			\end{tabular}
+		\end{center}
 	
-Another way to visualize the involute of the catenary is to imagine attaching a weight at $(0,1)$ to a long string wrapped tightly along the catenary and then releasing the weight. Similarly, imagine a string is wound tightly around the circle and then uncoiled; the result is the involute.
-\end{enumerate}
+		Another way to visualize the involute of the catenary is to imagine attaching a weight at $(0,1)$ to a long string wrapped tightly along the catenary and then releasing the weight. Similarly, imagine a string is wound tightly around the circle and then uncoiled; the result is the involute.
+	\end{enumerate}
 \end{examples}
 
 
-%These concepts are quite close to being inverses.
 
 \begin{thm}{}{}
-The evolute of any involute is the original curve, except where $t=0$ or $\kappa=0$.
+	The evolute of any involute is the original curve, except where $t=0$ or $\kappa=0$.
 \end{thm}
 
 We leave the argument as an exercise. The reverse process fails, as an observation of the parabola example should convince you: remember that an involute intersects its source curve at $t=0$\ldots
@@ -1736,72 +1749,67 @@ We leave the argument as an exercise. The reverse process fails, as an observati
 
 
 \begin{exercises}
-\exstart Find the center of curvature for the curve $\vx(t)=(1-t^{-1},1+t)$ at $t=1$.
-
-
-\begin{enumerate}\setcounter{enumi}{1}
-  \item Consider the ellipse $\vx(t)=\bigl(a\cos t,b\sin t\bigr)$ where $a>b>0$.
-  \begin{enumerate}
-    \item Compute the curvature of the ellipse.
-    
-    \item Show that its evolute is the \emph{\href{https://en.wikipedia.org/wiki/Astroid}{astroid}} $\ve(t)=(a^2-b^2)\stwovec{a^{-1}\cos^3t}{-b^{-1}\sin^3t}$
-    
-    \item The four-vertex theorem states that a simple closed plane curve with differentiable curvature has at least four points where $\kappa'=0$. Show that the ellipse has precisely four.
-  \end{enumerate}
-  
-  
-  \item Describe the involutes of a straight line.\par
-  (\emph{Hint: this is a trick question!})
-  
- 
-	\item In Example \ref*{ex:tractrix}.\ref{ex:tractrix1} we constructed the tractrix as the involute of the catenary.
-	\begin{enumerate}
-	  \item Use $\sinh^{-1}\!t=\ln\bigl(t+\sqrt{1+t^2}\bigr)$ to verify that $\vx(t)$ has unit speed and thus confirm the derivation of $\vi(t)$.
-	  
-	  \item Compute the tangent line to the tractrix when $t>0$ and show that this line cuts the $x$-axis a distance 1 from the curve, thus justifying the \emph{traction} claim.
-	  
-  	%\item Find the curvature $\kappa(t)$ of the tractrix.
- 	\end{enumerate}
-
-
-	\item\label{exs:curvetaylor} Suppose that the graph of a smooth function $y=f(x)$ passes horizontally through the origin: $f(0)=0=f'(0)$. Show that its Maclaurin series is
-	\[f(x)\approx \frac 12\kappa(0)x^2+\text{higher order terms}\]
-	Use this to \emph{quickly} state the curvature at $x=0$ of the graph of $y=x^2(7x^2-29)$.
-
-
-	\item Let $\vx(t)$ be unit speed with non-zero curvature $\kappa$ and Frenet frame $\{\vT,\vN\}$. Moreover, let $\vi(t)=\vx(t)-t\vT(t)$ be an involute and denote the speed and corresponding data for the involute $\hat v,\hat\kappa,\hat\vT,\hat\vN$. For simplicity, suppose $\kappa,t>0$.
-	\begin{enumerate}
-	  \item Compute the Frenet frame of $\vi(t)$ in terms of $\vT$ and $\vN$.
-	  
-	  \item Show that $\hat\kappa(t)=\frac 1t$.
-	  
-	  \item Show that the evolute of $\vi(t)$ is the original curve $\vx(t)$.
-	  
-	  %\item Can you modify your argument to cope with the situation when $\kappa$ or $t$ is negative?
-	\end{enumerate}
+	\exstart Find the center of curvature for the curve $\vx(t)=(1-t^{-1},1+t)$ at $t=1$.
 	
 	
-	\item We see how an involute of the evolute fails to recover the original curve.\par
-	Let $\vx(t)$ be regular with non-zero curvature, $\kappa'(t)\neq 0$, and evolute $\ve(t)=\vx(t)+\frac 1{\kappa(t)}\vN(t)$. Since $\ve(t)$ is regular, we may assume it is parametrized by arc-length.
-	\begin{enumerate}
-	  \item If $\kappa'>0$, explain why $\kappa'=\kappa^2$.
-	  \item Show that the natural involute of the evolute is
-	  \[\ve(t)-t\ve'(t)=\vx(t)+\frac 1{\kappa(0)}\vN(t)\]
-	  that is, the original curve shifted a constant distance $\frac 1{\kappa(0)}$ in its normal direction.\par
-	  (\emph{Hint: the ODE in part (a) is separable})
-	  \item Find the involute of the evolute of the parabola $\vx(t)=(t,t^2)$. %this is $\vx(t)=(t,t^2)+\frac 1{2\sqrt{1+4t^2}}(-2t,1)$
-	\end{enumerate}	
-
-
-
-
+	\begin{enumerate}\setcounter{enumi}{1}
+	  \item Consider the ellipse $\vx(t)=\bigl(a\cos t,b\sin t\bigr)$ where $a>b>0$.
+	  \begin{enumerate}
+	    \item Compute the curvature of the ellipse.
+	    
+	    \item Show that its evolute is the \emph{\href{https://en.wikipedia.org/wiki/Astroid}{astroid}} $\ve(t)=(a^2-b^2)\stwovec{a^{-1}\cos^3t}{-b^{-1}\sin^3t}$
+	    
+	    \item The four-vertex theorem states that a simple closed plane curve with differentiable curvature has at least four points where $\kappa'=0$. Show that the ellipse has precisely four.
+	  \end{enumerate}
+	  
+	  
+	  \item Describe the involutes of a straight line.\par
+	  (\emph{Hint: this is a trick question!})
+	  
+	 
+		\item In Example \ref*{ex:tractrix}.\ref{ex:tractrix1} we constructed the tractrix as the involute of the catenary.
+		\begin{enumerate}
+		  \item Use $\sinh^{-1}\!t=\ln\bigl(t+\sqrt{1+t^2}\bigr)$ to verify that $\vx(t)$ has unit speed and thus confirm the derivation of $\vi(t)$.
+		  
+		  \item Compute the tangent line to the tractrix when $t>0$ and show that this line cuts the $x$-axis a distance 1 from the curve, thus justifying the \emph{traction} claim.
+		  
+	  	%\item Find the curvature $\kappa(t)$ of the tractrix.
+	 	\end{enumerate}
+	
+	
+		\item\label{exs:curvetaylor} Suppose that the graph of a smooth function $y=f(x)$ passes horizontally through the origin: $f(0)=0=f'(0)$. Show that its Maclaurin series is
+		\[
+			f(x)\approx \frac 12\kappa(0)x^2+\text{higher order terms}
+		\]
+		Use this to \emph{quickly} state the curvature at $x=0$ of the graph of $y=x^2(7x^2-29)$.
+	
+	
+		\item Let $\vx(t)$ be unit speed with non-zero curvature $\kappa$ and Frenet frame $\{\vT,\vN\}$. Moreover, let $\vi(t)=\vx(t)-t\vT(t)$ be an involute and denote the speed and corresponding data for the involute $\hat v,\hat\kappa,\hat\vT,\hat\vN$. For simplicity, suppose $\kappa,t>0$.
+		\begin{enumerate}
+		  \item Compute the Frenet frame of $\vi(t)$ in terms of $\vT$ and $\vN$.
+		  
+		  \item Show that $\hat\kappa(t)=\frac 1t$.
+		  
+		  \item Show that the evolute of $\vi(t)$ is the original curve $\vx(t)$.
+		\end{enumerate}
+		
+		
+		\item We see how an involute of the evolute fails to recover the original curve.\par
+		Let $\vx(t)$ be regular with non-zero curvature, $\kappa'(t)\neq 0$, and evolute $\ve(t)=\vx(t)+\frac 1{\kappa(t)}\vN(t)$. Since $\ve(t)$ is regular, we may assume it is parametrized by arc-length.
+		\begin{enumerate}
+		  \item If $\kappa'>0$, explain why $\kappa'=\kappa^2$.
+		  \item Show that the natural involute of the evolute is
+		  \[
+				\ve(t)-t\ve'(t)=\vx(t)+\frac 1{\kappa(0)}\vN(t)
+			\]
+		  that is, the original curve shifted a constant distance $\frac 1{\kappa(0)}$ in its normal direction.\par
+		  (\emph{Hint: the ODE in part (a) is separable})
+		  \item Find the involute of the evolute of the parabola $\vx(t)=(t,t^2)$.
+		\end{enumerate}	
 %   
 %   \item Find the curvature of the degree $n\ge 1$ polynomial $y=x^n$ at all points (find a sensible parameteriztion of the curve first). For each $n$ find the maximum value of the curvature and the location on the curve of the point of maximum curvature (it's messy\ldots).
-% 
-%   
-% 
-% \item Another famous involute is that of the \emph{cycloid}: it is just itself but shifted!
-\end{enumerate}
+
+	\end{enumerate}
 \end{exercises}
 
 
