@@ -1342,9 +1342,9 @@ Our classification of spacecurves depends on the `usual' existence and uniquenes
 % \end{proof}
 
 \begin{thm}{Existence/Uniqueness for Linear ODE (Picard, Lindelöf, etc.)}{}\phantom{bob}\par
-	Let $t_0\in\R$ and $\vc\in\R^n$ be given, and let $A(t)\in M_n(\R)$ be a continuous matrix-valued function defined on an interval $\nm{t-t_0}\le T$. Then the initial value problem
+	Let $t_0\in\R$ and $\vc\in\R^n$ be given, and let $B(t)\in M_n(\R)$ be a continuous matrix-valued function defined on an interval $\nm{t-t_0}\le T$. Then the initial value problem
 	\[
-		\diff[\vE]{t}=A(t)\vE,\qquad \vE(t_0)=\vc
+		\diff[\vE]{t}=B(t)\vE,\qquad \vE(t_0)=\vc
 	\]
 	has a unique solution $\vE:[t_0-T,t_0+T]\to \R^n$.
 \end{thm}
@@ -1353,7 +1353,7 @@ Our classification of spacecurves depends on the `usual' existence and uniquenes
 
 The rough idea of the proof is to define a sequence of functions
 \[
-	\vE_0(t):=\vc,\qquad \vE_1(t):=\vc+\int_{t_0}^tA(u)\vE_0(u)\,\du,\qquad \vE_2(t):=\vc+\int_{t_0}^tA(u)\vE_1(u)\,\du,\ \ldots
+	\vE_0(t):=\vc,\qquad \vE_1(t):=\vc+\int_{t_0}^tB(u)\vE_0(u)\,\du,\qquad \vE_2(t):=\vc+\int_{t_0}^tB(u)\vE_1(u)\,\du,\ \ldots
 \]
 which are seen to converge to the required solution; this last step requires advanced ideas from topology/analysis. A simple example should convince you of the approach.
 
