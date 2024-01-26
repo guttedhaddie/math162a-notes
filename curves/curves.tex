@@ -1342,9 +1342,9 @@ Our classification of spacecurves depends on the `usual' existence and uniquenes
 % \end{proof}
 
 \begin{thm}{Existence/Uniqueness for Linear ODE (Picard, Lindelöf, etc.)}{}\phantom{bob}\par
-	Let $t_0\in\R$ and $\vc\in\R^n$ be given, and let $B(t)\in M_n(\R)$ be a continuous matrix-valued function defined on an interval $\nm{t-t_0}\le T$. Then the initial value problem
+	Let $t_0\in\R$ and $\vc\in\R^n$ be given, and let $M(t)\in M_n(\R)$ be a continuous matrix-valued function defined on an interval $\nm{t-t_0}\le T$. Then the initial value problem
 	\[
-		\diff[\vE]{t}=B(t)\vE,\qquad \vE(t_0)=\vc
+		\diff[\vE]{t}=M(t)\vE,\qquad \vE(t_0)=\vc
 	\]
 	has a unique solution $\vE:[t_0-T,t_0+T]\to \R^n$.
 \end{thm}
@@ -1353,7 +1353,7 @@ Our classification of spacecurves depends on the `usual' existence and uniquenes
 
 The rough idea of the proof is to define a sequence of functions
 \[
-	\vE_0(t):=\vc,\qquad \vE_1(t):=\vc+\int_{t_0}^tB(u)\vE_0(u)\,\du,\qquad \vE_2(t):=\vc+\int_{t_0}^tB(u)\vE_1(u)\,\du,\ \ldots
+	\vE_0(t):=\vc,\qquad \vE_1(t):=\vc+\int_{t_0}^tM(u)\vE_0(u)\,\du,\qquad \vE_2(t):=\vc+\int_{t_0}^tM(u)\vE_1(u)\,\du,\ \ldots
 \]
 which are seen to converge to the required solution; this last step requires advanced ideas from topology/analysis. A simple example should convince you of the approach.
 
@@ -1453,7 +1453,7 @@ We finish this discussion with a quick application of the Fundamental Theorem.
 
 \begin{proof}
 	By (Exercise \ref*{sec:frenet}.\ref{exs:genhelixcurv}), the circular helix $\vx(t)=\bigl(r\cos t,r\sin t,ht\bigr)$ has constant curvature $\kappa=\frac r{r^2+h^2}$ and torsion $\tau=\frac h{r^2+h^2}$.\smallbreak
-	Given constant $\kappa,\tau$, it is a simple exercise to find suitable $r,h$. By Corollary \ref{cor:fund2}, this is \emph{only} such curve up to direct isometry (and constant speed re-parametrization).
+	Given constant $\kappa,\tau$, it is a simple exercise to find suitable $r,h$. By Corollary \ref{cor:fund2}, this is the \emph{only} such curve up to direct isometry (and constant speed re-parametrization).
 \end{proof}
 
 
