@@ -1459,38 +1459,57 @@ We finish this discussion with a quick application of the Fundamental Theorem.
 
 \boldsubsubsection{What changes in other dimensions?}
 
+\begin{minipage}[t]{0.65\linewidth}\vspace{-5pt}
 For plane curves things are a little simpler. Here is a summary. 
-\begin{description}
-	\item[\normalfont\emph{Assumptions}] $\vx:I\to\E^2$ is regular; we don't need biregularity.
+
+	\begin{description}
+		\item[\normalfont\emph{Assume}:] $\vx:I\to\E^2$ is regular; we don't need biregularity.
+		
+		\item[\normalfont\emph{Frenet frame}:] Define $\vT:=\frac 1{v}\vx'$ and $\vN:=J\vT$, where $J=
+		\begin{smatrix}
+			0&-1\\1&0	
+		\end{smatrix}$ is rotation by \ang{90} counter-clockwise; no differentiation is required to compute $\vN$!
+		
+		\item[\normalfont\emph{Curvature}:] $\kappa=\frac 1v\vT'\cdot\vN$ is \emph{signed} as we saw in Section \ref{sec:arclength}:
 	
-	\item[\normalfont\emph{Frenet frame}] $\vT:=\frac 1{v}\vx'$ and $\vN:=J\vT$ where $J=\begin{smatrix}
-		0&-1\\1&0	
-	\end{smatrix}$ is rotation by \ang{90} counter-clockwise; no differentiation is required to compute $\vN$!
-	
-	\item[\normalfont\emph{Curvature}] $\kappa=\frac 1v\vT'\cdot\vN$ is \emph{signed} as we saw in Section \ref{sec:arclength}:
-	\begin{center}
-		\begin{tabular}{c@{\qquad\qquad}c}
-			\includegraphics{fund-e2}&\includegraphics{fund-e2a}\\
-			$\kappa>0\iff \vx$ bends towards $\vN$
-			&
-			$\kappa<0\iff \vx$ bends away from $\vN$
-		\end{tabular}
-	\end{center}
-	
-	\item[\normalfont\emph{Frenet--Serret equations}] In arbitrary parametrization
-	$\bigl(\vT'\ \ \vN'\bigr)
-  =
-	\bigl(\vT\ \ \vN\bigr)
-	\begin{pmatrix}
-		0&-v\kappa\\
-		v\kappa&0
-	\end{pmatrix}
-	$
-	
-	\item[\normalfont\emph{Isometries}] Direct isometries preserve curvature, indirect isometries change its sign.
-	
-	\item[\normalfont\emph{Fundamental Theorem}] Given $\kappa(s)$, $\vx(s_0)\in\E^2$ and $\vT_0\in T_{\vx(s_0)}\E^2$, there exists a unique unit-speed curve with curvature $\kappa(s)$ and these initial data. In this case we can prove the Theorem in a more elementary fashion (Exercise \ref{exs:fundthm2}).
-\end{description}
+		
+		\item[\normalfont\emph{Frenet--Serret equations}:] In arbitrary parametrization
+		\[
+			\bigl(\vT'\ \ \vN'\bigr)
+		  =
+			\bigl(\vT\ \ \vN\bigr)
+			\begin{pmatrix}
+				0&-v\kappa\\
+				v\kappa&0
+			\end{pmatrix}
+		\]
+		
+		\item[\normalfont\emph{Isometries}:] Direct preserves $\kappa$, indirect changes its sign.
+		
+		\item[\normalfont\emph{Fundamental Theorem}:] Given $\kappa(s)$, $\vx(s_0)\in\E^2$ and $\vT_0\in T_{\vx(s_0)}\E^2$, there exists a unique unit-speed curve with curvature $\kappa(s)$ and these initial data. Exercise \ref{exs:fundthm2} gives an elementary proof.
+	\end{description}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.34\linewidth}\vspace{-8pt}
+	\flushright
+	\begin{tabular}{c@{}}
+		\includegraphics{fund-e2}\\
+		$\kappa>0$: $\vx$ bends towards $\vN$\\[10pt]
+		\includegraphics{fund-e2a}\\
+		$\kappa<0$: $\vx$ bends away from $\vN$
+	\end{tabular}
+\end{minipage}
+
+
+\begin{example}{}{}
+	Constant $\kappa$ curves are circles, as we can see explicitly in a couple of ways. The unit-speed structure equations $E'=E\begin{smatrix}
+		0&-\kappa\\
+		\kappa&0
+	\end{smatrix}$ become $\vT''=-\kappa^2\vT$ which may be explicitly integrated. Alternatively, $\theta'(t)=\kappa\implies \theta(t)=\kappa t+c$, yields an explicit circle of radius $\frac 1\kappa$:
+	\[
+		\vT(t)=\twovec{\cos(\kappa t+c)}{\sin(\kappa t+c)}\implies \vx(t)=\vx(t_0)+\int_{t_0}^t\vT(u)\,\du =\vx(t_0)+\frac 1\kappa\twovec{-\sin(\kappa t+c)}{\cos(\kappa t+c)}
+	\]
+\end{example}
 
 
 \begin{minipage}[t]{0.62\linewidth}\vspace{0pt}
