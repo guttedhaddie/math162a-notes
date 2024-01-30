@@ -6,6 +6,6 @@ Run PDFLaTeX on the master file math162a-notes.tex. Select chapters you want via
 
 Graphics editing requires Asymptote (http://asymptote.sourceforge.io/)
 
-The .project & .texlipse files relate only to Eclipse/TeXlipse (http://projects.eclipse.org/projects/science.texlipse), used as a front-end.
+The .project/.texlipse files and .settings folder can be ignored: they relate to Eclipse/TeXlipse (http://projects.eclipse.org/projects/science.texlipse) which is used as a front-end.
 
 Permissions: do what you want with it!
