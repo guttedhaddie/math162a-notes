@@ -30,13 +30,23 @@ Suppose $f(x,y,z)=x^2-z\cos y$, $p=(1,\pi,0)$, and $\vv=(3,5,1)$. Then
 The directional derivative describes the rate of change of the value of $f$ in a given direction.
 
 \begin{lemm}{}{dirderiv}
-\exstart By the chain rule, if $\vx(t)$ is a curve such that $\vx(0)=p$ and $\vx'(0)=\vv$, then
-  \[\diffat t{t=0}f\bigl(\vx(t)\bigr) =\sum_{k=1}^n\partialsat[f]{x_k}{t=0}x'_k(0) =D_\vv f\bigl(\vx(0)\bigr)\]
+\exstart By the chain rule, if $\textcolor{blue}{\vx(t)}$ is a curve such that $\vx(0)=p$ and $\vx'(0)=\vv$, then
 \begin{enumerate}\setcounter{enumi}{1}
-  \item[]	is the rate of change of $f$ at $p$ \emph{as you travel along the curve}.
+  \begin{minipage}[t]{0.6\linewidth}\vspace{-12pt}
+  	\item[]
+  \[
+  	\diffat t{t=0}f\bigl(\vx(t)\bigr) =\sum_{k=1}^n\partialsat[f]{x_k}{t=0}x'_k(0) %=D_\vv f\bigl(\vx(0)\bigr)
+  	=D_\vv f(p)
+  \]
 	\item If $t$ is small, then $f(p+t\vv)\approx f(p)+D_{\vv}f(p)\,t$.
   \item If $\vv$ is a unit vector making angle $\theta$ with $\nabla f(p)$, then
   \[D_{\vv}f(p)=\vv\cdot\nabla f(p)=\Nm{\nabla f(p)}\cos\theta\]
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.39\linewidth}\vspace{-8pt}
+  	\flushright\includegraphics{forms-dderiv}
+  \end{minipage}\smallbreak
+  %\item[]	is the rate of change of $f$ at $p$ \emph{as you travel along the curve}.
    is maximal when $\vv$ points in the same direction as $\nabla f(p)$. Otherwise said, $\nabla f(p)$ points in the direction of greatest increase of $f$ at $p$; its magnitude measures the rate of change.
 \end{enumerate}
 \end{lemm}
