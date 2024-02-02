@@ -119,7 +119,16 @@ Here are the basic rules of computation for vector fields. These are all essenti
 	\end{enumerate} 
 \end{lemm}
 
-\begin{example}{Polar Co-ordinates}{polar}
+
+\begin{examples}{}{polar}
+	\exstart We verify the Leibniz rule for the vector field $v=\partials x-xy\partials y$ and functions $f(x,y)=x$ and $g(x,y)=ye^x$.
+	\begin{gather*}
+		v[fg]=\left(\partials x-xy\partials y\right)[xye^x] =ye^x+xye^x-x^2ye^x\\
+		fv[g]+gv[f]=x\left(\partials x-xy\partials y\right)[ye^x] +ye^x\left(\partials x-xy\partials y\right)[x] =x(ye^x-xye^x) +ye^x
+	\end{gather*}
+
+\begin{enumerate}\setcounter{enumi}{1}
+  \item\label{ex:polar2} (Polar co-ordinates) 
 	Let $U$ be the plane without the non-positive $x$-axis. On $U$, the standard \emph{rectangular co-ordinates} $(x,y)$ are related to the \emph{polar co-ordinates} $(r,\theta)$ via
 	\[
 		\begin{cases}
@@ -183,10 +192,11 @@ Here are the basic rules of computation for vector fields. These are all essenti
 	  \item In polar co-ordinates, $U=(0,\infty)\times(-\pi,\pi)$ is an infinite open rectangle.
 	\end{itemize}
 	In practice, particularly since we are so familiar with polar co-ordinates, it is easier to stick to the first interpretation and draw all four co-ordinate tangent vectors on the same picture.
-\end{example}
+\end{enumerate}
+\end{examples}
 
 
-\clearpage
+
 
 
 \begin{exercises}
@@ -209,7 +219,7 @@ Here are the basic rules of computation for vector fields. These are all essenti
   	\end{enumerate}
   
   
-	  \item Revisit Example \ref{ex:polar} on polar co-ordinates.
+	  \item Revisit Example \ref*{ex:polar}.\ref{ex:polar2} on polar co-ordinates.
 	  \begin{enumerate}
 	    \item Use the chain rule to compute $\partials x$ and $\partials y$ directly in terms of $r,\theta,\partials r$ and $\partials\theta$ and verify that you obtain the same expressions as the linear algebra approach.
 	    \item Suppose $T_p\R^2$ is equipped with the standard dot product so that \smash[b]{$\partialsat xp$ and $\partialsat yp$} are considered orthonormal.
@@ -345,7 +355,7 @@ Moreover, since a linear map $(\df_p:T_p\R^n\to\R)$ is determined by what it doe
 	\]
 \end{proof}
 
-\begin{example*}{\ref*{ex:polar} cont}{}
+\begin{example*}{\ref*{ex:polar}.\ref*{ex:polar2} cont}{}
 	The exterior derivative and part 2 of the Lemma make it easy to compute the relationship between the 1-forms $\dx,\dy,\dr,\dth$:
 	\[
 		\begin{cases}
@@ -491,7 +501,7 @@ which maps the co-ordinate fields $\partials x,\partials y$ on $U$ to correspond
   	\item Prove parts 1 and 2 of Lemma \ref{lemm:formeasy}.
   
   
-  	\item Continuing Example \ref{ex:polar}, verify that $\smash{\dth\left(\partials\theta\right)=1}$, and $\smash[b]{\dr\left(\partials\theta\right)=0=\dth\left(\partials r\right)}$.
+  	\item Continuing Example \ref*{ex:polar}.\ref{ex:polar2}, verify that $\smash{\dth\left(\partials\theta\right)=1}$, and $\smash[b]{\dr\left(\partials\theta\right)=0=\dth\left(\partials r\right)}$.
   
 	
   	\item\label{exs:exactclosed} Suppose that $\alpha=\sum a_k\,\dx_k$ is exact. Prove that $\smash{\partials[a_k]{x_j}=\partials[a_j]{x_k}}$ for all $j,k$.
