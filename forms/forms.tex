@@ -398,10 +398,14 @@ Vector fields in $\R$ are written with a straight $\D$ rather than partial $\par
 You've seen 1-forms before when integrating: we integrate 1-forms over oriented curves.
 
 \begin{defn}{}{}
-Let $\alpha$ be a 1-form on $U\subseteq\R^n$ and suppose $\vx:[a,b]\to U$ parametrizes a smooth curve $C$. Our usual identification (Definition \ref{defn:vfield}) produces the \emph{tangent vector field}
-\[\vx'(t)=x_1'(t)\partials{x_1}+\cdots +x_n'(t)\partials{x_n}\]
-along the curve. Now define the integral of $\alpha$ along $C$ by
-\[\int_{C}\alpha:=\int_a^b\alpha\bigl(\vx(t)\bigr)\,\dt=\int_a^b\alpha\left(x_1'(t)\partials{x_1}+\cdots +x_n'(t)\partials{x_n}\right)\dt\]
+	Let $\alpha$ be a 1-form on $U\subseteq\R^n$ and suppose $\vx:[a,b]\to U$ parametrizes a smooth curve $C$. Our usual identification (Definition \ref{defn:vfield}) produces the \emph{tangent vector field}
+	\[
+		\vx'(t)=x_1'(t)\partials{x_1}+\cdots +x_n'(t)\partials{x_n}
+	\]
+	along the curve. Now define the integral of $\alpha$ along $C$ by
+	\[
+		\int_{C}\alpha:= \int_a^b\alpha\bigl(\vx'(t)\bigr)\,\dt= \int_a^b\alpha\left(x_1'(t)\partials{x_1}+\cdots +x_n'(t)\partials{x_n}\right)\dt
+	\]
 \end{defn}
 
 
