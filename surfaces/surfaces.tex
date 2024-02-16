@@ -4,395 +4,429 @@
 
 \subsection{Regular Parametrized Surfaces}\label{sec:regularsurfaces}
 
-We approach surfaces in $\E^3$ similarly to how we considered curves; a parametrized surface will be a \emph{function} $\vx:U\to\E^3$ where $U$ is some open subset of the plane $\R^2$. Our main purpose is to develop and measure the \emph{curvature} of a surface in terms of the parametrizing function $\vx$.\medbreak
+We approach surfaces in $\E^3$ similarly to how we considered curves; a parametrized surface is a \emph{function} $\vx:U\to\E^3$ where $U$ is some open subset of the plane $\R^2$. Our main purpose is to develop and measure the \emph{curvature} of a surface in terms of the parametrizing function $\vx$.\medbreak
 
 
 Our primary definition should mostly be familiar from elementary multivariable calculus.
 
 \begin{defn}{}{surface}
-A \emph{(smooth local) surface\footnotemark} is the range $S=\vx(U)$ of a smooth function $\vx:U\to\E^3$, where $U$ is a connected open subset of $\R^2$.\smallbreak
-Given co-ordinates $u,v$ on $U$, the \emph{co-ordinate tangent vector fields} are the partial derivatives $\vx_u=\partials[\vx]{u}$ and $\vx_v=\partials[\vx]{v}$.\smallbreak
-The \emph{exterior derivative} or \emph{differential} of the surface is the vector-valued 1-form $\dvx=\vx_u\,\du+\vx_v\,\dv$.\smallbreak
-A surface is \emph{regular} at $P=\vx(p)$ if the tangent vectors $\vx_u(p)$ and $\vx_v(p)$ are \emph{linearly independent}: otherwise said, at $P$, the surface has a well-defined
-\begin{quote}
-	\emph{Tangent plane} \ $T_PS=\Span\bigl\{\vx_u(p),\vx_v(p)\bigr\}$ (a 2-dim subspace of $T_P\E^3$), \ and \smallbreak
-	\emph{Unit normal vector} \ $\vn(p)=\dfrac{\vx_u(p)\times\vx_v(p)}{\Nm{\vx_u(p)\times\vx_v(p)}} \in T_P\E^3$
-\end{quote}
-A surface is \emph{regular} if it is regular everywhere. An \emph{orientation} is a smooth choice of \emph{unit normal vector field} $\vn$ (this is not always possible!).
+	A \emph{(smooth local) surface} is the range $S=\vx(U)$ of a smooth function $\vx:U\to\E^3$, where $U$ is a connected open subset of $\R^2$.\smallbreak
+	Given co-ordinates $u,v$ on $U$, the \emph{co-ordinate tangent vector fields} are the partial derivatives $\vx_u=\partials[\vx]{u}$ and $\vx_v=\partials[\vx]{v}$.\smallbreak
+	The \emph{exterior derivative} or \emph{differential} of the surface is the vector-valued 1-form $\dvx=\vx_u\,\du+\vx_v\,\dv$.\smallbreak
+	A surface is \emph{regular} at $P=\vx(p)$ if the tangent vectors $\vx_u(p)$ and $\vx_v(p)$ are \emph{linearly independent}: otherwise said, at $P$, the surface has a well-defined
+	\begin{quote}
+		\emph{Tangent plane} \ $T_PS=\Span\bigl\{\vx_u(p),\vx_v(p)\bigr\}$ (a 2-dim subspace of $T_P\E^3$), \ and \smallbreak
+		\emph{Unit normal vector} \ $\vn(p)=\dfrac{\vx_u(p)\times\vx_v(p)}{\Nm{\vx_u(p)\times\vx_v(p)}} \in T_P\E^3$
+	\end{quote}
+	$S$ is \emph{regular} if it is regular everywhere. An \emph{orientation} is a smooth choice of \emph{unit normal vector field} $\vn$.
 \end{defn}
 
-\footnotetext{A surface is typically parametrized by several overlapping functions $\vx$. Our definition is \emph{local} since there is only one $\vx$.}
-
-%The \emph{Mobius strip} shows that not every surface is orientable!
-
-In what follows, we will often refer to the function $\vx$ as the surface.\smallbreak
-
-% \begin{minipage}[t]{0.5\linewidth}\vspace{0pt}
-% Note that the partial derivatives $\vx_u(p),\vx_v(p)$ really are \emph{tangent to the surface} at $\vx(p)$: if $p=(u_0,v_0)$ then the \emph{curve} $\vy(t):=\vx(t,v_0)$ lies in the surface and passes through $P=\vx(p)$; its tangent vector at $P$ is then
-% \begin{align*}
-% \vy'(u_0)&=\lim_{h\to 0}\frac{\vy(u_0+h)-\vy(u_0)}h\\
-% &=\lim_{h\to 0}\frac{\vx(u_0+h,v_0)-\vx(p)}h\\
-% &=\partialsat[\vx]{u}p
-% \end{align*}
-% \end{minipage}\hfill\begin{minipage}[t]{0.49\linewidth}\vspace{0pt}
-% \flushright%\includegraphics{surface-tancurve}
-% PICTURE of curve in surface and tangent vector or param?
-% \end{minipage}
+The \emph{Möbius strip} (Exercise \ref{exs:mobius}) shows that not every surface is orientable!\par
+For brevity, we will often refer to the parametrizing function $\vx$ as the surface, though many different parametrizations will exist! A general surface typically needs to be parametrized by several overlapping functions $\vx_1,\vx_2,\ldots$. Our definition is \emph{local} since there is only one $\vx$.
 
 
 \begin{center}\phantomsection\label{sec:map}
-\includegraphics{surfaces-paramU}\quad\href{http://www.math.uci.edu/~ndonalds/math162a/surfaces-param.html}{\includegraphics{surfaces-param}}
+	\includegraphics[scale=0.95]{surfaces-paramU}\quad	\href{http://www.math.uci.edu/~ndonalds/math162a/surfaces-param.html}{\includegraphics[scale=0.95]{surfaces-param}}
 \end{center}
 
 
-The partial derivatives $\vx_u(p),\vx_v(p)$ really are \emph{tangent to the surface} at $\vx(p)$: if $p=(u_0,v_0)$ then the \emph{curve} $\vy(t):=\vx(t,v_0)$ lies in the surface and passes through $P=\vx(p)$; its tangent vector at $P$ is then
+The partial derivatives $\vx_u(p),\vx_v(p)$ are \emph{tangent to the surface} at $\vx(p)$: if $p=(u_0,v_0)$ then the \emph{curve} $\vy(t):=\vx(t,v_0)$ lies in the surface and passes through $P=\vx(p)$; its tangent vector at $P$ is then
 \[
-\vy'(u_0)=\lim_{h\to 0}\frac{\vy(u_0+h)-\vy(u_0)}h =\lim_{h\to 0}\frac{\vx(u_0+h,v_0)-\vx(p)}h  =\vx_u(p)
+	\vy'(u_0)=\lim_{h\to 0}\frac{\vy(u_0+h)-\vy(u_0)}h =\lim_{h\to 0}\frac{\vx(u_0+h,v_0)-\vx(p)}h  =\vx_u(p)
 \]
+
 \goodbreak
  
 
-
-To help distinguish between the domain and codomain, we standardize notation.
+To help distinguish between domain and codomain, we standardize notation.
 \begin{description}
-\item[\normalfont\emph{Domain} $U\subseteq\R^2$:]\begin{description}\itemsep2pt
-	\item[\normalfont\emph{Points}\!]are written \emph{lower case} or as \emph{row vectors}: e.g.\ $p=(u_0,v_0)\in U$. Typically we'll use $u,v$ as \emph{co-ordinates} unless it is more natural to use angles such as $\phi,\theta$.
-	\item[\normalfont\emph{Tangent vectors/fields}\!]are written with an arrow in our \emph{new} notation: e.g.\ $\vec w_p=\partialsat up\in T_p\R^2$.
-\end{description} 
-\item[\normalfont\emph{Codomain} $\E^3$:]\begin{description}\itemsep2pt
-	\item[\normalfont\emph{Points}\!]are written \emph{upper case} or as \emph{row vectors,} e.g.\ $P=(3,4,8)\in\E^3$. Co-ordinates on $\E^3$ will typically be $x,y,z$.
-	\item[\normalfont\emph{Vectors}\!]are written \emph{bold-face} as either row or column vectors: e.g.\ $\vx(u,v)=\bigl(u,v,u^2+v^2\bigr)$.
-	\item[\normalfont\emph{Tangent vectors/fields}\!]use the \emph{old} notation:\footnotemark\ e.g.\ if $P=\vx(p)$, then $\vx_u(p)=\partialsat[\vx]{u}p\in T_P\E^3$.
-\end{description} 
+	\item[\normalfont\emph{Domain} $U\subseteq\R^2$:]
+	\begin{description}\itemsep2pt
+		\item[\normalfont\emph{Points}\!]are written \emph{lower case} or as \emph{row vectors}: e.g.,\ $p=(u_0,v_0)\in U$. Typically we'll use $u,v$ as \emph{co-ordinates} unless it is more natural to use angles such as $\phi,\theta$.
+		\item[\normalfont\emph{Tangent vectors/fields}\!]are written with an arrow in our \emph{new} notation: e.g.,\ $\vec w_p=\partialsat up\in T_p\R^2$.
+	\end{description} 
+	
+	\item[\normalfont\emph{Codomain} $\E^3$:]
+	\begin{description}\itemsep2pt
+		\item[\normalfont\emph{Points}\!]are written \emph{upper case} or as \emph{row vectors,} e.g.,\ $P=(3,4,8)\in\E^3$. Co-ordinates on $\E^3$ will typically be $x,y,z$.
+		\item[\normalfont\emph{Vectors}\!]are written \emph{bold-face} as either row or column vectors: e.g.,\ $\vx(u,v)=\bigl(u,v,u^2+v^2\bigr)$.
+		\item[\normalfont\emph{Tangent vectors/fields}\!]use the \emph{old} notation:\footnotemark{} e.g.,\ if $P=\vx(p)$, then $\vx_u(p)=\partialsat[\vx]{u}p\in T_P\E^3$.
+	\end{description} 
 \end{description}
 
-\footnotetext{To also use our new notation in $\E^3$ would require a subtle redefinition of $\dvx$: if $\vec w$ is a vector field on $U$, then $\dvx(\vec w)$ is the vector field on $S$ such that $\bigl(\dvx(\vec w)\bigr)[f]=\vec w\bigl[f\circ\vx\bigr]$ for all $f:S\to\R$. In co-ordinates this benefits from  tensor notation:
-\[\vx(u_1,u_2)=\Bigl(x_1(u_1,u_2),x_2(u_1,u_2),x_3(u_1,u_2)\Bigr)\implies \dvx=\sum_{i,j}\partials[x_j]{u_i}\partials{x_j}\otimes\du_i\]
-This approach is necessary in more general situations, but is overkill for our purposes.}
+\footnotetext{
+	To use our new notation in $\E^3$ would require a subtle redefinition of $\dvx$: if $\vec w$ is a vector field on $U$, then $\dvx(\vec w)$ is the vector field on $S$ such that $\bigl(\dvx(\vec w)\bigr)[f]=\vec w\bigl[f\circ\vx\bigr]$ for all $f:S\to\R$. In co-ordinates this benefits from  tensor notation:
+	\[
+		\vx(u_1,u_2)=\Bigl(x_1(u_1,u_2),x_2(u_1,u_2),x_3(u_1,u_2)\Bigr)\implies \dvx=\sum_{i,j}\partials[x_j]{u_i}\partials{x_j}\otimes\du_i
+	\]
+	In more general situations this approach is necessary, but it is overkill for our purposes!
+}
 
 \begin{example}{}{spherepolar}
-Consider the sphere of radius $a$ parametrized using spherical polar co-ordinates:
-	\[\vx(\theta,\phi)=a\!\threevec{\cos\theta\cos\phi}{\sin\theta\cos\phi}{\sin\phi}\!,\quad \dvx=\vx_\theta\,\dth+\vx_\phi\,\D\phi =a\cos\phi\threevec{-\sin\theta}{\cos\theta}{0}\!\dth+a\!\threevec{-\cos\theta\sin\phi}{-\sin\theta\sin\phi}{\cos\phi}\!\D\phi\]
-	Here $\vx:U\to\E^3$, where $U=(0,2\pi)\times(-\frac\pi 2,\frac\pi 2)$ is an open rectangle. The image $S=\vx(U)$ is the sphere minus the (dashed) semicircle $\vx(0,\phi)$. While we could extend $\theta$ to wrap round the sphere, note that the co-ordinates cannot be extended to the north or south poles without sacrificing \emph{regularity}:
-	\[\vx_\theta=a\cos\phi\threevec{-\sin\theta}{\cos\theta}{0}=\V0\text{ when }\phi=\pm\frac\pi 2\]
-	The unit normal field is simply $\vn=\frac 1a\vx$.\par
-	\begin{minipage}{0.55\linewidth}\vspace{10pt}
-	\includegraphics{surfaces-sphere2}
-	\end{minipage}\hfill\begin{minipage}{0.44\linewidth}\vspace{-55pt}
-	\flushright\href{http://www.math.uci.edu/~ndonalds/math162a/surfaces-sphere.html}{\includegraphics{surfaces-sphere}}
-	\end{minipage}\medbreak
-% 	This illustrates the term \emph{local}: indeed the famous \emph{hairy ball theorem} from topology says that it is impossible to find a regular parametrization of the entire sphere by a single function.\smallbreak
-	Also observe how the tangent vectors $\smash[b]{\partialsat\phi p,\partialsat\theta p}\in T_p\R^2$ are mapped by the differential $\dvx$ to the tangent vectors
-	\[\diffat[\vx]{\phi}p=\dvx\left(\partialsat\phi p\right),\quad \diffat[\vx]{\theta}p=\dvx\left(\partialsat\theta p\right)\in T_{\vx(p)}S\]
+	Consider the sphere of radius $a$ parametrized using spherical polar co-ordinates:
+	\[
+		\vx(\theta,\phi) 
+			=a\!\threevec{\cos\theta\cos\phi}{\sin\theta\cos\phi}{\sin\phi}\!,\quad \dvx =\vx_\theta\,\dth+\vx_\phi\,\D\phi 
+			=a\cos\phi\threevec{-\sin\theta}{\cos\theta}{0}\!\dth +a\!\threevec{-\cos\theta\sin\phi}{-\sin\theta\sin\phi}{\cos\phi}\!\D\phi
+	\]
+	The unit normal field is simply $\vn=\frac 1a\vx$. The domain $U=(0,2\pi)\times(-\frac\pi 2,\frac\pi 2)$ is an open rectangle whose image $S=\vx(U)$ is the sphere minus the (dashed) semicircle $\vx(0,\phi)$. While we could extend $\theta$ to wrap round the equator, we cannot extend to the north or south poles without sacrificing \emph{regularity}:
+	\[
+		\vx_\theta=a\cos\phi\threevec{-\sin\theta}{\cos\theta}{0}=\V0\text{ when }\phi=\pm\frac\pi 2
+	\]
+	\begin{minipage}{0.55\linewidth}\vspace{5pt}
+		\hfill\includegraphics[scale=0.95]{surfaces-sphere2}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.44\linewidth}\vspace{-55pt}
+		\flushright	\href{http://www.math.uci.edu/~ndonalds/math162a/surfaces-sphere.html}{\includegraphics[scale=0.9]{surfaces-sphere}}
+	\end{minipage}
+	\medbreak
+ 	This illustrates the term \emph{local}: indeed the famous \emph{hairy ball theorem} from topology says that it is impossible to find a regular parametrization of the entire sphere by a single function.
+ 	\par
+	Also observe how the tangent vectors $\smash[b]{\partialsat\phi p,\partialsat\theta p}\in T_p\R^2$ are mapped by $\dvx$ to tangent vectors
+	\[
+		\diffat[\vx]{\phi}p=\dvx\left(\partialsat\phi p\right),\quad \diffat[\vx]{\theta}p=\dvx\left(\partialsat\theta p\right)\in T_{\vx(p)}S
+	\]
 \end{example}
 
 \goodbreak
 
 \begin{thm}{}{}
-Let $S=\vx(U)$ be a smooth surface containing the point $P=\vx(p)$:
-\begin{enumerate}
-  \item The differential at $p$ is a linear map $\dvx:T_p\R^2\to T_P\E^3$ mapping tangent vectors in $\R^2$ to vectors tangent to $S$.
-  \item $S$ is regular at $P$ if and only if $\dvx$ is \emph{injective (1--1)} at $p$. In such a case we can view it as an invertible linear map $\dvx:T_p\R^2\to T_PS$.
-\end{enumerate}
+	Let $S=\vx(U)$ be a smooth surface containing the point $P=\vx(p)$:
+	\begin{enumerate}
+	  \item The differential at $p$ is a linear map $\dvx:T_p\R^2\to T_P\E^3$ mapping tangent vectors in $\R^2$ to vectors tangent to $S$.
+	  \item $S$ is regular at $P$ if and only if $\dvx$ is \emph{injective (1--1)} at $p$. In such a case we can view it as an invertible linear map $\dvx:T_p\R^2\to T_PS$.
+	\end{enumerate}
 \end{thm}
 
 \begin{proof}
-\begin{enumerate}
-  \item The differential at $p$ is linear since the co-ordinate 1-forms $\du,\dv$ are linear: indeed
-  \begin{align*}
-  \dvx\left(a\partialsat up+b\partialsat vp\right)&=\vx_u(p)\,\du\left(a\partialsat up+b\partialsat vp\right)+\vx_v(p)\,\dv\left(a\partialsat up+b\partialsat vp\right)\\
-  &=a\vx_u(p)+b\vx_v(p) =a\,\dvx\left(\partialsat up\right)+b\,\dvx\left(\partialsat vp\right)
-  \end{align*}
-  This expression is moreover tangent to $S$ at $\vx(p)$: if this last assertion is unconvincing, see Exercise \ref{exs:tangentsurface}.
-%   Let $\vx:U\to\E^3$ be a surface and $w_p$ a tangent vector at $p\in U$. Consider a curve $c(t)=\bigl(u(t),v(t)\bigr)$ in $U$ such that $c(0)=p$ and $c'(0)=w_p$. Let $\vy(t)=\vx\bigl(c(t)\bigr)$ be the corresponding curve in the surface. Prove that $\dvx(w_p)=\vy'(0)$ so that $\dvx$ really does map tangent vectors to tangent vectors. 
-	\item The range of $\dvx$ at $p$ is plainly $\Span\{\vx_u(p),\vx_v(p)\}$. This is 2-dimensional (and thus defines the tangent plane) if and only if $\Rank \dvx=2\iff \dvx$ is 1--1.\qedhere
-\end{enumerate}
+	\begin{enumerate}
+	  \item The differential at $p$ is linear since the co-ordinate 1-forms $\du,\dv$ are linear: indeed
+	  \begin{align*}
+	  \dvx\left(a\partialsat up+b\partialsat vp\right)&=\vx_u(p)\,\du\left(a\partialsat up+b\partialsat vp\right)+\vx_v(p)\,\dv\left(a\partialsat up+b\partialsat vp\right)\\
+	  &=a\vx_u(p)+b\vx_v(p) =a\,\dvx\left(\partialsat up\right)+b\,\dvx\left(\partialsat vp\right)
+	  \end{align*}
+	  This expression is moreover tangent to $S$ at $\vx(p)$: if this last assertion is unconvincing, see Exercise \ref{exs:tangentsurface}.
+
+		\item The range of $\dvx$ at $p$ is plainly $\Span\{\vx_u(p),\vx_v(p)\}$. This is 2-dimensional (and thus defines the tangent plane) if and only if $\Rank \dvx=2\iff \dvx$ is 1--1.\qedhere
+	\end{enumerate}
 \end{proof}
 
-It is worth reiterating the two crucially important properties of $\dvx$:
+It is worth reiterating two crucially important properties of $\dvx$:
 \begin{itemize}
   \item At a regular point, $\dvx:T_p\R^2\to T_PS$ is an \textcolor{red}{invertible linear map}. We shall shortly use this to \emph{pull-back} calculations from $S$ to $U$.
-  \item It is \textcolor{red}{co-ordinate independent} and thus does not depend on the parametrization of $S$. Recall that this follows since $\dvx$ is the unique 1-form which satisfying $\dvx(\vec w)=\vec w[\vx]$ for all vector fields $\vec w$ on $U$; a categorization that does not depend on co-ordinates.
+  \item The differential is \textcolor{red}{co-ordinate independent} and thus does not depend on the parametrization of $S$. This follows since $\dvx$ is the unique 1-form satisfying $\dvx(\vec w)=\vec w[\vx]$ for all vector fields $\vec w$ on $U$; a description that does not depend on co-ordinates.
 \end{itemize}
 
 
 \begin{aside}\phantomsection\label{aside:coc}
-\boldinline{Aside: change of co-ordinates}\quad To really spell this out, suppose $\vy(s,t)=\vx\bigl(F(s,t)\bigr)$ where $F(s,t)=(u,v)$ is a change of co-ordinates on $U$. By the chain rule,
-\[\twovec{\vy_s}{\vy_t}
-=\begin{pmatrix}
-\partials[u]{s}&\partials[v]{s}\\
-\partials[u]{t}&\partials[v]{t}
-\end{pmatrix}
-\twovec{\vx_u}{\vx_v}\quad\text{and}\quad
-(\du\ \dv)=(\ds\ \dt)\begin{pmatrix}
-\partials[u]{s}&\partials[v]{s}\\
-\partials[u]{t}&\partials[v]{t}
-\end{pmatrix}\]
-from which
-\begin{align*}
-\D\vy&=(\ds\ \dt)\twovec{\vy_s}{\vy_t} =(\du\ \dv)\begin{pmatrix}
-\partials[u]{s}&\partials[v]{s}\\
-\partials[u]{t}&\partials[v]{t}
-\end{pmatrix}^{-1}\begin{pmatrix}
-\partials[u]{s}&\partials[v]{s}\\
-\partials[u]{t}&\partials[v]{t}
-\end{pmatrix}
-\twovec{\vx_u}{\vx_v} =(\du\ \dv)\twovec{\vx_u}{\vx_v}=\dvx
-\end{align*}
-The matrix of partial derivatives is the \emph{Jacobian} of the co-ordinate change.\smallbreak
-To be completely strict, $\dvx$ and $\D\vy$ are not identical since they feed on tangent vectors with respect to different co-ordinates. Formally
-\[\vy=\vx\circ F\implies\D\vy=\dvx\circ\D F\]
-where $\D F$ maps tangent vectors in $\Span\{\partials s,\partials t\}$ to those in $\Span\{\partials u,\partials v\}$: in matrix language, $\D F$ is precisely the above Jacobian!
+	\boldinline{Aside: change of co-ordinates}\quad To more fully spell this out, suppose we choose a new parametrization $\vy(s,t)=\vx\bigl(F(s,t)\bigr)$ where $F(s,t)=(u,v)$ is a change of co-ordinates on $U$. By the chain rule,
+	\[
+		\twovec{\vy_s}{\vy_t}=
+		\begin{pmatrix}
+			\partials[u]{s}&\partials[v]{s}\\
+			\partials[u]{t}&\partials[v]{t}
+		\end{pmatrix}
+		\twovec{\vx_u}{\vx_v} \quad\text{and}\quad
+		(\du\ \dv)=(\ds\ \dt)
+		\begin{pmatrix}
+			\partials[u]{s}&\partials[v]{s}\\
+			\partials[u]{t}&\partials[v]{t}
+		\end{pmatrix}
+	\]
+	from which
+	\begin{align*}
+		\D\vy&=(\ds\ \dt)\twovec{\vy_s}{\vy_t} =(\du\ \dv)
+		\begin{pmatrix}
+			\partials[u]{s}&\partials[v]{s}\\
+			\partials[u]{t}&\partials[v]{t}
+		\end{pmatrix}^{-1}
+		\begin{pmatrix}
+			\partials[u]{s}&\partials[v]{s}\\
+			\partials[u]{t}&\partials[v]{t}
+		\end{pmatrix}
+		\twovec{\vx_u}{\vx_v} =(\du\ \dv)\twovec{\vx_u}{\vx_v}=\dvx
+	\end{align*}
+	The matrix of partial derivatives is the \emph{Jacobian} of the co-ordinate change.
+	\smallbreak
+	To be completely strict, $\dvx$ and $\D\vy$ are not identical since they feed on tangent vectors with respect to different co-ordinates. Formally
+	\[
+		\vy=\vx\circ F\implies\D\vy=\dvx\circ\D F
+	\]
+	where $\D F$ maps tangent vectors in $\Span\{\partials s,\partials t\}$ to those in $\Span\{\partials u,\partials v\}$: in matrix language, $\D F$ is precisely the above Jacobian!
 \end{aside}
+
 
 \boldsubsubsection{Common Surfaces}
 
 You should have met many of these families/examples in multi-variable calculus.
 
 \boldinline{Graphs} If $f(x,y)$ is a smooth function, its graph may be parametrized by $\vx(u,v)=\bigl(u,v,f(u,v)\bigr)$. Its differential and unit normal field are
-	\[\dvx=\threevec 10{f_u}\du+\threevec 01{f_v}\dv\qquad \vn=\frac 1{\sqrt{1+f_u^2+f_v^2}}\threevec{-f_u}{-f_v}1\]
+	\[
+		\dvx=\threevec 10{f_u}\du+\threevec 01{f_v}\dv\qquad \vn=\frac 1{\sqrt{1+f_u^2+f_v^2}}\threevec{-f_u}{-f_v}1
+	\]
 	This is regular at all points, regardless of $f$.
 
 
 \begin{examples}{}{}
-\exstart The standard circular paraboloid may be parametrized $\vx(u,v)=\bigl(u,v,u^2+v^2\bigr)$.
-\begin{enumerate}\setcounter{enumi}{1}
-  \item The upper half of the unit sphere is the graph of $z=f(x,y)=\sqrt{1-x^2-y^2}$ where $x^2+y^2<1$.
-  \item A plane has equation $ax+by+cz=d$ where $a,b,c,d$ are constant. Since at least one of $a,b,c$ must be non-zero, this may be written as a function and graphed. For instance, if $b\neq 0$ we have $y=f(x,z)=\frac 1b(d-ax-cz)$ and $\vn=\frac 1{\sqrt{a^2+b^2+c^2}}\bigl(a,b,c\bigr)$.
-\end{enumerate}
+	\exstart The standard circular paraboloid may be parametrized $\vx(u,v)=\bigl(u,v,u^2+v^2\bigr)$.
+	\begin{enumerate}\setcounter{enumi}{1}
+	  \item The upper half of the unit sphere is the graph of $z=f(x,y)=\sqrt{1-x^2-y^2}$ where $x^2+y^2<1$.
+	  
+	  \item A plane has equation $ax+by+cz=d$ where $a,b,c,d$ are constant. Since at least one of $a,b,c$ must be non-zero, this may be written as a function and graphed. For instance, if $b\neq 0$ we have $y=f(x,z)=\frac 1b(d-ax-cz)$ and $\vn=\frac 1{\sqrt{a^2+b^2+c^2}}\bigl(a,b,c\bigr)$.
+	\end{enumerate}
 \end{examples}
+
 
 \boldinline{Surfaces of Revolution} If a smooth positive function $x=f(z)$ is rotated around the $z$-axis, we obtain a parametrization
-	\[\vx(\theta,v)=\bigl(f(v)\cos\theta,f(v)\sin\theta,v\bigr),\quad (\theta,v)\in(0,2\pi)\times\dom(f)\]
+	\[
+		\vx(\theta,v)=\bigl(f(v)\cos\theta,f(v)\sin\theta,v\bigr),\quad (\theta,v)\in(0,2\pi)\times\dom(f)
+	\]
 	with differential and unit normal field
 	\begin{gather*}
-		\dvx=\threevec{-f(v)\sin\theta}{f(v)\cos\theta}0\dth+\threevec{f'(v)\cos\theta}{f'(v)\sin\theta}1\dv\qquad \vn=\frac 1{\sqrt{1+f'(v)^2}}\threevec{\cos\theta}{\sin\theta}{-f'(v)}
+		\dvx =\threevec{-f(v)\sin\theta}{f(v)\cos\theta}0\dth+\threevec{f'(v)\cos\theta}{f'(v)\sin\theta}1\dv\qquad \vn =\frac 1{\sqrt{1+f'(v)^2}}\threevec{\cos\theta}{\sin\theta}{-f'(v)}
 	\end{gather*}
 
+
 \begin{examples}{}{}
-\exstart The simplest example ($f(z)\equiv 1$) is the right circular cylinder of radius 1.
-\begin{enumerate}\setcounter{enumi}{1}
-  \begin{minipage}[t]{0.56\linewidth}\vspace{0pt}
-  \item We may rotate around any axis! For instance, if we rotate the curve $z=2+\cos x$  around the $x$-axis, the resulting surface may be parametrized
-  \[
-  \vx(\theta,v)=(2+\cos v)\!\threevec{0}{\cos\theta}{\sin\theta}+\threevec v00
-	\]
-	This time $v$ measures distance along the $x$-axis and $\theta$ the angle of rotation around it.\smallbreak
-	The differential and unit normal field are
-  \end{minipage}\hfill\begin{minipage}[t]{0.39\linewidth}\vspace{-10pt}
-	\flushright\href{http://www.math.uci.edu/~ndonalds/math162a/surfaces-revol.html}{\includegraphics{surfaces-revol}}
-  \end{minipage}\par%\vspace{-10pt}
-  \begin{gather*}
-  \dvx=(2+\cos v)\!\threevec 0{\!-\sin\theta\!}{\cos\theta}\!\dth+\threevec{1}{\!-\sin v\cos\theta\!}{\!-\sin v\sin\theta\!}\!\dv \qquad
-  \vn=\frac 1{\sqrt{1+\sin^2\!v}}\threevec{\sin v}{\cos\theta}{\sin\theta}
-  \end{gather*}
-  Note the \emph{orientation} of the surface: the unit normal field points \emph{outward,} away from the $x$-axis.
-\end{enumerate}
+	\exstart The simplest example ($f(z)\equiv 1$) is the right circular cylinder of radius 1.
+	\begin{enumerate}\setcounter{enumi}{1}
+	  \begin{minipage}[t]{0.56\linewidth}\vspace{0pt}
+	  \item We may rotate around any axis! For instance, if we rotate the curve $z=2+\cos x$  around the $x$-axis, the resulting surface may be parametrized
+	  \[
+	  	\vx(\theta,v)=(2+\cos v)\!\threevec{0}{\cos\theta}{\sin\theta}+\threevec v00
+		\]
+		This time $v$ measures distance along the $x$-axis and $\theta$ the angle of rotation around it.
+		\smallbreak
+		The differential and unit normal field are
+	  \end{minipage}
+	  \hfill
+	  \begin{minipage}[t]{0.39\linewidth}\vspace{-10pt}
+			\flushright	\href{http://www.math.uci.edu/~ndonalds/math162a/surfaces-revol.html}{\includegraphics{surfaces-revol}}
+	  \end{minipage}
+	  \par%\vspace{-10pt}
+	  \begin{gather*}
+	  	\dvx=(2+\cos v)\!\threevec 0{\!-\sin\theta\!}{\cos\theta}\!\dth+\threevec{1}{\!-\sin v\cos\theta\!}{\!-\sin v\sin\theta\!}\!\dv \qquad
+	  	\vn=\frac 1{\sqrt{1+\sin^2\!v}}\threevec{\sin v}{\cos\theta}{\sin\theta}
+	  \end{gather*}
+	  Note the \emph{orientation} of the surface: the unit normal field points \emph{outward,} away from the $x$-axis.
+	\end{enumerate}
 \end{examples}
+
 
 \goodbreak
 
+
 \boldinline{Ruled Surfaces} Given functions $\vy(u),\vz(u)$, define
-	\[\vx(u,v)=\vy(u)+v\vz(u)\]
+	\[
+		\vx(u,v)=\vy(u)+v\vz(u)
+	\]
 	Through each point $P=\vx(u_0,v_0)$ passes a line $t\mapsto \vx(u_0,t)=\vy(u_0)+t\vx(u_0)$ lying in the surface. The surface can be visualized as moving a \emph{ruler} through space. Ruled surfaces are common in engineering applications since they may be constructed using straight beams.
 	
 \begin{defn}{}{}
-The \emph{tangent developable} of a smooth curve $\vy$ is the special case when $\vz=\vy'$.
+	The \emph{tangent developable} of a smooth curve $\vy$ is the special case when $\vz=\vy'$.
 \end{defn}
 
 \begin{examples}{}{}
-\exstart Every plane is a ruled surface! Let $\vy$ be a line in the plane and $\vz$ any other tangent direction. For instance, the plane passing through $(1,0,9)$ and spanned by $(2,-3,-5)$ ad $(1,2,3)$ may be parametrized
-\[\vx(u,v)%=\underbrace{\threevec{1+2u}{-3u}{9-5u}}_{\vy(u)}+v\underbrace{\threevec 123}_{\vz(u)}
-=\underbrace{\bigl(1,0,9\bigr)+\bigl(2,-3,-5\bigr)u}_{\vy(u)}+\underbrace{\bigl(1,2,3\bigr)}_{\vz(u)}\!v\]
-\begin{enumerate}\setcounter{enumi}{1}
-	\item A \emph{helicoid} is built by joining each point of a helix to its axis of rotation. From the standard helix, we obtain the helicoid $\vx(u,v)=\bigl(v\cos u,v\sin u,u\bigr)$ for $v>0$.
-  \item\label{page:hyperrule} The \emph{hyperboloid of one sheet} is a \emph{doubly ruled surface}: through each point there are \emph{two} lines lying on the surface. It may be parametrized as a ruled surface by
-\[\vx(u,v)=\threevec 100+u\threevec 011+v\threevec{2u}{u^2-1}{u^2+1}\]
-though convincing yourself there are \emph{two} lines through each point might take a little more work\ldots
-
-\begin{center}
-\begin{tabular}{c@{\qquad\qquad}c}
-\href{http://www.math.uci.edu/~ndonalds/math162a/surfaces-helicoid.html}{\includegraphics{surfaces-helicoid}}&\href{http://www.math.uci.edu/~ndonalds/math162a/surfaces-hyper.html}{\includegraphics{surfaces-hyper}}\\
-Helicoid&Hyperboloid
-\end{tabular}
-\end{center}
-
-
-\end{enumerate}
+	\exstart Every plane is a ruled surface! Let $\vy$ be a line in the plane and $\vz$ any other tangent direction. For instance, the plane passing through $(1,0,9)$ and spanned by $(2,-3,-5)$ ad $(1,2,3)$ may be parametrized
+	\[
+		\vx(u,v)%=\underbrace{\threevec{1+2u}{-3u}{9-5u}}_{\vy(u)}+v\underbrace{\threevec 123}_{\vz(u)}
+		=\underbrace{\bigl(1,0,9\bigr)+\bigl(2,-3,-5\bigr)u}_{\vy(u)}+\underbrace{\bigl(1,2,3\bigr)}_{\vz(u)}\!v
+	\]
+	\begin{enumerate}\setcounter{enumi}{1}
+		\item A \emph{helicoid} is built by joining each point of a helix to its axis of rotation. From the standard helix, we obtain the helicoid $\vx(u,v)=\bigl(v\cos u,v\sin u,u\bigr)$ for $v>0$.
+	  \item\label{page:hyperrule} The \emph{hyperboloid of one sheet} is a \emph{doubly ruled surface}: through each point there are \emph{two} lines lying on the surface. It may be parametrized as a ruled surface by
+		\[
+			\vx(u,v)=\threevec 100+u\threevec 011+v\threevec{2u}{u^2-1}{u^2+1}
+		\]
+	though convincing yourself there are \emph{two} lines through each point takes a little more work\ldots
+	
+		\begin{center}
+			\begin{tabular}{c@{\qquad\qquad}c}
+				\href{http://www.math.uci.edu/~ndonalds/math162a/surfaces-helicoid.html}{\includegraphics{surfaces-helicoid}}
+				&
+				\href{http://www.math.uci.edu/~ndonalds/math162a/surfaces-hyper.html}{\includegraphics{surfaces-hyper}}
+				\\
+				Helicoid
+				&
+				Hyperboloid
+			\end{tabular}
+		\end{center}
+	
+	\end{enumerate}
 \end{examples}
-
-
-
-
 
 
 
 \boldsubsubsection{Implicitly Defined Surfaces}
 
-% You are probably more used to surfaces being defined implicitly---as the level sets of some function---rather than being parametrized.
 
 \begin{defn}{}{}
-A \emph{regular implicitly defined surface} is the zero set of a smooth function $f:\E^3\to\R$ for which $\df\neq 0$ (equivalently $\nabla f\neq \V0$).
+	A \emph{regular implicitly defined surface} is the zero set of a smooth function $f:\E^3\to\R$ for which $\df\neq 0$ (equivalently $\nabla f\neq \V0$).
 \end{defn}
 
 Recall that the directional derivative of $f$ in the direction $\vv$ is $D_{\vv}f(P)=\vv\cdot\nabla f(P)$. This is zero if and only if $\vv$ is orthogonal to $\nabla f(P)$. In particular, this says that $\nabla f$ provides a \emph{normal field} to an implicitly defined surface.
 
 \begin{examples}{}{}
-\exstart Let $a,b,c,d$ be constant. The function $f(x,y,z)=ax+by+cz-d$ has 
-\[\df=a\,\dx+b\,\dy+c\,\dz\]
-which is non-zero provided at least one of $a,b,c$ are non-zero. This defines a plane with unit normal field $\vn=\frac 1{\Nm{\nabla f}}\nabla f=\frac 1{\sqrt{a^2+b^2+c^2}}\bigl(a,b,c\bigr)$.
-\begin{enumerate}\setcounter{enumi}{1}
-  \item The sphere of radius $a$ is the zero set of $f(x,y,z)=x^2+y^2+z^2-a^2$. It has unit normal field
-  \[\vn=\frac 1{\Nm{\nabla f}}\nabla f=\frac 1a\bigl(x,y,z\bigr)\]
-The sphere is everywhere regular since at least one of $x,y,z$ is non-zero at all points of the sphere. Contrast this with our earlier example of the \emph{parametrized} sphere which could not be made regular at the north and south poles. The lack of regularity in this case is an aspect of the parametrization, not the surface itself.
-	\item The function $f(x,y,z)=x^2+y^2-z^2-c$ has
-	\[\df=2(x\,\dx+y\,\dy-z\,\dz),\]
-	which is non-zero away from $(x,y,z)=(0,0,0)$. Depending on the sign of $c$, the zero set is a hyperboloid or a cone; visualize the horizontal cross-sectional circles to determine which.
-	\begin{itemize}
-  	\item[]$c>0$\quad \textcolor{Turquoise}{Hyperboloid of 1-sheet}: $x^2+y^2=z^2+c>0$ for all $z$
-  	\item[]$c=0$\quad \textcolor{Magenta}{Cone}: $x^2+y^2=z^2$ contains a non-regular point $(0,0,0)$
-  	\item[]$c<0$\quad \textcolor{Goldenrod}{Hyperboloid of 2-sheets}: $x^2+y^2=z^2-\nm c\ge 0$ only when $\nm z\ge \sqrt{\nm c}$
-	\end{itemize}
-	\begin{center}
-	\includegraphics{surfaces-hyper1}\qquad\includegraphics{surfaces-cone}\qquad 	\includegraphics{surfaces-hyper2}
-	\end{center}
-\end{enumerate}
+	\exstart Let $a,b,c,d$ be constants. The function $f(x,y,z)=ax+by+cz-d$ has 
+	\[
+		\df=a\,\dx+b\,\dy+c\,\dz
+	\]
+	which is non-zero provided at least one of $a,b,c$ are non-zero. This defines a plane with unit normal field $\vn=\frac 1{\Nm{\nabla f}}\nabla f=\frac 1{\sqrt{a^2+b^2+c^2}}\bigl(a,b,c\bigr)$.
+	\begin{enumerate}\setcounter{enumi}{1}
+	  \item The sphere of radius $a$ is the zero set of $f(x,y,z)=x^2+y^2+z^2-a^2$. It has unit normal field
+	  \[
+	  	\vn=\frac 1{\Nm{\nabla f}}\nabla f=\frac 1a\bigl(x,y,z\bigr)
+	  \]
+	The sphere is everywhere regular since at least one of $x,y,z$ is non-zero at all points of the sphere. Contrast this with our earlier example of the \emph{parametrized} sphere which could not be made regular at the north and south poles. The lack of regularity in this case is an aspect of the parametrization, not the surface itself.
+		\item The function $f(x,y,z)=x^2+y^2-z^2-c$ has
+		\[
+			\df=2(x\,\dx+y\,\dy-z\,\dz)
+		\]
+		which is non-zero away from $(x,y,z)=(0,0,0)$. Depending on the sign of $c$, the zero set is a hyperboloid or a cone; visualize the horizontal cross-sectional circles to determine which.
+		\begin{quote}
+	  	$c>0$\quad \textcolor{Turquoise}{Hyperboloid of 1-sheet}: $x^2+y^2=z^2+c>0$ for all $z$\smallbreak
+	  	$c=0$\quad \textcolor{Magenta}{Cone}: $x^2+y^2=z^2$ contains a non-regular point $(0,0,0)$\smallbreak
+	  	$c<0$\quad \textcolor{Goldenrod}{Hyperboloid of 2-sheets}: $x^2+y^2=z^2-\nm c\ge 0$ only when $\nm z\ge \sqrt{\nm c}$
+		\end{quote}
+		\begin{center}
+			\includegraphics{surfaces-hyper1} \qquad \includegraphics{surfaces-cone} \qquad \includegraphics{surfaces-hyper2}
+		\end{center}
+	\end{enumerate}
 \end{examples}
 
-Our next result, a version of the famous \emph{implicit function theorem,} ties together the notions of \emph{regularity.} In particular, it says that we can always assume the existence of \emph{local} co-ordinates.
+Our next result, a corollary of the famous \emph{implicit function theorem,} ties together the notions of \emph{regularity.} In particular, it says that we can always assume the existence of \emph{local} co-ordinates.
 
 \begin{thm}{}{implicit}
-A regular implicitly defined surface $f(x,y,z)=0$ is (locally) the image of a regular local surface.
+	A regular implicitly defined surface $f(x,y,z)=0$ is (locally) the image of a regular local surface.
 \end{thm}
 
 \begin{proof}
-Suppose $P=(x_0,y_0,z_0)$ lies on the surface and $\nabla f(P)\neq\V0$. At least one of the partial derivatives of $f$ is non-zero; suppose WLOG that $f_z(P)\neq 0$. By the implicit function theorem, there exists $U\subseteq\R^2$ and a function $g:U\to\R$ for which $g(x_0,y_0)=z_0$ and $f\big(x,y,g(x,y)\big)=0$. The surface is then (locally) the graph of $z=g(x,y)$.%:
-%\[\vx:U\to\E^3:(u,v)\mapsto\bigl(u,v,g(u,v)\bigr)\]
+	Suppose $P=(x_0,y_0,z_0)$ lies on the surface and $\nabla f(P)\neq\V0$. At least one of the partial derivatives of $f$ is non-zero; suppose WLOG that $f_z(P)\neq 0$. By the implicit function theorem, there exists $U\subseteq\R^2$ and a function $g:U\to\R$ for which $g(x_0,y_0)=z_0$ and $f\big(x,y,g(x,y)\big)=0$. The surface is then (locally) the graph of $z=g(x,y)$.
+	\[
+		\vx:U\to\E^3:(u,v)\mapsto\bigl(u,v,g(u,v)\bigr) \tag*{\qedhere}
+	\]
 \end{proof}
 
 
-\begin{example}{}{}
-The zero set of $f(x,y,z)=x^2+y^2-z^2-6$ is a hyperboloid of one sheet. It has unit normal vector field
-\[\vn(x,y,z)=\frac 1{\Nm{\nabla f}}\nabla f=\frac{1}{\sqrt{x^2+y^2+z^2}}\threevec{x}{y}{-z} =\frac{1}{\sqrt{6+2z^2}}\threevec{x}{y}{-z}\]
-whenever $(x,y,z)$ is a point on the hyperboloid. For instance, at $P=(3,1,2)$ the unit normal is $\vn(P)=\frac{1}{\sqrt{14}}(3,1,2)$, and the tangent plane has equation
-\[3x+y-2z=6\]
-Alternatively, the hyperboloid could have been parametrized in several ways.
-\begin{enumeratea}
-	\item In the language of the proof, near $P=(3,1,2)$ it is the graph of $z=g(x,y)=\sqrt{x^2+y^2-6}$. This results in a (local) regular parametrization
-	\[\vx(u,v)=\bigl(u,v,\sqrt{u^2+v^2-6}\bigr)\]
-	\item It is a surface of revolution around the $z$-axis:
-	\[\vx(\theta,v)=\threevec{\sqrt{6+v^2}\cos\theta}{\sqrt{6+v^2}\sin\theta}v\]
-	The differential and normal field are then
-	\begin{gather*}
-	\dvx=\sqrt{6+v^2}\threevec{-\sin\theta}{\cos\theta}0\!\dth +\frac 1{\sqrt{6+v^2}}\threevec{v\cos\theta}{v\sin\theta}{\sqrt{6+v^2}}\dv\\
-	\vn=\frac{\vx_\theta\times\vx_v}{\Nm{\vx_\theta\times\vx_v}} =\frac 1{\sqrt{6+2v^2}} \threevec{\sqrt{6+v^2}\cos\theta}{\sqrt{6+v^2}\sin\theta}{-v}
-	\end{gather*}
- 	which is precisely what we obtained above.
-\end{enumeratea}
-Yet another expression could be obtained using a parametrization as a ruled surface (e.g.\ page \pageref{page:hyperrule}).
+\begin{example}{}{hyperboloid1sheet}
+	The zero set of $f(x,y,z)=x^2+y^2-z^2-6$ is a hyperboloid of one sheet. It has unit normal vector field
+	\[
+		\vn(x,y,z)=\frac 1{\Nm{\nabla f}}\nabla f=\frac{1}{\sqrt{x^2+y^2+z^2}}\threevec{x}{y}{-z} =\frac{1}{\sqrt{6+2z^2}}\threevec{x}{y}{-z}
+	\]
+	whenever $(x,y,z)$ is a point on the hyperboloid. For instance, at $P=(3,1,2)$ the unit normal is $\vn(P)=\frac{1}{\sqrt{14}}(3,1,2)$ and the tangent plane has equation
+	\[
+		3x+y-2z=6
+	\]
+	Alternatively, the hyperboloid can be parametrized in several ways.
+	\begin{enumeratea}
+		\item In the language of the proof, near $P=(3,1,2)$ it is the graph of $z=g(x,y)=\sqrt{x^2+y^2-6}$. This results in a (local) regular parametrization
+		\[
+			\vx(u,v)=\bigl(u,v,\sqrt{u^2+v^2-6}\bigr)
+		\]
+		\item The hyperboloid is a surface of revolution around the $z$-axis:
+		\[
+			\vx(\theta,v) =\threevec{\sqrt{6+v^2}\cos\theta}{\sqrt{6+v^2}\sin\theta}v
+		\]
+		For this parametrization, the differential and normal field are
+		\begin{gather*}
+			\dvx=\sqrt{6+v^2}\threevec{-\sin\theta}{\cos\theta}0\!\dth +\frac 1{\sqrt{6+v^2}}\threevec{v\cos\theta}{v\sin\theta}{\sqrt{6+v^2}}\dv\\
+			\vn=\frac{\vx_\theta\times\vx_v}{\Nm{\vx_\theta\times\vx_v}} =\frac 1{\sqrt{6+2v^2}} \threevec{\sqrt{6+v^2}\cos\theta}{\sqrt{6+v^2}\sin\theta}{-v}
+		\end{gather*}
+	 	which is precisely what we obtained above.
+	\end{enumeratea}
+	Yet another expression could be obtained using a parametrization as a ruled surface (e.g.,\ page \pageref{page:hyperrule}).
 \end{example}
 
 
 
-
 \begin{exercises}
-\exstart Show that parametrization $\vx(r,\theta)=\bigl(r\cos\theta,r\sin\theta,\sqrt{1-r^2}\bigr)$ of the upper hemisphere is non-regular at $r=0$.
+	\exstart Show that parametrization $\vx(r,\theta)=\bigl(r\cos\theta,r\sin\theta,\sqrt{1-r^2}\bigr)$ of the upper hemisphere is non-regular at $r=0$.
 
-\begin{enumerate}\setcounter{enumi}{1}
-  \item\label{exs:paraboloid}\begin{enumerate}
-    \item Compute $\dvx$ and $\vn$ for the paraboloid $\vx(u,v)=\bigl(u,v,u^2+v^2\bigr)$.
-  	\item Repeat for the polar co-ordinate parametrization $\vy(r,\theta)=\bigl(r\cos\theta,r\sin\theta,r^2\bigr)$. Is this parametrization everywhere regular?
-		\item Using $x=r\cos\theta$, etc., write $\dvx$ in terms of $r,\theta,\dr,\dth$. What do you observe?
-		\item By viewing the paraboloid as the zero set of $f(x,y,z)=z-x^2-y^2$, find another expression for the unit normal field.
+	\begin{enumerate}\setcounter{enumi}{1}
+	  \item Explain why the parametrization in Example \ref{ex:hyperboloid1sheet}(a) is \emph{local}: what is left out?
+	  
+	  \item\label{exs:paraboloid}\begin{enumerate}
+	    \item Compute $\dvx$ and $\vn$ for the paraboloid $\vx(u,v)=\bigl(u,v,u^2+v^2\bigr)$.
+	  	\item Repeat for the polar co-ordinate parametrization $\vy(r,\theta)=\bigl(r\cos\theta,r\sin\theta,r^2\bigr)$. Is this parametrization everywhere regular?
+			\item Using $x=r\cos\theta$, etc., write $\dvx$ in terms of $r,\theta,\dr,\dth$. What do you observe?
+			\item By viewing the paraboloid as the zero set of $f(x,y,z)=z-x^2-y^2$, find another expression for the unit normal field.
+		\end{enumerate}
+	
+	  \begin{minipage}[t]{0.77\linewidth}\vspace{0pt}
+			\item\label{exs:tandev}
+			\begin{enumerate}
+			  \item Find a parametrization for the tangent developable of the helix $\vy(u)=\bigl(\cos u,\sin u,u\bigr)$. Compute $\D\vy$ and the unit normal field $\vn$.\par
+	    (\emph{The picture covers $v\in(-3,6)$ with the original curve $\vy(u)$ in \textcolor{Green}{green}})
+	    	\item If $\vy$ is a unit speed biregular curve, prove that its tangent developable $\vx(u,v)=\vy(u)+v\vy'(u)$ is a regular surface except when $v=0$. Express the differential and unit normal field in terms of the Frenet frame of $\vy$.
+	    \end{enumerate}
+	  
+	    	
+	  	\item Let $f(x,y,z)=z^2$. Show that the zero set of $f$ has a regular parametrization despite  the gradient of $f$ vanishing at $z=0$.
+	  \end{minipage}
+	  \hfill
+	  \begin{minipage}[t]{0.21\linewidth}\vspace{-10pt}  			\flushright	\href{http://www.math.uci.edu/~ndonalds/math162a/surfaces-tandev.html}{\includegraphics{surfaces-tandev}}
+	  \end{minipage}
+	  
+	
+		\item Let $a,b,c$ be positive constants and define $\vx(\theta,\phi)=\smash{\sthreevec{a\cos\theta\cos\phi}{b\sin\theta\cos\phi}{c\sin\phi}}$, $(\theta,\phi)\in(0,2\pi)\times(-\frac\pi 2,\frac\pi 2)$
+		\begin{enumerate}
+			\item Show that $\vx$ parametrizes the ellipsoid $\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1$.	What part(s) of the ellipsoid are `missing' from the parametrization?
+			\item Describe geometrically the curves $\theta=\,\,$constant and $\phi=\,\,$constant on the ellipsoid.
+			\item Calculate the differential of $\vx$ and show that $\dvx$ is 1--1 for each $p\in U$.
+			%\item Find the normal vector field of the ellipsoid in terms of $x,y,z$.
+		\end{enumerate}
+		
+		
+		\begin{minipage}[t]{0.75\linewidth}\vspace{-8pt}
+			\item The tube of radius $a>0$ centered on a curve $\vy(t)$ may be parametrized in terms of the Frenet frame of $\vy$:
+			\[
+				\vx(\phi,t)=\vy(t)+a\cos\phi\,\vN(t)+a\sin\phi\,\vB(t)
+			\]
+			\begin{enumerate}
+			  \item \emph{Briefly} explain why the normal field is $\vn=\cos\phi\,\vN(t)+\sin\phi\,\vB(t)$.
+			  \item Suppose $\vy$ is unit speed. Prove that $\vx$ is everywhere regular if and only if $\kappa(t)<\frac 1a$ at all points of the generating curve.
+			\end{enumerate}
+		  
+			\item\label{exs:tangentsurface} Let $c(t):(-\epsilon,\epsilon)\to U$ be a curve and $\vy(t)=\vx\bigl(c(t)\bigr)$ the corresponding curve in the surface $\vx:U\to\E^3$. Prove that $\dvx\bigl(c'(0)\bigr)=\vy'(0)$.\par
+			(\emph{Hint: Recall how to write $c'(t)$ as a \emph{vector field}}) 
+	  \end{minipage}
+	  \hfill
+	  \begin{minipage}[t]{0.22\linewidth}\vspace{-12pt}
+	  	\flushright
+			\href{http://www.math.uci.edu/~ndonalds/math162a/surfaces-helixtube.html}{\includegraphics{surfaces-helixtube}}
+	  \end{minipage}
+	  
+	
+		\item\label{exs:mobius} (Möbius strip)\lstsp Compute $\vx_u,\vx_v$ and $\vn$ for $\vx(u,v)=(2+v\cos\frac u2)\sthreevec{\cos u}{\sin u}0 +\sthreevec 00{v\sin\frac u2}$, where $(u,v)\in (0,2\pi)\times (-1,1)$. What happens if we try to extend $u$ past $2\pi$?
+
+	
+	
+	% 	\item Let $r>a>0$ be constants. The zero set of the function $f(x,y,z)=(\sqrt{x^2+y^2}-r)^2+z^2-a^2$ defines a \emph{torus}.
+	% 	\begin{enumerate}
+	%   	\item Find a unit normal field for the torus.
+	%   	\item Let $z=a\sin\phi$. Why can we choose $\phi$ to be a co-ordinate on the torus? Find a parametrization $\vx(\phi,\theta)$ of the torus where $\phi$ is one of the co-ordinates. Compute the tangent vectors $\vx_\phi$ and $\vx_\theta$ and check that $\vx_\phi\times\vx_\theta$ is a normal vector field.
+	%   	%\item Explain why topologists often talk about the torus as a square whose opposite edges have been glued together. How does this relate to parameterizing the torus?
+	%   	\item Show that the zero set of $f$ does not define a regular surface when $a=0$ or when $r=a$. What has happened to the torus in each case?
+	% 	\end{enumerate}
+	  
+	
+	  
+
+		
+		
+	
+	
+	% 
+	%     \item* Suppose that $A:U\to M_{n\times n}$ is a differentiable function into the set of $n\times n$ matrices ($M_{n\times n}=\R^{n^2}$ so we know what differentiable means). Suppose also that $A(p)$ is invertible for every $p\in U$. We can think about the matrix-valued 1-form $\D A$ on $U$.
+	%   \begin{enumerate}
+	%     \item By differentiating $A^{-1}A=\mathrm I$ (use the product rule!), find the differential $\D(A^{-1})$ in terms of $\D A$.
+	%     \item Suppose that every matrix $A(p)$ is orthogonal ($A^{-1}(p)=A^T(p)$) and define the matrix-valued 1-form $W=A^{-1}\D A$. Prove, using part (a), that $W^T=-W$.%\\
+	%     %(\emph{An example is where $A=(\ve_1,\ldots,\ve_n)$ is a frame, and $W$ is the matrix of $w_{ij}$ in the structure equations})
+	%   \end{enumerate}
+		
+		
 	\end{enumerate}
-
-  \begin{minipage}[t]{0.75\linewidth}\vspace{0pt}
-	\item\label{exs:tandev}\lstsp(a)\lstsp\hangindent\leftmarginii Find a parametrization for the tangent developable of the helix $\vy(u)=\bigl(\cos u,\sin u,u\bigr)$. Compute its differential and unit normal field.\\
-    (\emph{The picture covers $v\in(-3,6)$ with the original curve $\vy(u)$ in green})\smallbreak
-    \lstsp(b)\lstsp\hangindent\leftmarginii If $\vy$ is a unit speed biregular curve, prove that its tangent developable $\vx(u,v)=\vy(u)+v\vy'(u)$ is a regular surface except when $v=0$. Express the differential and unit normal field in terms of the Frenet frame of $\vy$.
-    
-  \end{minipage}\hfill\begin{minipage}[t]{0.24\linewidth}\vspace{-10pt}
-  \flushright\href{http://www.math.uci.edu/~ndonalds/math162a/surfaces-tandev.html}{\includegraphics{surfaces-tandev}}
-  \end{minipage}
-  
-	
-  \item Let $f(x,y,z)=z^2$. Show that the zero set of $f$ has a regular parametrization despite  the gradient of $f$ vanishing at $z=0$.
-  
-	
-	\item Let $a,b,c$ be positive constants and define $\vx(\theta,\phi)=\smash{\sthreevec{a\cos\theta\cos\phi}{b\sin\theta\cos\phi}{c\sin\phi}}$, $(\theta,\phi)\in(0,2\pi)\times(-\frac\pi 2,\frac\pi 2)$
-	\begin{enumerate}
-		\item Show that $\vx$ parametrizes the ellipsoid $\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1$.	What part(s) of the ellipsoid are `missing' from the parametrization?
-		\item Describe geometrically the curves $\theta=\,\,$constant and $\phi=\,\,$constant on the ellipsoid.
-		\item Calculate the differential of $\vx$ and show that $\dvx$ is 1--1 for each $p\in U$.
-		%\item Find the normal vector field of the ellipsoid in terms of $x,y,z$.
-	\end{enumerate}
-	
-	
-% 	\item The tube of radius $a>0$ centered on a curve $\vy(t)$ may be parametrized in terms of the Frenet frame of $\vy$:
-% 	\[\vx(\phi,t)=\vy(t)+a\cos\phi\,\vN(t)+a\sin\phi\,\vB(t)\]
-% 	\begin{enumerate}
-% 	  \item \emph{Briefly} explain why the unit normal field is $\vn=\cos\phi\,\vN(t)+\sin\phi\,\vB(t)$.
-% 	  \item Suppose $\vy$ is unit speed. Prove that $\vx$ is everywhere regular if and only if $\kappa(t)<\frac 1a$ at all points of the generating curve.
-% 	\end{enumerate}
-	
-	
-	\begin{minipage}[t]{0.75\linewidth}\vspace{-5pt}
-	\item The tube of radius $a>0$ centered on a curve $\vy(t)$ may be parametrized in terms of the Frenet frame of $\vy$:
-	\[\vx(\phi,t)=\vy(t)+a\cos\phi\,\vN(t)+a\sin\phi\,\vB(t)\]\par
-	\lstsp(a)\lstsp\hangindent\leftmarginii \emph{Briefly} explain why the unit normal field is $\vn=\cos\phi\,\vN(t)+\sin\phi\,\vB(t)$.\smallbreak
-    \lstsp(b)\lstsp\hangindent\leftmarginii Suppose $\vy$ is unit speed. Prove that $\vx$ is everywhere regular if and only if $\kappa(t)<\frac 1a$ at all points of the generating curve.
-    
-  
-  \end{minipage}\hfill\begin{minipage}[t]{0.24\linewidth}\vspace{-10pt}
-  \flushright\href{http://www.math.uci.edu/~ndonalds/math162a/surfaces-helixtube.html}{\includegraphics{surfaces-helixtube}}
-  \end{minipage}
-  
-  
-	\item\label{exs:tangentsurface} Let $c(t)=\bigl(u(t),v(t)\bigr)$ be a curve in $U$ and define $\vy(t)=\vx\bigl(c(t)\bigr)$ to be the corresponding curve in the surface $\vx:U\to\E^3$. Prove that $\dvx\bigl(c'(0)\bigr)=\vy'(0)$.\par
-	(\emph{Hint: Recall how to write $c'(t)$ as a \emph{vector field}}) 
-
-
-% 	\item Let $r>a>0$ be constants. The zero set of the function $f(x,y,z)=(\sqrt{x^2+y^2}-r)^2+z^2-a^2$ defines a \emph{torus}.
-% 	\begin{enumerate}
-%   	\item Find a unit normal field for the torus.
-%   	\item Let $z=a\sin\phi$. Why can we choose $\phi$ to be a co-ordinate on the torus? Find a parametrization $\vx(\phi,\theta)$ of the torus where $\phi$ is one of the co-ordinates. Compute the tangent vectors $\vx_\phi$ and $\vx_\theta$ and check that $\vx_\phi\times\vx_\theta$ is a normal vector field.
-%   	%\item Explain why topologists often talk about the torus as a square whose opposite edges have been glued together. How does this relate to parameterizing the torus?
-%   	\item Show that the zero set of $f$ does not define a regular surface when $a=0$ or when $r=a$. What has happened to the torus in each case?
-% 	\end{enumerate}
-  
-
-
-  
-  
-%   \item Möbius strip: Let $\vx(u,v)=\threevec{\cos u}{\sin u}0(2+v\cos\frac u2) +\threevec 00{v\sin\frac u2}$, $(u,v)\in (0,2\pi)\times (-1,1)$ Compute $\vx_u,\vx_v$ and $\vn$
-  
-  
-%   
-%   \begin{minipage}[t]{0.65\linewidth}\vspace{0pt}
-% 	\item The tube of radius $a>0$ about a unit speed curve $\vy(u)$ may be parametrized in terms of the Frenet frame of $\vy$:
-% 	\[\vx(\phi,u)=\vy(u)+a\cos\phi\vN(u)+a\sin\phi\vB(u)\]
-% 	Supposing that $\kappa(u)<\frac 1a$ at all points on the curve, prove that the tube is regular and compute its unit normal field.
-% 	\end{minipage}\begin{minipage}[t]{0.35\linewidth}\vspace{-20pt}
-% \flushright\includegraphics{surfaces-helixtube}
-% \end{minipage}
-
-
-
-	
-	
-
-
-
-% 
-%     \item* Suppose that $A:U\to M_{n\times n}$ is a differentiable function into the set of $n\times n$ matrices ($M_{n\times n}=\R^{n^2}$ so we know what differentiable means). Suppose also that $A(p)$ is invertible for every $p\in U$. We can think about the matrix-valued 1-form $\D A$ on $U$.
-%   \begin{enumerate}
-%     \item By differentiating $A^{-1}A=\mathrm I$ (use the product rule!), find the differential $\D(A^{-1})$ in terms of $\D A$.
-%     \item Suppose that every matrix $A(p)$ is orthogonal ($A^{-1}(p)=A^T(p)$) and define the matrix-valued 1-form $W=A^{-1}\D A$. Prove, using part (a), that $W^T=-W$.%\\
-%     %(\emph{An example is where $A=(\ve_1,\ldots,\ve_n)$ is a frame, and $W$ is the matrix of $w_{ij}$ in the structure equations})
-%   \end{enumerate}
-	
-	
-\end{enumerate}
 \end{exercises}
 
 
@@ -2176,7 +2210,7 @@ The point of the above exercise is to see that the connection 1-forms of a movin
      \item We have defined Gauss and mean curvature for orientable (local) surfaces. Define the Gaussian curvature of a non-orientable surface and explain why the mean curvature of a non-orientable surface is not well-defined.
      \item The map
 \[\vx(u,v)=\threevec{(2-v\sin(u/2))\sin u}{(2-v\sin(u/2))\cos u}{v\cos(u/2)},\]
-defines a M\"obius strip in $\E^3$. Show directly that $\vx$ is non-orientable, and that its Gaussian curvature is
+defines a Möbius strip in $\E^3$. Show directly that $\vx$ is non-orientable, and that its Gaussian curvature is
 \[K=-\frac{1}{(v^2/4+(2-v\sin(u/2))^2)^2}.\]
 \begin{center}
 %\includegraphics[width=0.5\textwidth]{Mobius1} \qquad \includegraphics[width=0.33\textwidth]{Mobius2}
