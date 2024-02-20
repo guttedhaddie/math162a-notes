@@ -17,7 +17,7 @@ Our primary definition should mostly be familiar from elementary multivariable c
 	\begin{quote}
 		\emph{Tangent plane} \ $T_PS=\Span\bigl\{\vx_u(p),\vx_v(p)\bigr\}$ (a 2-dim subspace of $T_P\E^3$), \ and \smallbreak
 		\emph{Unit normal vector} \ $\vn(p)=\dfrac{\vx_u(p)\times\vx_v(p)}{\Nm{\vx_u(p)\times\vx_v(p)}} \in T_P\E^3$
-	\end{quote}
+	\end{quote} 
 	$S$ is \emph{regular} if it is regular everywhere. An \emph{orientation} is a smooth choice of \emph{unit normal vector field} $\vn$.
 \end{defn}
 
@@ -120,7 +120,7 @@ It is worth reiterating two crucially important properties of $\dvx$:
 
 
 \begin{aside}\phantomsection\label{aside:coc}
-	\boldinline{Aside: change of co-ordinates}\quad To more fully spell this out, suppose we choose a new parametrization $\vy(s,t)=\vx\bigl(F(s,t)\bigr)$ where $F(s,t)=(u,v)$ is a change of co-ordinates on $U$. By the chain rule,
+	\boldinline{Aside: change of co-ordinates}\quad To more clearly spell this out, suppose we choose a new parametrization $\vy(s,t)=\vx\bigl(F(s,t)\bigr)$ where $F(s,t)=(u,v)$ is a change of co-ordinates on $U$. By the chain rule,
 	\[
 		\twovec{\vy_s}{\vy_t}=
 		\begin{pmatrix}
@@ -346,31 +346,33 @@ Our next result, a corollary of the famous \emph{implicit function theorem,} tie
 	\begin{enumerate}\setcounter{enumi}{1}
 	  \item Explain why the parametrization in Example \ref{ex:hyperboloid1sheet}(a) is \emph{local}: what is left out?
 	  
-	  \item\label{exs:paraboloid}\begin{enumerate}
+	  \item\label{exs:paraboloid}
+	  \begin{enumerate}\itemsep0pt
 	    \item Compute $\dvx$ and $\vn$ for the paraboloid $\vx(u,v)=\bigl(u,v,u^2+v^2\bigr)$.
 	  	\item Repeat for the polar co-ordinate parametrization $\vy(r,\theta)=\bigl(r\cos\theta,r\sin\theta,r^2\bigr)$. Is this parametrization everywhere regular?
 			\item Using $x=r\cos\theta$, etc., write $\dvx$ in terms of $r,\theta,\dr,\dth$. What do you observe?
 			\item By viewing the paraboloid as the zero set of $f(x,y,z)=z-x^2-y^2$, find another expression for the unit normal field.
 		\end{enumerate}
 	
-	  \begin{minipage}[t]{0.77\linewidth}\vspace{0pt}
+	  \begin{minipage}[t]{0.77\linewidth}\vspace{-2pt}
 			\item\label{exs:tandev}
-			\begin{enumerate}
+			\begin{enumerate}\itemsep0pt
 			  \item Find a parametrization for the tangent developable of the helix $\vy(u)=\bigl(\cos u,\sin u,u\bigr)$. Compute $\D\vy$ and the unit normal field $\vn$.\par
 	    (\emph{The picture covers $v\in(-3,6)$ with the original curve $\vy(u)$ in \textcolor{Green}{green}})
 	    	\item If $\vy$ is a unit speed biregular curve, prove that its tangent developable $\vx(u,v)=\vy(u)+v\vy'(u)$ is a regular surface except when $v=0$. Express the differential and unit normal field in terms of the Frenet frame of $\vy$.
 	    \end{enumerate}
 	  
+	  	\smallskip
 	    	
 	  	\item Let $f(x,y,z)=z^2$. Show that the zero set of $f$ has a regular parametrization despite  the gradient of $f$ vanishing at $z=0$.
 	  \end{minipage}
 	  \hfill
-	  \begin{minipage}[t]{0.21\linewidth}\vspace{-10pt}  			\flushright	\href{http://www.math.uci.edu/~ndonalds/math162a/surfaces-tandev.html}{\includegraphics{surfaces-tandev}}
+	  \begin{minipage}[t]{0.21\linewidth}\vspace{-14pt}  			\flushright	\href{http://www.math.uci.edu/~ndonalds/math162a/surfaces-tandev.html}{\includegraphics{surfaces-tandev}}
 	  \end{minipage}
 	  
 	
 		\item Let $a,b,c$ be positive constants and define $\vx(\theta,\phi)=\smash{\sthreevec{a\cos\theta\cos\phi}{b\sin\theta\cos\phi}{c\sin\phi}}$, $(\theta,\phi)\in(0,2\pi)\times(-\frac\pi 2,\frac\pi 2)$
-		\begin{enumerate}
+		\begin{enumerate}\itemsep0pt
 			\item Show that $\vx$ parametrizes the ellipsoid $\frac{x^2}{a^2}+\frac{y^2}{b^2}+\frac{z^2}{c^2}=1$.	What part(s) of the ellipsoid are `missing' from the parametrization?
 			\item Describe geometrically the curves $\theta=\,\,$constant and $\phi=\,\,$constant on the ellipsoid.
 			\item Calculate the differential of $\vx$ and show that $\dvx$ is 1--1 for each $p\in U$.
@@ -390,15 +392,18 @@ Our next result, a corollary of the famous \emph{implicit function theorem,} tie
 		  
 			\item\label{exs:tangentsurface} Let $c(t):(-\epsilon,\epsilon)\to U$ be a curve and $\vy(t)=\vx\bigl(c(t)\bigr)$ the corresponding curve in the surface $\vx:U\to\E^3$. Prove that $\dvx\bigl(c'(0)\bigr)=\vy'(0)$.\par
 			(\emph{Hint: Recall how to write $c'(t)$ as a \emph{vector field}}) 
+			
+				
+			\item\label{exs:mobius} (Möbius strip)\lstsp Show that $\vx(u,v)=\sthreevec{(2+v\cos\frac u2)\cos u}{(2+v\cos\frac u2)\sin u}{v\sin\frac u2}$ is regular and orientable whenever $0<u<2\pi$ and $-1<v<1$. By computing $\vn(0,0)$ and $\vn(2\pi,0)$, explain what happens if we try to extend $u$ to $[0,2\pi]$.
 	  \end{minipage}
 	  \hfill
-	  \begin{minipage}[t]{0.22\linewidth}\vspace{-12pt}
+	  \begin{minipage}[t]{0.23\linewidth}\vspace{-15pt}
 	  	\flushright
-			\href{http://www.math.uci.edu/~ndonalds/math162a/surfaces-helixtube.html}{\includegraphics{surfaces-helixtube}}
+			\href{http://www.math.uci.edu/~ndonalds/math162a/surfaces-helixtube.html}{\includegraphics{surfaces-helixtube}}\\
+			\href{http://www.math.uci.edu/~ndonalds/math162a/surfaces-mobius.html}{\includegraphics{surfaces-mobius}}
 	  \end{minipage}
 	  
-	
-		\item\label{exs:mobius} (Möbius strip)\lstsp Compute $\vx_u,\vx_v$ and $\vn$ for $\vx(u,v)=(2+v\cos\frac u2)\sthreevec{\cos u}{\sin u}0 +\sthreevec 00{v\sin\frac u2}$, where $(u,v)\in (0,2\pi)\times (-1,1)$. What happens if we try to extend $u$ past $2\pi$?
+
 
 	
 	
@@ -437,17 +442,22 @@ Our next result, a corollary of the famous \emph{implicit function theorem,} tie
 Our immediate goal is to use differentials to describe the shape of a surface. Before making the main definition, we need  another product of 1-forms.
 
 \begin{defn}{}{}
-Given 1-forms $\alpha,\beta$ on $U$, define the \emph{symmetric 2-form} $\alpha\beta$ by
-\[\alpha\beta(\vec v,\vec w)=\frac{1}{2}\bigl(\alpha(\vec v)\beta(\vec w)+\alpha(\vec w)\beta(\vec v)\bigr)\]
-where $\vec v,\vec w$ are vector fields on $U$. Note that $\alpha^2(\vec v,\vec w):=\alpha\alpha(\vec v,\vec w)=\alpha(\vec v)\alpha(\vec w)$.
+	Given 1-forms $\alpha,\beta$ on $U$, define the \emph{symmetric 2-form} $\alpha\beta$ by
+	\[
+		\alpha\beta(\vec v,\vec w) =\frac{1}{2}\bigl(\alpha(\vec v)\beta(\vec w)+\alpha(\vec w)\beta(\vec v)\bigr)
+		\]
+	where $\vec v,\vec w$ are vector fields on $U$. Note that $\alpha^2(\vec v,\vec w):=\alpha\alpha(\vec v,\vec w)=\alpha(\vec v)\alpha(\vec w)$.
 \end{defn}
 
-Symmetric 2-forms behave the way you expect they should.
+Symmetric 2-forms behave the way you (hopefully!) think they should.
 
 \begin{lemm}{}{}
-On each tangent space, $\alpha\beta:T_p\R^n\times T_p\R^n\to\R$ is a symmetric and bilinear.\par
-Moreover $\alpha\beta=\beta\alpha$, and the product is linear in each slot:
-\[\alpha(\beta+\gamma)=\alpha\beta+\alpha\gamma\quad\text{and}\quad (\alpha+\beta)\gamma=\alpha\gamma+\beta\gamma\]
+	On each tangent space, $\alpha\beta:T_p\R^n\times T_p\R^n\to\R$ is a symmetric and bilinear.\par
+	Moreover $\alpha\beta=\beta\alpha$, and the product is linear in each slot:
+	\[
+		\alpha(\beta+\gamma)=\alpha\beta+\alpha\gamma\quad\text{and}\quad (\alpha+\beta)\gamma=\alpha\gamma+\beta\gamma
+		\tag{$\ast$}
+	\]
 \end{lemm}
 
 % \begin{proof}
@@ -455,154 +465,170 @@ Moreover $\alpha\beta=\beta\alpha$, and the product is linear in each slot:
 % Linearity in 1\st\ slot: if we fix $w_p\in T_p\R^n$, we see that $\alpha\beta(-,w_p):v_p\to \alpha\beta(v_p,w_p)$ is linear since both 1-forms are are linear. By symmetry we have bilinearity.
 % \end{proof}
 
-Take care when using co-ordinate 1-forms; convention is that $\dx^2=(\dx)^2$ is a symmetric 2-form.\footnote{This is \emph{not} the same thing as the exterior derivative (1-form) $\D(x^2)=2x\,\dx$.}
+Take care when using co-ordinate 1-forms; convention dictates that $\dx^2=(\dx)^2$ is a symmetric 2-form, \emph{not} the exterior derivative (1-form) $\D(x^2)=2x\,\dx$.
 
 \begin{example}{}{}
-Let $\vec v=a\partials x+b\partials y$ and $\vec w=c\partials x+d\partials y$. Then
-\[\dx^2(\vec v,\vec w)=ac,\quad \dy^2(\vec v,\vec w)=bd,\quad \dx\dy(\vec v,\vec w)=\frac 12(ad+bc)\]
-In particular, $\bigl(\dx^2+\dy^2\bigr)(\vec v,\vec w)=ac+bd$ is essentially the dot product in disguise.\smallbreak
-It is typical to evaluate symmetric 2-forms with respect to co-ordinates; linearity and the above are then all you need in $\R^2$. For instance, if $\alpha =x\,\dx-\dy$ and $\beta =xy\,\dy$, then $\alpha\beta=x^2y\,\dx\dy-xy\,\dy^2$.
+	Let $\vec v=a\partials x+b\partials y$ and $\vec w=c\partials x+d\partials y$. Then
+	\[
+		\dx^2(\vec v,\vec w)=ac,\qquad \dy^2(\vec v,\vec w)=bd,\qquad \dx\,\dy(\vec v,\vec w)=\frac 12(ad+bc)
+	\]
+	In particular, $\bigl(\dx^2+\dy^2\bigr)(\vec v,\vec w)=ac+bd$ is the \emph{dot product} in disguise.\smallbreak
+	To evaluate symmetric 2-forms with respect to co-ordinates, linearity and distributivity ($\ast$) are all you need. For instance, if $\alpha =x\,\dx-\dy$ and $\beta =xy\,\dy$, then $\alpha\beta=x^2y\,\dx\dy-xy\,\dy^2$.
 \end{example}
 
-%\footnotetext{$s=\sqrt{x_1^2+\cdots+x_n^2}$ is the distance of a point from the origin.}
 
 If $\alpha,\beta$ take values in $\E^n$, we use the dot product for multiplication of the resulting \emph{vectors} $\alpha(\vec v)$, etc.
-\[(\alpha\cdot\beta)(\vec v,\vec w):=\frac 12\bigl(\alpha(\vec v)\cdot\beta(\vec w)+\alpha(\vec w)\cdot\beta(\vec v)\bigr)\]
+\[
+	(\alpha\cdot\beta)(\vec v,\vec w):=\frac 12\bigl(\alpha(\vec v)\cdot\beta(\vec w)+\alpha(\vec w)\cdot\beta(\vec v)\bigr)
+\]
 
 \begin{defn}{}{fund}
-The \emph{first and second fundamental forms} of a regular local surface $\vx:U\to\E^3$ are
-\[\I=\dvx\cdot\dvx,\qquad \II=-\dvx\cdot\dvn\]
-where $\dvn$ is the differential of the unit normal field ($\II$ requires that the surface be oriented).
+	The \emph{first and second fundamental forms} of a regular local surface $\vx:U\to\E^3$ are
+	\[
+		\I=\dvx\cdot\dvx,\qquad \II=-\dvx\cdot\dvn
+	\]
+	where $\dvn$ is the differential of the unit normal field ($\II$ requires that the surface be \emph{oriented}). The first fundamental form is also commonly denoted $\D s^2$ (see Example \ref{ex:spherepolar2} and Theorem \ref{thm:fundformcurves} for why).
 \end{defn}
 
 
 \begin{example}{}{}
-\exstart If $\vx(u,v)=\bigl(u,uv,1+u\bigr)$, then 
-\[\dvx=\threevec 1v1\du+\threevec 0u0\dv,\qquad \vn=\frac 1{\sqrt 2}\threevec 10{-1},\qquad \dvn=\V0\]
-from which $\I=(2+v^2)\,\du^2+2uv\,\du\dv+u^2\,\dv^2$ and $\II=0$.
+	If $\vx(u,v)=\bigl(u,uv,1+u\bigr)$, then 
+	\[
+		\dvx=\threevec 1v1\du+\threevec 0u0\dv,\qquad \vn=\frac 1{\sqrt 2}\threevec 10{-1},\qquad \dvn=\V0
+	\]
+	from which $\I=(2+v^2)\,\du^2+2uv\,\du\,\dv+u^2\,\dv^2$ and $\II=0$.
 \end{example}
 
 \goodbreak
 
-%\boldinline{Why should we care about $\I$ \& $\II$?}
 
-%We'll consider the meaning of the fundamental forms more fully later. For the present, here are a few simple facts.
+\boldinline{Why should we care about $\I$ \& $\II$?}
 
 \begin{description}
-	\item[\normalfont\emph{Basic meaning}]\phantomsection\label{sec:formsmeaning} $\I(\vec v,\vec w)=\dvx(\vec v)\cdot\dvx(\vec w)$ pulls back the dot product from $T_PS$ to $T_p\R^2$. The length of and angle between tangent vectors to $S$ may now be computed in $T_p\R^2$.\par
-	 	$\II(\vec v,\vec w)=-\frac 12\bigl(\dvx(\vec v)\cdot\dvn(\vec w)+\dvx(\vec w)\cdot\dvn(\vec v)\bigr)$ describes how the normal field $\vn$ changes over the surface. In the example, $\II\equiv 0$ encapsulates the fact that the normal field is \emph{constant}: the surface is (part of) a plane $\vx\cdot(1,0,-1)=-1$.
-	  %\[\vx(u,v)=\threevec 001+u\threevec 101+uv\threevec 010\implies \vx\cdot\threevec 10{-1}=-1\]
+	\item[\normalfont\emph{Basic interpretation}]\phantomsection\label{sec:formsmeaning} $\I(\vec v,\vec w)=\dvx(\vec v)\cdot\dvx(\vec w)$ pulls back the dot product from $T_PS$ to $T_p\R^2$. The length of and angle between tangent vectors to the surface $S$ at $P$ may now be computed in $T_p\R^2$.\par
+	 	$\II(\vec v,\vec w)=-\frac 12\bigl(\dvx(\vec v)\cdot\dvn(\vec w)+\dvx(\vec w)\cdot\dvn(\vec v)\bigr)$ describes how the normal field $\vn$ changes over the surface. In the example, $\II\equiv 0$ encapsulates the \emph{constancy} of the normal field: the surface is (part of) the plane $\vx\cdot(1,0,-1)=-1$.
 	
-	\item[\normalfont\emph{Co-ordinate invariance}] Since $\dvx$ is independent of co-ordinates, so also is $\I$. The unit normal field is independent of \emph{oriented} co-ordinate changes. More formally, if $\vx(u,v)=\vy(s,t)$ are parametrizations of the same surface, then\footnote{In the language of page \pageref{aside:coc}, the $\pm$ in the expressions for $\II$ is the sign of the \emph{determinant} of the Jacobian $\D F$ of the change of co-ordinates $(u,v)=F(s,t)$.}
-	\[\I_\vy=\I_\vx\quad \text{and}\quad \II_\vy=\begin{cases}
-	\II_\vx&\text{if the orientations are identical}\\
-	-\II_\vx&\text{if the orientations are reversed}
-	\end{cases}\]
+	\item[\normalfont\emph{Co-ordinate invariance}] Since $\dvx$ is independent of co-ordinates, so also is $\I$. The unit normal field is independent of \emph{oriented} co-ordinate changes. More formally, if $\vy(s,t)=\vx(u,v)$ parametrize the same surface, then\footnote{As in the Aside on page \pageref{aside:coc}, we strictly have $\I_\vy=\I_\vx\circ \D F$, etc., where $\vy(s,t)=\vx\bigl(F(s,t)\bigr)=\vx(u,v)$. The $\pm$-sign in the expressions for $\II$ is that of the \emph{determinant} of the Jacobian $\D F$.}
+	\[
+		\I_\vy=\I_\vx\quad \text{and}\quad \II_\vy=
+		\begin{cases}
+			\II_\vx&\text{if the orientations are identical}\\
+			-\II_\vx&\text{if the orientations are reversed}
+		\end{cases}
+	\]
 \end{description}
 
-
-The upshot is that the fundamental forms provide a co-ordinate independent way to compute information about a surface from within the \emph{parametrization space} $U$. We'll think more about this later.
+The upshot is that the fundamental forms provide a co-ordinate independent way to compute information about a surface from within the \emph{parametrization space} $U$.
 
 
 \begin{example}{}{spherepolar2}
-For the sphere of radius $a$ in spherical polar co-ordinates, recall Exercise \ref{ex:spherepolar}:
-\begin{align*}
-\vx(\theta,\phi)=a\!\threevec{\cos\theta\cos\phi}{\sin\theta\cos\phi}{\sin\phi}&\implies\dvx=a\cos\phi\threevec{-\sin\theta}{\cos\theta}{0}\!\dth+a\!\threevec{-\cos\theta\sin\phi}{-\sin\theta\sin\phi}{\cos\phi}\!\D\phi\\[3pt]
-&\implies \I=a^2\bigl(\cos^2\!\phi\,\D\theta^2+\D\phi^2\bigr)
-\end{align*}
-If you revisit the pictures in Example \ref{ex:spherepolar}, the effect of $\I$ is easy to visualize:
-\begin{itemize}\itemsep2pt
-  \item $\I(\partials\theta,\partials\theta)=\Nm{\vx_\theta}^2=a^2\cos^2\!\phi$: the tangent vector $\vx_\theta$ is \emph{shorter} near the poles, where $\cos\phi\to 0$.
-  \item $\I(\partials\phi,\partials\phi)=\Nm{\vx_\phi}^2=a^2$: the tangent vector $\vx_\phi$ always has the \emph{same length.}
-  \item $\I(\partials\theta,\partials\phi)=\vx_\theta\cdot\vx_\phi=0$: the co-ordinate tangent vectors are always \emph{orthogonal.}
-\end{itemize}
-At a point $\vx(p)$ on the sphere, if we increase the co-ordinates by tiny quantities $\Delta p=\bigl(\Delta\theta,\Delta\phi)$, then the distance $\Delta s$ travelled along the surface satisfies\footnotemark
-\[(\Delta s)^2\approx \Nm{\vx_\theta\,\Delta\theta+\vx_\phi\,\Delta\phi}^2= a^2\cos^2\!\phi\,(\Delta\theta)^2+a^2(\Delta\phi)^2\]
-Near the poles, a change in the angle $\theta$ corresponds to a smaller distance on the sphere. This is analogous to how a standard \emph{map} of the Earth works, with distances appearing distorted near the poles. We'll return to this idea shortly\ldots\smallbreak
-Computing $\II$ is very easy for the sphere, since $\vn=\frac 1a\vx$ is merely the scaled position vector:
-\[\II=-\dvx\cdot\dvn=-\frac{1}{a}\,\dvx\cdot\dvx=-\frac{1}{a}\I =-a\bigl(\cos^2\!\phi\,\D\theta^2+\D\phi^2\bigr)\]
+	For the sphere of radius $a$ in spherical polar co-ordinates, recall Example \ref{ex:spherepolar}:
+	\begin{align*}
+		\vx(\theta,\phi) =a\!\threevec{\cos\theta\cos\phi}{\sin\theta\cos\phi}{\sin\phi}&\implies\dvx =a\cos\phi\threevec{-\sin\theta}{\cos\theta}{0}\!\dth+a\!\threevec{-\cos\theta\sin\phi}{-\sin\theta\sin\phi}{\cos\phi}\!\D\phi\\[3pt]
+		&\implies \I=a^2\bigl(\cos^2\!\phi\,\D\theta^2+\D\phi^2\bigr)
+	\end{align*}
+	If you revisit the pictures in Example \ref{ex:spherepolar}, the effect of $\I$ is easy to visualize:
+	\begin{itemize}\itemsep2pt
+	  \item $\I(\partials\theta,\partials\theta)=\Nm{\vx_\theta}^2=a^2\cos^2\!\phi$: the tangent vector $\vx_\theta$ is \emph{shorter} near the poles, where $\cos\phi\to 0$.
+	  \item $\I(\partials\phi,\partials\phi)=\Nm{\vx_\phi}^2=a^2$: the tangent vector $\vx_\phi$ always has the \emph{same length.}
+	  \item $\I(\partials\theta,\partials\phi)=\vx_\theta\cdot\vx_\phi=0$: the co-ordinate tangent vectors are always \emph{orthogonal.}
+	\end{itemize}
+	At a point $P=\vx(p)$ on the sphere, if we increase the co-ordinates by tiny quantities $\Delta p=\bigl(\Delta\theta,\Delta\phi)$, then the distance $\Delta s$ travelled along the surface approximately satisfies
+	\[
+		(\Delta s)^2\approx \Nm{\vx(p+\Delta p)-\vx(p)}\approx \Nm{\vx_\theta\,\Delta\theta+\vx_\phi\,\Delta\phi}^2= a^2\cos^2\!\phi\,(\Delta\theta)^2+a^2(\Delta\phi)^2
+	\]
+	with equality in the limit $\Delta\theta,\Delta\phi\to 0$. Near the poles, a change in \emph{longitude} $\Delta\theta$ corresponds to a smaller distance on the sphere. This is analogous to how a standard \emph{map} of the Earth works, with distances appearing distorted near the poles. We'll return to this idea shortly\ldots\smallbreak
+	Computing $\II$ is very easy for the sphere, since $\vn=\frac 1a\vx$ is merely the scaled position vector:
+	\[
+		\II=-\dvx\cdot\dvn=-\frac{1}{a}\,\dvx\cdot\dvx=-\frac{1}{a}\I =-a\bigl(\cos^2\!\phi\,\D\theta^2+\D\phi^2\bigr)
+	\]
 \end{example}
-\footnotetext{For this reason the first fundamental form is also commonly denoted $\ds^2$.}
+
 
 \goodbreak
 
-It is typical to compute $\I,\II$ directly in terms of the co-ordinates $u,v$ without explicitly finding $\dvn$.
+The fundamental forms $\I,\II$ may be computed directly in terms of co-ordinates $u,v$.
  
 \begin{thm}{}{fundcoord}
-Given $\vx:U\to\E^3$ with unit normal field $\vn$, define functions $E,F,G$ and $l,m,n$ via
-\begin{align*}
-E&=\vx_u\cdot\vx_u &F&=\vx_u\cdot\vx_v &G&=\vx_v\cdot\vx_v\\
-l&=\vx_{uu}\cdot\vn =-\vx_u\cdot\vn_u\quad &m&=\vx_{uv}\cdot\vn=-\vx_u\cdot\vn_v=-\vx_v\cdot\vn_u\quad &n&=\vx_{vv}\cdot \vn=-\vx_v\cdot\vn_v
-\end{align*}
-Then
-\[\I=E\,\du^2+2F\,\du\dv+G\,\dv^2\quad\text{and}\quad \II =l\,\du^2+2m\,\du\dv+n\,\dv^2\]
+	If $\vx:U\to\E^3$ is a regular (oriented) surface, then
+	\[
+		\I=E\,\du^2+2F\,\du\,\dv+G\,\dv^2\quad\text{and}\quad \II =l\,\du^2+2m\,\du\,\dv+n\,\dv^2
+	\]
+	where the smooth functions $E,F,G,l,m,n:U\to\R$ are defined by
+	\begin{align*}
+		&E=\vx_u\cdot\vx_u &&F=\vx_u\cdot\vx_v &&G=\vx_v\cdot\vx_v\\
+		&l=\vx_{uu}\cdot\vn =-\vx_u\cdot\vn_u\quad &&m=\vx_{uv}\cdot\vn=-\vx_u\cdot\vn_v=-\vx_v\cdot\vn_u\quad &&n=\vx_{vv}\cdot \vn=-\vx_v\cdot\vn_v
+	\end{align*}
 \end{thm}
 
-The expressions for $\II$ come from differentiating $\vx_u\cdot\vn=0=\vx_v\cdot\vn$.
+The expressions for $\II$ come from differentiating $\vx_u\cdot\vn=0=\vx_v\cdot\vn$, and are particularly helpful because they avoid computing derivatives of $\vn$ (which likely contains a square-root). 
 
 \begin{example}{}{paraboloidpolar}
-If we parametrize the graph of $z=f(x,y)$ by $\vx(u,v)=\bigl(u,v,f(u,v)\bigr)$, we obtain,
-\begin{gather*}
-\begin{aligned}
-\vx_u=\threevec 10{f_u},\quad\vx_v=\threevec 01{f_v}&\implies E=1+f_u^2,\quad F=f_uf_v,\quad G=1+f_v^2\\
-&\implies \I=(1+f_u^2)\,\du^2+2f_uf_v\,\du\dv+(1+f_v^2)\,\dv^2
-\end{aligned}\\[8pt]
-\begin{aligned}
-\vx_{uu}=\threevec 00{f_{uu}},\quad&\vx_{uv}=\threevec 00{f_{uv}},\quad\vx_{vv}=\threevec 00{f_{vv}},\quad \vn=\frac{1}{\sqrt{1+f_u^2+f_v^2}}\threevec{-f_u}{-f_v}{1}\\[2pt]
-\implies &l=\frac{f_{uu}}{\sqrt{1+f_u^2+f_v^2}},\quad m=\frac{f_{uv}}{\sqrt{1+f_u^2+f_v^2}},\quad n=\frac{f_{vv}}{\sqrt{1+f_u^2+f_v^2}}\\[2pt]
-\implies &\II=\frac{1}{\sqrt{1+f_u^2+f_v^2}}\left(f_{uu}\,\du^2+2f_{uv}\,\du\dv+
-f_{vv}\,\dv^2\right)
-\end{aligned}
-\end{gather*}
-For instance, the circular paraboloid $z=x^2+y^2$ has fundamental forms
-\begin{gather*}
-\I=(1+4u^2)\,\du^2+8uv\,\du\dv+(1+4v^2)\,\dv^2 =\du^2+\dv^2+4\bigl(u\,\du+v\,\dv\bigr)^2\\[2pt]
-\II=\frac{2}{\sqrt{1+4u^2+4v^2}}\bigl(\du^2+\dv^2\bigr)
-\end{gather*}
+	Parametrize the graph of $z=f(x,y)$ by $\vx(u,v)=\bigl(u,v,f(u,v)\bigr)$ to obtain,
+	\begin{gather*}
+		\begin{aligned}
+		\vx_u=\threevec 10{f_u}, \quad \vx_v=\threevec 01{f_v} &\implies E=1+f_u^2, \quad F=f_uf_v, \quad G=1+f_v^2\\
+		&\implies \I=(1+f_u^2)\,\du^2+2f_uf_v\,\du\,\dv+(1+f_v^2)\,\dv^2
+	\end{aligned}\\[8pt]
+	\begin{aligned}
+		\vx_{uu}=\threevec 00{f_{uu}}, \quad &\vx_{uv}=\threevec 00{f_{uv}}, \quad \vx_{vv}=\threevec 00{f_{vv}}, \quad \vn=\frac{1}{\sqrt{1+f_u^2+f_v^2}}\threevec{-f_u}{-f_v}{1}\\[2pt]
+		\implies &l=\frac{f_{uu}}{\sqrt{1+f_u^2+f_v^2}}, \quad m=\frac{f_{uv}}{\sqrt{1+f_u^2+f_v^2}}, \quad n=\frac{f_{vv}}{\sqrt{1+f_u^2+f_v^2}}\\[2pt]
+		\implies &\II=\frac{1}{\sqrt{1+f_u^2+f_v^2}} \left(f_{uu}\,\du^2 +2f_{uv}\,\du\,\dv+
+		f_{vv}\,\dv^2\right)
+	\end{aligned}
+	\end{gather*}
+	As a particular example, the circular paraboloid $z=x^2+y^2$ has fundamental forms
+	\begin{gather*}
+		\I=(1+4u^2)\,\du^2+8uv\,\du\,\dv+(1+4v^2)\,\dv^2 =\du^2+\dv^2+4\bigl(u\,\du+v\,\dv\bigr)^2\\[2pt]
+		\II=\frac{2}{\sqrt{1+4u^2+4v^2}}\bigl(\du^2+\dv^2\bigr)
+	\end{gather*}
 
 
-As a sanity check, compare this with the parametrization of the same paraboloid in polar co-ordinates $\vy(r,\theta)=\bigl(r\cos\theta,r\sin\theta,r^2\big)$ (recall Exercise \ref*{sec:regularsurfaces}.\ref{exs:paraboloid}). By computing the partial derivatives $\vy_r,\vy_\theta,\vy_{rr},\vy_{r\theta},\vy_{\theta\theta}$ directly, it is easy to verify that
+	As a sanity check, compare with the parametrization of the same paraboloid in polar co-ordinates $\vy(r,\theta)=\bigl(r\cos\theta,r\sin\theta,r^2\big)$ (Exercise \ref*{sec:regularsurfaces}.\ref{exs:paraboloid}). By computing the partial derivatives $\vy_r,\vy_\theta,\vy_{rr},\vy_{r\theta},\vy_{\theta\theta}$ directly, one easily verifies that
 	\begin{gather*}
 	\I=(1+4r^2)\,\dr^2+r^2\,\dth^2,\qquad\II=\frac{2}{\sqrt{1+4r^2}}\big(\dr^2+r^2\,\dth^2\bigr)
 	\end{gather*}
-	These expressions are identical to the originals (same orientation!) via
+	These expressions are identical to the originals (same orientation!) since
 	\[
-	\begin{cases}
-	\du=\cos\theta\,\dr-r\sin\theta\,\dth\\
-	\dv=\sin\theta\,\dr+r\cos\theta\,\dth
-	\end{cases}
-	\implies
-	\begin{cases}
-	\du^2+\dv^2=\dr^2+r^2\,\dth^2\\
-	\bigl(u\,\du+v\,\dv\bigr)^2=r^2\,\dr^2\\
-	\end{cases} 
+		\begin{cases}
+			\du=\cos\theta\,\dr-r\sin\theta\,\dth\\
+			\dv=\sin\theta\,\dr+r\cos\theta\,\dth
+		\end{cases}
+		\implies
+		\begin{cases}
+			\du^2+\dv^2=\dr^2+r^2\,\dth^2\\
+			\bigl(u\,\du+v\,\dv\bigr)^2=r^2\,\dr^2\\
+		\end{cases} 
   \]
 \end{example}
 
 \goodbreak
 
+
 \boldsubsubsection{Curves in Surfaces: interpreting $\I$ and $\II$}
 
-Given a surface $\vx:U\to\E^3$ and a curve $c(t)$ in $U$, we may transfer this curve to the surface $\vy(t)=\vx\bigl(c(t)\bigr)$. Its tangent vector (Exercise \ref*{sec:regularsurfaces}.\ref{exs:tangentsurface}) and speed are
-\[\vy'(t)=\dvx\bigl(c'(t)\bigr) \implies \Nm{\vy'(t)}=\sqrt{\dvx\bigl(c'(t)\bigr)\cdot\dvx\bigl(c'(t)\bigr)}=\sqrt{\I\bigl(c'(t),c'(t)\bigr)}\]
+Given a regular (oriented) surface $\vx:U\to\E^3$ and a curve $c(t)$ in $U$, we may transfer this curve to the surface $\vy(t)=\vx\bigl(c(t)\bigr)$. Its tangent vector (Exercise \ref*{sec:regularsurfaces}.\ref{exs:tangentsurface}) and speed are then
+\[
+	\vy'(t)=\dvx\bigl(c'(t)\bigr) \implies \Nm{\vy'(t)}=\sqrt{\dvx\bigl(c'(t)\bigr)\cdot\dvx\bigl(c'(t)\bigr)}=\sqrt{\I\bigl(c'(t),c'(t)\bigr)}
+\]
 We can do something similar for the second fundamental form.
 
 \begin{thm}{}{fundformcurves}
-Let $\vy(t)=\vx\bigl(c(t)\bigr)$ parametrize a curve in a surface $\vx$ with unit normal $\vn$.
+Let $\vy(t)=\vx\bigl(c(t)\bigr)$ parametrize a curve in a surface $\vx$ with unit normal field $\vn$.
 \begin{enumerate}
   \item If $a<b$, then the \emph{arc-length} of $\vy$ between $\vy(a)$ and $\vy(b)$ is $\smash{\int_a^b\sqrt{\I\bigl(c'(t),c'(t)\bigr)}\,\dt}$.
 	\item The \emph{normal acceleration} of the curve is $\vy''(t)\cdot\vn=\II(c',c')$.
 \end{enumerate}
 \end{thm}
 
-This puts a little flesh on our earlier observations (page \pageref{sec:formsmeaning}): the first fundamental form measures \emph{infinitesimal distance} on the surface, while the second measures how the surface bends away from the normal field (recall how the  curvature of a curve was motivated in terms of force/acceleration).
+This puts some flesh on our earlier observations (page \pageref{sec:formsmeaning}). $\I$ measures \emph{infinitesimal squared-distance} on the surface, while $\II$ measures how the surface bends away from the normal field: recall how force/acceleration motivated the curvature $\kappa$ of a curve (Definition \ref{defn:curvature}).
 
 \begin{proof}
 \begin{enumerate}
   \item Arc-length is the integral of the speed $\Nm{\vy'(t)}=\smash{\sqrt{\I\bigl(c'(t),c'(t)\bigr)}}$.
-  \item Since $\vy'$ lies in the tangent plane, we have $\vy'\cdot\vn\equiv 0$. Differentiate this to obtain
+  \item Since $\vy'$ lies in the tangent plane, we have $\vy'\cdot\vn\equiv 0$. Differentiate to obtain
   \begin{align*}
-	0&=\diff t(\vy'\cdot \vn)=\vy''\cdot \vn+\vy'\cdot\diff t\vn\bigl(c(t)\bigr) =\vy''\cdot\vn+\dvx(c')\cdot\D\vn(c') =\vy''\cdot\vn-\II(c',c')\tag*{\qedhere}
+		0&=\diff t(\vy'\cdot \vn) =\vy''\cdot \vn+\vy'\cdot\diff t\vn\bigl(c(t)\bigr) =\vy''\cdot\vn+\dvx(c')\cdot\D\vn(c') =\vy''\cdot\vn-\II(c',c')\tag*{\qedhere}
 	\end{align*}
 \end{enumerate}
 \end{proof}
@@ -611,63 +637,74 @@ This puts a little flesh on our earlier observations (page \pageref{sec:formsmea
 %Skater example, then maps revisited, then hyp space?
 
 
-\begin{example*}{\ref{ex:spherepolar2}, cont}{}\phantomsection\label{ex:spherepolar3}
-Consider the \textcolor{blue}{curve} $c(t)=(\theta(t),\phi(t))=\bigl(2t,t\bigr)$ where $0\le t\le\frac\pi 4$. This has tangent field $c'(t)=2\partials\theta+\partials\phi$. Translated to the unit sphere, the resulting \textcolor{blue}{curve} has arc-length
-\[\int_0^{\frac\pi 4}\sqrt{\I\bigl(c',c')}\,\dt=\int_0^{\frac\pi 4}\sqrt{4\cos^2\!t+1}\,\dt\approx 1.619\]
-In the parametrization space $U$, \textcolor{blue}{$c(t)$} is a straight line. The shortest path between the endpoints of the curve \emph{on the sphere} is the \textcolor{Green}{great circle arc} with length $\frac{2\pi}4=\frac\pi 2\approx 1.571$; its \textcolor{Green}{pre-image} in $U$ \emph{appears} longer but isn't due to the $\cos^2\!\phi$ factor in the first fundamental form. By spending more time at northerly latitudes, $\I$ is smaller for more of the \textcolor{Green}{great circle arc} and the resulting arc-length is smaller.
+\begin{example*}{\ref{ex:spherepolar2}, cont}{}%\phantomsection\label{ex:spherepolar3}
+\hypertarget{ex:spherepolar4}
+	Consider the \textcolor{blue}{curve} $c(t)=(\theta(t),\phi(t))=\bigl(2t,t\bigr)$ where $0\le t\le\frac\pi 4$. This has tangent field $c'(t)=2\partials\theta+\partials\phi$. Translated to the unit sphere, the resulting \textcolor{blue}{curve} has arc-length
+	\[
+		\int_0^{\frac\pi 4}\sqrt{\I\bigl(c',c')}\,\dt =\int_0^{\frac\pi 4}\sqrt{4\cos^2\!t+1}\,\dt \approx 1.619
+	\]
+	In the parametrization space $U$, \textcolor{blue}{$c(t)$} is a straight line. The shortest path between the endpoints of the curve \emph{on the sphere} is the \textcolor{Green}{great circle arc} with length $\frac{2\pi}4=\frac\pi 2\approx 1.571$; its \textcolor{Green}{pre-image} in $U$ \emph{appears} longer but isn't due to the $\cos^2\!\phi$ factor in the first fundamental form. By spending more time at northerly latitudes, $\I$ is smaller for more of the \textcolor{Green}{great circle arc} and the resulting arc-length is shorter.
 	\begin{center}
-		\includegraphics{fund-sphere4}\qquad\qquad
-	\href{http://www.math.uci.edu/~ndonalds/math162a/fund-sphere3.html}{\includegraphics{fund-sphere3}}
+		\includegraphics{fund-sphere4} \qquad\qquad
+		\href{http://www.math.uci.edu/~ndonalds/math162a/fund-sphere3.html}{\includegraphics{fund-sphere3}}
 	\end{center}
 \end{example*}
 
 \goodbreak
 
-Provided a map of the Earth covers only a small range of latitudes (almost constant $\phi\approx\phi_0$), the first fundamental form looks almost identical to a standard dot product $\I\approx (a\cos\phi_0\,\dth)^2+(a\,\D\phi)^2$. If not, say when we travel by plane, the distortion becomes apparent.
+
+If a map of the Earth covers a small latitude range (almost constant $\phi\approx\phi_0$), the first fundamental form is almost similar to a standard dot product $\I\approx (a\cos\phi_0\,\dth)^2+(a\,\D\phi)^2$. If not, say when we travel by plane, the distortion becomes much more apparent.
 \begin{center}
-\includegraphics{fund-irvine.png}
+	\includegraphics{fund-irvine.png}
 \end{center}
-The above map shows the \textcolor{red}{shortest path} from Irvine (California) to Irvine (Scotland); the path flown by an aircraft in the absence of wind. The \textcolor{blue}{straight line} on the map corresponds to a \emph{longer path.}\smallbreak
-If we travel at constant speed, it can be checked that great circles are precisely the curves whose acceleration is entirely in the normal direction; this observation, and its relation to \emph{geodesics} (paths of shortest distance), is a matter for another course.
+The picture shows the \textcolor{red}{\href{http://www.gcmap.com/mapui?P=SNA-PIK}{shortest path}} from Irvine (California) to Irvine (Scotland), as flown by an aircraft in ideal conditions. The \textcolor{blue}{straight line} on the map corresponds to a \emph{longer real-world path.}\smallbreak
+If we travel at constant speed, it can be checked that great circles are precisely those curves whose acceleration is entirely in the normal direction. This observation, and its relation to \emph{geodesics} (paths minimizing distance), is a matter for another course.
 
 
 \begin{example}{}{}
-A skater descends into a paraboloidal bowl $z=\frac 12r^2$ following the a path described by $c(t)=(r(t),\theta(t))=(1-t,4t^2)$ in polar co-ordinates. If we parametrize the surface in polar co-ordinates $\vx(r,\theta)=\bigl(r\cos\theta,r\sin\theta,\frac 12r^2\bigr)$, the fundamental forms are easily seen to be\par
+	A skater descends into a paraboloidal bowl $z=\frac 12r^2$ following the path described by $c(t)=(r(t),\theta(t))=(1-t,4t^2)$ in polar co-ordinates. If we parametrize the bowl in polar co-ordinates $\vx(r,\theta)=\bigl(r\cos\theta,r\sin\theta,\frac 12r^2\bigr)$, the fundamental forms are seen to be
+	\par
 	\begin{minipage}[t]{0.5\linewidth}\vspace{-10pt}
-	\begin{gather*}
+		\begin{gather*}
 % 	\vx_r=\threevec{\cos\theta}{\sin\theta}{r},\quad\vx_\theta=\threevec{-r\sin\theta}{r\cos\theta}0,\quad \V U=\frac{1}{\sqrt{1+r^2}}\threevec{-r\cos\theta}{-r\sin\theta}{1},\\
 % 	E=1+r^2,\quad F=0,\quad G=r^2,\\
 % 	l=\frac{1}{\sqrt{1+r^2}},\quad m=0,\quad n=\frac{r^2}{\sqrt{1+r^2}},\\
-	\I=(1+r^2)\,\dr^2+r^2\,\dth^2\\
-	\II=\frac 1{\sqrt{1+r^2}}(\dr^2+r^2\,\dth^2)
-	\end{gather*}
-	For the skater's path, $c'(t)=-\partials r+8t\partials\theta$, whence
-	\[\I(c',c')=(1+(1-t)^2)+64t^2(1-t)^2\]
-	\end{minipage}\hfill\begin{minipage}[t]{0.49\linewidth}\vspace{0pt}
-	\flushright\includegraphics{fund-skater}
-	\end{minipage}\bigbreak
-	The path therefore has arc-length\par
+			\I=(1+r^2)\,\dr^2+r^2\,\dth^2\\
+			\II=\frac 1{\sqrt{1+r^2}}(\dr^2+r^2\,\dth^2)
+		\end{gather*}
+		For the skater's path, $c'(t)=-\partials r+8t\partials\theta$, whence
+		\[
+			\I(c',c')=(1+(1-t)^2)+64t^2(1-t)^2
+		\]
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.49\linewidth}\vspace{0pt}
+		\flushright\includegraphics{fund-skater}
+	\end{minipage}
+	\bigbreak
+	The path therefore has arc-length
+	\par
 	\begin{minipage}[t]{0.6\linewidth}\vspace{-8pt}
-	\[\int_0^1\sqrt{\I(z',z')}\,\dt=\int_0^1\sqrt{1+(64t^2+1)(1-t)^2}\,\dt \approx 1.82\]
+		\[
+			\int_0^1\sqrt{\I(z',z')}\,\dt =\int_0^1\sqrt{1+(64t^2+1)(1-t)^2}\,\dt \approx 1.82
+		\]
 		and normal acceleration
-	\[\II(c',c')=\frac 1{\sqrt{1+(1-t)^2}}\bigl(1+64t^2(1-t)^2\bigr)\]
-	\end{minipage}\hfill\begin{minipage}[t]{0.39\linewidth}\vspace{-2pt}
+		\[
+			\vy''\cdot\vn =\II(c',c') =\frac 1{\sqrt{1+(1-t)^2}}\bigl(1+64t^2(1-t)^2\bigr)
+		\]
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.39\linewidth}\vspace{-2pt}
 		\flushright\includegraphics{fund-skater2}
-	\end{minipage}\medbreak
-	By Newton's second law, this is proportional to the component of the force experienced by the skater pushing out from the surface. 
+	\end{minipage}
+	\medbreak
+	By Newton's second law, this is proportional to the component of the force experienced by the skater pushing perpendicularly out from the surface. 
 \end{example}
 
 \goodbreak
 
 
-% We don't even need an explicit surface to compute distance. All we need is a first fundamental form.
-% 
-% \begin{example}{}{}
-% Equip the upper half-plane $\{(u,v):v>0\}$ with the abstract first fundamental form $\I=\frac 1{v^2}\bigl(\du^2+\dv^2\bigr)$. We compute the arc-length of the path $c(t)=\bigl(\cos t,\sin t\bigr)$ between $t=a$ and $b$.\smallbreak
-% We have $c'(t)=-\sin t\partials{u}+\cos t\partials{v}$ so that $\I(c',c')=\frac{1}{\sin^2t}$. The arc-length is therefore
-% 	\[\int_a^b\frac{1}{\sin t}\dt=\left[-\ln\frac{1+\cos t}{\sin t}\right]_a^b=\ln\frac{\sin b(1+\cos a)}{\sin a(1+\cos b)}\]
-% 	Notice that as $a\to 0^+$ or as $b\to \pi^-$ (use l'Hôpital's rule!) the arc-length becomes infinite.\footnotemark
-% \end{example}
+
 
 
 
@@ -675,64 +712,65 @@ A skater descends into a paraboloidal bowl $z=\frac 12r^2$ following the a path 
 %\item $\I,\II$ for ruled surface, helicoid?
 
 \begin{exercises}
-\exstart Verify the final details of Example \ref{ex:paraboloidpolar}: that is, compute $\I,\II$ using the polar co-ordinate parametrization $\vy(r,\theta)=\bigl(r\cos\theta,r\sin\theta,r^2\big)$.
-
-\begin{enumerate}\setcounter{enumi}{1}  
-  \item\label{exs:revfund} Compute the fundamental forms for the surface of revolution $\vx(\theta,v)=\bigl(f(v)\cos\theta,f(v)\sin\theta,v\bigr)$
-  
-
-	\item Compute the first fundamental forms of the following parametrized surfaces wherever they are regular ($a,b,c$ are constants). Where does each parametrization fail to be regular?\vspace{-2pt}
-  \begin{enumerate}
-    \item Ellipsoid $\vx(\theta,\phi)=(a\cos\theta\cos\phi,b\sin\theta\cos\phi,c\sin\phi)$
-    \item Elliptic paraboloid $\vx(r,\theta)=(ar\cos\theta,br\sin\theta,r^2)$
-    %\item Hyperbolic paraboloid $\vx(u,v)=(au\cosh v,bu\sinh v,u^2)^T$
-    %\item Hyperboloid of two sheets $\vx(u,v)=(a\sinh u\cos v,b\sinh u\sin v,c\cosh u)^T$
-  \end{enumerate}
-  
-  
-	\item\label{exs:enneper} Calculate the fundamental forms of Enneper's surface
-	\[\vx(u,v)=\bigl(u-\tfrac 13u^3+uv^2,v-\tfrac 13v^3+vu^2,u^2-v^2\bigr)\]
+	\exstart Verify the final details of Example \ref{ex:paraboloidpolar}: that is, compute $\I,\II$ directly using the polar co-ordinate parametrization $\vy(r,\theta)=\bigl(r\cos\theta,r\sin\theta,r^2\big)$.
+	
+	\begin{enumerate}\setcounter{enumi}{1}  
+	  \item\label{exs:revfund} Find the fundamental forms for the surface of revolution $\vx(\theta,v)=\bigl(f(v)\cos\theta,f(v)\sin\theta,v\bigr)$.
+	  
+	
+		\item Compute the first fundamental forms of each parametrized surface wherever they are regular ($a,b,c$ are non-zero constants). Where does each parametrization fail to be regular?\vspace{-2pt}
+	  \begin{enumerate}
+	    \item Ellipsoid $\vx(\theta,\phi)=(a\cos\theta\cos\phi,b\sin\theta\cos\phi,c\sin\phi)$
+	    \item Elliptic paraboloid $\vx(r,\theta)=(ar\cos\theta,br\sin\theta,r^2)$
+	    %\item Hyperbolic paraboloid $\vx(u,v)=(au\cosh v,bu\sinh v,u^2)^T$
+	    \item Hyperboloid of two sheets $\vx(u,v)=(a\sinh u\cos v,b\sinh u\sin v,c\cosh u)$
+	  \end{enumerate}
+	  
+	  
+		\item\label{exs:enneper} Calculate the fundamental forms of Enneper's surface
+		\[
+			\vx(u,v)=\bigl(u-\tfrac 13u^3+uv^2,v-\tfrac 13v^3+vu^2,u^2-v^2\bigr)
+		\]
+		
+		
+		\item Compute $\D\vy$ for the parametrization $\vy(r,\theta)=\bigl(r\cos\theta,r\sin\theta,\sqrt{1-r^2}\bigr)$ of the upper unit hemisphere. Verify that the first fundamental form is the same as in Example \ref{ex:spherepolar2}.
+		
+	  
+	  \item\label{exs:tandevhelix} Let $\vx$ be the tangent developable of a unit speed biregular curve $\vy$ (Exercise \ref*{sec:regularsurfaces}.\ref{exs:tandev}).
+	  \begin{enumerate}
+	    \item Compute the fundamental forms of $\vx$ in terms of the curvature and torsion of $\vy$.
+	    \item If $\vy(u)=\bigl(\cos \frac u{\sqrt 2},\sin\frac u{\sqrt 2},\frac u{\sqrt 2}\bigr)$ is the unit speed helix, show that
+	  	\[
+	  		\I=\bigl(1+\tfrac{v^2}{4}\bigr)\du^2+2\,\du\dv+\dv^2,\qquad \II=-\tfrac{v}{4}\,\du^2
+	  	\]
+	 	\end{enumerate}
+	 
+	  
+	  \item Prove that $\II\equiv 0$ if and only if $\vx$ is (part of) a plane.
 	
 	
-	\item Compute $\D\vy$ for the parametrization $\vy(r,\theta)=\bigl(r\cos\theta,r\sin\theta,\sqrt{1-r^2}\bigr)$ of the upper unit hemisphere. Verify that the first fundamental form is the same as in Example \ref{ex:spherepolar2}.
-	
-  
-  \item\label{exs:tandevhelix} Recall Exercise \ref*{sec:regularsurfaces}.\ref{exs:tandev} where $\vx$ is the tangent developable of a unit speed biregular curve $\vy$.
-  \begin{enumerate}
-    \item Compute the fundamental forms of $\vx$ in terms of the curvature and torsion of $\vy$.
-    \item If $\vy(u)=\bigl(\cos \frac u{\sqrt 2},\sin\frac u{\sqrt 2},\frac u{\sqrt 2}\bigr)$ is the unit speed helix, show that%\vspace{-4pt}
-  	\[\I=\bigl(1+\tfrac{v^2}{4}\bigr)\du^2+2\,\du\dv+\dv^2,\qquad \II=-\tfrac{v}{4}\,\du^2\]
- 	\end{enumerate}
- 
-  
-  \item Prove that $\II\equiv 0$ if and only if $\vx$ is (part of) a plane.
-
-
-	\item Paramatrize the great circle arc in Example \ref{ex:spherepolar2} (and \href{ex:spherepolar3}{cont}) by $\vz(t)=\bigl(\cos t,\frac 1{\sqrt 2}\sin t,\frac 1{\sqrt 2}\sin t\bigr)$, $0\le t\le \frac\pi 2$. Use this to verify:
-	\begin{enumerate}
-	  \item The arc has length $\frac\pi 2$.
-	  \item The acceleration of $\vz$ is entirely \emph{normal}; $\vz''=(\vz''\cdot\vn)\vn$.
+		\item Parametrize the great circle in Example \hyperlink{ex:spherepolar4}{\ref*{ex:spherepolar2} (cont)} by $\vz(t)=\bigl(\cos t,{\frac 1{\sqrt 2}\sin t,\frac 1{\sqrt 2}}\sin t\bigr)$, $0\le t\le \frac\pi 2$. Verify that the arc has length $\frac\pi 2$ and that the acceleration of $\vz$ is entirely \emph{normal}; $\vz''=(\vz''\cdot\vn)\vn$.
+			
+	  
+	  \item\label{exs:poincarehalfplane} Equip the upper half plane $y>0$ with the abstract first fundamental form $\I=\smash{\frac 1{y^2}}\bigl(\dx^2+\dy^2\bigr)$. Compare the arc-length between the points $(1,1)$ and $(-1,1)$:
+	  \begin{enumerate}
+	    \item Over the circular arc $c(t)=\sqrt 2\bigl(\cos t,\sin t\bigr)$ centered at the origin.
+	    \item Over the `straight' line $y=1$.
+	  \end{enumerate}
+	  \emph{This is the Poincaré half-plane model of hyperbolic space. There is neither a surface $\vx:U\to\E^3$ nor a second fundamental form $\II$!}
+	  
+	  
+	  \item (Hard)\lstsp The \emph{torus} obtained by rotating the unit circle in the $x,z$-plane centered at $(2,0,0)$ around the $z$-axis may be parametrized
+	  \[
+	  	\vx(u,v)=\bigl((2+\cos \phi)\cos\theta,(2+\cos\phi)\sin\theta,\sin\phi\bigr),\quad (\theta,\phi)\in\R^2
+	  \]
+	  Let $k\neq 0$ be constant and consider the curve $\vy(t)=\vx(kt,t)$ on the torus.
+	  \begin{enumerate}
+	    \item Prove that $\vy(t)$ has a self-intersection ($\exists s\neq t$ such that $\vy(t)=\vy(s)$) if and only if $k\in\Q$.
+	    \item If $k\in\Q$, show that the curve is \emph{periodic} in that there exists a minimum positive $T$ for which $\vy(t+T)=\vy(t)$ for all $t$. Find $T$ in terms of $k$ and write down (don't evaluate!) the integral for the arc-length of the curve over one period.
+	  \end{enumerate}
+		
 	\end{enumerate}
-
-  
-  \item\label{exs:poincarehalfplane} Equip the upper half plane $y>0$ with the abstract first fundamental form $\I=\frac 1{y^2}\bigl(\dx^2+\dy^2\bigr)$. Compute the arc-length between the points $(1,1)$ and $(-1,1)$ in two ways:%\vspace{-4pt}
-  \begin{enumerate}
-    \item Over the circular arc $c(t)=\sqrt 2\bigl(\cos t,\sin t\bigr)$ centered at the origin.
-    \item Over the `straight' line $y=1$.
-  \end{enumerate}
-  Compare your answers!\par
-  (\emph{This is the Poincaré half-plane model of hyperbolic space. There is no surface $\vx:U\to\E^3$ and no second fundamental form!})
-  
-  
-  \item (Hard) \ The \emph{torus} obtained by rotating the unit circle in the $x,z$-plane centered at $(2,0,0)$ around the $z$-axis may be parametrized
-  \[\vx(u,v)=\bigl((2+\cos \phi)\cos\theta,(2+\cos\phi)\sin\theta,\sin\phi\bigr),\quad (\theta,\phi)\in\R^2\vspace{-4pt}\]
-  Let $k\neq 0$ be constant and consider the curve $\vy(t)=\vx(kt,t)$ on the torus.
-  \begin{enumerate}
-    \item Prove that $\vy(t)$ has a self-intersection ($\exists s\neq t$ such that $\vy(t)=\vy(s)$) if and only if $k\in\Q$.
-    \item If $k\in\Q$, show that the curve is \emph{periodic} in that there exists a minimum positive $T$ for which $\vy(t+T)=\vy(t)$ for all $t$. Find $T$ in terms of $k$ and write down (don't evaluate!) the integral for the arc-length of the curve over one period.
-  \end{enumerate}
-	
-\end{enumerate}
 \end{exercises}
 
 \clearpage
@@ -741,395 +779,451 @@ A skater descends into a paraboloidal bowl $z=\frac 12r^2$ following the a path 
 
 \subsection{Principal, Gauss \& Mean Curvatures}\label{sec:principalcurv}
 
-Since $\I$ and $\II$ are symmetric bilinear forms on each tangent space $T_p\R^2$, they may be expressed in matrix form: their matrices with respect to vector fields $\vec s,\vec t$ are
-\[[\I]=\begin{pmatrix}
+Since $\I$ and $\II$ are symmetric bilinear forms on each tangent space $T_p\R^2$, they may be expressed in matrix form: their matrices with respect to linearly independent vector fields $\vec s,\vec t$ are
+\[
+	[\I]:=
+	\begin{pmatrix}
   	\I(\vec s,\vec s)&\I(\vec s,\vec t)\\
   	\I(\vec s,\vec t)&\I(\vec t,\vec t)
 	\end{pmatrix}
 	\quad\text{and}\quad
-	[\II]=\begin{pmatrix}
+	[\II]:=
+	\begin{pmatrix}
   	\II(\vec s,\vec s)&\II(\vec s,\vec t)\\
   	\II(\vec s,\vec t)&\II(\vec t,\vec t)
 	\end{pmatrix}\]
 	Otherwise said
-	\[\I\bigl(f\vec s+g\vec t,h\vec s+k\vec t\bigr)=\bigl(f\ g\bigr)[\I]\twovec hk\]
+	\[
+		\I\bigl(f\vec s+g\vec t,h\vec s+k\vec t\bigr)=\bigl(f\ g\bigr)[\I]\twovec hk
+	\]
 	and similarly for $\II$. Matters are simplest when these matrices are \emph{diagonal\ldots}
 
 
 \begin{defn}{}{curvcoord}
-Vector fields $\vec s,\vec t$ are said to be \emph{orthogonal} if $\I(\vec s,\vec t)=0$. They  additionally describe \emph{curvature directions} if $\II(\vec s,\vec t)=0$.\smallbreak
-Co-ordinates $u,v$ are \emph{orthogonal}/\emph{curvature-line} if the above apply to the co-ordinate fields $\partials u,\partials v$.
+	Linearly independent vector fields $\vec s,\vec t$ are said to be \emph{orthogonal} if $\I(\vec s,\vec t)=0$. They additionally describe \emph{curvature directions} if $\II(\vec s,\vec t)=0$.\smallbreak
+	Co-ordinates $u,v$ are \emph{orthogonal}/\emph{curvature-line} if the above apply to the the co-ordinate fields $\partials u,\partials v$.
 \end{defn}
 
 In the language of Theorem \ref{thm:fundcoord}, the matrices of the fundamental forms with respect to $\partials u,\partials v$ are 
-\[A:=\begin{pmatrix}
-  E&F\\F&G
-	\end{pmatrix}\quad\text{and}\quad
-	B:=\begin{pmatrix}
-  l&m\\m&n
-\end{pmatrix}\]
-Co-ordinates are orthogonal if $F=\vx_u\cdot\vx_v\equiv 0$ ($\I$ has no $\du\dv$ term). We have curvature line co-ordinates if $\II$ is also diagonal:
-\[\I=E\,\du^2+G\,\dv^2\quad\text{and}\quad \II=l\,\du^2+n\,\dv^2\]
+\[
+	A:=
+	\begin{pmatrix}
+  	E&F\\F&G
+	\end{pmatrix}
+	\quad\text{and}\quad
+	B:=
+	\begin{pmatrix}
+  	l&m\\m&n
+	\end{pmatrix}
+	\tag{$\ast$}
+\]
+Co-ordinates are orthogonal iff $F=\vx_u\cdot\vx_v\equiv 0$ ($\I$ has no $\du\,\dv$ term), and are curvature-line iff $\II$ is also diagonal:
+\[
+	\I=E\,\du^2+G\,\dv^2\quad\text{and}\quad \II=l\,\du^2+n\,\dv^2
+\]
 While the meaning of \emph{orthogonal} is clear, the reason for the term \emph{curvature-line} will take a little work.
 
 
 \begin{examples}{}{}
-\exstart Since the sphere of radius $a$ has $\II=-\frac 1a\I$, any orthogonal co-ordinates on the sphere are curvature-line! E.g., spherical polar co-ordinates: $\I=a^2\bigl(\cos^2\!\phi\,\D\theta^2+\D\phi^2\bigr)$.
-\begin{enumerate}\setcounter{enumi}{1}
-  \item (Example \ref*{sec:fund}.\ref{ex:paraboloidpolar}) \ For the paraboloid $z=r^2$, standard polar co-ordinates are curvature line:
-  \[\I=(1+4r^2)\,\dr^2+r^2\,\dth^2,\qquad\II=\frac{2}{\sqrt{1+4r^2}}\big(\dr^2+r^2\,\dth^2\bigr)\]
-%   \item (Exercise \ref*{sec:fund}.\ref{exs:revfund}) \ When parametrized in the usual manner, the standard co-ordinates of a surface of revolution $\vx(\theta,v)$ are curvature line.
-\end{enumerate}
+	\exstart Since the sphere of radius $a$ has $\II=-\frac 1a\I$, any orthogonal co-ordinates on the sphere are curvature-line! E.g., spherical polar co-ordinates: $\I=a^2\bigl(\cos^2\!\phi\,\D\theta^2+\D\phi^2\bigr)$.
+	\begin{enumerate}\setcounter{enumi}{1}
+	  \item (Example \ref*{sec:fund}.\ref{ex:paraboloidpolar})\lstsp Standard polar co-ordinates are curvature-line for the paraboloid $z=r^2$:
+	  \[
+	  	\I=(1+4r^2)\,\dr^2+r^2\,\dth^2, \qquad \II=\frac{2}{\sqrt{1+4r^2}}\big(\dr^2+r^2\,\dth^2\bigr)
+	  \]
+	\end{enumerate}
 \end{examples}
 
 
 
 \boldinline{A Little Linear Algebra}
 
-The existence of curvature directions is equivalent to the simultaneous diagonalization of both forms. Doing this requires us to extend the concepts of eigenvalues and eigenvectors.
+The existence of curvature directions is equivalent to the \emph{simultaneous diagonalization} of both matrices ($\ast$). This requires an extension of the concepts of eigenvalues/vectors.
 
 
 \begin{defn}{}{}
-Let $A,B$ be square matrices. A vector $\vec v\neq \vec 0$ is an \emph{eigenvector} of $B$ with respect to $A$ with \emph{eigenvalue} $\lambda$ if
-\[(B-\lambda A)\vec v=\vec 0\]
+	Let $A,B$ be square matrices of the same dimension. A non-zero vector $\vec v$ is an \emph{eigenvector} of $B$ with respect to $A$ with \emph{eigenvalue} $\lambda$ if
+	\[
+		(B-\lambda A)\vec v=\vec 0
+	\]
 \end{defn}
 
-If $A=I$, these are standard eigenvalues/eigenvectors. We compute in the usual way: start by solving the characteristic polynomial $\det(B-\lambda I)=0$\ldots
+If $A=I$ is the identity matrix, these are standard eigenvalues/vectors. We compute in the usual manner: solve the characteristic polynomial and find $\vec v\in\cN(B-\lambda A)$ in the nullspace\ldots
 
 \goodbreak
 
+\begin{example}{}{simdiag}
+	Let $A=\begin{smatrix}2&3\\3&5\end{smatrix}$ and $B=\begin{smatrix}0&1\\1&3\end{smatrix}$.
+	\begin{gather*}
+		\det(B-\lambda A)=
+		\begin{vmatrix}
+			-2\lambda&1-3\lambda\\
+			1-3\lambda&3-5\lambda
+		\end{vmatrix}
+		=\lambda^2-1=0\iff \lambda=\pm 1\\
+		\vec v_1\in\cN(B-A)=\cN
+		\begin{pmatrix}
+			-2&-2\\-2&-2
+		\end{pmatrix}
+		=\Span\twovec 1{-1},\qquad\\
+		\vec v_2\in\cN(B+A)=\cN=
+		\begin{pmatrix}
+			2&4\\4&8
+		\end{pmatrix}
+		=\Span\twovec 2{-1}
+	\end{gather*}
+	Note that $\{\vec v_1,\vec v_2\}=\left\{\stwovec{1}{-1},\stwovec 2{-1}\right\}$ is a basis of $\R^2$ consisting of eigenvectors of $B$ with respect to $A$.
+\end{example}
 
 
 \begin{thm}{}{funddiag}
-Let $A$ and $B$ be symmetric and $A$ \emph{positive-definite.\footnotemark}
-\begin{enumerate}
-  \item There exists a basis of eigenvectors of $B$ with respect to $A$, and all eigenvalues are \emph{real.}
-  \item If $\vec s,\vec t$ are eigenvectors corresponding to distinct eigenvalues, then $\vec s^TA\vec t=0=\vec s^TB\vec t$.
-\end{enumerate}
+	Let $A,B$ be symmetric matrices of the same dimension, with $A$ \emph{positive-definite.\footnotemark}
+	\begin{enumerate}
+	  \item There exists a basis of eigenvectors of $B$ with respect to $A$. Moreover, all eigenvalues are \emph{real.}
+	  \item If $\vec s,\vec t$ are eigenvectors corresponding to distinct eigenvalues, then $\vec s^TA\vec t=0=\vec s^TB\vec t$.
+	\end{enumerate}
 \end{thm}
 
-\footnotetext{For all non-zero vectors, $\vec v^TA\vec v>0$. Equivalently, all eigenvalues of $A$ are positive. This means that $\ip{\vec v,\vec w}:=\vec v^TA\vec w$ defines an \emph{inner product} on $\R^n$.}
+\footnotetext{For all non-zero vectors, $\vec v^TA\vec v>0$. Equivalently, all eigenvalues of $A$ are positive. This means that $\ip{\vec v,\vec w}:=\vec v^TA\vec w$ defines an \emph{inner product} on $\R^n$. In Example \ref{ex:simdiag}, $A$ has eigenvalues $\frac 12(7\pm\sqrt{45})>0$.}
 
-\begin{example}{}{simdiag}
-Let $A=\begin{smatrix}2&3\\3&5\end{smatrix}$ and $B=\begin{smatrix}0&1\\1&3\end{smatrix}$. Note that $A$ has eigenvalues $\frac 12(7\pm\sqrt{45})>0$.
-\begin{gather*}
-\det(B-\lambda A)=\begin{vmatrix}
--2\lambda&1-3\lambda\\
-1-3\lambda&3-5\lambda
-\end{vmatrix}
-=\lambda^2-1=0\iff \lambda=\pm 1\\
-\lambda_1=1\implies (B-A)\vec v_1=\begin{pmatrix}-2&-2\\-2&-2\end{pmatrix}\vec v_1,\qquad
-\lambda_2=-1\implies (B+A)\vec v_2=\begin{pmatrix}2&4\\4&8\end{pmatrix}\vec v_2
-\end{gather*}
-Thus $\{\vec v_1,\vec v_2\}=\left\{\stwovec{1}{-1},\stwovec 2{-1}\right\}$ is an eigenbasis for $B$ with respect to $A$.
-\end{example}
 
 \begin{proof}
 \begin{enumerate}
-  \item This follows from the famous spectral theorem in linear algebra. If you've not seen this, the proof\footnotemark\ may safely be ignored.
-	\item Assume $B\vec s=k_1A\vec s$ and $B\vec t=k_2A\vec t$ where $k_1\neq k_2$, and apply the symmetry of $A$ and $B$,
-	\[\left.\begin{array}{@{}c@{}l}
-		\vec s^TB\vec t &=\vec s^T(k_2A\vec t) =k_2\vec s^TA\vec t\\[1pt]
-		\parallel&\\[4pt]
-		\vec t^TB\vec s &=\vec t^T(k_1A\vec s) =k_1\vec t^TA\vec s
-	\end{array}\right\}\implies (k_2-k_1)\vec s^TA\vec t=0 \implies \vec s^TA\vec t=0
+  \item This follows from the famous \emph{spectral theorem} in linear algebra.\footnotemark 
+	\item Assume $B\vec s=k_1A\vec s$ and $B\vec t=k_2A\vec t$ where $k_1\neq k_2$, and apply the \textcolor{red}{symmetry} of $A$ and $B$,
+	\[
+		\left.
+		\begin{array}{@{}c@{\,}l}
+			\vec s^TB\vec t &=\vec s^T(k_2A\vec t) =k_2\vec s^TA\vec t\\[1pt]
+			\textcolor{red}{\parallel}&\\[4pt]
+			\vec t^TB\vec s &=\vec t^T(k_1A\vec s) =k_1\vec t^TA\vec s \mathrel{\textcolor{red}{=}}k_1\vec s^TA\vec t
+		\end{array}
+		\right\}
+		\implies (k_2-k_1)\vec s^TA\vec t=0
+		\implies \vec s^TA\vec t=0
 	\tag*{\qedhere}
 	\]
 \end{enumerate}
 \end{proof}
 
-\footnotetext{Since $A$ is symmetric, it has an orthogonal eigenbasis $\{\vec x_1,\ldots,\vec x_n\}$. Since each eigenvalue $\mu_i$ is positive, we may scale the eigenvectors such that $\Nm{\vec x_i}^2=\frac 1{\mu_i}$. Let $X=(\vec x_1\ \cdots\ \vec x_n)$ so that $X^TAX=I$ is the identity matrix. But then,
+\footnotetext{In case you're interested:\quad $A$ has an orthogonal eigenbasis $\{\vec x_1,\ldots,\vec x_n\}$ by the spectral theorem. Since its eigenvalues $\mu_i$ are positive, we may scale such that $\Nm{\vec x_i}^2=\frac 1{\mu_i}$. Let $X=(\vec x_1\ \cdots\ \vec x_n)$ so that $X^TAX=I$ is the identity matrix. But then,
 \begin{gather*}
 \det(B-\lambda A) =\det(X^T)^{-1}\det\bigl(X^TBX-\lambda I\bigr)\det(X^{-1}) =0\iff \det(X^TBX-\lambda I)=0
 \end{gather*}
-Since $X^TBX$ is symmetric, it also has an orthogonal eigenbasis $\{\vec w_1,\ldots,\vec w_n\}$ and real eigenvalues $\lambda_k$. Each $\vec v_k:=X\vec w_k$ is then an eigenvector of $B$ with respect to $A$ with eigenvalue $\lambda_k$; since $X$ is invertible, $\{\vec v_1,\ldots,\vec v_n\}$ is a basis.}
+Since $X^TBX$ is symmetric (spectral theorem again), it has an orthogonal eigenbasis $\{\vec w_1,\ldots,\vec w_n\}$ and real eigenvalues $\lambda_k$. Each $\vec v_k:=X\vec w_k$ is an eigenvector of $B$ with respect to $A$ with eigenvalue $\lambda_k$. Since $X$ is invertible, $\{\vec v_1,\ldots,\vec v_n\}$ is a basis.}
 
 
 %\skip\footins=-\bigskipamount
-\boldsubsubsection{Application to Surfaces}
+\boldinline{Application to Surfaces}
 
-With respect to any basis fields, the matrices $A,B$ of $\I,\II$ are symmetric and $A$ is positive-definite:
-\[\forall \vec w\neq\vec 0\implies \vec w^TA\vec w=\I(\vec w,\vec w)=\dvx(\vec w)\cdot\dvx(\vec w)=\Nm{\dvx(\vec w)}^2>0\]
-We may therefore apply Theorem \ref{thm:funddiag}.
+With respect to independent vector fields, the matrices $A,B$ of $\I,\II$ are symmetric. Moreover, the regularity of $\vx$ guarantees the positive-definiteness of $A$:
+\[
+	\forall \vec w\neq\vec 0\implies \vec w^TA\vec w=\I(\vec w,\vec w)=\dvx(\vec w)\cdot\dvx(\vec w)=\Nm{\dvx(\vec w)}^2>0
+\]
+We may therefore apply Theorem \ref{thm:funddiag} to the matrices of the fundamental forms.
 
 \begin{defn}{}{}
-The \emph{principal curvatures} $k_1,k_2:U\to\R$ of an oriented surface $\vx:U\to\E^3$ are the eigenvalues of $\II$ with respect to $\I$. Corresponding eigenvectors
-%\[\vec s=s_1\partials u+s_2\partials v,\quad \vec t=t_1\partials u+\vec t_2\partials v\]
-are \emph{curvature directions.}\smallbreak
-The \emph{Gauss} and \emph{mean curvatures} are, respectively, $K:=k_1k_2$ and $H=\frac 12(k_1+k_2)$.\smallbreak
-A point $\vx(p)$ is \emph{umbilic} if $k_1(p)=k_2(p)$.
+	The \emph{principal curvatures} $k_1,k_2:U\to\R$ of an oriented surface $\vx:U\to\E^3$ are the eigenvalues of $\II$ with respect to $\I$. Corresponding eigenvectors	are \emph{curvature directions.}
+	\smallbreak
+	The \emph{Gauss} and \emph{mean curvatures} are, respectively, $K:=k_1k_2$ and $H:=\frac 12(k_1+k_2)$.
+	\smallbreak
+	A point $\vx(p)$ is \emph{umbilic} if $k_1(p)=k_2(p)$.
 \end{defn}
 
 %\skip\footins=\bigskipamount
 
-These definitions are independent of \emph{oriented} co-ordinate changes: if we reverse the orientation, then $k_1,k_2$ and $H$ change sign, while $K=k_1k_2$ is unchanged.\smallbreak
+The curvatures are independent of \emph{oriented} co-ordinate changes. If we reverse orientation, then $k_1,k_2$ and $H$ change sign, while $K=k_1k_2$ is unchanged.\smallbreak
 At non-umbilic points, Theorem \ref{thm:funddiag} says that curvature directions diagonalize both fundamental forms, in line with Definition \ref{defn:curvcoord}.\smallbreak
 At umbilic points, $\II=k\I$ and all directions are curvature directions; any orthogonal directions necessarily diagonalize both fundamental forms. 
 
 
 
-\begin{examples}{}{}
-Here are two \emph{totally umbilic} surfaces where the curvatures are constant.
-\begin{enumerate}\itemsep2pt
-  \item A plane: \ $\II\equiv 0\implies$ all curvatures are zero.
-  \item A sphere of radius $a$: \ $\II=-\frac 1a\I\implies k_1=k_2= -\frac 1a$, $K=\frac 1{a^2}$ and $H=-\frac 1{a}$.
-\end{enumerate}
-In fact these comprise all totally umbilic surfaces.
-\end{examples}
+\begin{example}{}{totalumbilic}
+	Here are two \emph{totally umbilic} surfaces where the curvatures are constant.
+	\begin{enumerate}\itemsep2pt
+  	\item A plane: \ $\II\equiv 0\implies$ all curvatures are zero.
+  	\item A sphere of radius $a$: \ $\II=-\frac 1a\I\implies k_1=k_2= -\frac 1a$, $K=\frac 1{a^2}$ and $H=-\frac 1{a}$.
+	\end{enumerate}
+	In fact these comprise all totally umbilic surfaces (see Exercise \ref{exs:totallyumbilic}).
+\end{example}
 
 
 \begin{thm}{}{gaussmeancoords}
-\exstart In co-ordinates, the Gauss and mean curvatures are given by
-	\[K=\frac{ln-m^2}{EG-F^2}=\frac{\det B}{\det A}\quad\text{and}\quad H=\frac{lG+nE-2mF}{2(EG-F^2)} =\frac 12\tr A^{-1}B\]
-\begin{enumerate}\setcounter{enumi}{1}
-  \item At non-umbilic points, the curvatures $k_1,k_2,K,H$ are smooth functions and the curvature directions may be described locally by (smooth) vector fields.
-\end{enumerate}
+	\exstart In co-ordinates, the Gauss and mean curvatures are given by
+		\[
+			K=\frac{ln-m^2}{EG-F^2} =\frac{\det B}{\det A} =\det(A^{-1}B)\quad\text{and} \quad H=\frac{lG+nE-2mF}{2(EG-F^2)}  =\frac 12\tr A^{-1}B
+		\]
+	\begin{enumerate}\setcounter{enumi}{1}
+	  \item At non-umbilic points, the curvatures $k_1,k_2,K,H$ are smooth functions and the curvature directions may be described locally by (smooth) vector fields.
+	\end{enumerate}
 \end{thm}
 
 \begin{proof}
-\begin{enumerate}%\itemsep2pt
-  \item The principal curvatures are the solutions to the quadratic equation
-\[\det\left(\begin{pmatrix}l&m\\m&n\end{pmatrix}-\lambda\begin{pmatrix}E&F\\
-F&G\end{pmatrix}\right) = (EG-F^2)\lambda^2-(lG+nE-2mF)\lambda+(ln-m^2)\]
-	of which $K$ and $H$ are the product and half the sum of the roots. %Note that $EG-F^2=\det A>0$ since $A$ is positive-definite.
-  \item The roots $\frac{-b\pm\sqrt{b^2-4ac}}{2a}$ of a quadratic are smooth functions of the coefficients unless $b^2-4ac=0$, in which case we have a repeated root ($k_1=k_2$). Moreover, each eigenspace is one-dimensional so there is no difficulty choosing smooth eigenvectors.\footnotemark\qedhere
-\end{enumerate}
+	\begin{enumerate}
+	  \item The principal curvatures are the solutions to the quadratic equation
+		\[
+			\det\left(
+			\begin{pmatrix}
+				l&m\\m&n
+			\end{pmatrix}
+			-\lambda
+			\begin{pmatrix}
+				E&F\\
+				F&G
+			\end{pmatrix}
+			\right) = (EG-F^2)\lambda^2-(lG+nE-2mF)\lambda+(ln-m^2)
+		\]
+		of which $K$ and $H$ are the product and half the sum of the roots.
+	  \item The roots $\frac{-b\pm\sqrt{b^2-4ac}}{2a}$ of a quadratic are smooth functions of the coefficients unless $b^2-4ac=0$, in which case we have a repeated root ($k_1=k_2$). At non-umbilic points, each eigenspace is one-dimensional, so there is no obstruction to choosing smooth eigenvectors.\footnotemark\qedhere
+	\end{enumerate}
 \end{proof}
 
-\footnotetext{If $\vx(p)$ is umbilic, then the eigenspace at $p$ is 2-dimensional and $\lim\limits_{q\to p}\vec v(q)$ might not exist.}
+\footnotetext{The impediment to smoothness an umbilic point $\vx(p)$ is that the eigenspace is 2-dimensional so $\lim\limits_{q\to p}\vec v(q)$ need not exist.}
 
 
 \begin{examples}{}{gaussexs}
-\exstart (Example \ref{ex:paraboloidpolar}) \ For the paraboloid $\vx(r,\theta)=\bigl(r\cos\theta,r\sin\theta,r^2\bigr)$, standard polar co-ordinates are curvature line:
-  \[A=[\I]=\begin{pmatrix}
-  1+4r^2&0\\0&r^2
-  \end{pmatrix},\qquad B=[\II]=\begin{pmatrix}
-  \frac 2{\sqrt{1+4r^2}}&0\\
-  0&\frac{2r^2}{\sqrt{1+4r^2}}
-  \end{pmatrix}\]
-  The curvatures are therefore
-  \[
-  k_1=\frac 2{(1+4r^2)^{3/2}},\quad k_2=\frac 2{\sqrt{1+4r^2}},\quad K=\frac 4{(1+4r^2)^2},\quad H=\frac{2+4r^2}{(1+4r^2)^{3/2}}
-  \]
-  The curvatures make sense at the single umbilic point ($r=0$), but the co-ordinates are not curvature line since the parametrization fails to be regular ($\vx_\theta(0,\theta)=\V0$).
-  
-\goodbreak
-
-\begin{enumerate}\setcounter{enumi}{1}
-  \item\label{ex:gaussgraph} Parametrize the graph of a function $z=f(x,y)$ in the usual way $\vx(u,v)=\bigl(u,v,f(u,v)\bigr)$, then
-  \[A=[\I]=\begin{pmatrix}
-  1+f_u^2&f_uf_v\\
-  f_uf_v&1+f_v^2
-  \end{pmatrix}\qquad B=[\II]=\frac 1{\sqrt{1+f_u^2+f_v^2}}
-  \begin{pmatrix}
-  f_{uu}&f_{uv}\\
-  f_{uv}&f_{vv}
-  \end{pmatrix}\]
-  Theorem \ref{thm:gaussmeancoords} tells us that
-	\[K=\frac{f_{uu}f_{vv}-f_{uv}^2}{(1+f_u^2+f_v^2)^2}\qquad H=\frac{f_{vv}(1+f_u^2)+f_{uu}(1+f_v^2)-2f_uf_vf_{uv}}{2(1+f_u^2+f_v^2)^{3/2}}\]
-	In the abstract, solving for the curvatures and curvature directions is disgusting. As a sanity check, you should verify that $f(u,v)=u^2+v^2$ recovers exactly the curvatures in the previous example!
-  
-	\item\label{ex:tandevgauss} (Exercise \ref*{sec:fund}.\ref{exs:tandevhelix}) \ The tangent developable of the unit speed helix has	
-  \[
-  A=[\I]=\begin{pmatrix}
-  1+\tfrac{v^2}{4}&1\\
-  1&1
-  \end{pmatrix}\qquad
-  B=[\II]=\begin{pmatrix}
-  -\tfrac{v}{4}&0\\
-  0&0
-  \end{pmatrix}\]
-  The principal curvatures solve
-  \[\det\begin{pmatrix}
-  -\frac v4-\lambda\left(1+\frac{v^2}4\right)&-\lambda\\
-  -\lambda&-\lambda
-  \end{pmatrix}
-  =\frac{v^2}4\lambda^2+\frac v4\lambda=0
-  \]
-  from which 
-  \[
-  k_1=0,\quad k_2=-\frac 1v,\quad K=0,\quad H=-\frac 1{2v}
-  \]
-  In this case explicitly computing the curvature directions is not so difficult:
-  \begin{gather*}
-  k_1=0\implies \cN(B-k_1A)=\cN\begin{pmatrix}
-  -\frac v4&0\\
-  0&0
-  \end{pmatrix}=\Span\twovec 01\implies \vec s=\partials v\\
-  k_2=-\frac 1v\implies \cN(B-k_2A)=\cN\begin{pmatrix}
-	\frac 1v&\frac 1v\\
-  \frac 1v&\frac 1v
-  \end{pmatrix}=\Span\twovec 1{-1} \implies \vec t=\partials u-\partials v
-  \end{gather*}
-  where we made the natural choice of vector fields $\vec s,\vec t$. As a sanity check, here are the matrices of the fundamental forms with respect to $\vec s,\vec t$:
-  \begin{align*}
-  \I(\vec s,\vec s)=\bigl(0\ 1\bigr)A\twovec 01=1,\ldots \implies
-  &[\I]=\begin{pmatrix}
-  	\I(\vec s,\vec s)&\I(\vec s,\vec t)\\
-  	\I(\vec s,\vec t)&\I(\vec t,\vec t)
-	\end{pmatrix}
-	=
-	\begin{pmatrix}
-  \textcolor{red}{1}&0\\
-  0&\textcolor{blue}{\frac{v^2}4}
-  \end{pmatrix}\\
-  &
-  [\II]=\begin{pmatrix}
-  	\II(\vec s,\vec s)&\II(\vec s,\vec t)\\
-  	\II(\vec s,\vec t)&\II(\vec t,\vec t)
-	\end{pmatrix}
-	=
-	\begin{pmatrix}
-  \textcolor{red}{0}&0\\
-  0&\textcolor{blue}{-\frac{v}4}
-  \end{pmatrix}
-  \end{align*}
-  in which the principal curvatures are clearly visible:
-  \[\textcolor{red}{0}=k_1\textcolor{red}{1},\qquad \textcolor{blue}{-\frac{v}4}=k_2\textcolor{blue}{\frac{v^2}4}\]
-\end{enumerate}
+	\exstart (Example \ref{ex:paraboloidpolar})\lstsp For the paraboloid $\vx(r,\theta)=\bigl(r\cos\theta,r\sin\theta,r^2\bigr)$, standard polar co-ordinates are curvature-line:
+	  \[
+	  	A=[\I]=
+	  	\begin{pmatrix}
+	  		1+4r^2&0\\0&r^2
+	  	\end{pmatrix}
+	  	\qquad
+	  	B=[\II]=
+	  	\begin{pmatrix}
+	  		\frac 2{\sqrt{1+4r^2}}&0\\
+	  		0&\frac{2r^2}{\sqrt{1+4r^2}}
+	  	\end{pmatrix}
+	  \]
+	  The curvatures are therefore
+	  \[
+	  	k_1=\frac 2{(1+4r^2)^{3/2}}, \quad k_2=\frac 2{\sqrt{1+4r^2}}, \quad K=\frac 4{(1+4r^2)^2}, \quad H=\frac{2+4r^2}{(1+4r^2)^{3/2}}
+	  \]
+	  The curvatures make sense at the single umbilic point ($r=0$), but the co-ordinates are not curvature-line there since the parametrization fails to be regular ($\vx_\theta(0,\theta)=\V0$).
+	  
+	\goodbreak
+	
+	\begin{enumerate}\setcounter{enumi}{1}
+	  \item\label{ex:gaussgraph} Parametrize the graph of a function $z=f(x,y)$ in the usual manner $\vx(u,v)=\bigl(u,v,f(u,v)\bigr)$. Then
+	  \[
+	  	A=[\I]=
+	  	\begin{pmatrix}
+	  		1+f_u^2&f_uf_v\\
+	  		f_uf_v&1+f_v^2
+	  	\end{pmatrix}
+	  	\qquad
+	  	B=[\II]=\frac 1{\sqrt{1+f_u^2+f_v^2}}
+	  	\begin{pmatrix}
+	  		f_{uu}&f_{uv}\\
+	  		f_{uv}&f_{vv}
+	  	\end{pmatrix}
+	  \]
+	  Theorem \ref{thm:gaussmeancoords} tells us that
+		\[
+			K=\frac{f_{uu}f_{vv}-f_{uv}^2}{(1+f_u^2+f_v^2)^2} \qquad H=\frac{f_{vv}(1+f_u^2)+f_{uu}(1+f_v^2)-2f_uf_vf_{uv}}{2(1+f_u^2+f_v^2)^{3/2}}
+		\]
+		In the abstract, solving for the curvatures and curvature directions is disgusting. As a sanity check, you should verify that $f(u,v)=u^2+v^2$ recovers exactly the curvatures in the previous example!
+	  
+		\item\label{ex:tandevgauss} (Exercise \ref*{sec:fund}.\ref{exs:tandevhelix})\lstsp The tangent developable of the unit speed helix has	
+	  \[
+	  	A=[\I]=
+	  	\begin{pmatrix}
+	  		1+\tfrac{v^2}{4}&1\\
+	  		1&1
+	  	\end{pmatrix}
+	  	\qquad
+	  	B=[\II]=
+	  	\begin{pmatrix}
+	  		-\tfrac{v}{4}&0\\
+	  		0&0
+	  	\end{pmatrix}
+	  \]
+	  The principal curvatures solve
+	  \[
+	  	\det
+	  	\begin{pmatrix}
+	  		-\frac v4-\lambda\left(1+\frac{v^2}4\right)&-\lambda\\
+	  		-\lambda&-\lambda
+	  	\end{pmatrix}
+	  	=\frac{v^2}4\lambda^2+\frac v4\lambda=0
+	  \]
+	  from which 
+	  \[
+	  	k_1=0,\quad k_2=-\frac 1v,\quad K=0,\quad H=-\frac 1{2v}
+	  \]
+	  In this case an explicit computation of the curvature directions is not difficult:
+	  \begin{gather*}
+	  	k_1=0\implies \cN(B-k_1A)=\cN
+	  	\begin{pmatrix}
+	  		-\frac v4&0\\
+	  		0&0
+	  	\end{pmatrix}
+	  	=\Span\twovec 01\implies \vec s=\partials v\\
+	  	k_2=-\frac 1v\implies \cN(B-k_2A)=\cN
+	  	\begin{pmatrix}
+				\frac 1v&\frac 1v\\
+	  		\frac 1v&\frac 1v
+	  	\end{pmatrix}
+	  	=\Span\twovec 1{-1} \implies \vec t=\partials u-\partials v
+	  \end{gather*}
+	  where we made the natural choice of vector fields $\vec s,\vec t$. As a sanity check, here are the matrices of the fundamental forms with respect to $\vec s,\vec t$:
+	  \begin{align*}
+	  	\I(\vec s,\vec s)=\bigl(0\ 1\bigr)A\twovec 01=1,\ \ldots \implies
+	  	&[\I]=
+	  	\begin{pmatrix}
+	  		\I(\vec s,\vec s)&\I(\vec s,\vec t)\\
+	  		\I(\vec s,\vec t)&\I(\vec t,\vec t)
+			\end{pmatrix}
+			=
+			\begin{pmatrix}
+	  		\textcolor{red}{1}&0\\
+	  		0&\textcolor{blue}{\frac{v^2}4}
+	  	\end{pmatrix}
+	  	\\
+	  	&
+	  	[\II]=
+	  	\begin{pmatrix}
+	  		\II(\vec s,\vec s)&\II(\vec s,\vec t)\\
+	  		\II(\vec s,\vec t)&\II(\vec t,\vec t)
+			\end{pmatrix}
+			=
+			\begin{pmatrix}
+	  		\textcolor{red}{0}&0\\
+	  		0&\textcolor{blue}{-\frac{v}4}
+	  	\end{pmatrix}
+	  \end{align*}
+	  in which the principal curvatures are clearly visible:
+	  \[
+	  	\textcolor{red}{1}k_1=\textcolor{red}{0}, \qquad \textcolor{blue}{\frac{v^2}4}k_2 =\textcolor{blue}{-\frac{v}4}
+	  \]
+	\end{enumerate}
 \end{examples}
 
 \goodbreak
 
-The Gauss and mean curvatures are extremely important quantities. Here are a couple of ideas built on these concepts.
+The Gauss and mean curvatures are extremely important quantities for descibing surfaces. Here are a couple of ideas built on these concepts.
 
 \begin{description}
-	\item[\normalfont\emph{Minimal Surfaces} $H\equiv 0$] These are so-called because they minimize \emph{surface area.} Consider a closed curve in $\E^3$; among all surfaces with this boundary, the surface with minimal surface area has $H\equiv 0$. This is the shape a soap film takes if you dip the curve in soapy water: a minimal surface minimizes the `total tension' of the soap film.
+	\item[\normalfont\emph{Minimal Surfaces} $H\equiv 0$:] So-called because they minimize \emph{surface area}: among all surfaces whose boundary is a given closed curve, the surface with minimal surface area has $H\equiv 0$. This is the shape a soap film takes if you dip the curve in soapy water. A minimal surface minimizes the `total tension' of the soap film.
 	
-\begin{minipage}[t]{0.65\linewidth}\vspace{-8pt}
-	\hangindent\leftmargini More generally, \emph{constant mean curvature} (CMC) surfaces may\par be used to model soap \emph{bubbles.}
-	\item[\normalfont\emph{Constant Gauss Curvature Surfaces}] Spheres are examples of surfaces of constant positive Gauss curvature. Planes, cones and cylinders are examples of surfaces with $K=0$. A \emph{pseudosphere} with constant $K=-1$ is drawn.
-\end{minipage}\hfill\begin{minipage}[t]{0.34\linewidth}\vspace{-12pt}
-	\flushright\href{http://www.math.uci.edu/~ndonalds/math162a/curv-pseudosphere.html}{\includegraphics{curv-pseudosphere}}\vspace{-5pt}
+\begin{minipage}[t]{0.65\linewidth}\vspace{-9pt}
+	More generally, \emph{constant mean curvature} (CMC) surfaces may be used to model soap \emph{bubbles.}
+	\item[\normalfont\emph{Constant Gauss Curvature Surfaces}:] Spheres are examples of surfaces of constant positive Gauss curvature. Planes, cones and cylinders are examples of surfaces with $K=0$. A \emph{pseudosphere} with constant $K=-1$ is drawn.
+\end{minipage}\hfill\begin{minipage}[t]{0.34\linewidth}\vspace{-20pt}
+	\flushright\href{http://www.math.uci.edu/~ndonalds/math162a/curv-pseudosphere.html}{\includegraphics{curv-pseudosphere}}\vspace{-10pt}
 \end{minipage}
 \end{description}
 
-%PICTURE 
 
 
-\boldsubsubsection{Curvature-Line Co-ordinates}
 
-At non-umbilic points, Theorems \ref{thm:funddiag} and \ref{thm:gaussmeancoords} tells us how to find curvature \emph{directions} as vector fields $\vec s,\vec t$. But what about \emph{co-ordinates}? Otherwise said, we want functions $s,t:U\to\R$ whose resulting vector fields are \emph{parallel} to $\vec s,\vec t$: there exist functions $f,g:U\to\R$ for which
-\[\partials s=f\vec s\quad \text{and}\quad \partials t=g\vec t \tag{$\ast$}\]
-This is equivalent to $\vec s[t]=0=\vec t[s]$. These are in fact solvable in general, if only \emph{locally.}
+\boldsubsubsection{Existence of (Curvature-Line) Co-ordinates}
 
-\begin{thm}{}{}
-Let $p\in U$ and let $\vec s,\vec t$ be linearly independent vector fields on $U$. There exists a neighborhood $V$ of $p$ and co-ordinates $s,t:V\to\R$ such that
-	\[\vec s[t]=0=\vec t[s]\]
+At non-umbilic points, Theorems \ref{thm:funddiag} and \ref{thm:gaussmeancoords} tell us how to find curvature \emph{directions} as vector fields $\vec s,\vec t$. Unfortunately, finding explicit curvature \emph{co-ordinates} is exceptionally unlikely. When you can, it is usually by pure lucky guesswork.
+
+\begin{example*}{\ref*{ex:gaussexs}.\ref{ex:tandevgauss} cont}{}
+	Recall that we chose curvature direction fields $\vec s=\partials v$ and $\vec t=\partials u-\partials v$. By inspection, the functions $s=u+v$ and $t=u$ satisfy the required equations:
+	\[
+		\vec s[s]=1=\vec t[t],\qquad \vec s[t]=0=\vec t[s]
+	\]
+	It follows that $\vec s=\partials s$ and $\vec t=\partials t$ for curvature-line co-ordinates $s,t$, as you can easily verify using the chain rule. Indeed
+	\[
+		\I=\frac{v^2}4\,\du^2+\D(u+v)^2 =\ds^2+\frac{v^2}4\,\dt^2,\qquad \II=0\,\ds^2-\frac v4\,\dt^2
+	\]
+	so that the co-ordinates really do diagonalize both fundamental forms.
+\end{example*}
+
+ The simple reason the example is so unlikely is that \emph{mixed partial derivatives must commute}: if $\vec s=\partials s$ and $\vec t=\partials t$ are co-ordinate fields ($\exists s,t:U\to\R$), then their \emph{Lie bracket} (Exercise \ref*{sec:kform}.\ref{exs:liebracketdalpha}) vanishes:
+\[
+	[\vec s,\vec t]=\left[\partials s,\partials t\right]=\partials s\circ\partials t-\partials t\circ\partials s=0
+\]
+The astonishing fact is that this simple condition is \emph{locally sufficient.}
+
+\begin{thm}{Co-ordinate fields}{coordfields}
+	Let $\vec s,\vec t$ be linearly independent vector fields on $U\subseteq\R^2$.
+	\begin{enumerate}
+	  \item If there exist functions $s,t:U\to\R$ such that $\vec s=\partials s$, $\vec t=\partials t$, then $[\vec s,\vec t]=0$.
+	  \item Suppose $[\vec s,\vec t]=0$ and let $p\in U$. Then there exists a neighborhood $V$ of $p$ and co-ordinate functions $s,t:V\to\R$ for which $\vec s=\partials s,\vec t=\partials t$.
+	\end{enumerate}
+\end{thm}
+
+We leave a sketch proof of part 2 to Exercise \ref{exs:coordfields}.\smallbreak
+
+\begin{example}{}{}
+	The fields $\vec s=\partials x+y\partials y$ and $\vec t=\partials y$ do not arise simultaneously from co-ordinates, since
+	\[
+		[\vec s,\vec t]=\partials[^2]{x\partial y}+y\partials[^2]{y^2} -\partials[^2]{y\partial x}-\partials y-y\partials[^2]{y^2} =-\partials y\neq 0
+	\]
+\end{example}
+
+The Lie bracket condition says that explicit co-ordinates corresponding to given vector fields are very unlikely to exist. This is no matter: we typically only need co-ordinates $s,t$ whose fields $\partials s,\partials t$ are \emph{parallel} to $\vec s,\vec t$: that is $\partials s=f\vec s$ and $\partials t=g\vec t$ for some functions $f,g$ (equivalently $\vec s[t]=0=\vec t[s]$). Such co-ordinates do indeed exist, though only \emph{locally,} as shown by one of the most important foundational results in differential geometry.
+
+\begin{thm}{Frobenius}{curvexist}
+	Let $\vec s,\vec t$ be linearly independent vector fields on some domain $U$. There exist local co-ordinates $s,t$ whose co-ordinate fields are parallel to $\vec s,\vec t$.\smallbreak
 	In particular, if $\vx(p)$ is a non-umbilic point on a surface $\vx:U\to\E^3$, then there exists a neighborhood $V$ of $p$ and curvature-line co-ordinates $s,t$ on $V$.
 \end{thm}
 
+Frobenius' theorem comes in many guises and generalizes to higher dimensions, taking the place of Picard's ODE existence/uniqueness theorem (\ref{thm:picard}) for particular classes of PDE. Its proof is far too involved for us, though the informal idea is to search for functions $f,g$ such that $[f\vec s,g\vec t]=0$, a lengthy process that indeed depends on Picard's theorem.
 
-We state this without proof. Since it is merely an \emph{existence} result, it is very unlikely you'll be able to find \emph{explicit} curvature-line co-ordinates for a given surface. Of course, you \emph{might} get lucky\ldots
 
 
-\begin{example*}{\ref*{ex:gaussexs}.\ref{ex:tandevgauss} cont}{}
-Recall that we chose curvature direction fields $\vec s=\partials v$ and $\vec t=\partials u-\partials v$. By inspection, the functions $s=u+v$ and $t=u$ solve the required equations:
-\[\vec s[u]=\partials v[u]=0,\qquad\vec t[u+v]=\left(\partials u-\partials v\right)[u+v]=1-1=0\]
-Indeed we see that
-\[\I=\frac{v^2}4\,\du^2+\D(u+v)^2 =\ds^2+\frac{v^2}4\,\dt^2,\qquad \II=0\,\ds^2-\frac v4\,\dt^2\]
-\end{example*}
 
-In general this is very unlikely to work, though co-ordinate functions can always be approximated numerically.%\smallbreak
-% 
-% We may also ask the question of precisely when vector fields $\vec s,\vec t$ are co-ordinate fields. A necessary condition is immediate from the equality of mixed partial derivatives: if $\vec s=\partials s,\vec t=\partials t$ are co-ordinate vector fields, then the \emph{Lie bracket} vanishes,
-% 	\[[\vec s,\vec t]=\left[\partials s,\partials t\right]=\partials s\partials t-\partials t\partials s=0\]
-% 	In fact this is a locally \emph{sufficient} condition for $\vec s,\vec t$ to be co-ordinate fields: here is a sketch argument.
-% 	\begin{itemize}
-% 	  \item Given $\vec s,\vec t$ we may define their \emph{dual 1-forms}
-% 	  \[\alpha(\vec s)=1=\beta(\vec t)\quad \text{and}\quad \alpha(\vec t)=0=\beta(\vec s)\]
-% 	  \item If $[\vec s,\vec t]=0$, then the formula in Exercise \ref{exs:formslie} says that
-% 	  \[\D\alpha(\vec s,\vec t)=\vec s[\alpha(\vec t)]-\vec t[\alpha(\vec t)]-\alpha\bigl([\vec s,\vec t])=0\]
-% 	  \item Fix a point $p\in U$ and define co-ordinate functions locally by $s(q):=\int_p^q \alpha$ and $t(q)=\int_p^q\beta$ where we integrate along any path. The fact that $\D\alpha=\D\beta=0$ is enough to guarantee that the integrals are path-independent. Indeed $\alpha=\ds$ and $\beta=\dt$.
-% 	\end{itemize}
+%\begin{proof}
+
+%Let $\vec s$ be a smooth vector field on $U$ with $\vec s_p\neq 0$. Choose any co-ordinates on patch around $p$ such that $\vec s_p=\partialsat{y_1}p$ and write
+% \[
+% 	\vec s=a\partials{y_1}+b\partials{y_2}\text{ on }V \tag{$b(p)=0$, $a(p)=1$}
+% \]
+% Shrink neighborhood $V$ (if necessary) such that $a\neq 0$ on $V$. Consider IVP:
+% \[
+% 	\begin{cases}
+% 		\diff[y_2]{y_1}=\frac{b(y_1;y_2)}{a(y_1;y_2)}\\
+% 		y_2(0;z_2)=z_2
+% 	\end{cases}
+% \]
+% for any given initial data $\nm{z_2}<\epsilon$. This has a unique solution $y_2=y_2(y_1;z_2)$ defined on $\nm{y_1}<\epsilon$, with initial condition $y_2(0;z_2)=z_2$. Moreover, $y_2$ depends smoothly on $y_1,z_2$. Define $z_1=y_1$, then
+% \[
+% 	\jacobian{y_1,y_2}{z_1,z_2}\bigr|_{z_1=0}=
+% 	\begin{pmatrix}
+% 		\partials[y_1]{z_1}&\partials[y_1]{z_2}\\
+% 		\partials[y_2]{z_1}&\partials[y_2]{z_2}
+% 	\end{pmatrix}
+% 	\bigr|_{z_1=0}=
+% 	\begin{pmatrix}
+% 		1&0\\
+% 		\frac ba&\partials[y_2]{z_2}
+% 	\end{pmatrix}
+% 	\bigr|_{z_1=0}
+% 	=
+% 	\begin{pmatrix}
+% 		1&0\\
+% 		0&1
+% 	\end{pmatrix}
+% \]
+% Then $(z_1,z_2)$ are co-ordinates on a neighborhood of $p$. But then
+% \[
+% 	\vec s=a\partials{y_1}+b\partials{y_2}=a\partials{y_1}+a\diff[y_2]{y_1}\partials{y_2} = a\left[\partials[y_1]{z_1}\partials{y_1}+\partials[y_2]{z_1}\partials{y_2}\right] =a\partials{z_1}
+% \]
+% Now define $x_1(z_1,z_2):=\int_0^{z_1}\frac{\dt}{a(t,z_2)}$ and $x_2=z_2$. Then $\{x_1,x_2\}$ is a local co-ordinate system for which
+% \[
+% 	\vec s=a\partials{z_1}=a\partials[x_1]{z_1}\partials{x_1}+a\partials[x_2]{z_1}\partials{x_2} =\partials{x_1}
+% \]
+% Now use as part of induction step\ldots (YUCK!!!)
+
+
+%\end{proof}
+
+
 
 
 \goodbreak
 
 %  EXERCISENote also that curvature co-ordinates are non-unique: if $\vec s[t]=0$, then $\vec s\bigl[h(t)\bigr]=h'(t)\vec s[t]=0$ for any function $h:\R\to \R$ with non-zero derivative.
 
-% We offer a contrived example where curvature-line directions may be found explicitly.\footnote{Contrived because it arises from a reparametrized cylinder $\vx(u,v)=\frac 12\bigl(\cos\frac{u^2+v^2}{\sqrt 2},\sin\frac{u^2+v^2}{\sqrt 2},\frac{u^2-v^2}{\sqrt 2}\bigr)$, which is regular if and only if $uv\neq 0$.}
-% 
-% \begin{example}{}{frobenius}
-% Suppose a surface has fundamental forms
-% \[\I=u^2\,\du^2+v^2\,\dv^2,\qquad \II=u^2\,\du^2+2uv\,\du\dv+v^2\,\dv^2\]
-% The principal curvatures are the solutions $k$ to the equation
-% 	\[0=\det
-% 	\begin{pmatrix}
-% 	u^2-k u^2&uv\\uv&v^2-k v^2
-% 	\end{pmatrix} =u^2v^2\left[(1-k)^2-1\right]\implies k_1=0,\ k_2=2\]
-% 	The principal curvatures are both constant! The curvature directions are easily found:
-% 	\begin{align*}
-% 	  &k_1=0\!:\ \begin{pmatrix}
-% 	u^2&uv\\uv&v^2
-% 	  \end{pmatrix}\twovec{s_1}{s_2}=\twovec 00 &&\implies \text{choose }\ \vec s= v\partials u-u\partials v\hspace{130pt}\\
-% 	  &k_2=2\!:\ \begin{pmatrix}
-% 	-u^2&uv\\uv&-v^2
-% 	\end{pmatrix}\twovec{t_1}{t_2}=\twovec 00 &&\implies \text{choose }\ \vec t=v\partials u+u\partials v
-% 	\end{align*}
-% For co-ordinates, symmetry suggests we try $t=u^2+v^2$: indeed
-% \[\vec s[t]=\left(v\partials u-u\partials v\right)(u^2+v^2)=2uv-2uv=0\]
-% Similarly, if we let $s=u^2-v^2$, we see that
-% \[\vec t[s]=\left(v\partials u+u\partials v\right)(u^2-v^2)=2uv-2uv=0\]
-% We conclude that $s=u^2-v^2$ and $t=u^2+v^2$ are curvature-line co-ordinates. In case you're having trouble believing this, compute the differentials:
-%   \[\begin{cases}
-%   \ds=2u\,\du-2v\,\dv\\
-%   \dt=2u\,\du+2v\,\dv
-%   \end{cases}\implies
-%   \begin{cases}
-%   \I=\frac 18(\ds^2+\dt^2)\\
-%   \II=\frac 14\,\dt^2
-%   \end{cases}\]
-%   Both fundamental forms are diagonal! We can also compute the co-ordinate vector fields:
-%   \[\partials s=\frac 1u\partials u-\frac 1v\partials v=\frac 1{uv}\vec s\quad\text{and}\quad \partials t=\frac 1u\partials u+\frac 1v\partials v=\frac 1{uv}\vec t\]
-%   These are parallel to but do not equal $\vec s,\vec t$. With reference to ($\ast$), we have $f=g=\frac 1{uv}$.
-% \end{example}
-% 
-
-
-% 
-% 
-% \begin{thm}{Frobenius: hard version}{}
-% \begin{enumerate}
-%   \item Suppose $\vec s,\vec t$ are linearly independent vector fields on an open set $U$ containing $p$.
-% \begin{enumerate}
-%   \item If the Lie bracket $[\vec s,\vec t]=\vec s\vec t-\vec t\vec s$ of the vector fields is zero, then there exists a neighborhood $V\subseteq U$ of $p$ and functions $s,t:V\to\R$ such that
-%   \[\vec s=\partials s,\qquad \vec t=\partials t\]
-%   \item There exists a neighborhood $W\subseteq U$ of $p$ and functions $f,g:W\to\R$ such that $[fX,gY]=0$ on $W$. Part (a) then says there exists $V\subseteq W$ and co-ordinates $s,t:W\to\R$ such that $\partials s=fX$ and $\partials t=gY$ are parallel to $X,Y$.
-% \end{enumerate}
-% \item If $\vx(p)$ is a non-umbilic point of a surface $\vx:U\to\E^3$, then there exist curvature-line co-ordinates for $\vx$ on some neighborhood of $p$. Indeed if $X,Y$ are curvature directions such that $[X,Y]=0$, let $\alpha,\beta$ be the dual 1-forms to $X,Y$, then (locally) $\alpha=\ds$ and $\beta=\dt$.
-% \end{enumerate} 
-% \end{thm}
-% 
-% The proof is a little too technical for this course: at its heart is the usual existence and uniqueness theorem for differential equations and a bit more technology on forms than we've yet developed. It is moreover completely generalizable to arbitrary dimensions.
-% 
-% \begin{example*}{\ref{ex:frobenius}, mk.\,III}{}
-% Frobenius' Theorem actually tells us how to find curvature co-ordinates. We give a sketch, though in practice this involves invoking the existence of solutions to certain differential equations!
-% \begin{enumerate}
-%   \item Hunt for functions $f,g$ such that the vector fields $f\vec s,g\vec t$ satisfy the Lie bracket condition $[f\vec s,g\vec t]=0$. If we multiply this out (it's messy), this is equivalent to solving the PDE system
-%  	\[\begin{cases}
-%  	v\partials[f]{u}+u\partials[f]{v}=-f\frac{u^2+v^2}{uv}\\
-%  	v\partials[g]{u}-u\partials[g]{v}=-g\frac{u^2-v^2}{uv}
-%  	\end{cases}\tag{$\ast$}\]
-%  	That this system can be solved is essentially the theorem. Indeed you can check that $f=g=\frac 1{uv}$ does the job!
-% 	\item The co-ordinate direction vector fields
-%  	\[\widetilde{X}_1=\frac 1u\partials u-\frac 1v\partials v\quad\text{and}\quad
-%  	\widetilde{X}_2=\frac 1u\partials u+\frac 1v\partials v\]
-%  	satisfy the Lie bracket condition. The dual basis 1-forms to these fields are easy to find using linear algebra:
-%  	\[\alpha=\frac 12(u\,\du-v\,\dv)\quad\text{and}\quad \beta=\frac 12(u\,\du+v\,\dv)\]
-%  	\item Observe that $\alpha=\ds$ and $\beta=\dt$ where $s=u^2-v^2$ and $t=u^2+v^2$. We therefore have curvature line co-ordinates $s$ and $t$.
-% \end{enumerate}
-% There are sometimes short-cuts to this procedure if you are feeling lucky, but in the abstract this is what is needed. For instance, we could have gone straight to $\alpha,\beta$ by noting that we have to have $\alpha(X_2)=0=\beta(X_1)$: by luck we would observe that $\alpha,\beta$ are the exterior derivatives of some functions and we're done! In practice, all this trick does is transform the problem to an equivalent system of PDE. In general, given independent vector fields $X_1,X_2$ on $U\subseteq\R^2$, we know that there exist functions $a,b$ such that
-% \[[X_1,X_2]=aX_1+bX_2\]
-% Hunting for functions $f,g$ such that $[fX_1,gX_2]=0$ is equivalent to $f,g$ satisfying the PDEs
-% \[X_2[f]=af\qquad X_1[g]=-bg\]
-% This is the system $(\ast)$ in our example, and the problem of finding curvature-line co-ordinates essentially boils down to solving this. The theorem assures us that solutions \emph{exist}, so we can always \emph{assume} the existence of local curvature co-ordinates. Finding them explicitly may be essentially impossible!
-% 
-% \end{example*}
 
 
 % \begin{aside}
-% {\bf Complete surfaces and umbilic points}\ \ A complete surface is a bounded surface which has no edges (neither open nor closed). A sphere or an ellipsoid are examples. A closed piece of a sphere is no good either since it has an edge. A complete surface has \emph{genus $g$} if it has $g$ holes: thus the sphere has genus 0 and the torus has genus 1.
+% {\bf Complete surfaces and umbilic points}\ \ A complete surface is a bounded surface which has no edge: e.g., a sphere or an ellipsoid. A complete surface has \emph{genus $g$} if it has $g$ holes: thus the sphere has genus 0 and the torus has genus 1.
 % 
 % \begin{thm}
 % Any complete surface of genus 0 (topologically equivalent to the sphere) has at least one umbilic point.
@@ -1138,24 +1232,26 @@ In general this is very unlikely to work, though co-ordinate functions can alway
 % \begin{proof}[`Proof' - requires topology] Suppose that we have a surface which has no umbilic points. Then at each point we have principal curvatures $k_1>k_2$ and orthogonal principal directions. Making a smooth choice of tangent vector to the surface pointing along the principal direction corresponding to $k_1$ (say) defines a global nowhere-vanishing vector field on the surface. However if the surface is complete and has genus 0, then it is diffeomorphic to the sphere and so we have a non-vanishing vector field on the sphere. This contradicts the hairy ball theorem.
 % \end{proof}
 % 
-% The hairy ball theorem (sometimes called the ``Hairy dog theorem'') says that you cannot comb a hairy ball without there being a cowlick somewhere. Think about smoothly trying to comb down the hair at every point on a sphere: it's impossible, though the proof requires some algebraic topology. Note that a toriodal dog can be combed: just comb the hair round the doughnut.
+% The hairy ball theorem (sometimes called the ``Hairy dog theorem'') says that you cannot comb a hairy ball without there being a cowlick somewhere. Think about smoothly trying to comb down the hair at every point on a sphere: it's impossible, though the proof requires some algebraic topology. Note that a `toriodal dog' can be combed: just comb the hair round the doughnut.
 % 
 % It is a corollary of the Poincar\'e--Hopf theorem that the only complete surfaces in $\E^3$ which are not required to have an umbilic point are those with genus 1 --- topologically equivalent to the torus.
 % \end{aside}
 
 
-
-
-
 \begin{exercises}{}{}
-\exstart Find the eigenvalues of $B=\begin{smatrix}
--1&-1\\-1&1
-\end{smatrix}$ with respect to $A=\begin{smatrix}
-1&1\\1&2
-\end{smatrix}$. If $\vec s,\vec t$ are corresponding eigenvectors, verify that $\vec s^TA\vec t=0=\vec s^TB\vec t$.
+	\exstart Find the eigenvalues of $B=
+	\begin{smatrix}
+		-1&-1\\-1&1
+	\end{smatrix}$
+	with respect to $A=
+	\begin{smatrix}
+		1&1\\1&2
+	\end{smatrix}$.
+	If $\vec s,\vec t$ are corresponding eigenvectors, verify that $\vec s^TA\vec t=0=\vec s^TB\vec t$.
+
 
 \begin{enumerate}\setcounter{enumi}{1}
-  \item Parametrize the graph of $x=z^2$; compute its fundamental forms and its principal, Gauss and mean curvatures.
+  \item Parametrize the graph of $x=z^2$; compute $\I,\II$ and the principal, Gauss and mean curvatures.
   
   
   \item Use Theorem \ref{thm:gaussmeancoords} to find the Gauss and mean curvatures of the graph of $y=x^2-z^2$.
@@ -1163,72 +1259,94 @@ In general this is very unlikely to work, though co-ordinate functions can alway
   
   \item Show that Enneper's surface (Exercise \ref*{sec:fund}.\ref{exs:enneper}) is minimal.
     
-    
+
   \item\label{exs:tandevcurv} Let $\vx(u,v)=\vy(u)+v\vy'(u)$ be the tangent developable of a unit speed biregular curve $\vy$.
   \begin{enumerate}
     \item Find the principal curvatures, Gauss and mean curvatures of $\vx$.
 		\item Compute the curvature directions and find curvature line co-ordinates.
 	\end{enumerate}
 	(\emph{This is very similar to Example \ref*{ex:gaussexs}.\ref{ex:tandevgauss} - keep track of the changes!})
+	
+	
+	\item With respect to some co-ordinates $u,v$, suppose that a surface has fundamental forms
+	\[
+		\I=u^2\,\du^2+v^2\,\dv^2,\qquad \II=u^2\,\du^2+2uv\,\du\,\dv+v^2\,\dv^2
+	\]
+	
+	\begin{enumerate}
+	  \item Show that the principal curvatures are constant: $k_1=0$ and $k_2=2$.
+	  \item Show that $\vec s= v\partials u-u\partials v$ and $\vec t=v\partials u+u\partials v$ are curvature directions.
+	  \item Compute the Lie bracket $[\vec s,\vec t]$ to show that these are \emph{not} vector fields with respect to some curvature-line co-ordinates.
+	  \item Find explicit curvature-line co-ordinates for the surface; functions $s,t$ such that $\partials s,\partials t$ are \emph{parallel} to $\vec s,\vec t$ and express $\I,\II$ with respect to $s,t$.\par
+	  (\emph{Hint: try to guess solutions to $\vec s[t]=0=\vec t[s]$})
+	\end{enumerate}
+	
+	\goodbreak
 
-	\item Rotate $y=f(x)$ around the $x$-axis and parametrize the surface via
-	\[\vx(\phi,v)=\bigl(v,f(v)\cos\phi,f(v)\sin\phi\bigr)\]
+
+	\item\label{exs:curvlinerotation} Rotate $y=f(x)$ around the $x$-axis and parametrize the surface via
+	\[
+		\vx(\phi,v)=\bigl(v,f(v)\cos\phi,f(v)\sin\phi\bigr)
+	\]
 	\begin{enumerate}
 	  \item Verify that the co-ordinates $\phi,v$ are curvature-line, compute the principal curvatures, and show that the Gauss and mean curvatures are
-		\[K=-\frac{f''(v)}{f(v)\bigl(1+f'(v)^2\bigr)^2},\qquad H=\frac{f(v)f''(v)-1-f'(v)^2}{2f(v)\bigl(1+f'(v)^2\bigr)^{3/2}}\]
-		\item Demonstrate the following (choose suitable $f(v)$ if necessary):
+		\[
+			K=-\frac{f''(v)}{f(v)\bigl(1+f'(v)^2\bigr)^2}\qquad H=\frac{f(v)f''(v)-1-f'(v)^2}{2f(v)\bigl(1+f'(v)^2\bigr)^{3/2}}
+		\]
+		\item Demonstrate the following by choosing suitable $f(v)$:
 		\begin{enumerate}
 		  \item A cylinder has $K=0$;
 		  \item A cone has $K=0$;
 		  \item A sphere of radius $a$ has $K=\frac 1{a^2}$.
 		  \item A \emph{catenoid} $f(v)=a^{-1}\cosh(av-c)$ is a minimal surface.
 		\end{enumerate}
-	\end{enumerate}
 
-	\item We reverse some of the analysis in the previous question for surfaces of revolution around the $x$-axis.
-	\begin{enumerate}
-	  \item Suppose the surface is minimal $H\equiv 0$. Write  $g(v)=1+\bigl(f'(v)\bigr)^2$, use the differential equation above to show that
-	  \[1+f'^2=g^2=a^2f^2\]
-	  for some constant $a$. By making the substitution $f(v)=a^{-1}\cosh\bigl(ah(v)\bigr)$ for some unknown function $h(v)$, show that the surface is a \emph{catenoid} (see previous question).
+	  \item Suppose $\vx$ is a minimal surface $H\equiv 0$. By writing $g(v)=1+\bigl(f'(v)\bigr)^2$, show that
+	  \[
+	  	1+f'^2=g^2=a^2f^2
+	  \]
+	  for some constant $a$. By making the substitution $f(v)=a^{-1}\cosh\bigl(ah(v)\bigr)$ for some unknown function $h(v)$, show that the surface is a \emph{catenoid.}
+	  
 	  \item Plainly $K\equiv 0$ if and only if $f''(v)\equiv 0$. What are these surfaces? More generally, if the surface has constant non-zero Gauss curvature $K$, show that $f$ satisfies a non-linear ODE
-	  \[Kf^2=(1+f'^2)^{-1}+c\]
-	  for some constant $c$.\par
-	  (\emph{If $c\neq 0$, this requires evaluating an elliptic integral, so don't try! There are thus a great many constant Gauss curvature surfaces of revolution})
+	  \[
+	  	Kf^2=(1+f'^2)^{-1}+c
+	  \]
+	  for some constant $c$\quad (\emph{solving for $f$ requires an elliptic integral when $c\neq 0$, so don't try!}).
 	\end{enumerate}
 	
 	
-	\item The \emph{tractrix} is parametrized by
-	\[\vy(t)=\twovec{\sinh^{-1}t-t(1+t^2)^{-1/2}}{(1+t^2)^{-1/2}}\]
-	By revolving this curve around the $x$-axis, show that the resulting surface is a pseudosphere with $K\equiv -1$.
+	\item The \emph{tractrix} is parametrized by $\vy(t)=\bigl(\sinh^{-1}t-t(1+t^2)^{-1/2}, (1+t^2)^{-1/2}\bigr)$. By revolving this curve around the $x$-axis, show that the resulting surface is a pseudosphere with $K\equiv -1$.
 	
 	
-
   \item We know that the Gauss and mean curvature are defined in terms of the principal curvatures. By writing down a suitable quadratic polynomial, prove that knowing of $H,K$ is sufficient to recover the principal curvatures.
 	
 	  
   \item The graph of a function $z=f(x,y)$ is parametrized by $\vx(u,v)=\bigl(u,v,f(u,v)\bigr)$. What can you say about the surface if $(u,v)$ are curvature-line co-ordinates?\par
   (\emph{Hint: recall Example \ref{ex:paraboloidpolar}})
+  
+  
+  \item\label{exs:curvforms} Suppose $u,v$ are curvature-line co-ordinates for a surface $\vx$. Explain why $\vn_u=-k_1\vx_u$ and $\vn_v=-k_2\vx_v$.
 
 
 	\item\label{exs:totallyumbilic} Suppose that a surface $\vx:U\to\E^3$ is totally umbilic $\II=k\I$ for some function $k:U\to\R$.
 	\begin{enumerate}
-	  \item Explain why we have $\vn_u=-k\vx_u$ and $\vn_v=-k\vx_v$.\par
-	  (\emph{Hint: $\vx_u\cdot(\vn_u+k\vx_u)=(-\II+k\I)(\partials u,\partials u)$, etc.})
-	  \item Compute the mixed partial derivative $\vn_{uv}=\vn_{vu}$ to prove that $k$ is constant.
-	  \item Prove that $\vx$ is (part of) a plane or a sphere.\par
+	  \item Use Exercise \ref{exs:curvforms} and $\vn_{uv}=\vn_{vu}$ to prove that $k$ is constant.
+	  \item Prove that $\vx$ is (part of) a plane or a sphere (recall Example \ref{ex:totalumbilic}).\par
 	  (\emph{Hint: If $k\neq 0$ consider $\vc:=\vx+\frac 1k\vn$\ldots})
 	\end{enumerate}
 
 
-% 
-% 	\item Check the computation of the fundamental forms in Example \ref{ex:frobenius} for the surface $\vx(u,v)=\frac 12\bigl(\cos\frac{u^2+v^2}{\sqrt 2},\sin\frac{u^2+v^2}{\sqrt 2},\frac{u^2-v^2}{\sqrt 2}\bigr)$.
-	
-
+	\item\label{exs:coordfields} We prove part 2 of Theorem \ref{thm:coordfields}. Given the assumptions, define the \emph{dual 1-forms} to $\vec s,\vec t$:
+  \[
+  	\alpha(\vec s)=1=\beta(\vec t) \quad\text{and}\quad \alpha(\vec t)=0=\beta(\vec s)
+  \]
+  Use Exercise \ref*{sec:kform}.\ref{exs:liebracketdalpha} to prove that $\D\alpha=0=\D\beta$. Hence conclude  (footnote, page \pageref{fn:poincare}) that (locally) $\alpha=\ds$ and $\beta=\dt$ for some functions $s,t$.
 
 \end{enumerate}
 \end{exercises}
 
 \clearpage
+
 
 
 \subsection{Power Series Expansions and Euler's Theorem}\label{sec:eulersthm}
@@ -1924,7 +2042,7 @@ As with curves, we may ask the question in reverse. If we know the fundamental f
 
 
 
-\begin{thm}{Bonnet}{}
+\begin{thm}{Bonnet}{bonnet}
 Suppose $\I$ and $\II$ are symmetric bilinear forms where $\I$ is positive-definite. Provided the Gauss--Codazzi equations are satisfied, there exists a local parametrized surface with these fundamental forms, which is moreover unique up to rigid motions.
 \end{thm}
 
@@ -2089,7 +2207,7 @@ Even though $\I,\II$ cannot be chosen independently, Bonnet's result is still co
   	\item Show that the unit normal of $\vx^t$ is also independent of $t$:
  	 	\[\vn^t=\frac 1{\cosh v}\threevec{\cos u}{\sin u}{-\sinh v}\]
   	Hence compute the second fundamental form of $\vx^t$ for each $t$.
-  	\item Find the Gauss and mean curvature of all surfaces $\vx^t$. What is special about this family? Relate this to Gauss' Theorem.
+  	\item Find the Gauss and mean curvatures of all surfaces $\vx^t$. What is special about this family? Relate this to Gauss' Theorem.
 \end{enumerate}
 
 \end{enumerate}
@@ -2204,7 +2322,7 @@ The point of the above exercise is to see that the connection 1-forms of a movin
   \item 
 
 
-
+ 
   
   \item\begin{enumerate}
      \item We have defined Gauss and mean curvature for orientable (local) surfaces. Define the Gaussian curvature of a non-orientable surface and explain why the mean curvature of a non-orientable surface is not well-defined.

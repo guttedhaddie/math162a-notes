@@ -3,6 +3,10 @@
 \input{preamble-packages}
 \input{preamble-commands}
 
+\makeatletter
+\newcommand{\xRightarrow}[2][]{\ext@arrow 0359\Rightarrowfill@{#1}{#2}}
+\makeatother
+
 \includeonly{
 %curves/curves,
 %forms/forms,

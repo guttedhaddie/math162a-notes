@@ -3,11 +3,11 @@ settings.tex="pdflatex";
 //OpenGL (default) - no opacity
 
 //PNG - no opacity
-//if(!settings.multipleView) settings.batchView=false;
-//settings.render=4;settings.outformat="png";
+if(!settings.multipleView) settings.batchView=false;
+settings.render=4;settings.outformat="png";
 
 //HTML - opacity fine
-settings.outformat="html";
+//settings.outformat="html";
 
 //PDF
 //if(!settings.multipleView) settings.batchView=false;

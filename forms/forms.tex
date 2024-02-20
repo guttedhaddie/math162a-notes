@@ -142,7 +142,7 @@ Here are the basic rules of computation for vector fields. These are all essenti
 		\end{cases}
 	\]
 	The chain rule tells us that the co-ordinate vector fields $\partials x,\partials y,\partials r,\partials\theta$ are related via\par
-	\begin{minipage}[t]{0.6\linewidth}\vspace{-10pt}
+	\begin{minipage}[t]{0.59\linewidth}\vspace{-10pt}
 		\begin{gather*}
 			\begin{aligned}
 				\partials r&=\partials[x]{r}\partials x+\partials[y]{r}\partials{y} =\cos\theta\partials x+\sin\theta\partials y\\
@@ -156,7 +156,7 @@ Here are the basic rules of computation for vector fields. These are all essenti
 		\end{gather*}
 	\end{minipage}
 	\hfill
-	\begin{minipage}[t]{0.39\linewidth}\vspace{0pt}
+	\begin{minipage}[t]{0.4\linewidth}\vspace{0pt}
 		\flushright\includegraphics{forms-polar}
 	\end{minipage}
 	\bigbreak
@@ -516,16 +516,22 @@ which maps the co-ordinate fields $\partials x,\partials y$ on $U$ to correspond
     	\item \makebox[200pt][l]{$\alpha=2x\,\dx+\dy$\hfill (b)\lstsp} $\alpha=\dx+2x\,\dy$
     	\item[(c)] \makebox[200pt][l]{$\alpha=\cos(x^2y)(2y\,\dx+x\,\dy)$\hfill (d)\lstsp} $\alpha=x\cos(x^2y)(2y\,\dx+x\,\dy)$
 		\end{enumerate}
+		
+		
+		\item\label{exs:exactclosed2} We consider a partial converse to Exercise \ref{exs:exactclosed}.
+		\begin{enumerate}
+		  \item Suppose $\alpha= a\,\dx+b\,\dy$ is a 1-form on a \emph{rectangle} $[p,q]\times[r,s]$, where $\partials[a]{y}=\partials[b]{x}$. Define
+			\[
+				f(x,y):=\int_p^x a(s,y)\,\ds + \int_r^yb(p,t)\,\dt
+			\]
+			Prove that $\df=\alpha$ is exact.
+		
+			\item Let $\alpha=\frac{-y\,\dx+x\,\dy}{x^2+y^2} =a\,\dx+b\,\dy$ be defined on the \emph{punctured plane} $\R^2\setminus\{(0,0)\}$.\par
+	Show that $\smash[b]{\partials[a]{y}=\partials[b]{x}}$ but that $\alpha$ is \emph{not exact}: the full converse to Exercise \ref{exs:exactclosed} is therefore \emph{false.}\par
+    	(\emph{Hint: $\alpha=\dth$ except on the non-positive real axis; why is this a problem?})
+    \end{enumerate}
 	
-	
-		\item\label{exs:exactclosed2} Let $\alpha=\frac 1{x^2+y^2}(-y\,\dx+x\,\dy) =a\,\dx+b\,\dy$ be defined on the \emph{punctured plane} $\R^2\setminus\{(0,0)\}$.\par
-	Show that $\smash{\partials[a]{y}=\partials[b]{x}}$ but that $\alpha$ is \emph{not exact}: the converse to Exercise \ref{exs:exactclosed} is \emph{false!}\footnote{Exercise \ref{exs:exactclosed} can be shown to be equivalent to the exactness of $\alpha$ provided the domain $U$ is \emph{simply-connected}: has no holes. %In this case the `hole' in $U$ is the removed origin.
-   	}\par
-    (\emph{Hint: $\alpha=\dth$ except on the non-positive real axis; why is this a problem?})
 
-	%\item Explain why every 1-form on $\R$ is exact.
-	
-	
 
 	  \item Evaluate the integral $\int_C\alpha$ given $C$ and $\alpha$.\vspace{-6pt}
 	  \begin{enumerate}\itemsep2pt
@@ -540,13 +546,12 @@ which maps the co-ordinate fields $\partials x,\partials y$ on $U$ to correspond
 	
 		\item Prove Lemma \ref{lemm:lineintparam}. Moreover, show that if we reverse the orientation of the curve ($s'(t)<0$) then the order of the limits is reversed and $\int\alpha$ becomes $-\int\alpha$.
 	
-
-		\item Suppose $s(x,y), t(x,y)$ are co-ordinates on $U\subseteq\R^2$. Find the relationship between the $2\times 2$ matrix-valued functions $J,K$ which satisfy
-		\[
-			\twovec{\ds}{\dt}=J\twovec{\dx}{\dy}\quad\text{and}\quad 
-			\twovec{\partials s}{\partials t}=K\twovec{\partials x}{\partials y}
-		\]
-% 	Hence check explicitly that $\df=\partials[f]{x}\,\dx+\partials[f]{y}\,\dy =\partials[f]{s}\,\ds+\partials[f]{t}\,\dt$ is \emph{co-ordinate independent.}
+% 
+% 		\item Suppose $s(x,y), t(x,y)$ are co-ordinates on $U\subseteq\R^2$. Find the relationship between the $2\times 2$ matrix-valued functions $J,K$ which satisfy
+% 		\[
+% 			\twovec{\ds}{\dt}=J\twovec{\dx}{\dy}\quad\text{and}\quad 
+% 			\twovec{\partials s}{\partials t}=K\twovec{\partials x}{\partials y}
+% 		\]
 
 	
 		\item Let $p\in U\subseteq\R^2$ and let $\alpha=a\,\dx+b\,\dy$ be a 1-form on $U$. For each $q$ define $f(q):=\int_C\alpha$ where we additionally assume this value is \emph{independent of the path} $C$ joining $p$ to $q$.\\
@@ -769,7 +774,7 @@ Just as with functions, we can apply `$\D$' to forms.
 \end{thm}
 
 
-\footnotetext{A $k$-form $\alpha$ is \emph{closed} if $\D\alpha=0$, and \emph{exact} if $\exists\beta$ such that $\alpha=\D\beta$. The result says that every exact form is closed.}
+\footnotetext{\label{fn:poincare} A $k$-form $\alpha$ is \emph{closed} if $\D\alpha=0$, and \emph{exact} if $\exists\beta$ such that $\alpha=\D\beta$. The result says that every exact form is closed. \emph{Poincare's Lemma} gives a partial converse: every closed form on an open ball/hypercube is exact. Exercise \ref*{sec:1form}.\ref{exs:exactclosed2} is a simple version.}
 
 \goodbreak
 
@@ -835,7 +840,6 @@ The exterior derivative $\D$ is div, grad and curl all in one tidy package! More
   \item The exterior derivative and wedge product apply in any dimension, thus extending standard vector calculus and the cross product to arbitrary dimensions. 
 \end{itemize}
 
-% The exterior derivative and the wedge product are host of useful operators in one!\smallbreak
 
 None of what we've done in this chapter is strictly necessary for the analysis of surfaces in $\E^3$. However, forms are the language of modern differential geometry (and other things besides) and it is easier to meet them first in a familiar setting. And if you want to do higher-dimensional geometry (e.g.,\ general relativity), this new language becomes almost essential.
 
@@ -843,16 +847,7 @@ None of what we've done in this chapter is strictly necessary for the analysis o
 
 \begin{exercises}
 	\exstart Compute $\alpha(u,v)$, given $\alpha=\dx\wedge\dy+z\,\dy\wedge\dz$, \ $u=\partials{x}-\partials{z}$ and $v=y\partials{y}+\partials{z}$.\vspace{-3pt}
-%  Now,
-% \begin{gather*}
-% (\dx_1\wedge\dx_2)(u,v)=
-% \begin{vmatrix}
-% \dx_1(u)&\dx_1(v)\\
-% \dx_2(u)&\dx_2(v)
-% \end{vmatrix}
-% =x_2,\qquad (\dx_2\wedge\dx_3)(u,v)=x_2\\
-% \therefore\beta(u,v)=x_2(1+x_3)
-% \end{gather*}
+
 
 	\begin{enumerate}\setcounter{enumi}{1}
 	  \item Let $\alpha=y^2\,\dx\wedge\dz-\dy\wedge\dz$ and $u=x\partials x+xy\partials y-\partials z$ and $v=-y\partials x+y^3\partials y$.
@@ -885,13 +880,7 @@ None of what we've done in this chapter is strictly necessary for the analysis o
 		\[
 			\dx\wedge\dy\wedge\dz=r^2\cos\phi\,\dr\wedge\dth\wedge\D\phi
 		\]
-	
-	% 	\item grad in polar co-ords?
-	% 
-	% 	\begin{gather*}
-	% 	\df=\partials[f]{r}\dr+\partials[f]{\theta}\dth =\frac{f_r}r(x\,\dx+y\,\dy) + \frac{f_\theta}{r^2}(-y\,\dx+x\,\dy)\\
-	% 	\implies \nabla f=f_r\twovec{\cos\theta}{\sin\theta}+\frac{f_\theta}r\twovec{-\sin\theta}{\cos\theta} =f_r\,\hat\vr+\frac{f_\theta}r\hat{\pmb{\theta}}
-	% 	\end{gather*}
+
 	
 		\goodbreak
 	
@@ -914,6 +903,7 @@ None of what we've done in this chapter is strictly necessary for the analysis o
 			\D(\alpha\wedge\beta)=\D\alpha\wedge\beta+(-1)^{\deg\alpha}\alpha\wedge\D\beta
 		\]
 		
+			
 		
 		\item\label{exs:liebracketdalpha} (Hard)\lstsp Given vector fields $u,v$, their \emph{Lie bracket} $[u,v]$ is the vector field such that
 		\[
