@@ -700,7 +700,7 @@ Analogous to Example \ref{ex:areaform}, $\dx\wedge\dy\wedge\dz$ is the \emph{sta
 	\begin{align*}
 		\alpha\wedge\beta&=(2\,\dx-3x\,\dy)\wedge\bigl(y^2\,\dx+y\,\dy\bigr)\\
 		&=2y^2\,\dx\wedge\dx +2y\,\dx\wedge\dy -3xy^2\,\dy\wedge\dx -3xy\,\dy\wedge\dy\\
-		&=\bigl(2y-3xy^2\bigr)\,\dx\wedge\dy
+		&=\bigl(2y+3xy^2\bigr)\,\dx\wedge\dy
 	\end{align*}
 	
 	\begin{enumerate}\setcounter{enumi}{1}
@@ -756,7 +756,7 @@ Just as with functions, we can apply `$\D$' to forms.
 \begin{example}{}{formdiff}
 	In $\R^3$, let $\alpha=xy^2z\,\dx-xz\,\dz$. Then
 	\begin{align*}
-		\D\alpha&=\D(xy^2z)\wedge\dx-\D(xy)\wedge\dz\\
+		\D\alpha&=\D(xy^2z)\wedge\dx-\D(xz)\wedge\dz\\
 		&=(\textcolor{blue}{y^2z\,\dx}+2xyz\,\dy+xy^2\,\dz)\wedge\dx -(z\,\dx+\textcolor{blue}{x\,\dz})\wedge\dz\\
 		&=-2xyz\,\dx\wedge\dy -(xy^2+z)\,\dx\wedge\dz
 	\end{align*}
