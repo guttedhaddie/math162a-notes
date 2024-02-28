@@ -834,6 +834,7 @@ While the meaning of \emph{orthogonal} is clear, the reason for the term \emph{c
 	  \[
 	  	\I=(1+4r^2)\,\dr^2+r^2\,\dth^2, \qquad \II=\frac{2}{\sqrt{1+4r^2}}\big(\dr^2+r^2\,\dth^2\bigr)
 	  \]
+	  \item In curvature-line co-ordinates $\vn_u=-\frac lE\vx_u$ and $\vn_v=-\frac nG\vx_v$ (see Exercise \ref{exs:curvforms}).
 	\end{enumerate}
 \end{examples}
 
@@ -917,11 +918,11 @@ Since $X^TBX$ is symmetric (spectral theorem again), it has an orthogonal eigenb
 
 
 %\skip\footins=-\bigskipamount
-\boldinline{Application to Surfaces}
+\boldinline{Application to Regular Surfaces}
 
 With respect to independent vector fields, the matrices $A,B$ of $\I,\II$ are symmetric. Moreover, the regularity of $\vx$ guarantees the positive-definiteness of $A$:
 \[
-	\forall \vec w\neq\vec 0\implies \vec w^TA\vec w=\I(\vec w,\vec w)=\dvx(\vec w)\cdot\dvx(\vec w)=\Nm{\dvx(\vec w)}^2>0
+	\forall \vec w\neq\vec 0\implies \I(\vec w,\vec w)=\dvx(\vec w)\cdot\dvx(\vec w)=\Nm{\dvx(\vec w)}^2>0
 \]
 We may therefore apply Theorem \ref{thm:funddiag} to the matrices of the fundamental forms.
 
@@ -981,7 +982,7 @@ At umbilic points, $\II=k\I$ and all directions are curvature directions; any or
 	\end{enumerate}
 \end{proof}
 
-\footnotetext{The impediment to smoothness an umbilic point $\vx(p)$ is that the eigenspace is 2-dimensional so $\lim\limits_{q\to p}\vec v(q)$ need not exist.}
+\footnotetext{At an umbilic point $\vx(p)$, the eigenspace is 2-dimensional so $\lim\limits_{q\to p}\vec v(q)$ need not exist and $\vec v$ need not be continuous.}
 
 
 \begin{examples}{}{gaussexs}
