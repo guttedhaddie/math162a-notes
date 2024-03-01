@@ -1008,7 +1008,7 @@ At umbilic points, $\II=k\I$ and all directions are curvature directions; any or
 	\goodbreak
 	
 	\begin{enumerate}\setcounter{enumi}{1}
-	  \item\label{ex:gaussgraph} Parametrize the graph of a function $z=f(x,y)$ in the usual manner $\vx(u,v)=\bigl(u,v,f(u,v)\bigr)$. Then
+	  \item\label{ex:gaussgraph} Parametrize a graph $z=f(x,y)$ in the usual manner $\vx(u,v)=\bigl(u,v,f(u,v)\bigr)$. Then
 	  \[
 	  	A=[\I]=
 	  	\begin{pmatrix}
@@ -1026,7 +1026,7 @@ At umbilic points, $\II=k\I$ and all directions are curvature directions; any or
 		\[
 			K=\frac{f_{uu}f_{vv}-f_{uv}^2}{(1+f_u^2+f_v^2)^2} \qquad H=\frac{f_{vv}(1+f_u^2)+f_{uu}(1+f_v^2)-2f_uf_vf_{uv}}{2(1+f_u^2+f_v^2)^{3/2}}
 		\]
-		In the abstract, solving for the curvatures and curvature directions is disgusting. As a sanity check, you should verify that $f(u,v)=u^2+v^2$ recovers exactly the curvatures in the previous example!
+		In the abstract, solving for the curvatures and directions is disgusting. As a sanity check, you should verify that $f(u,v)=u^2+v^2$ recovers exactly the curvatures in the previous example!
 	  
 		\item\label{ex:tandevgauss} (Exercise \ref*{sec:fund}.\ref{exs:tandevhelix})\lstsp The tangent developable of the unit speed helix has	
 	  \[
@@ -1042,18 +1042,14 @@ At umbilic points, $\II=k\I$ and all directions are curvature directions; any or
 	  		0&0
 	  	\end{pmatrix}
 	  \]
-	  The principal curvatures solve
+	  Now solve for the curvatures:
 	  \[
-	  	\det
-	  	\begin{pmatrix}
+	  	\begin{vmatrix}
 	  		-\frac v4-\lambda\left(1+\frac{v^2}4\right)&-\lambda\\
 	  		-\lambda&-\lambda
-	  	\end{pmatrix}
+	  	\end{vmatrix}
 	  	=\frac{v^2}4\lambda^2+\frac v4\lambda=0
-	  \]
-	  from which 
-	  \[
-	  	k_1=0,\quad k_2=-\frac 1v,\quad K=0,\quad H=-\frac 1{2v}
+	  	\implies k_1=0,\  k_2=-\frac 1v,\quad K=0,\ H=-\frac 1{2v}
 	  \]
 	  In this case an explicit computation of the curvature directions is not difficult:
 	  \begin{gather*}
@@ -1062,17 +1058,17 @@ At umbilic points, $\II=k\I$ and all directions are curvature directions; any or
 	  		-\frac v4&0\\
 	  		0&0
 	  	\end{pmatrix}
-	  	=\Span\twovec 01\implies \vec s=\partials v\\
+	  	=\Span\twovec 01 \rightsquigarrow \vec s=\partials v\\
 	  	k_2=-\frac 1v\implies \cN(B-k_2A)=\cN
 	  	\begin{pmatrix}
 				\frac 1v&\frac 1v\\
 	  		\frac 1v&\frac 1v
 	  	\end{pmatrix}
-	  	=\Span\twovec 1{-1} \implies \vec t=\partials u-\partials v
+	  	=\Span\twovec 1{-1} \rightsquigarrow \vec t=\partials u-\partials v
 	  \end{gather*}
 	  where we made the natural choice of vector fields $\vec s,\vec t$. As a sanity check, here are the matrices of the fundamental forms with respect to $\vec s,\vec t$:
 	  \begin{align*}
-	  	\I(\vec s,\vec s)=\bigl(0\ 1\bigr)A\twovec 01=1,\ \ldots \implies
+	  	\I(\vec s,\vec s)=\bigl(0\ 1\bigr)A\twovec 01=1\ \ldots \implies
 	  	&[\I]=
 	  	\begin{pmatrix}
 	  		\I(\vec s,\vec s)&\I(\vec s,\vec t)\\
@@ -1083,52 +1079,59 @@ At umbilic points, $\II=k\I$ and all directions are curvature directions; any or
 	  		\textcolor{red}{1}&0\\
 	  		0&\textcolor{blue}{\frac{v^2}4}
 	  	\end{pmatrix}
-	  	\\
-	  	&
-	  	[\II]=
-	  	\begin{pmatrix}
-	  		\II(\vec s,\vec s)&\II(\vec s,\vec t)\\
-	  		\II(\vec s,\vec t)&\II(\vec t,\vec t)
-			\end{pmatrix}
+	  	\qquad
+	  	[\II]
 			=
 			\begin{pmatrix}
 	  		\textcolor{red}{0}&0\\
 	  		0&\textcolor{blue}{-\frac{v}4}
 	  	\end{pmatrix}
+% 	  	\\
+% 	  	&
+% 	  	[\II]=
+% 	  	\begin{pmatrix}
+% 	  		\II(\vec s,\vec s)&\II(\vec s,\vec t)\\
+% 	  		\II(\vec s,\vec t)&\II(\vec t,\vec t)
+% 			\end{pmatrix}
+% 			=
+% 			\begin{pmatrix}
+% 	  		\textcolor{red}{0}&0\\
+% 	  		0&\textcolor{blue}{-\frac{v}4}
+% 	  	\end{pmatrix}
 	  \end{align*}
-	  in which the principal curvatures are clearly visible:
-	  \[
-	  	\textcolor{red}{1}k_1=\textcolor{red}{0}, \qquad \textcolor{blue}{\frac{v^2}4}k_2 =\textcolor{blue}{-\frac{v}4}
-	  \]
+	  in which the principal curvatures are clearly visible: $\textcolor{red}{1}k_1=\textcolor{red}{0}$, \ $\textcolor{blue}{\frac{v^2}4}k_2 =\textcolor{blue}{-\frac{v}4}$
 	\end{enumerate}
 \end{examples}
 
-\goodbreak
 
-The Gauss and mean curvatures are extremely important quantities for descibing surfaces. Here are a couple of ideas built on these concepts.
+\boldinline{Constant Gauss \& Mean Curvature Surfaces} 
 
 \begin{description}
-	\item[\normalfont\emph{Minimal Surfaces} $H\equiv 0$:] So-called because they minimize \emph{surface area}: among all surfaces whose boundary is a given closed curve, the surface with minimal surface area has $H\equiv 0$. This is the shape a soap film takes if you dip the curve in soapy water. A minimal surface minimizes the `total tension' of the soap film.
+	\item[\normalfont\emph{Minimal Surfaces} $H\equiv 0$:] Among all surfaces whose boundary is a given closed curve, a surface with minimal surface area has $H\equiv 0$. This is the shape made by a soap film whose boundary is the \phantom{curve}\par
 	
-\begin{minipage}[t]{0.65\linewidth}\vspace{-9pt}
-	More generally, \emph{constant mean curvature} (CMC) surfaces may be used to model soap \emph{bubbles.}
-	\item[\normalfont\emph{Constant Gauss Curvature Surfaces}:] Spheres are examples of surfaces of constant positive Gauss curvature. Planes, cones and cylinders are examples of surfaces with $K=0$. A \emph{pseudosphere} with constant $K=-1$ is drawn.
-\end{minipage}\hfill\begin{minipage}[t]{0.34\linewidth}\vspace{-20pt}
-	\flushright\href{http://www.math.uci.edu/~ndonalds/math162a/curv-pseudosphere.html}{\includegraphics{curv-pseudosphere}}\vspace{-10pt}
-\end{minipage}
+	\begin{minipage}[t]{0.69\linewidth}\vspace{-25pt}
+		 curve: it minimizes the `total tension' of the soap film. More generally, \emph{constant mean curvature} (CMC) surfaces model soap \emph{bubbles.}
+		 
+		\item[\normalfont\emph{Constant Gauss Curvature Surfaces}:] We've see that planes, cones and cylinders have $K=0$, and that spheres have constant positive Gauss curvature. A \emph{pseudosphere} with constant $K=-1$ is shown in the picture.
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.3\linewidth}\vspace{-23pt}
+		\flushright\href{http://www.math.uci.edu/~ndonalds/math162a/curv-pseudosphere.html}{\includegraphics[scale=0.95]{curv-pseudosphere}}\vspace{-15pt}
+	\end{minipage}
 \end{description}
 
 
+\goodbreak
 
 
 \boldsubsubsection{Existence of (Curvature-Line) Co-ordinates}
 
-At non-umbilic points, Theorems \ref{thm:funddiag} and \ref{thm:gaussmeancoords} tell us how to find curvature \emph{directions} as vector fields $\vec s,\vec t$. Unfortunately, finding explicit curvature \emph{co-ordinates} is exceptionally unlikely. When you can, it is usually by pure lucky guesswork.
+At non-umbilic points, Theorems \ref{thm:funddiag} and \ref{thm:gaussmeancoords} tell us how to find curvature \emph{directions} as vector fields $\vec s,\vec t$. Unfortunately, being able to compute \emph{explicit} curvature \emph{co-ordinates} is exceptionally unlikely.
 
 \begin{example*}{\ref*{ex:gaussexs}.\ref{ex:tandevgauss} cont}{}
 	Recall that we chose curvature direction fields $\vec s=\partials v$ and $\vec t=\partials u-\partials v$. By inspection, the functions $s=u+v$ and $t=u$ satisfy the required equations:
 	\[
-		\vec s[s]=1=\vec t[t],\qquad \vec s[t]=0=\vec t[s]
+		\vec s[s]=1=\vec t[t],\qquad \vec s[t]=0=\vec t[s] \tag{$\ast$}
 	\]
 	It follows that $\vec s=\partials s$ and $\vec t=\partials t$ for curvature-line co-ordinates $s,t$, as you can easily verify using the chain rule. Indeed
 	\[
@@ -1151,23 +1154,37 @@ The astonishing fact is that this simple condition is \emph{locally sufficient.}
 	\end{enumerate}
 \end{thm}
 
-We leave a sketch proof of part 2 to Exercise \ref{exs:coordfields}.\smallbreak
 
-\begin{example}{}{}
-	The fields $\vec s=\partials x+y\partials y$ and $\vec t=\partials y$ do not arise simultaneously from co-ordinates, since
+\begin{examples}{}{}
+	\exstart The fields $\vec s=\partials x+y\partials y$ and $\vec t=\partials y$ do not arise simultaneously from co-ordinates:
 	\[
 		[\vec s,\vec t]=\partials[^2]{x\partial y}+y\partials[^2]{y^2} -\partials[^2]{y\partial x}-\partials y-y\partials[^2]{y^2} =-\partials y\neq 0
 	\]
-\end{example}
+	\begin{enumerate}\setcounter{enumi}{1}
+	  \item The cylindrical paraboloid $\vx(u,v)=(u,v,\frac 12u^2+v)$ has curvatures and curvature directions
+	  \[
+	  	k_1=0, \ \vec s=\partials v,\qquad k_2=\frac 2{[2+u^2]^{3/2}},\  \vec t=2\partials u-u\partials v
+	  \]
+	  The Lie bracket condition $[\vec s,\vec t]=0$ is satisfied, so co-ordinates $s,t$ corresponding to these fields must exist. You can try to find such by inspection, though simultaneously solving ($\ast$) is messy. Alternatively, following the proof of part 2 (Exercise \ref{exs:coordfields}), observe that the dual 1-forms are
+	  \[
+	  	\alpha=\frac 12u\,\du+\dv, \qquad \beta=\frac 12\,\du  \tag{$\alpha(\vec s)=\beta(\vec t)=1$, $\alpha(\vec t)=\beta(\vec s)=0$}
+	  \]
+	  These forms are \emph{exact}: $\alpha=\D(\frac 14u^2+v)$ and $\beta=\D(\frac 12u)$. We therefore conclude that $s=\frac 14u^2+v$ and $t=\frac 12u$ are suitable curvature-line co-ordinates.
+	\end{enumerate}
+\end{examples}
 
-The Lie bracket condition says that explicit co-ordinates corresponding to given vector fields are very unlikely to exist. This is no matter: we typically only need co-ordinates $s,t$ whose fields $\partials s,\partials t$ are \emph{parallel} to $\vec s,\vec t$: that is $\partials s=f\vec s$ and $\partials t=g\vec t$ for some functions $f,g$ (equivalently $\vec s[t]=0=\vec t[s]$). Such co-ordinates do indeed exist, though only \emph{locally,} as shown by one of the most important foundational results in differential geometry.
+The Lie bracket condition says that explicit co-ordinates corresponding to given vector fields are very unlikely to exist. This is no matter: we typically only require co-ordinates $s,t$ whose fields $\partials s,\partials t$ are \emph{parallel} to $\vec s,\vec t$: that is
+\[
+	\partials s=f\vec s \quad\text{and}\quad \partials t=g\vec t \quad \text{for some functions $f,g$} \tag{equivalently $\vec s[t]=0=\vec t[s]$}
+\]
+Such co-ordinates indeed exist, though only \emph{locally,} as shown by one of the most important foundational results in differential geometry.
 
 \begin{thm}{Frobenius}{curvexist}
-	Let $\vec s,\vec t$ be linearly independent vector fields on some domain $U$. There exist local co-ordinates $s,t$ whose co-ordinate fields are parallel to $\vec s,\vec t$.\smallbreak
+	Let $\vec s,\vec t$ be linearly independent vector fields on a domain $U$. Then there exist local co-ordinates $s,t$ whose co-ordinate fields are parallel to $\vec s,\vec t$.\smallbreak
 	In particular, if $\vx(p)$ is a non-umbilic point on a surface $\vx:U\to\E^3$, then there exists a neighborhood $V$ of $p$ and curvature-line co-ordinates $s,t$ on $V$.
 \end{thm}
 
-Frobenius' theorem comes in many guises and generalizes to higher dimensions, taking the place of Picard's ODE existence/uniqueness theorem (\ref{thm:picard}) for particular classes of PDE. Its proof is far too involved for us, though the informal idea is to search for functions $f,g$ such that $[f\vec s,g\vec t]=0$, a lengthy process that indeed depends on Picard's theorem.
+Frobenius' theorem comes in many guises and generalizes to higher dimensions, taking the place of Picard's ODE existence/uniqueness theorem (\ref{thm:picard}) for particular classes of PDE. Its proof is too involved for us, though the informal idea is to search for functions $f,g$ such that $[f\vec s,g\vec t]=0$, a lengthy process that indeed depends on Picard's theorem.
 
 
 
@@ -1307,15 +1324,15 @@ Frobenius' theorem comes in many guises and generalizes to higher dimensions, ta
 
 	  \item Suppose $\vx$ is a minimal surface $H\equiv 0$. By writing $g(v)=1+\bigl(f'(v)\bigr)^2$, show that
 	  \[
-	  	1+f'^2=g^2=a^2f^2
+	  	1+f'^2=g=a^2f^2 \quad\text{for some constant $a$}
 	  \]
-	  for some constant $a$. By making the substitution $f(v)=a^{-1}\cosh\bigl(ah(v)\bigr)$ for some unknown function $h(v)$, show that the surface is a \emph{catenoid.}
+	  By substituting $f(v)=a^{-1}\cosh\bigl(ah(v)\bigr)$, show that the surface is a \emph{catenoid.}
 	  
 	  \item Plainly $K\equiv 0$ if and only if $f''(v)\equiv 0$. What are these surfaces? More generally, if the surface has constant non-zero Gauss curvature $K$, show that $f$ satisfies a non-linear ODE
 	  \[
-	  	Kf^2=(1+f'^2)^{-1}+c
+	  	Kf^2=(1+f'^2)^{-1}+c \quad\text{for some constant $c$}
 	  \]
-	  for some constant $c$\quad (\emph{solving for $f$ requires an elliptic integral when $c\neq 0$, so don't try!}).
+	  (\emph{Solving for $f$ requires an elliptic integral when $c\neq 0$, so don't try!})
 	\end{enumerate}
 	
 	
