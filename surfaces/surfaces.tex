@@ -1375,9 +1375,13 @@ Frobenius' theorem comes in many guises and generalizes to higher dimensions, ta
 In this section we intersect a surface with certain planes and consider the resulting curves. The curvatures provide data about these curves and thus tell us something about the local shape of the surface. The key is to see how curvatures describe a quadratic approximation to a surface.\par
 
 \begin{minipage}[t]{0.63\linewidth}\vspace{0pt}
-At a regular point $P$ on a surface $S$, choose axes such that $P$ is the origin and the $(x,y)$-plane is tangent\footnotemark{} to $S$. By Theorem \ref{thm:implicit}, $S$ is locally the graph of a function $z=f(x,y)$, which we may parametrize in the usual manner
-\[\vx(u,v)=\bigl(u,v,f(u,v)\bigr)\]
-\end{minipage}\hfill\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}
+	At a regular point $P$ on a surface $S$, choose axes such that $P$ is the origin and the $(x,y)$-plane is tangent\footnotemark{} to $S$. By Theorem \ref{thm:implicit}, $S$ is locally the graph of a function $z=f(x,y)$, which we may parametrize in the usual manner
+	\[
+		\vx(u,v)=\bigl(u,v,f(u,v)\bigr)
+	\]
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}
 	\flushright\href{http://www.math.uci.edu/~ndonalds/math162a/euler-setup.html}{\includegraphics{euler-setup}}
 \end{minipage}\par
 
@@ -1385,79 +1389,98 @@ At a regular point $P$ on a surface $S$, choose axes such that $P$ is the origin
 
 The unit normal vector $\vn_P=\vk$ is therefore the standard vertical basis vector. Since the tangent plane at $P$ is the $(x,y)$-plane, we see that $f_u(0,0)=0=f_v(0,0)$; substituting into Example \ref{ex:paraboloidpolar} yields the fundamental forms \emph{at $P$}:
 \begin{gather*}
-\begin{array}{@{}l}
-\I_{P}=\du^2+\dv^2\\[4pt]
-\II_{P}=f_{uu}\,\du^2+2f_{uv}\,\du\dv+f_{uv}\,\dv^2
-\end{array}
-\qquad
-[\I]_{P}=\begin{pmatrix}
-1&0\\0&1
-\end{pmatrix}\qquad [\II]_P=\Hess f=\begin{pmatrix}
+	\begin{array}{@{}l}
+		\I_{P}=\du^2+\dv^2\\[4pt]
+		\II_{P}=f_{uu}\,\du^2+2f_{uv}\,\du\dv+f_{uv}\,\dv^2
+	\end{array}
+	\qquad
+	[\I]_{P}=
+	\begin{pmatrix}
+		1&0\\0&1
+	\end{pmatrix}
+	\qquad 
+	[\II]_P=\Hess f=
+	\begin{pmatrix}
 		f_{uu}&f_{uv}\\
 		f_{uv}&f_{vv}
 	\end{pmatrix}
 \end{gather*}
 The last matrix is the \emph{Hessian} of $f$, and the Gauss and mean curvatures at $P$ are
-\[K(P)=\det\Hess f(0,0)\quad\text{and}\quad H(P)=\frac{1}{2}\tr\Hess f(0,0)\]
+\[
+	K(P)=\det\Hess f(0,0)\quad\text{and}\quad H(P)=\frac{1}{2}\tr\Hess f(0,0)
+\]
 It bears repeating that these expressions are only valid \emph{at the origin} $O\in U$ (equivalently $P\in S$). Although the co-ordinates $u,v$ will extend nearby on the surface, the first fundamental form need not be diagonal anywhere except at the origin.\smallbreak
 
 Now suppose we rotate the $(x,y)$-plane so that the axes point in the principal directions. Then the Hessian is also diagonal ($f_{uv}(0,0)=0$) and the principal curvatures at $P$ are
-\[k_1=f_{uu}(0,0)\quad\text{and}\quad k_2=f_{vv}(0,0)\]
+\[
+	k_1=f_{uu}(0,0)\quad\text{and}\quad k_2=f_{vv}(0,0)
+\]
 
 \begin{thm}{}{taylor2}
-If the graph of $z=f(x,y)$ is tangent to the $(x,y)$-plane at the origin $O$ so that the axes are the curvature directions, then the Maclaurin approximation of the function $f(x,y)$ is
-\begin{align*}
-f(x,y)&\approx f(O) +(x\ y)\at{\nabla f}{O} +\frac 12(x\ y)\Hess f(O)\twovec{x}{y} +\text{ higher order terms}\\
-% &=f(O) +(x\ y)\twovec 00 +\frac 12(x\ y)
-% \begin{pmatrix}
-%        k_1&0\\
-%        0&k_2
-%       \end{pmatrix}\twovec{x}{y} +\text{ higher order terms}\\
-&=\frac{1}{2}k_1(O)x^2+\frac{1}{2}k_2(O)y^2+\text{ higher order terms}\tag*{\qedhere}
-\end{align*}
+	If the graph of $z=f(x,y)$ is tangent to the $(x,y)$-plane at the origin $O$ so that the axes are the curvature directions, then the Maclaurin approximation of the function $f(x,y)$ is
+	\begin{align*}
+		f(x,y)&\approx f(O) +(x\ y)\at{\nabla f}{O} +\frac 12(x\ y)\Hess f(O)\twovec{x}{y} +\text{ higher order terms}\\
+		% &=f(O) +(x\ y)\twovec 00 +\frac 12(x\ y)
+		% \begin{pmatrix}
+		%        k_1&0\\
+		%        0&k_2
+		%       \end{pmatrix}\twovec{x}{y} +\text{ higher order terms}\\
+		&=\frac{1}{2}k_1(O)x^2+\frac{1}{2}k_2(O)y^2+\text{ higher order terms}\tag*{\qedhere}
+	\end{align*}
 \end{thm}
 
 
 \begin{example}{}{hypparabeuler}
-Let $f(x,y)=x^2-y^2$ (above picture). At the origin, $\vx(u,v)=\bigl(u,v,u^2-v^2\bigr)$ has
-\[\I=\du^2+\dv^2,\quad \II=2(\du^2-\dv^2),\quad k_1=2,\quad k_2=-2,\quad K=-4,\quad H=0\]
-In this case the Maclaurin approximation is exact!
-\[\frac 12k_1x^2+\frac 12k_2y^2=x^2-y^2=f(x,y)\]
+	Let $f(x,y)=x^2-y^2$ (above picture). \emph{At the origin}, $\vx(u,v)=\bigl(u,v,u^2-v^2\bigr)$ has
+	\[
+		\I=\du^2+\dv^2,\quad \II=2(\du^2-\dv^2),\quad k_1=2,\quad k_2=-2,\quad K=-4,\quad H=0
+	\]
+	In this case the Maclaurin approximation is exact!
+	\[
+		\frac 12k_1x^2+\frac 12k_2y^2=x^2-y^2=f(x,y)
+	\]
 \end{example}
 
 \goodbreak
 
+
 \boldsubsubsection{Level Curves: intersections with planes parallel to the tangent plane}
 
 If $c$ is small, then the intersection of $S$ with a plane $c\vn_P+T_PS$ parallel to the tangent plane is a \emph{level curve}; in our analysis, they correspond to level curves $f(x,y)=$ constant. Theorem \ref{thm:taylor2} tells us how level curves depend on the curvatures. For instance, if $k_1,k_2$ have opposite signs, then for small $c$,
-\[k_1x^2+k_2y^2\approx 2c\]
+\[
+	k_1x^2+k_2y^2\approx 2c
+\]
 is approximately a \emph{hyperbola.}
 
 \begin{defn}{}{pointtype}
-Suppose $k_1,k_2,K,H$ are the curvatures of a surface $S$ at a point $P$. We say that $P$ is:
-\begin{description}\itemsep0pt
-	\item[\normalfont\emph{Elliptic}]\negthickspace$\iff K>0\iff k_1,k_2\neq 0$ and have the same sign.\\
-  Level curves near $P$ are approximately \emph{ellipses.}
-  \item[\normalfont\emph{Hyperbolic}]\negthickspace$\iff K<0\iff k_1,k_2\neq 0$ and have opposite signs.\\
-  Level curves near $P$ are approximately \emph{hyperbolæ.}
-  \item[\normalfont\emph{Parabolic}]\negthickspace$\iff K=0$ and $H\neq 0 \iff$ exactly one of $k_1,k_2$ is zero.\\
-  Level curves near $P$ are approximately a pair of \emph{parallel lines}, e.g.\ $x=\pm c$.
-  \item[\normalfont\emph{Planar}]\negthickspace$\iff K=H=0\iff k_1=k_2=0$.\\
-  The curvatures provide no data as to the level curves near $P$.
-\end{description}
+	Suppose $k_1,k_2,K,H$ are the curvatures of a surface $S$ at a point $P$. We say that $P$ is:
+	\begin{description}\itemsep0pt
+		\item[\normalfont\emph{Elliptic}]\negthickspace$\iff K>0\iff k_1,k_2\neq 0$ and have the same sign.\\
+	  Level curves near $P$ are approximately \emph{ellipses.}
+	  \item[\normalfont\emph{Hyperbolic}]\negthickspace$\iff K<0\iff k_1,k_2\neq 0$ and have opposite signs.\\
+	  Level curves near $P$ are approximately \emph{hyperbolæ.}
+	  \item[\normalfont\emph{Parabolic}]\negthickspace$\iff K=0$ and $H\neq 0 \iff$ exactly one of $k_1,k_2$ is zero.\\
+	  Level curves near $P$ are approximately a pair of \emph{parallel lines}, e.g.\ $x=\pm c$.
+	  \item[\normalfont\emph{Planar}]\negthickspace$\iff K=H=0\iff k_1=k_2=0$.\\
+	  The curvatures provide no data as to the level curves near $P$.
+	\end{description}
 \end{defn}
 
 
 \begin{example*}{\ref{ex:hypparabeuler}, mk.\,II}{}
-For the graph of $z=x^2-y^2$, the level curve $x^2-y^2=c\neq 0$ is a hyperbola.\par
-\begin{minipage}[t]{0.63\linewidth}\vspace{-5pt}
-In fact this is true everywhere on this surface: under the usual parametrization $\vx(u,v)=\bigl(u,v,u^2-v^2\bigr)$, we have
-\[K=-\frac{4}{(1+4u^2+4v^2)^2}\quad\text{and}\quad  H=\frac{4(v^2-u^2)}{(1+4u^2+4v^2)^{3/2}}\]
-Since $K<0$ everywhere, all points are hyperbolic.
-\end{minipage}\hfill\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}
-\flushright\href{http://www.math.uci.edu/~ndonalds/math162a/euler-setup3.html}{\includegraphics{euler-setup3}}
-\end{minipage}\smallbreak
-In the picture, shifted tangent planes $c\vn_P+T_PS$ and their intersections with the surface are drawn for two points. In both cases the level curves are genuine hyperbolæ.
+	For the graph of $z=x^2-y^2$, the level curve $x^2-y^2=c\neq 0$ is a hyperbola.\par
+	\begin{minipage}[t]{0.63\linewidth}\vspace{-5pt}
+		In fact this is true everywhere on this surface: under the usual parametrization $\vx(u,v)=\bigl(u,v,u^2-v^2\bigr)$, we have
+		\[
+			K=-\frac{4}{(1+4u^2+4v^2)^2} \quad \text{and} \quad  H=\frac{4(v^2-u^2)}{(1+4u^2+4v^2)^{3/2}}
+		\]
+		Since $K<0$ everywhere, all points are hyperbolic.
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.36\linewidth}\vspace{0pt}
+		\flushright\href{http://www.math.uci.edu/~ndonalds/math162a/euler-setup3.html}{\includegraphics{euler-setup3}}
+	\end{minipage}\smallbreak
+	In the picture, shifted tangent planes $c\vn_P+T_PS$ and their intersections with the surface are drawn for two points. In both cases the level curves are genuine hyperbolæ.
 \end{example*}
 
 
@@ -1465,78 +1488,85 @@ In the picture, shifted tangent planes $c\vn_P+T_PS$ and their intersections wit
 \boldsubsubsection{Normal Curvature: intersections with planes containing the normal vector}
 
 Theorem \ref{thm:taylor2} is the surface analogy of Exercise \ref*{sec:radii}.\ref{exs:curvetaylor}: a regular curve in $\E^2$ passing through the origin horizontally at $t=0$ has its graph given locally by
-\[y=\frac 12\kappa(0)x^2+\text{higher order terms}\tag{$\ast$}\]
+\[
+	y=\frac 12\kappa(0)x^2+\text{higher order terms} \tag{$\ast$}
+	\]
 We put this to work by considering the curvature of curves passing through a point on a surface.
 
 \begin{defn}{}{}
-Let $S$ be a surface and $\vv_P\in T_PS$ a non-zero tangent vector.\smallbreak
-The \emph{normal curvature} $\nu(\vv_P)$ is the curvature at $P$ of the curve\footnotemark{} $S\cap\Span\{\vv_P,\vn_P\}$.\smallbreak
-We say that $\vv_P$ is \emph{asymptotic} if $\nu(\vv_P)=0$.
+	Let $S$ be a surface and $\vv_P\in T_PS$ a non-zero tangent vector.\smallbreak
+	The \emph{normal curvature} $\nu(\vv_P)$ is the curvature at $P$ of the curve\footnotemark{} $S\cap\Span\{\vv_P,\vn_P\}$.\smallbreak
+	We say that $\vv_P$ is \emph{asymptotic} if $\nu(\vv_P)=0$.
 \end{defn}
 
 \footnotetext{The curve is the \emph{connected component} of $S\cap\Span\{\vv_P,\vn_P\}$ containing $P$.}
 
 \goodbreak
 
+
 The normal curvature is surprisingly easy to compute.
 
 \begin{thm}{Euler}{}
-Suppose $\vv_P$ makes angle $\psi$ with the first principal curvature direction. Then %the %normal curvature of $S$ in the direction $\vv_P$ is
-\[\nu(\vv_P)=k_1\cos^2\psi +k_2\sin^2\psi\]
-Moreover, the principal curvatures are the extremes of $\nu(\vv_P)$: e.g.\ if $k_1\le k_2$, then
-\[k_1\le\nu(\vv_P)\le k_2\]
+	Suppose $\vv_P$ makes angle $\psi$ with the first principal curvature direction. Then %the %normal curvature of $S$ in the direction $\vv_P$ is
+	\[
+		\nu(\vv_P)=k_1\cos^2\psi +k_2\sin^2\psi
+	\]
+	Moreover, the principal curvatures are the extremes of $\nu(\vv_P)$: e.g.\ if $k_1\le k_2$, then
+	\[
+		k_1\le\nu(\vv_P)\le k_2
+	\]
 \end{thm}
 
 \begin{proof}
-Choose axes such that the principal curvature directions at $P$ are $\vi,\vj$, and the unit normal is $\vn_P=\vk$. The surface is locally the graph of a function $z=f(x,y)$ satisfying Theorem \ref{thm:taylor2}. If $(r,\psi)$ are standard polar co-ordinates on the $(x,y)$-plane, then 
+	Choose axes such that the principal curvature directions at $P$ are $\vi,\vj$, and the unit normal is $\vn_P=\vk$. The surface is locally the graph of a function $z=f(x,y)$ satisfying Theorem \ref{thm:taylor2}. If $(r,\psi)$ are standard polar co-ordinates on the $(x,y)$-plane, then 
 	\begin{align*}
 		z&=\tfrac{1}{2}k_1(r\cos\psi)^2+\tfrac{1}{2}k_2(r\sin\psi)^2+\cdots= \frac 12(k_1\cos^2\psi+k_2\sin^2\psi)r^2+\cdots
 	\end{align*}
-Now fix $\psi$. Without loss of generality, we may assume $\vv_P$ has unit length since only its direction matters. Our curve of interest $\vy_P\subset\Pi(\vv_P)$ may be parametrized
-	\[\vy(r)= r\vv_P+f(r\cos\psi,r\sin\psi)\,\vn_P= \threevec{r\cos\psi}{r\sin\psi}{f(r\cos\psi,r\sin\psi)}=\threevec{r\cos\psi}{r\sin\psi}{\frac 12\nu r^2+\cdots}
+	Now fix $\psi$. Without loss of generality, we may assume $\vv_P$ has unit length since only its direction matters. Our curve of interest $\vy_P\subset\Pi(\vv_P)$ may be parametrized
+	\[
+		\vy(r)= r\vv_P+f(r\cos\psi,r\sin\psi)\,\vn_P= \threevec{r\cos\psi}{r\sin\psi}{f(r\cos\psi,r\sin\psi)} =\threevec{r\cos\psi}{r\sin\psi}{\frac 12\nu r^2+\cdots}
 	\]
 	The last equality used observation ($\ast$), where $\nu$ is the normal curvature. Compare the $z$-expressions for the main result. For the final observation, note that
-	\[\nu=k_1+(k_2-k_1)\sin^2\phi\in[k_1,k_2]\tag*{\qedhere}\]
+	\[
+		\nu=k_1+(k_2-k_1)\sin^2\phi\in[k_1,k_2] \tag*{\qedhere}
+	\]
 \end{proof}
-
-% \begin{example*}[lower separated=false, sidebyside, sidebyside align=top seam, sidebyside gap=0pt, righthand width=0.36\linewidth]{\ref{ex:hypparabeuler}, mk.\,III}{}
-% For the graph of $z=x^2-y^2$, if $\psi=\frac{5\pi}6$, then
-% \begin{align*}
-% \nu&=2\cos^2\frac{5\pi}6-2\sin^2\frac{5\pi}6= 2\left[\left(\frac{\sqrt 3}2\right)^2-\left(\frac 1{\sqrt 3}\right)^2\right] =\frac 56
-% \end{align*}
-% \tcblower
-% \flushright	\flushright\href{http://www.math.uci.edu/~ndonalds/math162a/euler-setup2.html}{\includegraphics{euler-setup2}}
-% \end{example*}
 
 
 \begin{examples}{}{}
-\exstart If $P$ is a planar point, then all normal curvatures are zero and all directions are asymptotic.
-\begin{enumerate}\setcounter{enumi}{1}
-\begin{minipage}[t]{0.6\linewidth}\vspace{0pt}
-  \item For the graph of the hyperbolic paraboloid $z=x^2-y^2$ (Example \ref{ex:hypparabeuler}) at the origin, if $\psi=\frac{5\pi}6$, then
-	\[
-	\nu(\vv_O)=2\cos^2\frac{5\pi}6-2\sin^2\frac{5\pi}6=\frac 32-\frac 23=\frac 56 %2\left[\left(\frac{\sqrt 3}2\right)^2-\left(\frac 1{\sqrt 3}\right)^2\right] =\frac 56
-	\]
-	Indeed since every point is hyperbolic, there are always two asymptotic directions at each point: these correspond to the angles $\psi\in(-\frac\pi 2,\frac\pi 2)$ for which 
-	\[k_1\cos^2\psi+k_2\sin^2\psi=0\iff \tan\psi=\pm\sqrt{-\frac{k_1}{k_2}}\]
-\end{minipage}\hfill\begin{minipage}[t]{0.39\linewidth}\vspace{0pt}
-  \flushright	\flushright\href{http://www.math.uci.edu/~ndonalds/math162a/euler-setup2.html}{\includegraphics{euler-setup2}}
-\end{minipage}\par
+	\exstart If $P$ is a planar point, then all normal curvatures are zero and all directions are asymptotic.
+	\begin{enumerate}\setcounter{enumi}{1}
+		\begin{minipage}[t]{0.6\linewidth}\vspace{0pt}
+	  	\item For the graph of the hyperbolic paraboloid $z=x^2-y^2$ (Example \ref{ex:hypparabeuler}) at the origin, if $\psi=\frac{5\pi}6$, then
+			\[
+				\nu(\vv_O) =2\cos^2\frac{5\pi}6-2\sin^2\frac{5\pi}6 =\frac 32-\frac 23 =\frac 56 %2\left[\left(\frac{\sqrt 3}2\right)^2-\left(\frac 1{\sqrt 3}\right)^2\right] =\frac 56
+			\]
+			Indeed since every point is hyperbolic, there are always two asymptotic directions at each point: these correspond to the angles $\psi\in(-\frac\pi 2,\frac\pi 2)$ for which 
+			\[
+				k_1\cos^2\psi+k_2\sin^2\psi=0\iff \tan\psi=\pm\sqrt{-\frac{k_1}{k_2}}
+			\]
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.39\linewidth}\vspace{0pt}
+	  	\flushright\href{http://www.math.uci.edu/~ndonalds/math162a/euler-setup2.html}{\includegraphics{euler-setup2}}
+		\end{minipage}
+		\par
 
-  \item A elliptic paraboloid $z=x^2+y^2$ has no asymptotic directions at any point. In its usual parametrization, the principal curvatures are both positive everywhere and  the normal curvature at an point is therefore $\vn(\vv_P)=k_1\cos^2\theta+k_2\sin^2\theta>0$.
+  	\item A elliptic paraboloid $z=x^2+y^2$ has no asymptotic directions at any point. In its usual parametrization, the principal curvatures are both positive everywhere and  the normal curvature at an point is therefore $\vn(\vv_P)=k_1\cos^2\theta+k_2\sin^2\theta>0$.
 
 %   \item in the third example, there are only asymptotic directions at the parabolic points when $v=0$. These point parallel to the $y$-axis.
-\end{enumerate}
+	\end{enumerate}
 \end{examples}
 
 \goodbreak
+
 
 \boldsubsubsection{The Second Fundamental Form and the Local Shape of a Surface}
 
 Part of our standard approach is to transfer calculations and analysis on surfaces to the parametrization space. By appealing to the ideal of \emph{normal acceleration} (Theorem \ref{thm:fundformcurves}), we may easily transfer the notion of an asymptotic vector to a property of the second fundamental form.
 
 \begin{thm}{}{asymptoticvec}
-Suppose $\vx:U\to\E^3$ is an oriented surface and let $\vec w_p\in T_p\R^2$ be a non-zero tangent vector. Then $\dvx(\vec w_p)$ is asymptotic iff $\II(\vec w_p,\vec w_p)=0$.
+	Suppose $\vx:U\to\E^3$ is an oriented surface and let $\vec w_p\in T_p\R^2$ be a non-zero tangent vector. Then $\dvx(\vec w_p)$ is asymptotic iff $\II(\vec w_p,\vec w_p)=0$.
 \end{thm}
 
 We tend to call such a tangent vector $\vec w_p$ asymptotic in its own right.\smallbreak
@@ -1544,80 +1574,91 @@ We tend to call such a tangent vector $\vec w_p$ asymptotic in its own right.\sm
 We can moreover restate the point-types introduced in Definition \ref{defn:pointtype} by introducing a related object.
 
 \begin{defn}{}{}
-The \emph{Dupin indicatrix} at $p\in U$ is the set of tangent vectors $\vec w_p\in T_p\R^2$ such that $\II(\vec w_p,\vec w_p)=\pm 1$.
+	The \emph{Dupin indicatrix} at $p\in U$ is the set of tangent vectors $\vec w_p\in T_p\R^2$ such that $\II(\vec w_p,\vec w_p)=\pm 1$.
 \end{defn}
 
 If $\vec s_p,\vec t_p$ are orthonormal\footnote{I.e.\ $\I(\vec s_p,\vec s_p)=1=\I(\vec t_p,\vec t_p)$ and $\I(\vec s_p,\vec t_p)=0$.} curvature directions and $\vec w_p=a\vec s_p+b\vec t_p$, then the Dupin indicatrix has equation
 \begin{align*}
-\II(\vec w_p,\vec w_p)&=a^2\II(\vec s_p,\vec s_p) +2ab\II(\vec s_p,\vec t_p) + b^2\II(\vec t_p,\vec t_p) =k_1a^2+k_2b^2=\pm 1
+	\II(\vec w_p,\vec w_p)&=a^2\II(\vec s_p,\vec s_p) +2ab\II(\vec s_p,\vec t_p) + b^2\II(\vec t_p,\vec t_p) =k_1a^2+k_2b^2=\pm 1
 \end{align*}
 This defines a curve in the tangent space $T_p\R^2$ whose type depends on the signs of the principal curvatures. In essence, the Dupin indicatrix is a depiction of the level curves obtained by taking the intersection $S\cap (c\vn_P+T_PS)$ for \emph{infinitesimal} $c$; unlike real level curves, the indicatrix is an genuine conic! We summarize all possibilities in a table.
 \begin{center}
-\begin{tabular}{c|c|c}
-type of point&\# of asymptotic directions&Dupin indicatrix\\\hline
-elliptic&0&ellipse\\
-hyperbolic&2&pair of hyperbolæ\\
-parabolic&1&pair of parallel lines\\
-planar&$\infty$&empty
-\end{tabular}
+	\begin{tabular}{c|c|c}
+		type of point&\# of asymptotic directions&Dupin indicatrix\\\hline
+		elliptic&0&ellipse\\
+		hyperbolic&2&pair of hyperbolæ\\
+		parabolic&1&pair of parallel lines\\
+		planar&$\infty$&empty
+	\end{tabular}
 \end{center}
 The advantage of this approach is that it is co-ordinate independent: $\II(\vec w_p,\vec w_p)=\pm 1$ describes the same \emph{type} of curve regardless of which basis vectors/co-ordinates one uses to evaluate $\II$.
 
 
 \begin{examples}{}{}
-For a parametrized surface $\vx$, at a given point $p=(u_0,v_0)$, write $\vec w_p=a\partialsat up+b\partialsat vp$.
-\begin{enumerate}
-  \item The tangent developable of the unit speed helix has
-	\[\II(\vec w_p,\vec w_p)=-\frac{v_0}4\,\du^2(\vec w_p,\vec w_p)=-\frac{v_0}4a^2\]
-	The single asymptotic direction is $\vec w_p=\smash{\partialsat vp}$, the direction of zero curvature. The Dupin indicatrix is a pair of parallel lines
-	\[-\frac{v_0}4a^2=\pm 1\implies \vec w_p=\pm\frac 2{\sqrt{\nm{v_0}}}\partialsat up+b\partialsat vp\]
-	
-\begin{minipage}[t]{0.75\linewidth}\vspace{0pt}
-	\item The graph of the surface $z=x^2y$ has second fundamental form
-	\[\II=\frac{2}{\sqrt{1+4u^2v^2+u^4}}\bigl(v\,\du^2+2u\,\du\dv\bigr)
-	\]
-	At the point $p=(1,2)$ (i.e.\ $\vx(p)=(1,2,2)$), we see that
-	\[\II(\vec w_p,\vec w_p)=\frac 4{\sqrt{10}}\bigl(a^2+ab\bigr)=\frac 4{\sqrt{10}}a(a+b)\]
-	The point is hyperbolic with \textcolor{Green}{asymptotic directions} $\partialsat vp$ and $\partialsat up-\partialsat vp$ (corresponding to $a=0$ and $a+b=0$). The \textcolor{blue}{indicatrix} comprises the two hyperbolæ $a(a+b)=\pm\frac{\sqrt 10}4$.
-\end{minipage}\hfill\begin{minipage}[t]{0.24\linewidth}\vspace{0pt}
-	\flushright\includegraphics{euler-indicatrix}
-\end{minipage}
-\end{enumerate}
+	For a parametrized surface $\vx$ at a given point $p=(u_0,v_0)$, write $\vec w_p=\smash[b]{a\partialsat up+b\partialsat vp}$.
+	\begin{enumerate}
+	  \item The tangent developable of the unit speed helix has
+		\[
+			\II(\vec w_p,\vec w_p) =-\frac{v_0}4\,\du^2(\vec w_p,\vec w_p) =-\frac{v_0}4a^2
+		\]
+		The single asymptotic direction is $\vec w_p=\smash{\partialsat vp}$, the direction of zero curvature. The Dupin indicatrix is a pair of parallel lines
+		\[
+			-\frac{v_0}4a^2=\pm 1\implies \vec w_p=\pm\frac 2{\sqrt{\nm{v_0}}}\partialsat up+b\partialsat vp
+		\]
+		
+		\begin{minipage}[t]{0.75\linewidth}\vspace{0pt}
+			\item The graph of the surface $z=x^2y$ has second fundamental form
+			\[
+				\II=\frac{2}{\sqrt{1+4u^2v^2+u^4}}\bigl(v\,\du^2+2u\,\du\dv\bigr)
+			\]
+			At the point $p=(1,2)$ (i.e.\ $\vx(p)=(1,2,2)$), we see that
+			\[
+				\II(\vec w_p,\vec w_p) =\frac 4{\sqrt{10}}\bigl(a^2+ab\bigr) =\frac 4{\sqrt{10}}a(a+b)
+			\]
+			The point is hyperbolic with \textcolor{Green}{asymptotic directions} $\partialsat vp$ and $\partialsat up-\partialsat vp$ (corresponding to $a=0$ and $a+b=0$). The \textcolor{blue}{indicatrix} comprises the two hyperbolæ $a(a+b)=\pm\frac{\sqrt 10}4$.
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.24\linewidth}\vspace{0pt}
+			\flushright\includegraphics{euler-indicatrix}
+		\end{minipage}
+	\end{enumerate}
 \end{examples}
 
 
 \begin{exercises}{}{}
-\exstart Consider the graph of the function $z=x^2-3y^2+7xy^3+9y^4$.
-\begin{enumerate}\setcounter{enumi}{1}
-  \item[]\begin{enumerate}
-  	\item Find the Gauss and mean curvatures at the origin.
-  	\item Find the normal curvature at the origin for the curve in the surface described by $x=y$.
-  \end{enumerate}
-  
-  
-  \item For the elliptic paraboloid $z=x^2+y^2$, let $P=(1,2,5)$ be a fixed point.
-  \begin{enumerate}
-    \item Find the maximum and minimum values for the normal curvature at $P$.
-    \item Find the Dupin indicatrix at $P$.
-  \end{enumerate}
-  
-  
-  \item For the hyperbolic paraboloid $z=x^2-y^2$, let $p=(u_0,v_0)$ and $P=\bigl(u_0,v_0,u_0^2-v_0^2\bigr)$. If $c\neq 0$, prove that the intersection of the parallel plane $c\vn_P+T_PS$ with the paraboloid may be expressed
-  \[(x-u_0)^2-(y-v_0)^2=\text{constant},\quad z=x^2-y^2\]
-  That is, the level curves really are hyperbolæ.
-
-
-	\item Consider the graph of the surface $z=x^2+y^4$.
-	\begin{enumerate}
-	  \item Compute the Gauss curvature and classify all points according to Definition \ref{defn:pointtype}.
-	  \item Sketch the level curves $z=c$ where $c=1$, $\frac 1{100}$ and $\frac 1{10000}$ and compare these to the Dupin indicatrix at the origin.\par
-	  (\emph{This should convince you of the importance that $c$ be small!})
+	\exstart Consider the graph of the function $z=x^2-3y^2+7xy^3+9y^4$.
+	\begin{enumerate}\setcounter{enumi}{1}
+	  \item[]\begin{enumerate}
+	  	\item Find the Gauss and mean curvatures at the origin.
+	  	\item Find the normal curvature at the origin for the curve in the surface described by $x=y$.
+	  \end{enumerate}
+	  
+	  
+	  \item For the elliptic paraboloid $z=x^2+y^2$, let $P=(1,2,5)$ be a fixed point.
+	  \begin{enumerate}
+	    \item Find the maximum and minimum values for the normal curvature at $P$.
+	    \item Find the Dupin indicatrix at $P$.
+	  \end{enumerate}
+	  
+	  
+	  \item For the hyperbolic paraboloid $z=x^2-y^2$, let $p=(u_0,v_0)$ and $P=\bigl(u_0,v_0,u_0^2-v_0^2\bigr)$. If $c\neq 0$, prove that the intersection of the parallel plane $c\vn_P+T_PS$ with the paraboloid may be expressed
+	  \[
+	  	(x-u_0)^2-(y-v_0)^2=\text{constant},\quad z=x^2-y^2
+	  \]
+	  That is, the level curves really are hyperbolæ.
+	
+	
+		\item Consider the graph of the surface $z=x^2+y^4$.
+		\begin{enumerate}
+		  \item Compute the Gauss curvature and classify all points according to Definition \ref{defn:pointtype}.
+		  \item Sketch the level curves $z=c$ where $c=1$, $\frac 1{100}$ and $\frac 1{10000}$ and compare these to the Dupin indicatrix at the origin.\par
+		  (\emph{This should convince you of the importance that $c$ be small!})
+		\end{enumerate}
+		
+		
+		\item Prove Theorem \ref{thm:asymptoticvec} by considering the normal acceleration of the curve $S\cap\Span\{\vv_P,\vn_P\}$.
+		
 	\end{enumerate}
-	
-	
-	\item Prove Theorem \ref{thm:asymptoticvec} by considering the normal acceleration of the curve $S\cap\Span\{\vv_P,\vn_P\}$.
-	
-\end{enumerate}
 \end{exercises}
 
 
