@@ -1028,7 +1028,7 @@ At umbilic points, $\II=k\I$ and all directions are curvature directions; any or
 		\]
 		In the abstract, solving for the curvatures and directions is disgusting. As a sanity check, you should verify that $f(u,v)=u^2+v^2$ recovers exactly the curvatures in the previous example!
 	  
-		\item\label{ex:tandevgauss} (Exercise \ref*{sec:fund}.\ref{exs:tandevhelix})\lstsp The tangent developable of the unit speed helix has	
+		\item\label{ex:tandevgauss} (Exercise \ref*{sec:fund}.\ref{exs:tandevhelix})\lstsp The tangent developable of the unit-speed helix has	
 	  \[
 	  	A=[\I]=
 	  	\begin{pmatrix}
@@ -1271,99 +1271,99 @@ Frobenius' theorem comes in many guises and generalizes to higher dimensions, ta
 	If $\vec s,\vec t$ are corresponding eigenvectors, verify that $\vec s^TA\vec t=0=\vec s^TB\vec t$.
 
 
-\begin{enumerate}\setcounter{enumi}{1}
-  \item Parametrize the graph of $x=z^2$; compute $\I,\II$ and the principal, Gauss and mean curvatures.
-  
-  
-  \item Use Theorem \ref{thm:gaussmeancoords} to find the Gauss and mean curvatures of the graph of $y=x^2-z^2$.
-  
-  
-  \item Show that Enneper's surface (Exercise \ref*{sec:fund}.\ref{exs:enneper}) is minimal.
-    
-
-  \item\label{exs:tandevcurv} Let $\vx(u,v)=\vy(u)+v\vy'(u)$ be the tangent developable of a unit speed biregular curve $\vy$.
-  \begin{enumerate}
-    \item Find the principal curvatures, Gauss and mean curvatures of $\vx$.
-		\item Compute the curvature directions and find curvature line co-ordinates.
-	\end{enumerate}
-	(\emph{This is very similar to Example \ref*{ex:gaussexs}.\ref{ex:tandevgauss} - keep track of the changes!})
+	\begin{enumerate}\setcounter{enumi}{1}
+	  \item Parametrize the graph of $x=z^2$; compute $\I,\II$ and the principal, Gauss and mean curvatures.
+	  
+	  
+	  \item Use Theorem \ref{thm:gaussmeancoords} to find the Gauss and mean curvatures of the graph of $y=x^2-z^2$.
+	  
+	  
+	  \item Show that Enneper's surface (Exercise \ref*{sec:fund}.\ref{exs:enneper}) is minimal.
+	    
 	
-	
-	\item With respect to some co-ordinates $u,v$, suppose that a surface has fundamental forms
-	\[
-		\I=u^2\,\du^2+v^2\,\dv^2,\qquad \II=u^2\,\du^2+2uv\,\du\,\dv+v^2\,\dv^2
-	\]
-	
-	\begin{enumerate}
-	  \item Show that the principal curvatures are constant: $k_1=0$ and $k_2=2$.
-	  \item Show that $\vec s= v\partials u-u\partials v$ and $\vec t=v\partials u+u\partials v$ are curvature directions.
-	  \item Compute the Lie bracket $[\vec s,\vec t]$ to show that these are \emph{not} vector fields with respect to some curvature-line co-ordinates $s,t$.
-	  \item Find explicit curvature-line co-ordinates for the surface; functions $s,t$ such that $\partials s,\partials t$ are \emph{parallel} to $\vec s,\vec t$ and express $\I,\II$ with respect to $s,t$.\par
-	  (\emph{Hint: try to guess solutions to $\vec s[t]=0=\vec t[s]$})
-	\end{enumerate}
-	
-	\goodbreak
-
-
-	\item\label{exs:curvlinerotation} Rotate $y=f(x)$ around the $x$-axis and parametrize the surface via
-	\[
-		\vx(\phi,v)=\bigl(v,f(v)\cos\phi,f(v)\sin\phi\bigr)
-	\]
-	\begin{enumerate}
-	  \item Verify that the co-ordinates $\phi,v$ are curvature-line, compute the principal curvatures, and show that the Gauss and mean curvatures are
-		\[
-			K=-\frac{f''(v)}{f(v)\bigl(1+f'(v)^2\bigr)^2}\qquad H=\frac{f(v)f''(v)-1-f'(v)^2}{2f(v)\bigl(1+f'(v)^2\bigr)^{3/2}}
-		\]
-		\item Demonstrate the following by choosing suitable $f(v)$:
-		\begin{enumerate}
-		  \item A cylinder has $K=0$;
-		  \item A cone has $K=0$;
-		  \item A sphere of radius $a$ has $K=\frac 1{a^2}$.
-		  \item A \emph{catenoid} $f(v)=a^{-1}\cosh(av-c)$ is a minimal surface.
+	  \item\label{exs:tandevcurv} Let $\vx(u,v)=\vy(u)+v\vy'(u)$ be the tangent developable of a unit speed biregular curve $\vy$.
+	  \begin{enumerate}
+	    \item Find the principal curvatures, Gauss and mean curvatures of $\vx$.
+			\item Compute the curvature directions and find curvature line co-ordinates.
 		\end{enumerate}
-
-	  \item Suppose $\vx$ is a minimal surface $H\equiv 0$. By writing $g(v)=1+\bigl(f'(v)\bigr)^2$, show that
-	  \[
-	  	1+f'^2=g=a^2f^2 \quad\text{for some constant $a$}
-	  \]
-	  By substituting $f(v)=a^{-1}\cosh\bigl(ah(v)\bigr)$, show that the surface is a \emph{catenoid.}
+		(\emph{This is very similar to Example \ref*{ex:gaussexs}.\ref{ex:tandevgauss} - keep track of the changes!})
+		
+		
+		\item With respect to some co-ordinates $u,v$, suppose that a surface has fundamental forms
+		\[
+			\I=u^2\,\du^2+v^2\,\dv^2,\qquad \II=u^2\,\du^2+2uv\,\du\,\dv+v^2\,\dv^2
+		\]
+		
+		\begin{enumerate}
+		  \item Show that the principal curvatures are constant: $k_1=0$ and $k_2=2$.
+		  \item Show that $\vec s= v\partials u-u\partials v$ and $\vec t=v\partials u+u\partials v$ are curvature directions.
+		  \item Compute the Lie bracket $[\vec s,\vec t]$ to show that these are \emph{not} vector fields with respect to some curvature-line co-ordinates $s,t$.
+		  \item Find explicit curvature-line co-ordinates for the surface; functions $s,t$ such that $\partials s,\partials t$ are \emph{parallel} to $\vec s,\vec t$ and express $\I,\II$ with respect to $s,t$.\par
+		  (\emph{Hint: try to guess solutions to $\vec s[t]=0=\vec t[s]$})
+		\end{enumerate}
+		
+		\goodbreak
+	
+	
+		\item\label{exs:curvlinerotation} Rotate $y=f(x)$ around the $x$-axis and parametrize the surface via
+		\[
+			\vx(\phi,v)=\bigl(v,f(v)\cos\phi,f(v)\sin\phi\bigr)
+		\]
+		\begin{enumerate}
+		  \item Verify that the co-ordinates $\phi,v$ are curvature-line, compute the principal curvatures, and show that the Gauss and mean curvatures are
+			\[
+				K=-\frac{f''(v)}{f(v)\bigl(1+f'(v)^2\bigr)^2}\qquad H=\frac{f(v)f''(v)-1-f'(v)^2}{2f(v)\bigl(1+f'(v)^2\bigr)^{3/2}}
+			\]
+			\item Demonstrate the following by choosing suitable $f(v)$:
+			\begin{enumerate}
+			  \item A cylinder has $K=0$;
+			  \item A cone has $K=0$;
+			  \item A sphere of radius $a$ has $K=\frac 1{a^2}$.
+			  \item A \emph{catenoid} $f(v)=a^{-1}\cosh(av-c)$ is a minimal surface.
+			\end{enumerate}
+	
+		  \item Suppose $\vx$ is a minimal surface $H\equiv 0$. By writing $g(v)=1+\bigl(f'(v)\bigr)^2$, show that
+		  \[
+		  	1+f'^2=g=a^2f^2 \quad\text{for some constant $a$}
+		  \]
+		  By substituting $f(v)=a^{-1}\cosh\bigl(ah(v)\bigr)$, show that the surface is a \emph{catenoid.}
+		  
+		  \item Plainly $K\equiv 0$ if and only if $f''(v)\equiv 0$. What are these surfaces? More generally, if the surface has constant non-zero Gauss curvature $K$, show that $f$ satisfies a non-linear ODE
+		  \[
+		  	Kf^2=(1+f'^2)^{-1}+c \quad\text{for some constant $c$}
+		  \]
+		  (\emph{Solving for $f$ requires an elliptic integral when $c\neq 0$, so don't try!})
+		\end{enumerate}
+		
+		
+		\item The \emph{tractrix} is parametrized by $\vy(t)=\bigl(\sinh^{-1}t-t(1+t^2)^{-1/2}, (1+t^2)^{-1/2}\bigr)$. By revolving this curve around the $x$-axis, show that the resulting surface is a pseudosphere with $K\equiv -1$.
+		
+		
+	  \item We know that the Gauss and mean curvature are defined in terms of the principal curvatures. By writing down a suitable quadratic polynomial, prove that knowing of $H,K$ is sufficient to recover the principal curvatures.
+		
+		  
+	  \item The graph of a function $z=f(x,y)$ is parametrized by $\vx(u,v)=\bigl(u,v,f(u,v)\bigr)$. What can you say about the surface if $(u,v)$ are curvature-line co-ordinates?\par
+	  (\emph{Hint: recall Example \ref{ex:paraboloidpolar}})
 	  
-	  \item Plainly $K\equiv 0$ if and only if $f''(v)\equiv 0$. What are these surfaces? More generally, if the surface has constant non-zero Gauss curvature $K$, show that $f$ satisfies a non-linear ODE
-	  \[
-	  	Kf^2=(1+f'^2)^{-1}+c \quad\text{for some constant $c$}
-	  \]
-	  (\emph{Solving for $f$ requires an elliptic integral when $c\neq 0$, so don't try!})
-	\end{enumerate}
-	
-	
-	\item The \emph{tractrix} is parametrized by $\vy(t)=\bigl(\sinh^{-1}t-t(1+t^2)^{-1/2}, (1+t^2)^{-1/2}\bigr)$. By revolving this curve around the $x$-axis, show that the resulting surface is a pseudosphere with $K\equiv -1$.
-	
-	
-  \item We know that the Gauss and mean curvature are defined in terms of the principal curvatures. By writing down a suitable quadratic polynomial, prove that knowing of $H,K$ is sufficient to recover the principal curvatures.
-	
 	  
-  \item The graph of a function $z=f(x,y)$ is parametrized by $\vx(u,v)=\bigl(u,v,f(u,v)\bigr)$. What can you say about the surface if $(u,v)$ are curvature-line co-ordinates?\par
-  (\emph{Hint: recall Example \ref{ex:paraboloidpolar}})
-  
-  
-  \item\label{exs:curvforms} Suppose $u,v$ are curvature-line co-ordinates for a surface $\vx$. Explain why $\vn_u=-k_1\vx_u$ and $\vn_v=-k_2\vx_v$.
-
-
-	\item\label{exs:totallyumbilic} Suppose that a surface $\vx:U\to\E^3$ is totally umbilic $\II=k\I$ for some function $k:U\to\R$.
-	\begin{enumerate}
-	  \item Use Exercise \ref{exs:curvforms} and $\vn_{uv}=\vn_{vu}$ to prove that $k$ is constant.
-	  \item Prove that $\vx$ is (part of) a plane or a sphere (recall Example \ref{ex:totalumbilic}).\par
-	  (\emph{Hint: If $k\neq 0$ consider $\vc:=\vx+\frac 1k\vn$\ldots})
+	  \item\label{exs:curvforms} Suppose $u,v$ are curvature-line co-ordinates for a surface $\vx$. Explain why $\vn_u=-k_1\vx_u$ and $\vn_v=-k_2\vx_v$.
+	
+	
+		\item\label{exs:totallyumbilic} Suppose that a surface $\vx:U\to\E^3$ is totally umbilic $\II=k\I$ for some function $k:U\to\R$.
+		\begin{enumerate}
+		  \item Use Exercise \ref{exs:curvforms} and $\vn_{uv}=\vn_{vu}$ to prove that $k$ is constant.
+		  \item Prove that $\vx$ is (part of) a plane or a sphere (recall Example \ref{ex:totalumbilic}).\par
+		  (\emph{Hint: If $k\neq 0$ consider $\vc:=\vx+\frac 1k\vn$\ldots})
+		\end{enumerate}
+	
+	
+		\item\label{exs:coordfields} We prove part 2 of Theorem \ref{thm:coordfields}. Given the assumptions, define the \emph{dual 1-forms} to $\vec s,\vec t$:
+	  \[
+	  	\alpha(\vec s)=1=\beta(\vec t) \quad\text{and}\quad \alpha(\vec t)=0=\beta(\vec s)
+	  \]
+	  Use Exercise \ref*{sec:kform}.\ref{exs:liebracketdalpha} to prove that $\D\alpha=0=\D\beta$. Hence conclude  (footnote, page \pageref{fn:poincare}) that (locally) $\alpha=\ds$ and $\beta=\dt$ for some functions $s,t$.
+	
 	\end{enumerate}
-
-
-	\item\label{exs:coordfields} We prove part 2 of Theorem \ref{thm:coordfields}. Given the assumptions, define the \emph{dual 1-forms} to $\vec s,\vec t$:
-  \[
-  	\alpha(\vec s)=1=\beta(\vec t) \quad\text{and}\quad \alpha(\vec t)=0=\beta(\vec s)
-  \]
-  Use Exercise \ref*{sec:kform}.\ref{exs:liebracketdalpha} to prove that $\D\alpha=0=\D\beta$. Hence conclude  (footnote, page \pageref{fn:poincare}) that (locally) $\alpha=\ds$ and $\beta=\dt$ for some functions $s,t$.
-
-\end{enumerate}
 \end{exercises}
 
 \clearpage
@@ -1420,11 +1420,6 @@ Now suppose we rotate the $(x,y)$-plane so that the axes point in the principal 
 	If the graph of $z=f(x,y)$ is tangent to the $(x,y)$-plane at the origin $O$ so that the axes are the curvature directions, then the Maclaurin approximation of the function $f(x,y)$ is
 	\begin{align*}
 		f(x,y)&\approx f(O) +(x\ y)\at{\nabla f}{O} +\frac 12(x\ y)\Hess f(O)\twovec{x}{y} +\text{ higher order terms}\\
-		% &=f(O) +(x\ y)\twovec 00 +\frac 12(x\ y)
-		% \begin{pmatrix}
-		%        k_1&0\\
-		%        0&k_2
-		%       \end{pmatrix}\twovec{x}{y} +\text{ higher order terms}\\
 		&=\frac{1}{2}k_1(O)x^2+\frac{1}{2}k_2(O)y^2+\text{ higher order terms}\tag*{\qedhere}
 	\end{align*}
 \end{thm}
@@ -1493,134 +1488,149 @@ Theorem \ref{thm:taylor2} is the surface analogy of Exercise \ref*{sec:radii}.\r
 	\]
 We put this to work by considering the curvature of curves passing through a point on a surface.
 
-\begin{defn}{}{}
+\begin{defn}{}{normalcurvature}
 	Let $S$ be a surface and $\vv_P\in T_PS$ a non-zero tangent vector.\smallbreak
-	The \emph{normal curvature} $\nu(\vv_P)$ is the curvature at $P$ of the curve\footnotemark{} $S\cap\Span\{\vv_P,\vn_P\}$.\smallbreak
+	The \emph{normal curvature} $\nu(\vv_P)$ is the curvature at $P$ of the curve\footnotemark{} defined by the intersection of the surface $S$ and the normal plane $\Span\{\vv_P,\vn_P\}$.\smallbreak
 	We say that $\vv_P$ is \emph{asymptotic} if $\nu(\vv_P)=0$.
 \end{defn}
 
-\footnotetext{The curve is the \emph{connected component} of $S\cap\Span\{\vv_P,\vn_P\}$ containing $P$.}
+\footnotetext{Strictly, the curve is the \emph{connected component} of $S\cap\Span\{\vv_P,\vn_P\}$ containing $P$.}
 
 \goodbreak
 
 
-The normal curvature is surprisingly easy to compute.
+\begin{example*}{\ref{ex:hypparabeuler}, mk.\,III}{}\phantomsection\label{pg:hypparbeuler}
+	Consider the hyperbolic paraboloid $z=x^2-y^2$ at the origin $P=O$. Fix an angle $\psi$ and let $\vv_P=(\cos\psi,\sin\psi)$. The intersection curve $\vy\subseteq S\cap\Span\{\vv_O,\vn_O\}$ may be parametrized using polar co-ordinates:\par
+	\begin{minipage}[t]{0.6\linewidth}\vspace{-8pt}
+	\[
+		\vy(r)=\bigl(r\cos\psi,r\sin\psi,r^2(\cos^2\psi-\sin^2\psi)\bigr)
+	\]
+	which amounts to the graph of the function $g(r)=r^2\cos 2\psi$. The normal curvature is the curvature at $r=0$ of this curve:
+	\[
+		\nu(\vv_O)=\kappa(0)=\frac{g''(0)}{[1+g'(0)^2]^{3/2}} =2\cos 2\psi
+	\]
+	\end{minipage}
+	\hfill
+	\begin{minipage}[t]{0.39\linewidth}\vspace{-3pt}
+	  \flushright\href{http://www.math.uci.edu/~ndonalds/math162a/euler-setup2.html}{\includegraphics{euler-setup2}}
+	\end{minipage}
+	\medbreak
+	Think about how the this corresponds to the picture and observe that
+	\[
+		\vv_O\text{ is asymptotic} \iff \cos 2\psi=0\iff \psi =\pm\tfrac\pi 4
+	\]
+\end{example*}
+
+Our next result generalizes the method in the example.
 
 \begin{thm}{Euler}{}
-	Suppose $\vv_P$ makes angle $\psi$ with the first principal curvature direction. Then %the %normal curvature of $S$ in the direction $\vv_P$ is
+	Suppose $\vv_P$ makes angle $\psi$ with the first principal curvature direction. Then
 	\[
 		\nu(\vv_P)=k_1\cos^2\psi +k_2\sin^2\psi
 	\]
-	Moreover, the principal curvatures are the extremes of $\nu(\vv_P)$: e.g.\ if $k_1\le k_2$, then
+	In particular, the principal curvatures are the extremes of normal curvature: if $k_1\le k_2$, then
 	\[
 		k_1\le\nu(\vv_P)\le k_2
 	\]
+	where the bounds are realized precisely when $\vv_P$ points in a curvature direction.
 \end{thm}
 
 \begin{proof}
-	Choose axes such that the principal curvature directions at $P$ are $\vi,\vj$, and the unit normal is $\vn_P=\vk$. The surface is locally the graph of a function $z=f(x,y)$ satisfying Theorem \ref{thm:taylor2}. If $(r,\psi)$ are standard polar co-ordinates on the $(x,y)$-plane, then 
+	Choose axes so the curvature directions at $P$ are $\vi,\vj$, and $\vn_P=\vk$. The surface is locally a graph $z=f(x,y)$. If $(r,\psi)$ are polar co-ordinates in the $(x,y)$-plane, Theorem \ref{thm:taylor2} says that 
 	\begin{align*}
-		z&=\tfrac{1}{2}k_1(r\cos\psi)^2+\tfrac{1}{2}k_2(r\sin\psi)^2+\cdots= \frac 12(k_1\cos^2\psi+k_2\sin^2\psi)r^2+\cdots
+		z&=f(x,y)\approx \tfrac{1}{2}k_1(r\cos\psi)^2+\tfrac{1}{2}k_2(r\sin\psi)^2+\cdots= \frac 12(k_1\cos^2\psi+k_2\sin^2\psi)r^2+\cdots
 	\end{align*}
-	Now fix $\psi$. Without loss of generality, we may assume $\vv_P$ has unit length since only its direction matters. Our curve of interest $\vy_P\subset\Pi(\vv_P)$ may be parametrized
+	Fix $\psi$ and let $\vv_P=\stwovec{\cos\psi}{\sin\psi}$ (assume unit length since only the direction matters). Our curve of interest $\vy\subseteq S\cap\Span\{\vv_P,\vn_P\}$ may be parametrized
 	\[
 		\vy(r)= r\vv_P+f(r\cos\psi,r\sin\psi)\,\vn_P= \threevec{r\cos\psi}{r\sin\psi}{f(r\cos\psi,r\sin\psi)} =\threevec{r\cos\psi}{r\sin\psi}{\frac 12\nu r^2+\cdots}
 	\]
-	The last equality used observation ($\ast$), where $\nu$ is the normal curvature. Compare the $z$-expressions for the main result. For the final observation, note that
+	The last equality used observation ($\ast$), where $\nu$ is the normal curvature. For the first result, simply compare the $z$-expressions in the displayed equations. For the final observation, note that
 	\[
-		\nu=k_1+(k_2-k_1)\sin^2\phi\in[k_1,k_2] \tag*{\qedhere}
+		\nu(\vv_P) =k_1(1-\sin^2\psi)+k_2\sin^2\psi =k_1+(k_2-k_1)\sin^2\psi\in[k_1,k_2] \tag*{\qedhere}
 	\]
+	and that the bounds are achieved precisely when $\psi=0,\frac\pi 2$, when $\vv_P$ is a curvature direction.
 \end{proof}
 
 
 \begin{examples}{}{}
-	\exstart If $P$ is a planar point, then all normal curvatures are zero and all directions are asymptotic.
+	\exstart If $P$ is a planar point ($k_1=k_2=0$), all normal curvatures are zero and all directions are asymptotic.
 	\begin{enumerate}\setcounter{enumi}{1}
-		\begin{minipage}[t]{0.6\linewidth}\vspace{0pt}
-	  	\item For the graph of the hyperbolic paraboloid $z=x^2-y^2$ (Example \ref{ex:hypparabeuler}) at the origin, if $\psi=\frac{5\pi}6$, then
-			\[
-				\nu(\vv_O) =2\cos^2\frac{5\pi}6-2\sin^2\frac{5\pi}6 =\frac 32-\frac 23 =\frac 56 %2\left[\left(\frac{\sqrt 3}2\right)^2-\left(\frac 1{\sqrt 3}\right)^2\right] =\frac 56
-			\]
-			Indeed since every point is hyperbolic, there are always two asymptotic directions at each point: these correspond to the angles $\psi\in(-\frac\pi 2,\frac\pi 2)$ for which 
-			\[
-				k_1\cos^2\psi+k_2\sin^2\psi=0\iff \tan\psi=\pm\sqrt{-\frac{k_1}{k_2}}
-			\]
-		\end{minipage}
-		\hfill
-		\begin{minipage}[t]{0.39\linewidth}\vspace{0pt}
-	  	\flushright\href{http://www.math.uci.edu/~ndonalds/math162a/euler-setup2.html}{\includegraphics{euler-setup2}}
-		\end{minipage}
-		\par
-
-  	\item A elliptic paraboloid $z=x^2+y^2$ has no asymptotic directions at any point. In its usual parametrization, the principal curvatures are both positive everywhere and  the normal curvature at an point is therefore $\vn(\vv_P)=k_1\cos^2\theta+k_2\sin^2\theta>0$.
-
-%   \item in the third example, there are only asymptotic directions at the parabolic points when $v=0$. These point parallel to the $y$-axis.
+  	\item (Example \ref{ex:gaussexs}.1)\lstsp All points of the paraboloid $z=r^2$ are elliptic (everywhere $k_1,k_2>0$). The surface has no asymptotic directions at any point, indeed the normal curvature in the direction $\vv_P=(\cos\psi,\sin\psi)$ at $P=(r\cos\theta,r\sin\theta,r^2)$ is
+		\[
+			\nu(\vv_P)=k_1\cos^2\psi+k_2\sin^2\psi =\smash{\frac 2{(1+4r^2)^{3/2}}}\bigl[\cos^2\psi+(1+4r^2)\sin^2\psi\bigr]>0
+		\]
+		\item If $k_2\neq 0$, then $\vv_P=\stwovec{\cos\psi}{\sin\psi}$ is asymptotic $\iff\tan\psi=\pm\sqrt{-\frac{k_1}{k_2}}$.
 	\end{enumerate}
 \end{examples}
-
-\goodbreak
 
 
 \boldsubsubsection{The Second Fundamental Form and the Local Shape of a Surface}
 
-Part of our standard approach is to transfer calculations and analysis on surfaces to the parametrization space. By appealing to the ideal of \emph{normal acceleration} (Theorem \ref{thm:fundformcurves}), we may easily transfer the notion of an asymptotic vector to a property of the second fundamental form.
+Our standard approach is to transfer calculations about surfaces back to the parametrization space. With this in mind, we consider special tangent vectors with respect to the second fundamental form.
 
-\begin{thm}{}{asymptoticvec}
-	Suppose $\vx:U\to\E^3$ is an oriented surface and let $\vec w_p\in T_p\R^2$ be a non-zero tangent vector. Then $\dvx(\vec w_p)$ is asymptotic iff $\II(\vec w_p,\vec w_p)=0$.
-\end{thm}
-
-We tend to call such a tangent vector $\vec w_p$ asymptotic in its own right.\smallbreak
-
-We can moreover restate the point-types introduced in Definition \ref{defn:pointtype} by introducing a related object.
-
-\begin{defn}{}{}
-	The \emph{Dupin indicatrix} at $p\in U$ is the set of tangent vectors $\vec w_p\in T_p\R^2$ such that $\II(\vec w_p,\vec w_p)=\pm 1$.
+\begin{defn}{}{dupin}
+	Let $\vx:U\to\E^3$ be an oriented surface and $\vec w_p\in T_p\R^2$.
+	\begin{enumerate}
+	  \item A tangent vector $\vec w_p\neq\vec 0$ is \emph{asymptotic} if $\II(\vec w_p,\vec w_p)=0$.
+	  \item The \emph{Dupin indicatrix} at $p\in U$ is the set of tangent vectors $\vec w_p$ such that $\II(\vec w_p,\vec w_p)=\pm 1$.
+	\end{enumerate}
 \end{defn}
 
-If $\vec s_p,\vec t_p$ are orthonormal\footnote{I.e.\ $\I(\vec s_p,\vec s_p)=1=\I(\vec t_p,\vec t_p)$ and $\I(\vec s_p,\vec t_p)=0$.} curvature directions and $\vec w_p=a\vec s_p+b\vec t_p$, then the Dupin indicatrix has equation
+\begin{thm}{}{asymptoticvec}
+	The notions of \emph{asymptotic} in Definitions \ref{defn:normalcurvature} \& \ref{defn:dupin} coincide:
+	\[
+		\vv_P=\dvx(\vec w_p)\in T_PS\text{ is asymptotic}\iff \vec w_p\in T_p\R^2 \text{ is asymptotic}
+	\]
+\end{thm}
+
+The proof is an exercise. Recalling Theorem \ref{thm:fundformcurves}, a direction is asymptotic if and only if the \emph{normal acceleration} in said direction is zero.\smallbreak
+
+The Dupin indicatrix turns out to precisely describe level curves near a point. To see this, start by supposing $\vec s_p,\vec t_p$ are orthonormal\footnote{I.e.\ $\I(\vec s_p,\vec s_p)=1=\I(\vec t_p,\vec t_p)$ and $\I(\vec s_p,\vec t_p)=0$. It follows that $\II(\vec s_p,\vec s_p)=k_1I(\vec s_p,\vec s_p)=k_1$, etc.} curvature directions and write $\vec w_p=a\vec s_p+b\vec t_p$. The indicatrix at $p$ has equation
 \begin{align*}
 	\II(\vec w_p,\vec w_p)&=a^2\II(\vec s_p,\vec s_p) +2ab\II(\vec s_p,\vec t_p) + b^2\II(\vec t_p,\vec t_p) =k_1a^2+k_2b^2=\pm 1
 \end{align*}
-This defines a curve in the tangent space $T_p\R^2$ whose type depends on the signs of the principal curvatures. In essence, the Dupin indicatrix is a depiction of the level curves obtained by taking the intersection $S\cap (c\vn_P+T_PS)$ for \emph{infinitesimal} $c$; unlike real level curves, the indicatrix is an genuine conic! We summarize all possibilities in a table.
-\begin{center}
+This defines a conic in the tangent space $T_p\R^2$ whose type depends on the signs of the principal curvatures. In essence, the Dupin indicatrix indicates the level curve obtained by taking the intersection $S\cap (c\vn_P+T_PS)$ for \emph{infinitesimal} $c$. We summarize all possibilities in a table using the point-types introduced in Definition \ref{defn:pointtype}:
+\begin{quote}
 	\begin{tabular}{c|c|c}
-		type of point&\# of asymptotic directions&Dupin indicatrix\\\hline
+		type of point&\# asymptotic directions&Dupin indicatrix\\\hline
 		elliptic&0&ellipse\\
-		hyperbolic&2&pair of hyperbolæ\\
-		parabolic&1&pair of parallel lines\\
+		hyperbolic&2&two hyperbolæ\\
+		parabolic&1&two parallel lines\\
 		planar&$\infty$&empty
 	\end{tabular}
-\end{center}
-The advantage of this approach is that it is co-ordinate independent: $\II(\vec w_p,\vec w_p)=\pm 1$ describes the same \emph{type} of curve regardless of which basis vectors/co-ordinates one uses to evaluate $\II$.
+\end{quote}
 
 
 \begin{examples}{}{}
-	For a parametrized surface $\vx$ at a given point $p=(u_0,v_0)$, write $\vec w_p=\smash[b]{a\partialsat up+b\partialsat vp}$.
+	For a parametrized surface $\vx$ at a given point $p=(u_0,v_0)$, write $\vec w_p=\smash{a\partialsat up+b\partialsat vp}$.
 	\begin{enumerate}
-	  \item The tangent developable of the unit speed helix has
+	  \item (Exercise \ref*{sec:fund}.\ref{exs:tandevhelix})\lstsp The tangent developable of the unit-speed helix has
 		\[
 			\II(\vec w_p,\vec w_p) =-\frac{v_0}4\,\du^2(\vec w_p,\vec w_p) =-\frac{v_0}4a^2
 		\]
-		The single asymptotic direction is $\vec w_p=\smash{\partialsat vp}$, the direction of zero curvature. The Dupin indicatrix is a pair of parallel lines
+		The single asymptotic direction is $\vec w_p=\smash{\partialsat vp}$. The Dupin indicatrix is a pair of parallel lines
 		\[
 			-\frac{v_0}4a^2=\pm 1\implies \vec w_p=\pm\frac 2{\sqrt{\nm{v_0}}}\partialsat up+b\partialsat vp
+			\tag{$b$ is arbitrary!}
 		\]
 		
-		\begin{minipage}[t]{0.75\linewidth}\vspace{0pt}
-			\item The graph of the surface $z=x^2y$ has second fundamental form
+		\begin{minipage}[t]{0.75\linewidth}\vspace{-5pt}
+			\item In its usual parametrization, the surface $z=x^2y$ has
 			\[
 				\II=\frac{2}{\sqrt{1+4u^2v^2+u^4}}\bigl(v\,\du^2+2u\,\du\dv\bigr)
 			\]
-			At the point $p=(1,2)$ (i.e.\ $\vx(p)=(1,2,2)$), we see that
+			At $p=(-1,2)$ (i.e., $\vx(p)=(-1,2,2)$) we see that
 			\[
-				\II(\vec w_p,\vec w_p) =\frac 4{\sqrt{10}}\bigl(a^2+ab\bigr) =\frac 4{\sqrt{10}}a(a+b)
+				\II(\vec w_p,\vec w_p) =\frac 2{\sqrt{18}}\bigl(2a^2-2ab\bigr) =\frac{2\sqrt 2}3a(a-b)
 			\]
-			The point is hyperbolic with \textcolor{Green}{asymptotic directions} $\partialsat vp$ and $\partialsat up-\partialsat vp$ (corresponding to $a=0$ and $a+b=0$). The \textcolor{blue}{indicatrix} comprises the two hyperbolæ $a(a+b)=\pm\frac{\sqrt 10}4$.
 		\end{minipage}
 		\hfill
-		\begin{minipage}[t]{0.24\linewidth}\vspace{0pt}
-			\flushright\includegraphics{euler-indicatrix}
+		\begin{minipage}[t]{0.24\linewidth}\vspace{-5pt}
+			\flushright\includegraphics{euler-indicatrix}\vspace{-20pt}
 		\end{minipage}
+		\par
+		The point is hyperbolic with \textcolor{Green}{asymptotic directions} \smash{$\partialsat vp$ and $\partialsat up-\partialsat vp$}\par
+		($a=0$ and $a-b=0$). The \textcolor{blue}{indicatrix} comprises two hyperbolæ $a(a-b)=\pm\frac 3{2\sqrt 2}$.
 	\end{enumerate}
 \end{examples}
 
@@ -1629,9 +1639,13 @@ The advantage of this approach is that it is co-ordinate independent: $\II(\vec 
 	\exstart Consider the graph of the function $z=x^2-3y^2+7xy^3+9y^4$.
 	\begin{enumerate}\setcounter{enumi}{1}
 	  \item[]\begin{enumerate}
-	  	\item Find the Gauss and mean curvatures at the origin.
+	  	\item Find the Gauss and mean curvatures \emph{at the origin.}\par
+	  	(\emph{Hint: use Theorem \ref{thm:taylor2}})
 	  	\item Find the normal curvature at the origin for the curve in the surface described by $x=y$.
 	  \end{enumerate}
+	  
+	  
+	  \item As in Example \ref*{ex:hypparabeuler}, mk.\,III (page \pageref{pg:hypparbeuler}), find the asymptotic directions at the origin for the surface $z=y^2-3x^2$.
 	  
 	  
 	  \item For the elliptic paraboloid $z=x^2+y^2$, let $P=(1,2,5)$ be a fixed point.
@@ -1641,7 +1655,7 @@ The advantage of this approach is that it is co-ordinate independent: $\II(\vec 
 	  \end{enumerate}
 	  
 	  
-	  \item For the hyperbolic paraboloid $z=x^2-y^2$, let $p=(u_0,v_0)$ and $P=\bigl(u_0,v_0,u_0^2-v_0^2\bigr)$. If $c\neq 0$, prove that the intersection of the parallel plane $c\vn_P+T_PS$ with the paraboloid may be expressed
+	  \item For the hyperbolic paraboloid $z=x^2-y^2$, let $p=(u_0,v_0)$ and $P=\bigl(u_0,v_0,u_0^2-v_0^2\bigr)$. If $c\neq 0$, prove that the intersection of the parallel plane $c\vn_P+T_PS$ and the paraboloid may be expressed
 	  \[
 	  	(x-u_0)^2-(y-v_0)^2=\text{constant},\quad z=x^2-y^2
 	  \]
@@ -1651,10 +1665,10 @@ The advantage of this approach is that it is co-ordinate independent: $\II(\vec 
 		\item Consider the graph of the surface $z=x^2+y^4$.
 		\begin{enumerate}
 		  \item Compute the Gauss curvature and classify all points according to Definition \ref{defn:pointtype}.
-		  \item Sketch the level curves $z=c$ where $c=1$, $\frac 1{100}$ and $\frac 1{10000}$ and compare these to the Dupin indicatrix at the origin.\par
-		  (\emph{This should convince you of the importance that $c$ be small!})
+		  \item Sketch the level curves $z=1$, $\frac 1{100}$ and $\frac 1{10000}$ and compare to the Dupin indicatrix at $(0,0)$.
 		\end{enumerate}
 		
+
 		
 		\item Prove Theorem \ref{thm:asymptoticvec} by considering the normal acceleration of the curve $S\cap\Span\{\vv_P,\vn_P\}$.
 		
