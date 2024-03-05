@@ -1179,7 +1179,7 @@ The Lie bracket condition says that explicit co-ordinates corresponding to given
 \]
 Such co-ordinates indeed exist, though only \emph{locally,} as shown by one of the most important foundational results in differential geometry.
 
-\begin{thm}{Frobenius}{curvexist}
+\begin{thm}{Frobenius}{frobenius}
 	Let $\vec s,\vec t$ be linearly independent vector fields on a domain $U$. Then there exist local co-ordinates $s,t$ whose co-ordinate fields are parallel to $\vec s,\vec t$.\smallbreak
 	In particular, if $\vx(p)$ is a non-umbilic point on a surface $\vx:U\to\E^3$, then there exists a neighborhood $V$ of $p$ and curvature-line co-ordinates $s,t$ on $V$.
 \end{thm}
@@ -1683,36 +1683,36 @@ This defines a conic in the tangent space $T_p\R^2$ whose type depends on the si
 
 \subsection{Adaptive Frames \& Gauss' Remarkable Theorem}
 
-We repurpose an idea first encountered when studying curves. 
+In this section we repurpose the idea of a moving frame first encountered when studying curves. 
 
 \begin{defn}{}{adaptiveframe}
-Let $\vx:U\to\E^3$ parametrize a surface $S=\vx(U)$. A \emph{moving frame} for $S$ is a triple of smooth functions $\ve_1,\ve_2,\ve_3$ on $U$ such that, for each $p\in U$,
-\begin{quote}
-$\bigl\{\ve_1(p),\ve_2(p),\ve_3(p)\bigr\}$ is a positively oriented orthonormal basis of $T_{\vx(p)}\E^3$
-\end{quote}
-If $S$ is oriented, we say that a frame is \emph{adaptive} if $\ve_3=\vn$ is the unit normal field.
+	Let $\vx:U\to\E^3$ parametrize a surface $S$. A \emph{moving frame} for $S$ is a triple of smooth functions $\ve_1,\ve_2,\ve_3$ on $U$ such that, for each $p\in U$,
+	\begin{quote}
+		$\bigl\{\ve_1(p),\ve_2(p),\ve_3(p)\bigr\}$ is a positively oriented orthonormal basis of $T_{\vx(p)}\E^3$
+	\end{quote}
+	When $S$ is oriented, we say that a moving frame is \emph{adaptive} if $\ve_3=\vn$ is the unit normal field.
 \end{defn}
 
 For an adaptive frame, the tangent plane at each point is $T_{\vx(p)}S=\Span\{\ve_1(p),\ve_2(p)\}$.\par
 We will often refer to the matrix-valued function $\cE=\bigl(\ve_1\ \ve_2\ \ve_3\bigr):U\to\rSO_3(\R)$ as the frame.
 
 \begin{examples}{}{adaptive}
-We'll repeatedly analyze three examples through this section.
-\begin{enumerate}\itemsep0pt
-  \item The parabolic cylinder $\vx(u,v)=\bigl(u,v,\frac 12u^2\bigr)$ has an adaptive frame
-	\[
-	\textcolor{red}{\ve_1}=\frac 1{\sqrt{1+u^2}}\threevec 10u\qquad \textcolor{blue}{\ve_2}=\threevec 010\qquad \textcolor{Green}{\ve_3}=\frac 1{\sqrt{1+u^2}}\threevec{-u}01
-	\]
-	\item The sphere of radius $R$ in spherical polar co-ordinates $\vx(\psi,\phi)$ has an adaptive frame\footnotemark
-	\[
-	\textcolor{red}{\ve_1}=\threevec{-\sin\psi}{\cos\psi}0\qquad \textcolor{blue}{\ve_2}=\threevec{-\cos\psi\sin\phi}{-\sin\psi\sin\phi}{\cos\phi}\qquad \textcolor{Green}{\ve_3}=\vx=\threevec{\cos\psi\cos\phi}{\sin\psi\cos\phi}{\sin\phi}
-	\]
-	\item The paraboloid $\vx(r,\psi)=\bigl(r\cos\psi,r\sin\psi,\frac 12r^2\bigr)$ has an adaptive frame
-	\[
-	\textcolor{red}{\ve_1}=\frac 1{\sqrt{1+r^2}}\threevec{\cos\psi}{\sin\psi}{r}\qquad \textcolor{blue}{\ve_2}=\threevec{-\sin\psi}{\cos\psi}0\qquad \textcolor{Green}{\ve_3}=\frac 1{\sqrt{1+r^2}}\threevec{-r\cos\psi}{-r\sin\psi}1
-	\]
-\end{enumerate}
-%\hangindent0pt\relax
+	We'll repeatedly analyze three examples through this section.
+	\begin{enumerate}\itemsep0pt
+	  \item The parabolic cylinder $\vx(u,v)=\bigl(u,v,\frac 12u^2\bigr)$ has an adaptive frame
+		\[
+			\textcolor{red}{\ve_1}=\frac 1{\sqrt{1+u^2}}\threevec 10u\qquad \textcolor{blue}{\ve_2}=\threevec 010\qquad \textcolor{Green}{\ve_3}=\frac 1{\sqrt{1+u^2}}\threevec{-u}01
+		\]
+		\item The sphere of radius $R$ in spherical polar co-ordinates $\vx(\psi,\phi)$ has an adaptive frame\footnotemark
+		\[
+			\textcolor{red}{\ve_1}=\threevec{-\sin\psi}{\cos\psi}0\qquad \textcolor{blue}{\ve_2}=\threevec{-\cos\psi\sin\phi}{-\sin\psi\sin\phi}{\cos\phi}\qquad \textcolor{Green}{\ve_3}=\vx=\threevec{\cos\psi\cos\phi}{\sin\psi\cos\phi}{\sin\phi}
+		\]
+		\item The paraboloid $\vx(r,\psi)=\bigl(r\cos\psi,r\sin\psi,\frac 12r^2\bigr)$ has an adaptive frame
+		\[
+			\textcolor{red}{\ve_1}=\frac 1{\sqrt{1+r^2}}\threevec{\cos\psi}{\sin\psi}{r}\qquad \textcolor{blue}{\ve_2}=\threevec{-\sin\psi}{\cos\psi}0\qquad \textcolor{Green}{\ve_3}=\frac 1{\sqrt{1+r^2}}\threevec{-r\cos\psi}{-r\sin\psi}1
+		\]
+	\end{enumerate}
+
 In the pictures we've reduced the lengths of the frame vectors for clarity.
 	\begin{center}
 	\href{http://www.math.uci.edu/~ndonalds/math162a/moving-paracyl.html}{\includegraphics[scale=0.9]{moving-paracyl}}
@@ -1721,7 +1721,7 @@ In the pictures we've reduced the lengths of the frame vectors for clarity.
 	\quad
 	\href{http://www.math.uci.edu/~ndonalds/math162a/moving-paraboloid.html}{\includegraphics[scale=0.85]{moving-paraboloid}}
 	\end{center}
-In each case the first two vectors were obtained by differentiating with respect to the co-ordinates (and normalizing if necessary). This only works because all these co-ordinate systems are \emph{orthogonal}!
+In each case $\textcolor{red}{\ve_1}, \textcolor{blue}{\ve_2}$ were obtained by differentiating with respect to the co-ordinates (and normalizing if necessary). This works because all the co-ordinate systems for all three examples are \emph{orthogonal.}
 \end{examples}
 
 
@@ -1734,184 +1734,220 @@ In each case the first two vectors were obtained by differentiating with respect
 \vfil
 \goodbreak
 
-As with the Frenet frame, our strategy is to treat the analysis of a surface $\vx:U\to\E^3$ two stages:
+
+As with the Frenet frame approach to curves, our strategy is to analyse a surface $\vx:U\to\E^3$ two stages:
 \begin{enumerate}
-  \item Describe how $\vx$ moves with respect to the frame.
-  \item Describe how the frame itself moves. 
+  \item Describe how $\vx$ moves with respect to the frame $\cE$.
+  \item Describe how the frame $\cE$ moves (with respect to itself). 
 \end{enumerate}
-As we're now used to, we describe infinitesimal change using 1-forms, following an approach pioneered by Élie Cartan around 1899.
+We describe infinitesimal changes using 1-forms, following an approach pioneered by Élie Cartan around 1899.
 
 \begin{defn}{}{mcforms}
-Let $\vx:U\to\E^3$ be a smooth map and $\cE=(\ve_1\ \ve_2\ \ve_3)$ a moving frame. The \emph{metric forms} $\theta_j$ and the \emph{connection forms} $\omega_{jk}$ are the 1-forms on $U$ defined by
-\[\theta_j:=\ve_j\cdot\dvx,\quad \omega_{jk}=\ve_j\cdot\D\ve_k\]
-where $j,k\in\{1,2,3\}$.
+	Let $\vx:U\to\E^3$ be a smooth map and $\cE=(\ve_1\ \ve_2\ \ve_3)$ a moving frame. The \emph{metric forms} $\theta_j$ and \emph{connection forms} $\omega_{jk}$ are the 1-forms on $U$ defined by
+	\[
+		\theta_j:=\ve_j\cdot\dvx,\quad \omega_{jk}=\ve_j\cdot\D\ve_k
+	\]
+	where $j,k\in\{1,2,3\}$.
 \end{defn}
 
-Since $\ve_1,\ve_2,\ve_3$ are orthonormal, these forms are simply the co-ordinates of $\dvx$, $\D\ve_1$, $\D\ve_2$, $\D\ve_3$ with respect to the moving frame:
-\[\dvx=\sum_{j=1}^3(\ve_j\cdot\dvx)\ve_j=\ve_1\theta_1+\ve_2\theta_2+\ve_3\theta_3,\qquad \D\ve_k=\sum_{j=1}^3\ve_j\omega_{jk}\tag{$\ast$}\]
-If the frame is adaptive, then $\theta_3=0$. Moreover, for any frame, there are only three independent connection forms.
+Since $\ve_1,\ve_2,\ve_3$ are orthonormal, these forms are nothing more than the co-ordinates of $\dvx$, $\D\ve_1$, $\D\ve_2$ and $\D\ve_3$ with respect to the moving frame:
+\[
+	\dvx=\sum_{j=1}^3(\ve_j\cdot\dvx)\ve_j=\ve_1\theta_1+\ve_2\theta_2+\ve_3\theta_3,\qquad \D\ve_k=\sum_{j=1}^3\ve_j\omega_{jk}\tag{$\ast$}
+\]
+The frame is adaptive if and only if $\theta_3=0$. Moreover, as the next result shows, for any frame there are only three independent connection forms (compare this with Theorem \ref{thm:moving}).
 
 \begin{lemm}{}{}
-For all $j,k$, we have $\omega_{jk}=-\omega_{kj}$. In particular $\omega_{jj}=0$.
+	For all $j,k$, we have $\omega_{jk}=-\omega_{kj}$. In particular $\omega_{jj}=0$.
 \end{lemm}
 
 \begin{proof}
-Apply $\D$ to the identity $\ve_j\cdot\ve_k=0$ or 1 to see that
-\[0=\D\ve_j\cdot\ve_k+\ve_j\cdot\D\ve_k=\omega_{kj}+\omega_{jk}\tag*{\qedhere}\]
+	Take the exterior derivative of the identity $\ve_j\cdot\ve_k=0$ or 1, to obtain
+	\[
+		0=\D\ve_j\cdot\ve_k+\ve_j\cdot\D\ve_k=\omega_{kj}+\omega_{jk} \tag*{\qedhere}
+	\]
 \end{proof}
 
 If ($\ast$) are arranged in matrix format, the subscripts follow the usual row/column convention:
-\[\dvx=\bigl(\ve_1\ \ve_2\ \ve_3\bigr)\threevec{\theta_1}{\theta_2}{\theta_3}=\cE\Theta,\qquad \D \cE=\bigl(\ve_1\ \ve_2\ \ve_3\bigr)
+\[
+	\dvx=\bigl(\ve_1\ \ve_2\ \ve_3\bigr)\threevec{\theta_1}{\theta_2}{\theta_3}=\cE\Theta,\qquad \D \cE=\bigl(\ve_1\ \ve_2\ \ve_3\bigr)
 	\begin{pmatrix}
 		0&\omega_{12}&\omega_{13}\\
 		-\omega_{12}&0&\omega_{23}\\
 		-\omega_{13}&-\omega_{23}&0
 	\end{pmatrix}
-	=\cE\lomega\]
-	The second expression should remind you of the Frenet-Serret equations for a curve! The metric forms get their name because they \emph{measure} small changes on the surface. The connection forms tell us how nearby frames are related (\emph{connected}): if $\vec s_p\in T_p\R^2$, then
-% \[\ve(p+\vec s)\approx \ve_1(p)+\D\ve_1(\vec s_p)=\ve_1(p)+\sum_{j=2}^3\ve_j\omega_{jk}(\vec s)\]
-\[\cE(p+\vec s_p)-\cE(p)\approx \D \cE(\vec s_p)=\cE\lomega(\vec s_p)\]
+	=\cE\lomega
+\]
+The second expression should remind you of the Frenet--Serret equations for a curve! The metric forms get their name because they \emph{measure} small changes on the surface. The connection forms tell us how nearby frames are related (\emph{connected}): abusing notation a little, if $\vec s_p\in T_p\R^2$, then
+\[\cE(p+\vec s_p)-\cE(p)\approx \D \cE(\vec s_p)=\cE(p)\lomega(\vec s_p)\]
 The fundamental forms of $\vx$ can be written in terms of $\Theta$ and $\lomega$; in an adaptive frame this is particularly simple.
 
 \begin{lemm}{}{iadaptiveframe}
-In an adaptive frame
-\[\I=\dvx\cdot\dvx=\theta_1^2+\theta_2^2\quad\text{and}\quad \II=-\dvx\cdot\D\ve_3=-\theta_1\omega_{13}-\theta_2\omega_{23}\]
+	In an adaptive frame
+	\[
+		\I=\dvx\cdot\dvx=\theta_1^2+\theta_2^2\quad\text{and}\quad \II=-\dvx\cdot\D\ve_3=-\theta_1\omega_{13}-\theta_2\omega_{23}
+	\]
 \end{lemm}
 
 \begin{examples*}{\ref{ex:adaptive}, mk.\,II}{}
-You needn't compute all exterior derivatives $\D\ve_k$; use the skew-symmetry of $\lomega$ to help and look for which frame fields are easier to differentiate! The expressions for the fundamental forms should be a sanity check, since we know how to compute them already.
+	You needn't compute all exterior derivatives $\D\ve_k$: use the skew-symmetry of $\lomega$ to help; also consider which frame fields are easier to differentiate! The expressions for the fundamental forms should be a sanity check since we know how to compute them already.
 	\begin{enumerate}
 	  \item The parabolic cylinder has
   	\begin{align*}
-  	\dvx=\threevec 10u\du+\threevec 010\dv=\sqrt{1+u^2}\ve_1\,\du+\ve_2\,\dv
-  	&\implies \theta_1=\sqrt{1+u^2}\,\du,\ \ \theta_2=\dv\\[-4pt]
-  	&\implies \I=(1+u^2)\,\du^2+\dv^2
+  		\dvx=\threevec 10u\du+\threevec 010\dv=\sqrt{1+u^2}\ve_1\,\du+\ve_2\,\dv
+  		&\implies \theta_1=\sqrt{1+u^2}\,\du,\ \ \theta_2=\dv\\[-4pt]
+  		&\implies \I=(1+u^2)\,\du^2+\dv^2
   	\end{align*}
   	Since $\ve_2$ is constant, we have $\D\ve_2=\V0$ from which
-  	\[\omega_{12}=\ve_1\cdot\D\ve_2=0,\quad \omega_{23}=-\omega_{32}=-\ve_3\cdot\D\ve_2=0\]
+  	\[
+  		\omega_{12}=\ve_1\cdot\D\ve_2=0,\quad \omega_{23}=-\omega_{32}=-\ve_3\cdot\D\ve_2=0
+  	\]
   	The final connection form requires a derivative:
-  	\[\omega_{13}=\ve_1\cdot\D\ve_3=\frac 1{\sqrt{1+u^2}}\threevec 10u\cdot\left[\frac{-u}{(1+u^2)^{3/2}}\threevec{-u}01+\frac 1{\sqrt{1+u^2}}\threevec{-1}00\right] =\frac{-1}{1+u^2}\du\]
+  	\[
+  		\omega_{13}=\ve_1\cdot\D\ve_3=\frac 1{\sqrt{1+u^2}}\threevec 10u\cdot\left[\frac{-u}{(1+u^2)^{3/2}}\threevec{-u}01+\frac 1{\sqrt{1+u^2}}\threevec{-1}00\right] =\frac{-1}{1+u^2}\du
+  	\]
   	Putting it together, we have
-  	\[\lomega=
-	\frac{1}{1+u^2}
-	\begin{pmatrix}
-		0&0&-1\\
-		0&0&0\\
-		1&0&0
-	\end{pmatrix}\du
-	\quad\text{and}\quad \II=-\theta_1\omega_{13}-\theta_2\omega_{23}=\du^2\]
+  	\[
+	  	\lomega=\frac{1}{1+u^2}
+			\begin{pmatrix}
+				0&0&-1\\
+				0&0&0\\
+				1&0&0
+			\end{pmatrix}
+			\du	\quad\text{and}\quad 
+			\II=-\theta_1\omega_{13}-\theta_2\omega_{23}=\du^2
+		\]
 
 	  \item For the sphere of radius $R$, $\dvx=R\cos\phi\ve_1\,\D\psi +R\ve_2\,\D\phi$, whence
 	  \begin{gather*}
-	  \theta_1=R\cos\phi\,\D\psi,\ \ \theta_2=R\D\phi \implies \I=R^2\bigl(\cos^2\!\phi\,\D\psi^2+\D\phi^2\bigr)\\
-		\D\ve_1=\threevec{-\cos\psi}{-\sin\psi}0\D\psi\implies \begin{cases}
-		\omega_{12}=-\ve_2\cdot\D\ve_1=-\sin\phi\,\D\psi\\
-		\omega_{13}=-\ve_3\cdot\D\ve_1=\cos\phi\,\D\psi
-		\end{cases}\\
-		\omega_{23}=\ve_2\cdot\D\ve_3=\threevec{-\cos\psi\sin\phi}{-\sin\psi\sin\phi}{\cos\phi}\cdot\left[\threevec{-\sin\psi\cos\phi}{\cos\psi\cos\phi}{0}\D\psi+\threevec{-\cos\psi\sin\phi}{-\sin\psi\sin\phi}{\cos\phi}\D\phi\right] =\D\phi\\
-		\implies \II=-\theta_1\omega_{13}-\theta_2\omega_{23}=-R\bigl(\cos^2\!\phi\,\D\psi^2+\D\phi^2\bigr)
+		  \theta_1=R\cos\phi\,\D\psi,\ \ \theta_2=R\D\phi \implies \I=R^2\bigl(\cos^2\!\phi\,\D\psi^2+\D\phi^2\bigr)\\
+			\D\ve_1=\threevec{-\cos\psi}{-\sin\psi}0\D\psi\implies 
+			\begin{cases}
+				\omega_{12}=-\ve_2\cdot\D\ve_1=-\sin\phi\,\D\psi\\
+				\omega_{13}=-\ve_3\cdot\D\ve_1=\cos\phi\,\D\psi
+			\end{cases}\\
+			\omega_{23} = \ve_2\cdot\D\ve_3 = \threevec{-\cos\psi\sin\phi}{-\sin\psi\sin\phi}{\cos\phi}\cdot\left[\threevec{-\sin\psi\cos\phi}{\cos\psi\cos\phi}{0}\D\psi + \threevec{-\cos\psi\sin\phi}{-\sin\psi\sin\phi}{\cos\phi}\D\phi\right] = \D\phi\\
+			\implies \II = -\theta_1\omega_{13}-\theta_2\omega_{23} = -R\bigl(\cos^2\!\phi\,\D\psi^2+\D\phi^2\bigr)
 	  \end{gather*}
 	  
   	\item For the paraboloid,
   	\begin{gather*}
-  	\dvx=\threevec{\cos\psi}{\sin\psi}{r}\dr +r\threevec{-\sin\psi}{\cos\phi}0\D\psi =\sqrt{1+r^2}\ve_1\,\dr+r\ve_2\,\D\psi\\[2pt]
-  	\implies \theta_1=\sqrt{1+r^2}\,\dr,\quad \theta_2=r\,\D\psi \implies \I=(1+r^2)\dr^2+r^2\,\D\psi^2
+	  	\dvx=\threevec{\cos\psi}{\sin\psi}{r}\dr +r\threevec{-\sin\psi}{\cos\phi}0\D\psi =\sqrt{1+r^2}\ve_1\,\dr+r\ve_2\,\D\psi\\[2pt]
+	  	\implies \theta_1=\sqrt{1+r^2}\,\dr,\quad \theta_2=r\,\D\psi \implies \I=(1+r^2)\dr^2+r^2\,\D\psi^2
   	\end{gather*}
   	The connection forms are comparatively ugly. The low-hanging fruit is $\D\ve_2=\smash[b]{\sthreevec{-\cos\psi}{-\sin\psi}0}\D\psi$, which quickly yields two of them:
-  \[\omega_{12}=\ve_1\cdot\D\ve_2=-\frac{\D\psi}{\sqrt{1+r^2}},\quad \omega_{23}=-\omega_{32}=-\ve_3\cdot\D\ve_2=\frac{-r\,\D\psi}{\sqrt{1+r^2}}\]
-  The last connection form requires a nastier differentiation, though only one of the three terms in $\D\ve_3$ provides a non-zero result when dotted with $\ve_1$:
-  \[
-  \omega_{13}=\ve_1\cdot\D\ve_3=\frac 1{\sqrt{1+r^2}}\threevec{\cos\psi}{\sin\psi}{r}\cdot\left[\cdots+\frac 1{\sqrt{1+r^2}}\threevec{-\cos\psi}{-\sin\psi}0\dr\right] =\frac{-\dr}{1+r^2}
-  \]
-  We therefore obtain the connection form matrix
-  \[
-  \lomega=\frac 1{\sqrt{1+r^2}}
-	  \begin{pmatrix}
-		0&-\D\psi&\frac{-1}{\sqrt{1+r^2}}\,\dr\\
-		\D\psi&0&-r\,\D\psi\\
-		\frac 1{\sqrt{1+r^2}}\,\dr&r\,\D\psi&0
-	\end{pmatrix}
-	\]
-	and second fundamental form
-	\[
-	\II=-\sqrt{1+r^2}\,\dr\frac{-\dr}{1+r^2} -r\,\D\psi\frac{-r\,\D\psi}{\sqrt{1+r^2}} =\frac 1{\sqrt{1+r^2}}\bigl(\dr^2+r^2\D\psi^2\bigr)
-	\]
+  	\[
+  		\omega_{12}=\ve_1\cdot\D\ve_2=-\frac{\D\psi}{\sqrt{1+r^2}},\quad \omega_{23}=-\omega_{32}=-\ve_3\cdot\D\ve_2=\frac{-r\,\D\psi}{\sqrt{1+r^2}}
+  	\]
+  	The last connection form requires a nastier differentiation, though only one of the three terms in $\D\ve_3$ provides a non-zero result when dotted with $\ve_1$:
+  	\[
+  		\omega_{13}=\ve_1\cdot\D\ve_3=\frac 1{\sqrt{1+r^2}}\threevec{\cos\psi}{\sin\psi}{r}\cdot\left[\cdots+\frac 1{\sqrt{1+r^2}}\threevec{-\cos\psi}{-\sin\psi}0\dr\right] =\frac{-\dr}{1+r^2}
+  	\]
+  	We therefore obtain the connection form matrix
+  	\[
+  		\lomega=\frac 1{\sqrt{1+r^2}}
+	  	\begin{pmatrix}
+				0&-\D\psi&\frac{-1}{\sqrt{1+r^2}}\,\dr\\
+				\D\psi&0&-r\,\D\psi\\
+				\frac 1{\sqrt{1+r^2}}\,\dr&r\,\D\psi&0
+			\end{pmatrix}
+		\]
+		and second fundamental form
+		\[
+			\II=-\sqrt{1+r^2}\,\dr\frac{-\dr}{1+r^2} -r\,\D\psi\frac{-r\,\D\psi}{\sqrt{1+r^2}} =\frac 1{\sqrt{1+r^2}}\bigl(\dr^2+r^2\D\psi^2\bigr)
+		\]
 	\end{enumerate}
 \end{examples*}
 
 
 \boldsubsubsection{The Structure Equations for a Moving Frame}
 
-The metric and connection forms satisfy matrix equations $\dvx=\cE\Theta$ and $\D \cE=\cE\lomega$. Since $\D^2=0$, something nice happens when we take the exterior derivatives of these expressions:
+The metric and connection forms satisfy matrix equations $\dvx=\cE\Theta$ and $\D\cE=\cE\lomega$. Since $\D^2=0$, something nice happens when we take the exterior derivatives of these expressions:
 \begin{gather*}
-\V0=\D^2\vx=\D(\dvx)=\D(\cE\,\Theta)=\D \cE\wedge\Theta+\cE\,\D\Theta =\cE(\lomega\wedge\Theta+\D\Theta)\\
-0=\D^2 \cE=\D(\D \cE)=\D(\cE\lomega)=\D \cE\wedge\lomega+\cE\D\lomega = \cE\bigl(\lomega\wedge\lomega+\D\lomega\bigr)
+	\V0=\D^2\vx=\D(\dvx)=\D(\cE\,\Theta)=\D \cE\wedge\Theta+\cE\,\D\Theta =\cE(\lomega\wedge\Theta+\D\Theta)\\
+	0=\D^2 \cE=\D(\D \cE)=\D(\cE\lomega)=\D \cE\wedge\lomega+\cE\D\lomega = \cE\bigl(\lomega\wedge\lomega+\D\lomega\bigr)
 \end{gather*}
-The notation $\lomega\wedge\Theta$ means matrix multiplication using the wedge product of forms to evaluate each entry.\footnote{Be careful not to reverse the order: $\Theta\wedge\lomega$ makes no sense since the dimensions of the matrices are incompatible! Similarly, $\lomega\wedge\lomega$ is unlikely to be zero.} Since $\cE$ is always an invertible matrix, we may conclude two identities. 
+The notation $\lomega\wedge\Theta$ means matrix multiplication using the wedge product of forms to evaluate each entry.\footnote{Be careful not to reverse the order: $\Theta\wedge\lomega$ makes no sense since the dimensions of the matrices are incompatible! Similarly, $\lomega\wedge\lomega$ is unlikely to be zero\ldots} Since each $\cE(p)$ is an invertible matrix, we conclude two identities. 
 
 
 \begin{thm}{}{}
-The metric and connection forms satisfy the \emph{structure equations}: each amounts to three separate equations after multiplying out the matrix expressions.
-%\[\D\Theta+\lomega\wedge\Theta=\V0\quad\text{and}\quad\D\lomega+\lomega\wedge\lomega=0\]
-\begin{enumerate}
-  \item $\D\Theta+\lomega\wedge\Theta=\V0\iff \D\theta_j+{\sum\limits_{k\neq j}}\omega_{jk}\wedge\theta_k=0$ for each $j=1,2,3$
-  \item $\D\lomega+\lomega\wedge\lomega=0\iff \D\omega_{jk}+\omega_{ji}\wedge\omega_{ik}=0$ where $i,j,k$ are distinct.
-\end{enumerate}
+	The metric and connection forms satisfy the \emph{structure equations}; each amounts to three separate equations after multiplying out the matrix expressions.
+	\begin{enumerate}
+	  \item $\D\Theta+\lomega\wedge\Theta=\V0$, \ equivalently \ $\D\theta_j+{\sum\limits_{k\neq j}}\omega_{jk}\wedge\theta_k=0$ for each $j=1,2,3$
+	  \item $\D\lomega+\lomega\wedge\lomega=0$, \ equivalently \ $\D\omega_{jk}+\omega_{ji}\wedge\omega_{ik}=0$ where $i,j,k$ are distinct.
+	\end{enumerate}
 \end{thm}
-These aren't hard to remember if you pay attention to the indices.
-In an adaptive frame ($\theta_3=0$), things are a little simpler and some of the equations get special names:
+These are easy to remember if you pay attention to the indices! In an adaptive frame ($\theta_3=0$), things are a little simpler and some of the equations get special names:
 \begin{align*}
-%&\text{Differential} &&\dvx=\ve_1\theta_1+\ve_2\theta_2 \hspace{170pt}\\
-&\text{First structure equations} &\bigg\{&\begin{array}{@{}c}
-\D\theta_1+\omega_{12}\wedge\theta_2=0\\[4pt]
-\D\theta_2+\omega_{21}\wedge\theta_1=0
-\end{array} \hspace{220pt}\\[2pt]
-&\text{Symmetry equation}&&\omega_{31}\wedge\theta_1+\omega_{32}\wedge\theta_2=0\\[2pt]
-&\text{Gauss equation}&&\D\omega_{12}+\omega_{13}\wedge\omega_{32}=0\\[2pt]
-&\text{Codazzi equations}&\bigg\{&\begin{array}{@{}c}
-\D\omega_{13}+\omega_{12}\wedge\omega_{23}=0\\[4pt]
-\D\omega_{23}+\omega_{21}\wedge\omega_{13}=0
-\end{array}
+	&\text{First structure equations}
+	&\bigg\{
+	&\begin{array}{@{}c}
+		\D\theta_1+\omega_{12}\wedge\theta_2=0\\[4pt]
+		\D\theta_2+\omega_{21}\wedge\theta_1=0
+	\end{array}
+	\hspace{220pt}
+	\\[2pt]
+	&\text{Symmetry equation}
+	&
+	&\omega_{31}\wedge\theta_1+\omega_{32}\wedge\theta_2=0
+	\\[2pt]
+	&\text{Gauss equation}
+	&
+	&\D\omega_{12}+\omega_{13}\wedge\omega_{32}=0
+	\\[2pt]
+	&\text{Codazzi equations}
+	&\bigg\{
+	&\begin{array}{@{}c}
+		\D\omega_{13}+\omega_{12}\wedge\omega_{23}=0\\[4pt]
+		\D\omega_{23}+\omega_{21}\wedge\omega_{13}=0
+	\end{array}
 \end{align*}
 
 \goodbreak
 
-%We return to our examples one last time.
 
 \begin{examples*}{\ref{ex:adaptive}, mk.\,III}{}
-\exstart Since \smash[b]{$\Theta=\sthreevec{\sqrt{1+u^2}\,\du}{\dv}0$ and $\lomega=
-	\frac 1{1+u^2}\begin{smatrix}
+	\exstart For the parabolic cylinder, \smash[b]{$\Theta=\sthreevec{\sqrt{1+u^2}\,\du}{\dv}0$ and $\lomega=\frac 1{1+u^2}
+	\begin{smatrix}
 		0&0&1\\
 		0&0&0\\
 		-1&0&0
 	\end{smatrix}
-	\du$,} all the structure equations are trivial:
-	\[\D\Theta=\V0=-\lomega\wedge\Theta,\quad \D\lomega=0=-\lomega\wedge\lomega\]
-	
-\begin{enumerate}\setcounter{enumi}{1}
-  \item For the sphere $\Theta=R\sthreevec{\cos\phi\,\D\psi}{\D\phi}{0}$ and  $\lomega=\begin{smatrix}
-		0&\sin\phi\,\D\psi&-\cos\phi\,\D\psi\\
-		-\sin\phi\,\D\psi&0&\D\phi\\
-		\cos\phi\,\D\psi&-\D\phi&0
-	\end{smatrix}$, from which
-	\[\D\Theta=R\threevec{-\sin\phi}{0}{0}\D\phi\wedge\D\psi =-\lomega\wedge\Theta\]
+	\du$,} so all the structure equations are trivial:
 	\[
-	\D\lomega=\begin{pmatrix}
-		0&\cos\phi&\sin\phi\\
-		-\cos\phi&0&0\\
-		-\sin\phi&0&0
-	\end{pmatrix}
-	\D\phi\wedge\D\psi =-\lomega\wedge\lomega
+		\D\Theta=\V0=-\lomega\wedge\Theta,\quad \D\lomega=0=-\lomega\wedge\lomega
 	\]
+	
+	\begin{enumerate}\setcounter{enumi}{1}
+  	\item For the sphere, $\Theta=R\sthreevec{\cos\phi\,\D\psi}{\D\phi}{0}$ and  $\lomega=
+  	\begin{smatrix}
+			0&\sin\phi\,\D\psi&-\cos\phi\,\D\psi\\
+			-\sin\phi\,\D\psi&0&\D\phi\\
+			\cos\phi\,\D\psi&-\D\phi&0
+		\end{smatrix}$,
+		from which
+		\begin{gather*}
+			\D\Theta=R\threevec{-\sin\phi}{0}{0}\D\phi\wedge\D\psi =-\lomega\wedge\Theta
+			\\
+			\D\lomega=
+			\begin{pmatrix}
+				0&\cos\phi&\sin\phi\\
+				-\cos\phi&0&0\\
+				-\sin\phi&0&0
+			\end{pmatrix}
+			\D\phi\wedge\D\psi =-\lomega\wedge\lomega
+		\end{gather*}
   
-  \item\label{exs:paraboloidconnectionform} This time we have \smash[b]{$\Theta=\sthreevec{\sqrt{1+r^2}\dr}{r\,\D\psi}0$ and $\lomega=
-	\frac 1{\sqrt{1+r^2}}\begin{smatrix}
-		0&-\D\psi&-\frac{\dr}{\sqrt{1+r^2}}\\
-		\D\psi&0&-r\,\D\psi\\
-		\frac{\dr}{\sqrt{1+r^2}}&r\,\D\psi&0
-	\end{smatrix}$.}\bigbreak
-	The first equations aren't too bad to check:
-	\[\D\Theta=\threevec 010\dr\wedge\D\psi=-\lomega\wedge\Theta\]
+	  \item\label{exs:paraboloidconnectionform} For the paraboloid, \smash[b]{$\Theta=\sthreevec{\sqrt{1+r^2}\dr}{r\,\D\psi}0$ and $\lomega=\frac 1{\sqrt{1+r^2}}
+		\begin{smatrix}
+			0&-\D\psi&-\frac{\dr}{\sqrt{1+r^2}}\\
+			\D\psi&0&-r\,\D\psi\\
+			\frac{\dr}{\sqrt{1+r^2}}&r\,\D\psi&0
+		\end{smatrix}$.}
+		\bigbreak
+		The first equations aren't too bad to check:
+		\[
+			\D\Theta=\threevec 010\dr\wedge\D\psi=-\lomega\wedge\Theta
+		\]
 %   \[\D\Theta+\lomega\wedge\Theta =\threevec 0{\dr\wedge\D\psi}0
 %   +\frac 1{\sqrt{1+4r^2}}
 %   \begin{pmatrix}
@@ -1923,9 +1959,9 @@ In an adaptive frame ($\theta_3=0$), things are a little simpler and some of the
 % 	\threevec{\sqrt{1+4r^2}\,\dr}{r\,\D\psi}0
 % 	=\V0
 %   \]
-  The second is a little nastier: you should check that
-  \begin{align*}
-  \D\lomega
+  	The second are a little nastier: you should check that
+  	\begin{align*}
+  		\D\lomega
 %   =\frac 1{1+4r^2}
 % 	\begin{smatrix}
 % 		0&-\D\psi&\frac{-2\,\dr}{\sqrt{1+4r^2}}\\
@@ -1938,16 +1974,16 @@ In an adaptive frame ($\theta_3=0$), things are a little simpler and some of the
 % 		\D\psi&0&-2r\,\D\psi\\
 % 		\frac{2\,\dr}{\sqrt{1+4r^2}}&2r\,\D\psi&0
 % 	\end{smatrix}
-	=
-	\frac 1{(1+r^2)^{3/2}}
-	\begin{pmatrix}
-		0&r&0\\
-		-r&0&-1\\
-		0&1&0
-	\end{pmatrix}
-	\dr\wedge\D\psi =-\lomega\wedge\lomega 
-  \end{align*}
-\end{enumerate}
+			=
+			\frac 1{(1+r^2)^{3/2}}
+			\begin{pmatrix}
+				0&r&0\\
+				-r&0&-1\\
+				0&1&0
+			\end{pmatrix}
+			\dr\wedge\D\psi =-\lomega\wedge\lomega 
+  	\end{align*}
+	\end{enumerate}
 \end{examples*}
 
 
@@ -1959,62 +1995,74 @@ In an adaptive frame ($\theta_3=0$), things are a little simpler and some of the
 
 \boldsubsubsection{Gauss' Remarkable Theorem}
 
-Suppose we have an adaptive frame for an oriented local surface $\vx$. If $\theta_1,\theta_2$ were linearly dependent at $p$, then the differential $\dvx:T_p\R^2\to T_{\vx(p)}S=\Span\{\ve_1(p),\ve_2(p)\}$ would have $\Rank\le 1$ and thus not be a bijection. We conclude that $\{\theta_1,\theta_2\}$ forms a basis of the space of 1-forms at $p$ and that any other 1-form may be written as a linear combination thereof\ldots
+Suppose we have an adaptive frame for an oriented local surface $\vx$. If $\theta_1,\theta_2$ were linearly dependent at $p$, then the differential $\dvx=\ve_1\theta_1+\ve_2\theta_2:T_p\R^2\to T_{\vx(p)}S=\Span\{\ve_1(p),\ve_2(p)\}$ would have $\Rank\le 1$ and thus not be a bijection. We conclude that $\{\theta_1,\theta_2\}$ forms a basis of the space of 1-forms at $p$, and that \emph{any other 1-form may be written as a linear combination thereof\ldots}
 
 \begin{lemm}{}{gausspreq}
-There exist unique functions $a,b,c$ such that
-\[\omega_{13}=a\theta_1+b\theta_2,\quad\omega_{23}=b\theta_1+c\theta_2\]
-With respect to these functions, the second fundamental form, Gauss and mean curvatures are
-\[\II=-a\theta_1^2-2b\theta_1\theta_2-c\theta_1^2,\qquad K=ac-b^2,\qquad H=-\frac 12(a+c)\]
+	There exist unique functions $a,b,c$ such that
+	\[
+		\omega_{13}=a\theta_1+b\theta_2,\quad\omega_{23}=b\theta_1+c\theta_2
+	\]
+	With respect to these functions, the second fundamental form, Gauss and mean curvatures are
+	\[
+		\II=-a\theta_1^2-2b\theta_1\theta_2-c\theta_1^2,\qquad K=ac-b^2,\qquad H=-\frac 12(a+c)
+	\]
 \end{lemm}
 
 \begin{proof}
-That $\omega_{13}=a\theta_1+b\theta_2$ and $\omega_{23}=\hat b\theta_1+c\theta_2$ are linear combinations of $\theta_1,\theta_2$ is the above discussion. The symmetry equation says that $\hat b=b$:
-\[0=\omega_{13}\wedge\theta_1+\omega_{23}\wedge\theta_2=(-b+\hat b)\,\theta_1\wedge\theta_2\]
-and the formula for $\II$ follows from Lemma \ref{lemm:iadaptiveframe}.\smallbreak
-Moreover, if $\vec w_1$ and $\vec w_2$ are the dual basis fields to $\theta_1,\theta_2$ at each point, then the matrices of $\I,\II$ with respect to these fields are the identity matrix\footnotemark\ and $B=\begin{smatrix}
--a&-b\\-b&-c
-\end{smatrix}$. The Gauss and mean curvatures are therefore the determinant and half the trace of $B$.
+	That $\omega_{13}=a\theta_1+b\theta_2$ and $\omega_{23}=\hat b\theta_1+c\theta_2$ are linear combinations of $\theta_1,\theta_2$ is the above discussion. By the symmetry equation and the fact that $\theta_1\wedge\theta_2\neq 0$,
+	\[
+		0=\omega_{13}\wedge\theta_1+\omega_{23}\wedge\theta_2=(-b+\hat b)\,\theta_1\wedge\theta_2 \implies \hat b=b
+	\]
+	The formula for $\II$ follows from Lemma \ref{lemm:iadaptiveframe}.
+	\smallbreak
+	Moreover, if $\vec w_1$ and $\vec w_2$ are the dual vector fields to $\theta_1,\theta_2$, then the matrices of $\I,\II$ with respect to these fields are the identity matrix\footnotemark{} and $B=
+	\begin{smatrix}
+		-a&-b\\-b&-c
+	\end{smatrix}$. The Gauss and mean curvatures are the determinant and half the trace of $B$ (Theorem \ref{thm:gaussmeancoords}).
 \end{proof}
 
-\footnotetext{$\theta_j(\vec w_k)=\delta_{jk}=\begin{cases}
-                            1&j=k\\
-                            0&j\neq k
-\end{cases}$ implies that $\dvx(\vec w_1)=\ve_1$ and $\dvx(\vec w_2)=\ve_2$ are orthonormal.}
+\footnotetext{$\theta_j(\vec w_k)=\delta_{jk}=
+	\begin{cases}
+  	1&j=k\\
+		0&j\neq k
+	\end{cases}$
+	\ implies that $\dvx(\vec w_1)=\ve_1$ and $\dvx(\vec w_2)=\ve_2$ are orthonormal.}
 
-Now consider the final connection form. Since $\theta_1,\theta_2$ form a basis at each point, we may write
-\[\omega_{12}=f\theta_1+g\theta_2\]
-for some functions $f,g:U\to\R$. Applying the 1\st\ structure equations, we see that 
+Now consider the final connection form $\omega_{12}$. Since $\theta_1,\theta_2$ form a basis at each point, we may write
+\[
+	\omega_{12}=f\theta_1+g\theta_2
+\]
+for some functions $f,g:U\to\R$. Applying the 1\st{} structure equations, 
 \begin{align*}
-&\D\theta_1=-\omega_{12}\wedge\theta_2=-f\theta_1\wedge\theta_2\\
-&\D\theta_2=-\omega_{21}\wedge\theta_1=-\theta_1\wedge\omega_{12}=-g\theta_1\wedge\theta_2
+	&\D\theta_1=-\omega_{12}\wedge\theta_2=-f\theta_1\wedge\theta_2\\
+	&\D\theta_2=-\omega_{21}\wedge\theta_1=-\theta_1\wedge\omega_{12}=-g\theta_1\wedge\theta_2
 \end{align*}
-whence $f,g$, and thus $\omega_{12}$ are determined by $\theta_1,\theta_2$. This brings us to the capstone result of the course.
+whence $f,g$ (and $\omega_{12}$) are determined by $\theta_1,\theta_2$. This brings us to the capstone result of these notes.
 
 \begin{thm}{Gauss' Theorem Egregium}{}
-The Gauss curvature depends only on the first fundamental form $\I$.
+	The Gauss curvature depends only on the first fundamental form.
 \end{thm}
 
 \begin{proof}
-By the above discussion, $\omega_{12}$ (and thus $\D\omega_{12}$) depends only on $\theta_1,\theta_2$, which may be recovered from $\I$ by writing it as a sum of squares. Now observe that the Gauss equation reads 
-\begin{align*}
-\D\omega_{12}&=\omega_{13}\wedge\omega_{23}=(a\theta_1+b\theta_2)\wedge(b\theta_1+c\theta_2)=(ac-b^2)\theta_1\wedge\theta_2=K\theta_1\wedge\theta_2\tag*{\qedhere}
-\end{align*}
+	By the above discussion, $\omega_{12}$ (and thus $\D\omega_{12}$) depends only on $\theta_1,\theta_2$, which may be recovered from $\I=\theta_1^2+\theta_2$ by writing it as a sum of squares. But now the Gauss equation reads 
+	\[
+		\D\omega_{12} =\omega_{13}\wedge\omega_{23} =(a\theta_1+b\theta_2)\wedge(b\theta_1+c\theta_2)=(ac-b^2)\theta_1\wedge\theta_2=K\theta_1\wedge\theta_2 \tag*{\qedhere}
+	\]
 \end{proof}
 
 An explicit formula for $K$ as a function of the coefficients $E,F,G$ of $\I$ can be found; see Exercise \ref{exs:gausscurvline}.\smallbreak
 
-In Latin, \emph{egregium} means \emph{remarkable} or \emph{outstanding}; this is the (modest!) term Gauss used upon proving his result in 1827. Why did he consider it so remarkable? The original definition of $K$ relied on the normal field; an object \emph{outside} the surface which helps describe its position/orientation in $\E^3$. However, Gauss' Theorem says that $K$ is \emph{intrinsic} to the surface: it depends only on the \emph{metric} (first fundamental form) which may be understood by an occupant of the surface with no ability to escape (travel out of the surface) in order to view its shape. By contrast, the second fundamental form and the mean curvature depend on how a surface is embedded; these are \emph{extrinsic} quantities.\medbreak
+\emph{Egregium} (Latin for \emph{remarkable}/\emph{outstanding}) is the (modest!) term Gauss applied after proving his result in 1827. Why did he consider it so remarkable? The original definition of $K$ relied on the normal field; an object \emph{outside} the surface which helps describe its position/orientation in $\E^3$. Gauss' Theorem, however, says that $K$ is \emph{intrinsic} to the surface: it depends only on the \emph{metric} (first fundamental form) which may be understood by an occupant of the surface with no ability to escape (travel outside the surface) in to view its shape. By contrast, the second fundamental form and the mean curvature depend on how a surface is embedded; these are \emph{extrinsic} quantities.\medbreak
 
 
-The result provides what is often a faster method for calculating the Gauss curvature.
+As a nice side-effect, the result provides what is often a faster method for calculating $K$.
 \begin{enumerate}
-  \item Compute $\I=\dvx\cdot\dvx$ and express it as a sum of squares $\I=\theta_1^2+\theta_2^2$.
+  \item Compute the first fundamental form $\I=\dvx\cdot\dvx$ and express it as a sum of squares $\I=\theta_1^2+\theta_2^2$.
   \item Write $\omega_{12}=f\theta_1+g\theta_2$ and compute $f,g$ using the 1\st\ structure equations.
   \item Use the Gauss equation to find $K$.
 \end{enumerate}
 
-We need only calculate 1-forms $\theta_1,\theta_2,\omega_{12}$ that are related to the \emph{tangent} part of the moving frame. The unit normal $\ve_3$ doesn't need to be considered or calculated.
+We need only calculate 1-forms $\theta_1,\theta_2,\omega_{12}$ that are related to the \emph{tangent} part of the moving frame. The unit normal $\ve_3$ needn't be considered or calculated.
 
 % In co-ords based on any version of $\I$? If can write $\I=\theta_1^2+\theta_2^2$, then are these metric forms??? YES!
 % 2) Choose co-ords $\theta_1=f\,\du$ $\theta_2=g\,dv$.\\
@@ -2023,69 +2071,86 @@ We need only calculate 1-forms $\theta_1,\theta_2,\omega_{12}$ that are related 
 
 
 \begin{examples*}{\ref{ex:adaptive}, mk.\,IV}{}
-We return to our examples one last time. We'll pretend we have \emph{only} the 1\st{} fundamental form to work with; even though we've calculated the connection forms already, the goal is to see that $\omega_{12}=f\theta_1+g\theta_2$ and thus $K$ may be found directly from $\I$.
-\begin{enumerate}
-  \item The parabolic cylinder has $\I=(1+u^2)\,\du^2+\dv^2$ so the natural choice is
-  \[\theta_1=\sqrt{1+u^2}\,\du\quad\text{and}\quad \theta_2=\dv\]
-  Since $\D\theta_1=0=\D\theta_2$ we see that $f=g=0$.  We conclude that
-  \[\omega_{12}=0\implies \D\omega_{12}=0\implies K=0\]
-	
-  \item For the sphere $\I=R^2(\cos^2\!\phi\,\D\psi^2+\D\phi^2\bigr)$ so we choose  $\theta_1=R\cos\phi\,\D\psi$ and $\theta_2=R\,\D\phi$. Certainly $\D\theta_2=0\implies g=0$. Moreover,
-  \begin{gather*}
-		\D\theta_1=-f\theta_1\wedge\theta_2\implies R\sin\phi\,\D\psi\wedge\D\phi=-fR^2\cos\phi\,\D\psi\wedge\D\phi\implies f=-R^{-1}\tan\phi
-  \end{gather*}
-  We conclude that $\omega_{12}=-R^{-1}\tan\phi\,\theta_1=-\sin\phi\,\D\psi$, from which
-  \[\D\omega_{12}=\cos\phi\,\D\psi\wedge\D\phi=\frac 1{R^2}\theta_1\wedge\theta_2\implies K=\frac 1{R^2}\]
-  
-  \item For the paraboloid, $\I=(1+r^2)\dr^2+r^2\,\D\psi^2$ so we choose $\theta_1=\sqrt{1+r^2}\,\dr$ and $\theta_2=r\,\D\psi$. This time $\D\theta_1=0\implies f=0$ and
-  \begin{gather*}
-		\D\theta_2=-g\theta_1\wedge\theta_2\implies \dr\wedge\D\psi=-gr\sqrt{1+r^2}\,\dr\wedge\D\psi\implies g=-\frac{1}{r\sqrt{1+r^2}}
-  \end{gather*}
-  We conclude that $\omega_{12}=-\frac{1}{r\sqrt{1+r^2}}\,\theta_2=-\frac{1}{\sqrt{1+r^2}}\,\D\psi$, from which
-  \[\D\omega_{12}=\frac{r}{(1+r^2)^{3/2}}\,\dr\wedge\D\psi=\frac 1{(1+r^2)^2}\theta_1\wedge\theta_2\implies K=\frac 1{(1+r^2)^2}\]
-\end{enumerate}
+	We return to our examples one last time. Even though we've already calculated the connection forms, the goal is to see that $\omega_{12}=f\theta_1+g\theta_2$ and thus $K$ may be found directly from $\I$.
+	\begin{enumerate}
+	  \item The parabolic cylinder has $\I=(1+u^2)\,\du^2+\dv^2$ so the natural choice is
+	  \[
+	  	\theta_1=\sqrt{1+u^2}\,\du\quad\text{and}\quad \theta_2=\dv
+	  \]
+	  Since $\D\theta_1=0=\D\theta_2$ we see that $f=g=0$.  We conclude that
+	  \[
+	  	\omega_{12}=0\implies \D\omega_{12}=0\implies K=0
+	  \]
+		
+	  \item For the sphere $\I=R^2(\cos^2\!\phi\,\D\psi^2+\D\phi^2\bigr)$ so we choose $\theta_1=R\cos\phi\,\D\psi$ and $\theta_2=R\,\D\phi$. Certainly $0=\D\theta_2=-g\theta_1\wedge\theta_2\implies g=0$. Moreover,
+	  \begin{gather*}
+			\D\theta_1=-f\theta_1\wedge\theta_2\implies R\sin\phi\,\D\psi\wedge\D\phi=-fR^2\cos\phi\,\D\psi\wedge\D\phi\implies f=-R^{-1}\tan\phi
+	  \end{gather*}
+	  We conclude that $\omega_{12}=-R^{-1}\tan\phi\,\theta_1=-\sin\phi\,\D\psi$, from which
+	  \[
+	  	\D\omega_{12}=\cos\phi\,\D\psi\wedge\D\phi=\frac 1{R^2}\theta_1\wedge\theta_2\implies K=\frac 1{R^2}
+	  \]
+	  
+	  \item For the paraboloid, $\I=(1+r^2)\dr^2+r^2\,\D\psi^2$ so we choose $\theta_1=\sqrt{1+r^2}\,\dr$ and $\theta_2=r\,\D\psi$. This time $\D\theta_1=0\implies f=0$ and
+	  \[
+			\D\theta_2=-g\theta_1\wedge\theta_2\implies \dr\wedge\D\psi=-gr\sqrt{1+r^2}\,\dr\wedge\D\psi\implies g=-\frac{1}{r\sqrt{1+r^2}}
+	  \]
+	  We conclude that $\omega_{12}=-\frac{1}{r\sqrt{1+r^2}}\,\theta_2=-\frac{1}{\sqrt{1+r^2}}\,\D\psi$, from which
+	  \[
+	  	\D\omega_{12}=\frac{r}{(1+r^2)^{3/2}}\,\dr\wedge\D\psi=\frac 1{(1+r^2)^2}\theta_1\wedge\theta_2\implies K=\frac 1{(1+r^2)^2}
+	  \]
+	\end{enumerate}
 \end{examples*}
 
 
-Since $K$ depends only on the metric, it is invariant under \emph{isometric} transformations of the surface. This helps explain why the Gauss curvature of a cylinder and a cone are both zero: both may constructed by rolling up a flat plane without otherwise distorting it.\smallbreak
+Since $K$ depends only on the metric, it is invariant under \emph{isometric} transformations of the surface. This helps explain why the Gauss curvature of a cylinder and a cone are both zero: both may constructed by rolling up a flat plane without other distortion.\smallbreak
 
-The contrapositive is also important: if two surfaces have different Gauss curvatures, then they cannot be isometric. Since the metric $\I$ determines how we measure angle and length, this explains why we can never get a perfect flat map ($K=0$) of any part of the Earth ($K=\frac 1{R^2}$). The holy grail of map-making would be a map that is free of length, angle and shape distortion: for instance,
+The contrapositive of Gauss' Theorem is also important: surfaces with distinct Gauss curvatures cannot be isometric. Since the metric $\I$ determines how we measure angle and length, this explains why a perfect flat map ($K=0$) of any part of the Earth ($K=\frac 1{R^2}$) is impossible to achieve. The holy grail of map-making would be a map free of direction, angle and length/area distortion:
 \begin{enumerate}
-  \item Straight lines on the map correspond to paths of shortest distance on the Earth.
-  \item Angles on the map equal the corresponding angles on the surface of the Earth.
-  \item Areas on the map and the Earth are in constant ratio.
+  \item Straight lines on the map should correspond to paths of shortest distance on the Earth.
+  \item Angles on the map should equal corresponding angles on the Earth's surface.
+  \item Areas on the map and the Earth should be in constant ratio.
 \end{enumerate}
-Gauss' Theorem ultimately implies that you cannot have all these properties in one map; you can have one, but only one, at a time!
+Gauss' Theorem implies that you cannot have all these properties in one map. In fact, at most one of these properties is possible in a single map.
 
 
 \goodbreak
+
 
 \boldsubsubsection{Riemannian Geometry}
 
 We can even employ the method when there is no surface! The idea is to equip a domain with an abstract first fundamental form and use it to compute lengths, angles, area, geodesics, curvature, etc.
 
 \begin{example}{}{poincaredisc}
-The Poincare disk model of hyperbolic space is the unit disk $\{(x,y)\in\R^2:x^2+y^2<1\}$ equipped with the metric (first fundamental form)
-\[\I=\frac{4(\dx^2+\dy^2)}{(1-x^2-y^2)^2}=\frac{4(\dr^2+r^2\,\D\psi^2)}{(1-r^2)^2}\]
-The idea is that distances get larger as one approaches the boundary of the disk. The natural choice is $\theta_1=\frac{2\dr}{1-r^2}$ and $\theta_2=\frac{2r\,\D\psi}{1-r^2}$, from which $\D\theta_1=0\implies f=0$ and
+	The Poincaré disk model of hyperbolic space is the disk $\bigl\{(x,y)\in\R^2:x^2+y^2<1\bigr\}$ equipped with the metric (first fundamental form)
+	\[
+		\I=\frac{4(\dx^2+\dy^2)}{(1-x^2-y^2)^2}=\frac{4(\dr^2+r^2\,\D\psi^2)}{(1-r^2)^2}
+	\]
+	As one approaches the boundary of the disk, the idea is that measured distance gets larger: the boundary circle is in fact \emph{infinitely far} from any point inside the disk. To express $\I$ as a sum of squares, a natural choice is $\theta_1=\frac{2\dr}{1-r^2}$ and $\theta_2=\frac{2r\,\D\psi}{1-r^2}$, from which $\D\theta_1=0\implies f=0$ and
   \begin{gather*}
 		\D\theta_2=-g\theta_1\wedge\theta_2\implies \frac{2(1+r^2)}{(1-r^2)^2}\dr\wedge\D\psi=-\frac{4gr}{(1-r^2)^2}\,\dr\wedge\D\psi\implies g=-\frac{1+r^2}{2r}
   \end{gather*}
 	from which
   \[\D\omega_{12}=\D(g\theta_2)=-\D\left(\frac{1+r^2}{1-r^2}\right)\wedge\D\psi =\frac{-4r}{(1-r^2)^2}\,\dr\wedge\D\psi =-\theta_1\wedge\theta_2\implies K=-1\]
-  Hyperbolic space is the canonical example of a negatively curved geometry. There is no surface here, no second fundamental form and the mean curvature is meaningless! 
+  Hyperbolic space is the canonical example of a \emph{negatively curved geometry}. There is no surface here, no second fundamental form, and no mean curvature! Since there is no surface, it is harder to visualize what $K$ means in this context (e.g.\ Section \ref{sec:eulersthm}).\footnotemark{}
 \end{example}
 
-The Gauss curvature of a surface is merely the simplest avatar of a more general object called the \emph{Riemann curvature tensor.} Take general relativity, for instance.\footnote{Really this is \emph{pseudo}-Riemannian geometry, since $\I$ is not positive-definite.} Mass is construed as changing the metric of spacetime (i.e.\ $\I$); by a similar analysis it can be seen that this metric is compatible with unique connection (essentially $\lomega$) from which the curvature ($\D\lomega+\lomega\wedge\lomega$) may be computed. When a physicist claims that \emph{spacetime is curved,} this is what they mean: there is no \emph{exterior} to spacetime from which we can measure curvature, so everything is computed intrinsically. Since there is no surface, it is harder to imagine what $K$ means in this context (e.g.\ Section \ref{sec:eulersthm}); a proper treatment of its consequences will have to be postponed to another course.\footnote{For instance, if you join three nearby points with paths of shortest length (geodesics), then $K<0$ means the angle sum of the resulting `triangle' is \emph{less than} \ang{180}. When $K>0$ (e.g.\ a sphere), the angle sum is greater than \ang{180}. %If you parallel transport a tangent vector around a small closed curve, then $K>0$ means the result will be rotated \emph{counter-clockwise} from the original. The difficulty is what is meant by \emph{parallel transport\ldots}
+\footnotetext{The most famous consequence concerns angle-sums of geodesic triangles: $A+B+C=\pi+\int_\triangle K$. If $K<0$, the angle-sum of a geodesic triangle is \emph{less than} \ang{180}. When $K>0$ (e.g., a sphere), the angle sum is greater than \ang{180}. This topic, the related \emph{Gauss--Bonnet Theorem,} and other consequences, are a matter for another course. %If you parallel transport a tangent vector around a small closed curve, then $K>0$ means the result will be rotated \emph{counter-clockwise} from the original. The difficulty is what is meant by \emph{parallel transport\ldots}
 }
+
+The Gauss curvature of a surface is the simplest avatar of a more general object called the \emph{Riemann curvature tensor.} As an example of how this is applied, in general relativity\footnote{Really this is \emph{pseudo}-Riemannian geometry, since $\I$ is not positive-definite.} mass is construed as changing the metric of spacetime (i.e.\ $\I$); it can be seen that this metric is compatible with unique connection (essentially $\lomega$) from which the curvature ($\D\lomega+\lomega\wedge\lomega$) may be computed. When a physicist says \emph{spacetime is curved,} this is what they mean: there is no \emph{exterior} to spacetime from which we can measure curvature, so everything is computed intrinsically.
+
+
 
 \boldsubsubsection{The Fundamental Theorem of Surfaces}
 
-Recall our discussion of the equivalence of spacecurves up to rigid motions (Theorem \ref{thm:isometrytrans}) and the Fundamental Theorem of Biregular Spacecurves (Corollary \ref{cor:fundcurve}). A similar discussion is available for surfaces if we replace curvature and torsion with the fundamental forms $\I,\II$.\smallbreak
+Recall the equivalence of spacecurves up to rigid motions (Theorem \ref{thm:isometrytrans}) and the Fundamental Theorem of Biregular Spacecurves (Corollary \ref{cor:fundcurve}). A similar discussion is available for surfaces once we replace curvature and torsion with the fundamental forms $\I,\II$.\smallbreak
 
-The equivalence problem is almost identical. Suppose $\vx:U\to\E^3$ is an oriented surface, and that $A\in\rO_3(\R)$ and $\vb=\E^3$ are constants. Then $\vy=A\vx+\vb$ is the result of an isometry applied to $\vx$. Any moving frame for $\vx$ may be transformed into such for $\vy$ via
-\[\cE_\vy=\bigl(A\ve_1\ A\ve_2\ \pm A\ve_3\bigr)\]
-where $\pm 1=\det A$. The upshot is that $\vn_\vy=(\det A)A\vn_\vx$, whence $\I,\II$ transform exactly as $\kappa,\tau$:
+The equivalence problem is almost identical. Suppose $\vx:U\to\E^3$ is an oriented surface, and that $A\in\rO_3(\R)$ and $\vb=\E^3$ are constants. Then $\vy:=A\vx+\vb$ is a new surface, the result of applying an isometry to $\vx$. A moving frame for $\vx$ is transformed to a frame for $\vy$ via
+\[
+	\cE_\vy=\bigl(A\ve_1\ A\ve_2\ \pm A\ve_3\bigr) \quad\text{where $\pm 1=\det A$}
+\]
+The upshot is that $\vn_\vy=(\det A)A\vn_\vx$, and $\I,\II$ transform exactly as $\kappa,\tau$:
 \begin{gather*}
 \I_\vy=\D\vy\cdot\D\vy=(A\dvx)\cdot (A\dvx) = \dvx\cdot\dvx=\I_\vx\\
 \II_\vy=-\D\vy\cdot\dvn_\vy=-(\det A)(A\dvx)\cdot (A\dvn_\vx) = (\det A)\II_\vx
@@ -2098,195 +2163,202 @@ As with curves, we may ask the question in reverse. If we know the fundamental f
 % has a unique smooth solution on a neighborhood of $p$ for all possible initial conditions $\vE_O$ if and only if $A,B$ satisfy the compatibility condition
 % \[\partials[A]{v}-\partials[B]{u}+[A,B]=0\tag{$\ast$}\]
 % \end{thm}
-% 
-% 
-% This (roughly) gives the necessity of the condition.
-% 
-% \begin{proof}[Sketch proof]
-% The compatibility condition is really just the fact that the mixed partial derivatives of any solution must be equal $\vE_{uv}=\vE_{vu}$:
-% \[\vE_{uv}-\vE_{vu}=\partials[A]{v}\vE+A\partials[\vE]{v}-\partials[B]{u}\vE-B\partials[\vE]{u} =\left(\partials[A]{v}-\partials[B]{u}+AB-BA\right)\vE\]
-% Sufficiency is a little harder. Here is a rough outline:
-% \begin{enumerate}
-%   \item If $p=(u_0,v_0)$, use the ODE theorem to solve $\vE_u(u,v_0)=A(u,v_0)\vE(u,v_0)$ on the line $v=v_0$.
-%   \item For each fixed $u$, use the ODE theorem to solve $\vE_v=B\vE$.
-%   \item One then verifies that the resulting $\vE$ is differentiable with respect to $u$ and that $\vE_u=A\vE$: this requires the compatibility condition ($\ast$).
-% \end{enumerate}
-% \end{proof}
-% 
-% While this is plainly a necessary condition
-
-
 
 
 \begin{thm}{Bonnet}{bonnet}
-Suppose $\I$ and $\II$ are symmetric bilinear forms where $\I$ is positive-definite. Provided the Gauss--Codazzi equations are satisfied, there exists a local parametrized surface with these fundamental forms, which is moreover unique up to rigid motions.
+	Suppose $\I$ and $\II$ are symmetric bilinear forms where $\I$ is positive-definite. Provided the Gauss--Codazzi equations are satisfied, there exists a local parametrized surface with these fundamental forms, which is moreover unique up to rigid motions.
 \end{thm}
 
-Everything ultimately depends on a generalization of the existence/uniqueness theorem for ODE known as the \emph{Frobenius Theorem.} Here is a rough sketch of how the process works. 
+Everything ultimately depends on a generalization of the existence/uniqueness theorem for ODE (another version of the \emph{Frobenius Theorem} (\ref{thm:frobenius})). Here is a rough sketch of how the process works. 
 
 \begin{enumerate}
-  \item Suppose we are given $\I,\II$ on $U$, and initial conditions at some $p\in U$ for the surface $\vx(p)=\vx_0\in\E^3$ and frame $\cE(p)=\cE_0\in\rSO_3(\R)$.
+  \item Suppose we are given $\I,\II$ on $U$, and initial conditions at some $p\in U$ (for the surface $\vx(p)=\vx_0$ and frame $\cE(p)=\cE_0$).
   \item Since $\I$ is positive-definite, it may be written $\I=\theta_1^2+\theta_2^2$.
   \item The first structure equations determine $\omega_{12}$ and $\II$ determines $\omega_{13}$ and $\omega_{23}$ (Lemma \ref{lemm:gausspreq}).
-  \item The adaptive frame $\cE$ satisfies an initial value problem
-  \[%\begin{cases}
-  \D\cE=\cE\lomega\qquad
-  \cE(p)=\cE_0
-  %\end{cases}
-  \tag{$\ast$}\]
-  The Frobenius Theorem shows that this has a unique local solution provided $\lomega$ satisfies the Gauss--Codazzi equations $\D\lomega+\lomega\wedge\lomega=0$. The analogue of Corollary \ref{cor:picard2} shows that the solution $\cE$ is $\rSO_3(\R)$-valued.
-  \item To find the surface, we need to solve a second initial value problem
- 	\[%\begin{cases}
-  \dvx=\cE\Theta\qquad
-  \vx(p)=\vx_0
-  %\end{cases}
+  \item The Frobenius Theorem shows that the initial value problem
+  \[
+  	\D\cE=\cE\lomega\qquad \cE(p)=\cE_0	\tag{$\ast$}
+  \]
+  has a unique local solution provided the Gauss--Codazzi equations $\D\lomega+\lomega\wedge\lomega=0$ are satisfied. The solution $\cE$ is $\rSO_3(\R)$-valued and supplies an adapted frame (compare Corollary \ref{cor:picard2}).
+  \item To find the surface, solve a second initial value problem
+ 	\[
+  	\dvx=\cE\Theta\qquad \vx(p)=\vx_0
   \]
   Frobenius says this has a unique solution provided $\D\Theta+\lomega\wedge\Theta=0$. Since this is precisely what we used to determine $\lomega$ in step 2, we don't need to check this condition.
-  \item Any other choice of metric forms in step 2 merely results in rotating $\cE$ around $\vn=\ve_3$ and does not affect the resulting surface.
+  \item Any different choice of metric forms in step 2 merely rotates $\cE$ around $\vn=\ve_3$ and does not affect the resulting surface.
 \end{enumerate}
 
-It is a little easier to understand the integrability condition in co-ordinates: $(\ast)$ is a linear system of eighteen PDE in nine unknowns
-\[\begin{cases}
-\partials[\cE]{u}=\cE P\\
-\partials[\cE]{v}=\cE Q
-\end{cases}
-\ \text{where }\ 
-P=\lomega\bigl(\textstyle\partials u\bigr),\ \ Q=\lomega\bigl(\textstyle\partials v\bigr) \text{ are skew-symmetric matrix functions}\]
+It is a little easier to understand the integrability condition when written in co-ordinates: $(\ast)$ is a linear system of eighteen PDE in nine unknowns
+\[
+	\begin{cases}
+		\partials[\cE]{u}=\cE P\\
+		\partials[\cE]{v}=\cE Q
+	\end{cases}
+	\ \text{where }\ 
+	P=\lomega\bigl(\textstyle\partials u\bigr),\ \ Q=\lomega\bigl(\textstyle\partials v\bigr) \text{ are skew-symmetric matrix functions}
+\]
 The Gauss--Codazzi equations are essentially the fact that mixed partial derivatives commute:\footnote{$[P,Q]=PQ-QP$ and $\D\lomega$ is evaluated as in Exercise \ref{sec:kform}.\ref{exs:liebracketdalpha}.}
 \begin{gather*}
-0=\cE_{uv}-\cE_{vu}=\cE_vP+\cE P_v- \cE_uQ+\cE Q_u=\cE\bigl(P_v-Q_u-[P,Q]\bigr)\\
-\begin{aligned}
-P_v-Q_u-[P,Q]&=\textstyle\partials v\lomega\bigl(\partials u\bigr)-\partials u\lomega\bigl(\partials v\bigr)-\bigl[\lomega\bigl(\partials u\bigr),\lomega\bigl(\partials v\bigr)\bigr] =\bigl(\D\lomega+\lomega\wedge\lomega\bigr)\left(\partials v,\partials u\right)
-\end{aligned}
+	0=\cE_{uv}-\cE_{vu}=\cE_vP+\cE P_v- \cE_uQ+\cE Q_u=\cE\bigl(P_v-Q_u-[P,Q]\bigr)\\
+	P_v-Q_u-[P,Q] =\textstyle\partials v\lomega\bigl(\partials u\bigr)-\partials u\lomega\bigl(\partials v\bigr)-\bigl[\lomega\bigl(\partials u\bigr),\lomega\bigl(\partials v\bigr)\bigr] =\bigl(\D\lomega+\lomega\wedge\lomega\bigr)\left(\partials v,\partials u\right)
 \end{gather*}
 
 \goodbreak
 
-The part that requires some proof is that compatibility condition is \emph{sufficient} for a solution. This is not as hard as it sounds; here is another sketch:
+The part that requires some proof is that the integrability condition ($P_v-Q_u=[P,Q]$) is \emph{sufficient} for a solution. This is not as hard as it sounds; here is another sketch:
 \begin{enumerate}
   \begin{minipage}[t]{0.7\linewidth}\vspace{0pt}
-  \item If $p=(u_0,v_0)$, use the ODE existence/uniqueness theorem to solve an initial value problem on the \textcolor{blue}{horizontal line $v=v_0$}:
-  \[
-  \diff[\widetilde\cE]{u}=\widetilde\cE P(u,v_0),\qquad \widetilde\cE(u_0,v_0)=\cE_O
-	\]
+  	\item If $p=(u_0,v_0)$, use Picard's ODE existence/uniqueness theorem to solve an initial value problem on the \textcolor{blue}{horizontal line $v=v_0$}:
+  	\[
+  		\diff[\widetilde\cE]{u}=\widetilde\cE P(u,v_0),\qquad \widetilde\cE(u_0,v_0)=\cE_O
+		\]
   
-  \item For \emph{each} $u_1$, apply the ODE theorem to solve another IVP on the \textcolor{Green}{vertical line $u=u_1$}:
-  \[\diff[\cE]{v}=\cE Q(u_1,v),\qquad \cE(u_1,v_0)=\widetilde\cE(u_1,v_0)
-	\]
-  \end{minipage}\hfill\begin{minipage}[t]{0.29\linewidth}\vspace{0pt}
+  	\item For \emph{each} $u_1$, apply the ODE theorem to solve another IVP on the \textcolor{Green}{vertical line $u=u_1$}:
+  	\[
+  		\diff[\cE]{v}=\cE Q(u_1,v),\qquad \cE(u_1,v_0)=\widetilde\cE(u_1,v_0)
+		\]
+  \end{minipage}
+  \hfill
+  \begin{minipage}[t]{0.29\linewidth}\vspace{0pt}
   	\flushright\includegraphics{adaptive-frobenius}
   \end{minipage}
-  \item Finally, one shows that the resulting $\cE$ is differentiable with respect to $u$, and uses the compatibility condition to check that $\cE_u=\cE P$ as required.
+  \item Finally, one shows that the resulting $\cE$ is differentiable with respect to $u$, and uses the integrability condition to check that $\cE_u=\cE P$ as required.
 \end{enumerate}
-The first two steps may be accomplished approximately using a numerical method to desired accuracy, so this amounts to an algorithm for the approximation of $\cE$. The same approach can then be followed to approximate $\vx$.
+
+The first two steps may be accomplished approximately using a numerical method to desired accuracy, so this amounts to an algorithm for the approximation of $\cE$. The same approach can then be followed to approximate the surface.
 
  
-\boldinline{The Gauss--Codazzi equations in curvature-line co-ordinates} Suppose we wish to define a surface with curvature-line co-ordinates $u,v$; we choose fundamental forms
-\[\I=E\,\du^2+G\,\dv^2,\qquad \II=k_1E\,\du^2+k_2 G\dv^2\tag{$\dag$}\]
-where $E,G$ are positive functions and $k_1,k_2$ the principal curvatures. It is sensible to choose metric forms $\theta_1=\sqrt E\,\du$ and $\theta_2=\sqrt G\,\dv$. In the language of Lemma \ref{lemm:gausspreq},
-\[a=-k_1,\quad b=0,\quad c=-k_2,\quad \omega_{13}=-k_1\sqrt E\,\du,\quad\omega_{23}=-k_2\sqrt G\,\dv\]
-The first structure equations determine (Exercise \ref{exs:gausscurvline})
-\[\omega_{12}= \frac 1{2\sqrt{EG}}\left(E_v\,\du -G_u\,\dv\right)\]
-The Gauss--Codazzi equations turn out to be equivalent to
+\boldinline{The Gauss--Codazzi equations in curvature-line co-ordinates} Suppose $(u,v)$ are curvature-line co-ordinates. Then the fundamental forms are
+\[
+	\I=E\,\du^2+G\,\dv^2,\qquad \II=k_1E\,\du^2+k_2 G\dv^2\tag{$\dag$}
+\]
+where $E,G$ are positive functions and $k_1,k_2$ are the principal curvatures. We therefore choose metric forms $\theta_1=\sqrt E\,\du$ and $\theta_2=\sqrt G\,\dv$. In the language of Lemma \ref{lemm:gausspreq},
+\[
+	a=-k_1,\quad b=0,\quad c=-k_2,\quad \omega_{13}=-k_1\sqrt E\,\du,\quad\omega_{23}=-k_2\sqrt G\,\dv
+\]
+The first structure equations determine 
+\[
+	\omega_{12}= \frac 1{2\sqrt{EG}}\left(E_v\,\du -G_u\,\dv\right)
+\]
+(see Exercise \ref{exs:gausscurvline}). Moreover, the Gauss--Codazzi equations are equivalent to
 \begin{align*}
-\D\omega_{12}+\omega_{21}\wedge\omega_{13}=0\iff &\left(\frac{G_u}{\sqrt{EG}}\right)_u+\left(\frac{E_v}{\sqrt{EG}}\right)_v =-2k_1k_2\sqrt{EG}\\
-\D\omega_{13}+\omega_{12}\wedge\omega_{23}=0\iff &2(k_1)_vE=(k_2-k_1)E_v\\
-\D\omega_{23}+\omega_{21}\wedge\omega_{13}=0\iff &2(k_2)_uG=(k_1-k_2)G_u
+	\D\omega_{12}+\omega_{21}\wedge\omega_{13}=0&\iff \left(\frac{G_u}{\sqrt{EG}}\right)_u+\left(\frac{E_v}{\sqrt{EG}}\right)_v =-2k_1k_2\sqrt{EG}\\
+	\D\omega_{13}+\omega_{12}\wedge\omega_{23}=0&\iff 2(k_1)_vE=(k_2-k_1)E_v\\
+	\D\omega_{23}+\omega_{21}\wedge\omega_{13}=0&\iff 2(k_2)_uG=(k_1-k_2)G_u
 \end{align*}
-This makes it clear that there is an interdependence between $\I$ and $\II$: we cannot independently choose the metric and the curvatures. However, if $E,G,k_1,k_2$ satisfy these equations, Bonnet's theorem guarantees that there indeed exists a surface with fundamental forms $\dag$, unique up to rigid motions.\smallbreak
-Even though $\I,\II$ cannot be chosen independently, Bonnet's result is still considered the best description of the \emph{minimal data} for a surface. You might suspect/hope that knowledge of $K,H$ would be enough to determine a surface up to rigid motions, but Exercise \ref{exs:tandevkh} shows such hope to be vain!
+These equations show the relationship between $\I$ and $\II$: we cannot independently choose the metric ($E,G$) and the curvatures ($k_1,k_2$). However, if $E,G,k_1,k_2$ satisfy these equations, Bonnet's theorem guarantees the existence of a surface with fundamental forms $(\dag)$, unique up to rigid motions.\smallbreak
+While $\I,\II$ cannot be chosen independently, Bonnet's result is considered the best description of the \emph{minimal data} for a surface. You might suspect/hope that knowledge of $K,H$ would be enough to determine a surface up to rigid motions, but Exercise \ref{exs:tandevkh} shows such to be vain!
 
 \goodbreak
 
 
 \begin{exercises}{}{}
-\exstart The unit cylinder $\vx(\phi,v)=\bigl(\cos\phi,\sin\phi,v\bigr)$ has adaptive frame
-\[\ve_1=\threevec{-\sin\phi}{\cos\phi}{0},\qquad \ve_2=\threevec 001,\qquad \ve_3=\ve_1\times\ve_2=\threevec{\cos\phi}{\sin\phi}{0}\]
-\begin{enumerate}\setcounter{enumi}{1}
-  \item[]\begin{enumerate} 
-    \item Directly compute the metric forms $\theta_j$ and connection forms $\omega_{jk}$.
-    \item That the six structure equations are satisfied should be obvious from your answers to (a): why? 
-    \item Why is it completely obvious from your answer to (a) that $K\equiv 0$?
-  \end{enumerate}
-  
-  \item For a general regular surface, explain why we cannot, in general, find co-ordinates $u,v$ for which $\I=\du^2+\dv^2$.
-  
-  
-  \item For the paraboloid example (\ref*{ex:adaptive}.\ref{exs:paraboloidconnectionform}) verify the Gauss--Codazzi equations $\D\lomega+\lomega\wedge\lomega=0$.\par
-  (\emph{Hint: this is easier if you treat the three equations separately!}) 
+	\exstart The unit cylinder $\vx(\phi,v)=\bigl(\cos\phi,\sin\phi,v\bigr)$ has adaptive frame
+	\[
+		\ve_1=\threevec{-\sin\phi}{\cos\phi}{0},\qquad \ve_2=\threevec 001,\qquad \ve_3=\ve_1\times\ve_2=\threevec{\cos\phi}{\sin\phi}{0}
+	\]
+	\begin{enumerate}\setcounter{enumi}{1}
+	  \item[]\begin{enumerate} 
+	    \item Directly compute the metric forms $\theta_j$ and connection forms $\omega_{jk}$.
+	    \item That the six structure equations are satisfied should be obvious from your answers to (a): why? 
+	    \item Why is it completely obvious from your answer to (a) that $K\equiv 0$?
+	  \end{enumerate}
   
   
-  \item Verify that the metric $\I=\frac{\dx^2+\dy^2}{y^2}$ on the upper half-plane $y>0$ has curvature $K=-1$.\par
-  (\emph{Hint: Recall Example \ref{ex:poincaredisc} and Exercise \ref*{sec:fund}.\ref{exs:poincarehalfplane}})
+  	\item For a general regular surface, explain why we cannot, in general, find co-ordinates $u,v$ for which $\I=\du^2+\dv^2$.
+  
+  
+  	\item For the paraboloid example (\ref*{ex:adaptive}.\ref{exs:paraboloidconnectionform}) verify the Gauss--Codazzi equations $\D\lomega+\lomega\wedge\lomega=0$.\par
+ 	 (\emph{Hint: this is easier if you treat the three equations separately!}) 
+  
+  
+  	\item Verify that the metric $\I=\frac{\dx^2+\dy^2}{y^2}$ on the upper half-plane $y>0$ has curvature $K=-1$.\par
+  	(\emph{Hint: Recall Example \ref{ex:poincaredisc} and Exercise \ref*{sec:fund}.\ref{exs:poincarehalfplane}})
   
 
-\item\label{exs:catenoidgauss} Consider the catenoid $\vx(u,v)=\bigl(\cos u\cosh v,\sin u\cosh v,v\bigr)$ obtained by revolving the catenary $x=\cosh z$ around the $z$-axis.
-	\begin{enumerate}
-	  \item Show that there exists a moving frame for which the metric forms are
-	  \[\theta_1=\cosh v\,\du,\quad \theta_2=\cosh v\,\dv\]
-	  \item Show that $\omega_{12}=\tanh v\,\du =\frac{\sinh v}{\cosh v}\,\du$ and use it to prove that the Gaussian curvature of the catenoid is
-	  \[K=-\frac 1{\cosh^4v}\]
-	\end{enumerate}
+		\item\label{exs:catenoidgauss} Consider the catenoid $\vx(u,v)=\bigl(\cos u\cosh v,\sin u\cosh v,v\bigr)$ obtained by revolving the catenary $x=\cosh z$ around the $z$-axis.
+		\begin{enumerate}
+	  	\item Show that there exists a moving frame for which the metric forms are
+	  	\[
+	  		\theta_1=\cosh v\,\du,\quad \theta_2=\cosh v\,\dv
+	  	\]
+	  	\item Show that $\omega_{12}=\tanh v\,\du =\frac{\sinh v}{\cosh v}\,\du$ and use it to prove that the Gaussian curvature of the catenoid is
+	  	\[
+	  		K=-\frac 1{\cosh^4v}
+	  	\]
+		\end{enumerate}
 	
   
-	\item We re-prove Exercise \ref*{sec:principalcurv}.\ref{exs:totallyumbilic} using our new language.
-	\begin{enumerate}
-	  \item Suppose a surface $\vx$ is totally umbilic: $\II=\lambda\I$, where $\lambda$ is some function. Explain why $\omega_{13}=-\lambda\theta_1$ and $\omega_{23}=-\lambda\theta_2$. 
-	  \item Use the 1\st\ structure equations and the Codazzi equations to prove that $\D\lambda=0$.
-		\item If $a=0$, what is $\vx$?
-		\item If $a\neq 0$, define $\V c:=\vx-\frac 1a\ve_3$. Prove that $\D\V c=\V0$ and hence conclude that the surface is (part of a) round sphere.
-	\end{enumerate}
+		\item We re-prove Exercise \ref*{sec:principalcurv}.\ref{exs:totallyumbilic} using our new language.
+		\begin{enumerate}
+		  \item Suppose a surface $\vx$ is totally umbilic: $\II=\lambda\I$, where $\lambda$ is some function. Explain why $\omega_{13}=-\lambda\theta_1$ and $\omega_{23}=-\lambda\theta_2$. 
+		  \item Use the 1\st{} structure equations and the Codazzi equations to prove that $\D\lambda=0$.
+			\item If $a=0$, what is $\vx$?
+			\item If $a\neq 0$, define $\V c:=\vx-\frac 1a\ve_3$. Prove that $\D\V c=\V0$ and hence conclude that the surface is (part of a) round sphere.
+		\end{enumerate}
 	
 
-
-  \item Suppose $\cE=\bigl(\ve_1\ \ve_2\ \ve_3\bigr)$ is an adaptive frame for a surface. Any other adaptive frame (with the same orientation) is obtained by \emph{rotating} around $\ve_3$: that is $\hat{\cE}=\bigl(\hat\ve_1\ \hat\ve_2\ \ve_3\bigr)$ where
-  \[\hat\ve_1=\cos\varphi\,\ve_1+\sin\varphi\,\ve_2,\quad \hat\ve_2=-\sin\varphi\,\ve_1+\cos\varphi\,\ve_2\]
-  for some smooth function $\varphi:U\to\R$.
-  \begin{enumerate}
-    \item Compute $\theta_1,\theta_2$ in terms of $\hat\theta_1,\hat\theta_2$ and conclude that $\hat\theta_1\wedge\hat\theta_2=\theta_1\wedge\theta_2$.
-    \item Use Definition \ref{defn:mcforms} to compute $\hat\omega_{12}$ in terms of $\omega_{12}$ and $\varphi$. Verify that $\D\hat\omega_{12}=\D\omega_{12}$ so that the Gauss equation is identical for the new moving frame.
-  \end{enumerate}
+		\item Suppose $\cE=\bigl(\ve_1\ \ve_2\ \ve_3\bigr)$ is an adaptive frame for a surface. Any other adaptive frame (with the same orientation) is obtained by \emph{rotating} around $\ve_3$: that is $\hat{\cE}=\bigl(\hat\ve_1\ \hat\ve_2\ \ve_3\bigr)$ where
+		\[
+			\hat\ve_1=\cos\varphi\,\ve_1+\sin\varphi\,\ve_2,\quad \hat\ve_2=-\sin\varphi\,\ve_1+\cos\varphi\,\ve_2
+		\]
+ 	  for some smooth function $\varphi:U\to\R$.
+ 	  \begin{enumerate}
+ 	    \item Compute $\theta_1,\theta_2$ in terms of $\hat\theta_1,\hat\theta_2$ and conclude that $\hat\theta_1\wedge\hat\theta_2=\theta_1\wedge\theta_2$.
+ 	    \item Use Definition \ref{defn:mcforms} to compute $\hat\omega_{12}$ in terms of $\omega_{12}$ and $\varphi$. Verify that $\D\hat\omega_{12}=\D\omega_{12}$ so that the Gauss equation is identical for the new moving frame.
+ 	  \end{enumerate}
   
 
-\goodbreak
-  
-  \item Suppose $\I$ is the 1\st\ fundamental form of a surface. Suppose $\I=\theta_1^2+\theta_2^2$ for some 1-forms $\theta_1,\theta_2$. Prove that there exists a moving frame $\cE=(\ve_1\ \ve_2\ \ve_3)$ for which $\dvx=\ve_1\theta_1+\ve_2\theta_2$.\par
-  (\emph{Hint: consider the dual vector fields to $\theta_1,\theta_2$})
+		\goodbreak
   
   
-  \item\label{exs:gausscurvline} Suppose $u,v$ are orthogonal co-ordinates so that $\theta_1=\sqrt E\,\du$ and $\theta_2=\sqrt G\,\dv$.
-  \begin{enumerate}
-    \item Use the structure equations to prove that
-    \[\omega_{12}= \frac 1{2\sqrt{EG}}\left(E_v\,\du -G_u\,\dv\right)\]
-    \item Hence deduce an explicit formula for the Gauss curvature in terms of the coefficients of the 1\st\ fundamental form:
-  	\[K=-\frac 1{2\sqrt{EG}}\left(\partials u\frac{G_u}{\sqrt{EG}}+\partials v\frac{E_v}{\sqrt{EG}}\right)\]
+  	\item Suppose $\I$ is the 1\st{} fundamental form of a surface. Suppose $\I=\theta_1^2+\theta_2^2$ for some 1-forms $\theta_1,\theta_2$. Prove that there exists a moving frame $\cE=(\ve_1\ \ve_2\ \ve_3)$ for which $\dvx=\ve_1\theta_1+\ve_2\theta_2$.\par
+  	(\emph{Hint: consider the dual vector fields to $\theta_1,\theta_2$})
+  
+  
+  	\item\label{exs:gausscurvline} Suppose $u,v$ are orthogonal co-ordinates so that $\theta_1=\sqrt E\,\du$ and $\theta_2=\sqrt G\,\dv$.
+  	\begin{enumerate}
+    	\item Use the structure equations to prove that
+    	\[
+    		\omega_{12}= \frac 1{2\sqrt{EG}}\left(E_v\,\du -G_u\,\dv\right)
+    	\]
+    	\item Hence deduce an explicit formula for the Gauss curvature in terms of the coefficients of the 1\st\ fundamental form:
+  		\[
+  			K=-\frac 1{2\sqrt{EG}}\left(\partials u\frac{G_u}{\sqrt{EG}}+\partials v\frac{E_v}{\sqrt{EG}}\right)
+  		\]
 %   (\emph{Hint: let $\omega_{12}=f\,\du+g\,\dv$ and write $M=\sqrt E$ and $N=\sqrt G$ until the end of the calculation})
-		\emph{This can be multiplied out to remove the square roots, though you'll get more terms. A nastier expression (the Brioshi formula) may be found for general co-ordinates with $F\neq 0$.}
+			\emph{This can be multiplied out to remove the square roots, though you'll get more terms. A nastier expression (the Brioshi formula) may be found for general co-ordinates with $F\neq 0$.}
 		\end{enumerate}
   
   
   
-  \item\label{exs:tandevkh} In Exercise \ref*{sec:principalcurv}.\ref{exs:tandevcurv} we saw that the tangent developable $\vx(u,v)=\vy(u)+v\vy'(u)$ of a unit-speed curve has curvatures $K=0$, $H=-\frac\tau{2v\kappa}$. Use this to describe \emph{two} surfaces with the same curvature functions which are not related by a direct isometry.
+  	\item\label{exs:tandevkh} In Exercise \ref*{sec:principalcurv}.\ref{exs:tandevcurv} we saw that the tangent developable $\vx(u,v)=\vy(u)+v\vy'(u)$ of a unit-speed curve has curvatures $K=0$, $H=-\frac\tau{2v\kappa}$. Use this to describe \emph{two} surfaces with the same curvature functions which are not related by a direct isometry.
   
         
-  \item Show that the surfaces parametrized by
-  \[\vx(u,v)=\bigl(u\cos\phi,u\sin\phi,\ln u\bigr),\quad \vy(u,v)=\bigl(u\cos\phi,u\sin\phi,\phi\bigr)\]
-  have the same Gauss curvature but distinct first fundamental forms $\I_\vx\neq\I_\vy$. To do this properly, you should argue that there is no reparametrization of $\vy$ so that $K_\vx=K_\vy$ and $\I_\vx=\I_\vy$.\par
-  (\emph{Gauss' Theorem isn't bidirectional: surfaces can have the same $K$ without being locally isometric})
+  	\item Show that the surfaces parametrized by
+  	\[
+  		\vx(u,v)=\bigl(u\cos\phi,u\sin\phi,\ln u\bigr),\quad \vy(u,v)=\bigl(u\cos\phi,u\sin\phi,\phi\bigr)
+  	\]
+  	have the same Gauss curvature but distinct first fundamental forms $\I_\vx\neq\I_\vy$. To do this properly, you should argue that there is no reparametrization of $\vy$ so that $K_\vx=K_\vy$ and $\I_\vx=\I_\vy$.\par
+  	(\emph{Gauss' Theorem isn't biconditional: surfaces can have the same $K$ without being locally isometric})
   
   
-  \item Consider the family of surfaces
-  \[\vx^t(u,v)=\cos t\threevec{\sin u\sinh v}{-\cos u\sinh v}{u}+ \sin t\threevec{\cos u\cosh v}{\sin u\cosh v}{v},\qquad t\in[0,\tfrac\pi 2]\]
-   When $t=0$ this is a \emph{helicoid.} When $t=\frac\pi 2$ this is the \emph{catenoid} from Exercise \ref{exs:catenoidgauss}.
-	\begin{enumerate}
-  	\item Compute the first fundamental form of $\vx^t$ and show that it is independent of $t$ (the family $\vx^t$ is therefore \emph{isometric}). 
-  	\item Show that the unit normal of $\vx^t$ is also independent of $t$:
- 	 	\[\vn^t=\frac 1{\cosh v}\threevec{\cos u}{\sin u}{-\sinh v}\]
-  	Hence compute the second fundamental form of $\vx^t$ for each $t$.
-  	\item Find the Gauss and mean curvatures of all surfaces $\vx^t$. What is special about this family? Relate this to Gauss' Theorem.
-\end{enumerate}
+  	\item Consider the family of surfaces
+  	\[
+  		\vx^t(u,v)=\cos t\threevec{\sin u\sinh v}{-\cos u\sinh v}{u}+ \sin t\threevec{\cos u\cosh v}{\sin u\cosh v}{v},\qquad t\in[0,\tfrac\pi 2]
+  	\]
+   	When $t=0$ this is a \emph{helicoid.} When $t=\frac\pi 2$ this is the \emph{catenoid} from Exercise \ref{exs:catenoidgauss}.
+		\begin{enumerate}
+  		\item Compute the first fundamental form of $\vx^t$ and show that it is independent of $t$ (the family $\vx^t$ is therefore \emph{isometric}). 
+  		\item Show that the unit normal of $\vx^t$ is also independent of $t$:
+ 	 		\[
+ 	 			\vn^t=\frac 1{\cosh v}\threevec{\cos u}{\sin u}{-\sinh v}
+ 	 		\]
+  		Hence compute the second fundamental form of $\vx^t$ for each $t$.
+  		\item Find the Gauss and mean curvatures of all surfaces $\vx^t$. What is special about this family? Relate this to Gauss' Theorem.
+		\end{enumerate}
 
-\end{enumerate}
+	\end{enumerate}
 \end{exercises}
 
 \iffalse
@@ -2413,50 +2485,5 @@ defines a Möbius strip in $\E^3$. Show directly that $\vx$ is non-orientable, a
 
 \end{enumerate}
 \end{exercises}
-
-
-% \subsection{Conjugate directions, line congruences and focal surfaces}
-% 
-% This final section is a fun link between geometry and classical PDE theory. It starts from a related concept to asymptotic directions.
-% 
-% \begin{defn}
-% Two tangent vectors $v,w\in T_pU$ are \emph{conjugate} for a surface $\vx$, if $\II(v,w)=0$. Co-ordinates $x,y$ on $U$ are conjugate if the co-ordinate vector fields $\partials x,\partials y$ are conjugate directions in every tangent space $T_pU$.
-% \end{defn}
-% 
-% Asymptotic directions are thus conjugate to themselves.
-% 
-% The following proposition is tautological.
-% 
-% \begin{prop}
-% Co-ordinates $u,v$ are conjugate for a surface $\vx$ iff there exist function $a,b$ such that $\vx_{uv}+a\vx_u+b\vx_v=0$.
-% \end{prop}
-% 
-% Each of the entries (with respect to some basis) of the parameterized surface $\vx$ are solutions of the differential equation $f_{uv}+af_u+bf_v=0$. This is a hyperbolic equation and there exists no general way of solving these. However, the link with geometry gives a method of transforming solutions into new solutions to related equation. Here's how.
-% 
-% \begin{defn}
-% Let $\vx:U\to\E^3$ be a surface and let $X$ be a vector field on $U$. Then
-% \[\vy:=\vx+\dvx(X)\]
-% is a new surface, obtained by walking off the surface $\vx$ in a tangent direction a distance depending on $X$. We say that $\vx$ is a \emph{focal surface} for the family of lines $L:\vx\to\E^3:s\mapsto\{\vx(s)+t\dvx_s(\at Xs):t\in\R\}$. We call $L$
-%  a \emph{line congruence}.
-% \end{defn}
-%  
-% Suppose that $u,v$ are conjugate co-ordinates for $\vx$. For each $\lambda\in\R$, consider the function $\vy_\lambda:U\to\E^3$ defined by
-% \[\vy_\lambda=\vx+\lambda\vx_u.\]
-% The set of lines joining $\vx$ and $\vy_\lambda$ (for any $\lambda\neq 0$) form a line congruence.
-% 
-% \begin{prop}
-% $\vy_\lambda$ is a focal surface for the above line congruence iff $\lambda=0$ or $a$.
-% \end{prop}
-% 
-% \begin{proof}
-% $\vy_\lambda$ is a focal surface for the congruence joining $\vx,\vy_\lambda$ iff there exist functions $e,f$ such that $\vy_\lambda+e\vy_\lambda+f\vy_\lambda=\vx$.
-% \end{proof}
-% 
-% The set of lines $\{L_t:\vx+t(\vy-\vx)\}$ is a line congruence for which $\vx$ is focal. We want to see when $\vy$ is also focal for the congruence. That is we want functions $m$ such that
-% \[\vy+m\vy_v=\vx.\]
-% Solving this we have
-% \[\vx=\vx+k\vx_u+m(\vx_v+k_v\vx_u+k\vx_{uv})=\vx+(k+k_vm+am)\vx_u+m(1+kb)\vx_v.\]
-% Yuk. Just do with conjugate to start with.
-
 
 \fi
