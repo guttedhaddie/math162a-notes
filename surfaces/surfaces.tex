@@ -1585,9 +1585,20 @@ Our standard approach is to transfer calculations about surfaces back to the par
 
 The proof is an exercise. Recalling Theorem \ref{thm:fundformcurves}, a direction is asymptotic if and only if the \emph{normal acceleration} in said direction is zero.\smallbreak
 
-The Dupin indicatrix turns out to precisely describe level curves near a point. To see this, start by supposing $\vec s_p,\vec t_p$ are orthonormal\footnote{I.e.\ $\I(\vec s_p,\vec s_p)=1=\I(\vec t_p,\vec t_p)$ and $\I(\vec s_p,\vec t_p)=0$. It follows that $\II(\vec s_p,\vec s_p)=k_1I(\vec s_p,\vec s_p)=k_1$, etc.} curvature directions and write $\vec w_p=a\vec s_p+b\vec t_p$. The indicatrix at $p$ has equation
+The Dupin indicatrix turns out to precisely describe level curves near a point. To see this, write $\vec w_p=a\vec s_p+b\vec t_p$ where $\vec s_p,\vec t_p$ are orthonormal curvature directions;\footnote{With respect to $\vec s_p,\vec t_p$, the matrices of the fundamental forms at $p$ are $[\I_p]=\begin{smatrix}
+1&0\\0&1
+\end{smatrix}$ and $[\II_p]=\begin{smatrix}
+k_1&0\\0&k_2
+\end{smatrix}$} the indicatrix at $p$ has equation
 \begin{align*}
-	\II(\vec w_p,\vec w_p)&=a^2\II(\vec s_p,\vec s_p) +2ab\II(\vec s_p,\vec t_p) + b^2\II(\vec t_p,\vec t_p) =k_1a^2+k_2b^2=\pm 1
+	\II(\vec w_p,\vec w_p)&=\bigl(a\ b\bigr)
+	\begin{pmatrix}
+		k_1&0\\
+		0&k_2
+	\end{pmatrix}
+	\twovec ab
+	%=a^2\II(\vec s_p,\vec s_p) +2ab\II(\vec s_p,\vec t_p) + b^2\II(\vec t_p,\vec t_p) 
+	=k_1a^2+k_2b^2=\pm 1
 \end{align*}
 This defines a conic in the tangent space $T_p\R^2$ whose type depends on the signs of the principal curvatures. In essence, the Dupin indicatrix indicates the level curve obtained by taking the intersection $S\cap (c\vn_P+T_PS)$ for \emph{infinitesimal} $c$. We summarize all possibilities in a table using the point-types introduced in Definition \ref{defn:pointtype}:
 \begin{quote}
@@ -1698,15 +1709,16 @@ We will often refer to the matrix-valued function $\cE=\bigl(\ve_1\ \ve_2\ \ve_3
 
 \begin{examples}{}{adaptive}
 	We'll repeatedly analyze three examples through this section.
-	\begin{enumerate}\itemsep0pt
+	\begin{enumerate}\itemsep1pt
 	  \item The parabolic cylinder $\vx(u,v)=\bigl(u,v,\frac 12u^2\bigr)$ has an adaptive frame
 		\[
 			\textcolor{red}{\ve_1}=\frac 1{\sqrt{1+u^2}}\threevec 10u\qquad \textcolor{blue}{\ve_2}=\threevec 010\qquad \textcolor{Green}{\ve_3}=\frac 1{\sqrt{1+u^2}}\threevec{-u}01
 		\]
-		\item The sphere of radius $R$ in spherical polar co-ordinates $\vx(\psi,\phi)$ has an adaptive frame\footnotemark
+		\item The sphere of radius $R$ in spherical polar co-ordinates $\vx(\psi,\phi)$ has an adaptive frame
 		\[
 			\textcolor{red}{\ve_1}=\threevec{-\sin\psi}{\cos\psi}0\qquad \textcolor{blue}{\ve_2}=\threevec{-\cos\psi\sin\phi}{-\sin\psi\sin\phi}{\cos\phi}\qquad \textcolor{Green}{\ve_3}=\vx=\threevec{\cos\psi\cos\phi}{\sin\psi\cos\phi}{\sin\phi}
 		\]
+		We use $\psi$ instead of $\theta$ since we'll need the latter for something else momentarily\ldots
 		\item The paraboloid $\vx(r,\psi)=\bigl(r\cos\psi,r\sin\psi,\frac 12r^2\bigr)$ has an adaptive frame
 		\[
 			\textcolor{red}{\ve_1}=\frac 1{\sqrt{1+r^2}}\threevec{\cos\psi}{\sin\psi}{r}\qquad \textcolor{blue}{\ve_2}=\threevec{-\sin\psi}{\cos\psi}0\qquad \textcolor{Green}{\ve_3}=\frac 1{\sqrt{1+r^2}}\threevec{-r\cos\psi}{-r\sin\psi}1
@@ -1715,23 +1727,19 @@ We will often refer to the matrix-valued function $\cE=\bigl(\ve_1\ \ve_2\ \ve_3
 
 In the pictures we've reduced the lengths of the frame vectors for clarity.
 	\begin{center}
-	\href{http://www.math.uci.edu/~ndonalds/math162a/moving-paracyl.html}{\includegraphics[scale=0.9]{moving-paracyl}}
-	\quad
-	\href{http://www.math.uci.edu/~ndonalds/math162a/moving-sphere.html}{\includegraphics[scale=0.9]{moving-sphere}}
-	\quad
-	\href{http://www.math.uci.edu/~ndonalds/math162a/moving-paraboloid.html}{\includegraphics[scale=0.85]{moving-paraboloid}}
+		\href{http://www.math.uci.edu/~ndonalds/math162a/moving-paracyl.html}{\includegraphics[scale=0.9]{moving-paracyl}}
+		\quad
+		\href{http://www.math.uci.edu/~ndonalds/math162a/moving-sphere.html}{\includegraphics[scale=0.9]{moving-sphere}}
+		\quad
+		\href{http://www.math.uci.edu/~ndonalds/math162a/moving-paraboloid.html}{\includegraphics[scale=0.85]{moving-paraboloid}}
 	\end{center}
-In each case $\textcolor{red}{\ve_1}, \textcolor{blue}{\ve_2}$ were obtained by differentiating with respect to the co-ordinates (and normalizing if necessary). This works because all the co-ordinate systems for all three examples are \emph{orthogonal.}
+	In each case $\textcolor{red}{\ve_1}, \textcolor{blue}{\ve_2}$ were obtained by differentiating with respect to the co-ordinates (and normalizing if necessary). This works because the co-ordinate systems for all three examples are \emph{orthogonal.}
 \end{examples}
 
 
 % 	\href{http://www.math.uci.edu/~ndonalds/math162a/moving-cylinder.html}{\includegraphics{moving-cylinder}}
 
 
-\skip\footins=-1.5\bigskipamount
-\footnotetext{We use $\psi$ instead of $\theta$ since we'll need the latter for something else in a moment\ldots}
-\skip\footins=\bigskipamount
-\vfil
 \goodbreak
 
 
